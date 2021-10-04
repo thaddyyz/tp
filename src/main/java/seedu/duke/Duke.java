@@ -14,17 +14,24 @@ public class Duke {
         System.out.println("Hello from\n" + logo);
         System.out.println("What is your name?");
 
-        Scanner in = new Scanner(System.in);
-        System.out.println("Hello " + in.nextLine());
-        System.out.println("Welcome to LOTS");
+        Scanner in = null;
         String input;
-        Menu menu = new Menu();
-        int runcode = 0;
-        while (runcode == 0) {
-            input = in.nextLine();
-            if (input.indexOf("menu") != -1) {
-                menu.printmenu();
+        try {
+            in = new Scanner(System.in);
+            System.out.println("Hello " + in.nextLine());
+            System.out.println("Welcome to LOTS");
+            /* Call printmenu method from Menu class */
+            // Menu menu = new Menu();
+            int runcode = 0;
+            while (runcode == 0) {
+                input = in.nextLine();
+                if (input.indexOf("menu") != -1) {
+                    Menu.printmenu();
+                }
             }
+        } finally {
+            if (in != null)
+                in.close();
         }
     }
 }
