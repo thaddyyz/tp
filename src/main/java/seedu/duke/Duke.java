@@ -30,8 +30,9 @@ public class Duke {
                 }
             }
         } finally {
-            if (in != null)
+            if (in != null){
                 in.close();
+            }
         }
     }
 }
