@@ -11,23 +11,22 @@ public class Parser {
      */
     public static Command getCommand(String input) {
         if (input.isBlank() || input.isEmpty()) {
-            return null;
-            //return new Command();//To return unknown command.
+            return new UnknownCommand();
         }
         String[] listOfInputs = input.split(" ");
         String commandInString = listOfInputs[0].toLowerCase();
 
         switch (commandInString) {
-        case("add"):
+        case ("add"):
             return new Command();
-        case("delete"):
+        case ("delete"):
             return new Command();
-        case("orders"):
+        case ("orders"):
             return new Command();
-        case("menu"):
+        case ("menu"):
             return new Command();
         default:
-            return null;//To return unknown command.
+            return new UnknownCommand();
         }
     }
 }
