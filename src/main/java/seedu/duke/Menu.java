@@ -1,6 +1,8 @@
 package seedu.duke;
 
 public class Menu {
+
+    public static final int TOTAL_MENU_ITEMS = 10;
     
     public Menu() {
 
