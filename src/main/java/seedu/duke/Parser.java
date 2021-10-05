@@ -11,8 +11,7 @@ public class Parser {
      */
     public static Command getCommand(String input) {
         if (input.isBlank() || input.isEmpty()) {
-            return null;
-            //return new Command();//To return unknown command.
+            return new UnknownCommand();
         }
         String[] listOfInputs = input.split(" ");
         String commandInString = listOfInputs[0].toLowerCase();
@@ -27,7 +26,7 @@ public class Parser {
         case("menu"):
             return new Command();
         default:
-            return null;//To return unknown command.
+            return new UnknownCommand();
         }
     }
 }
