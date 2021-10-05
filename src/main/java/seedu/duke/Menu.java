@@ -7,7 +7,7 @@ public class Menu {
     }
 
     /**
-     * print menu prints a fixed list of prestored foo items 
+     * print menu prints a fixed list of prestored foo items.
      * */
     public static void printMenu() {
         String line = "--------------------------------------------------";
