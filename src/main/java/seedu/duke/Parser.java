@@ -17,13 +17,13 @@ public class Parser {
         String commandInString = listOfInputs[0].toLowerCase();
 
         switch (commandInString) {
-        case("add"):
+        case ("add"):
             return new Command();
-        case("delete"):
+        case ("delete"):
             return new Command();
-        case("orders"):
+        case ("orders"):
             return new Command();
-        case("menu"):
+        case ("menu"):
             return new Command();
         default:
             return new UnknownCommand();
