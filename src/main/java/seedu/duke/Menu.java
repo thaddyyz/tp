@@ -6,8 +6,10 @@ public class Menu {
 
     }
 
-    /*print menu prints a fixed list of prestored foo items */
-    public static void printmenu() {
+    /**
+     * print menu prints a fixed list of prestored foo items 
+     * */
+    public static void printMenu() {
         String line = "--------------------------------------------------";
         double[] foodPrice = {3.0, 3.0, 3.5, 3.0, 3.0, 3.0, 5.0, 3.6};
         String[] foodName = {"Ban Mian                         ", "Chicken Rice                     ",
