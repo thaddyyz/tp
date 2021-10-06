@@ -1,8 +1,10 @@
 package seedu.duke;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class PersonTest {
 
@@ -13,7 +15,7 @@ public class PersonTest {
      */
     @Test
     public void setupIndividualFoodOrders_emptyArray() throws Exception {
-        for(int i = 0; i < Menu.TOTAL_MENU_ITEMS; i++) {
+        for (int i = 0; i < Menu.TOTAL_MENU_ITEMS; i++) {
             assertEquals(0, initialisePersonClass().individualFoodOrders[i]);
         }
     }
