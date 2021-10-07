@@ -5,6 +5,8 @@ public class Person {
     protected int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
     protected String personName;
     protected Integer[] individualFoodOrders = new Integer[totalMenuItems];
+    private String foodIndexOutOfBoundsErrorMessage = "Please enter the right menu number!";
+    private String functionPassedMessage = "Completed!";
 
     /**
      * Constructor for Person.
@@ -29,8 +31,13 @@ public class Person {
      * Add the quantity of the corresponding food index by 1.
      * @param foodIndex Index of food in the menu.
      */
-    protected void addFoodToIndividualFoodOrders(int foodIndex) {
-        individualFoodOrders[foodIndex] = individualFoodOrders[foodIndex] + 1;
+    protected String addFoodToIndividualFoodOrders(int foodIndex) {
+        if (foodIndex < totalMenuItems && foodIndex >= 0) {
+            individualFoodOrders[foodIndex] = individualFoodOrders[foodIndex] + 1;
+            return functionPassedMessage;
+        } else {
+            return foodIndexOutOfBoundsErrorMessage;
+        }
     }
 
     /**
@@ -38,11 +45,16 @@ public class Person {
      * If the quantity of food is 0, the quantity remains 0.
      * @param foodIndex Index of food in the menu.
      */
-    protected void removeFoodFromIndividualFoodOrders(int foodIndex) {
-        if (individualFoodOrders[foodIndex] != 0) {
-            individualFoodOrders[foodIndex] = individualFoodOrders[foodIndex] - 1;
+    protected String removeFoodFromIndividualFoodOrders(int foodIndex) {
+        if (foodIndex < totalMenuItems && foodIndex >= 0) {
+            if (individualFoodOrders[foodIndex] != 0) {
+                individualFoodOrders[foodIndex] = individualFoodOrders[foodIndex] - 1;
+            } else {
+                individualFoodOrders[foodIndex] = 0;
+            }
+            return functionPassedMessage;
         } else {
-            individualFoodOrders[foodIndex] = 0;
+            return foodIndexOutOfBoundsErrorMessage;
         }
     }
 }
