@@ -43,8 +43,8 @@ public class DeleteCommand extends Command {
      */
     private int getOrderIndex(String deleteParams) {
         int slashIndex = deleteParams.indexOf('/');
-        char OrderIndexInString = deleteParams.charAt(slashIndex + 1);
-        return Character.getNumericValue(OrderIndexInString) - 10;
+        //char OrderIndexInChar = deleteParams.charAt(slashIndex + 1);
+        return Character.getNumericValue(deleteParams.charAt(slashIndex + 1)) - 10;
     }
 
     /**
