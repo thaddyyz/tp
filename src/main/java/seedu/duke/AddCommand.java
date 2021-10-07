@@ -4,11 +4,11 @@ public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
     private final String personName;
-    private final Integer foodIndex;
-    private final Integer foodQuantity;
+    private final int foodIndex;
+    private final int foodQuantity;
 
     public AddCommand(String input) {
-        Integer[] indexOfSlashes = indexOfSlashes(input);
+        int[] indexOfSlashes = indexOfSlashes(input);
         this.personName = getPersonName(input, indexOfSlashes[0], indexOfSlashes[1]);
         this.foodIndex = getFoodIndex(input, indexOfSlashes[1], indexOfSlashes[2]);
         this.foodQuantity = getFoodQuantity(input, indexOfSlashes[2]);
@@ -29,9 +29,9 @@ public class AddCommand extends Command {
      * @param input User input.
      * @return an array of index of "/".
      */
-    private static Integer[] indexOfSlashes(String input) {
+    private static int[] indexOfSlashes(String input) {
 
-        Integer[] indexOfSlashes = new Integer[3];
+        int[] indexOfSlashes = new int[3];
 
         //Index firstSlashIndex to secondSlashIndex holds Person Name.
         int firstSlashIndex = input.indexOf("/");
@@ -64,9 +64,9 @@ public class AddCommand extends Command {
      * @param input User input.
      * @param indexOfSecondSlash Second "/" index.
      * @param indexOfThirdSlash Third "/" index.
-     * @return Food index in Integer type.
+     * @return Food index in int type.
      */
-    private static Integer getFoodIndex(String input, int indexOfSecondSlash, int indexOfThirdSlash) {
+    private static int getFoodIndex(String input, int indexOfSecondSlash, int indexOfThirdSlash) {
         int foodIndex = Integer.parseInt(input.substring(indexOfSecondSlash + 1, indexOfThirdSlash - 1));
         return foodIndex;
     }
@@ -75,9 +75,9 @@ public class AddCommand extends Command {
      * Function used to parse the user input to get food index.
      * @param input User input.
      * @param indexOfThirdSlash Third "/" index.
-     * @return Food Quantity in Integer type.
+     * @return Food Quantity in int type.
      */
-    private static Integer getFoodQuantity(String input, int indexOfThirdSlash) {
+    private static int getFoodQuantity(String input, int indexOfThirdSlash) {
         int foodQuantity = Integer.parseInt(input.substring(indexOfThirdSlash + 1, input.length()));
         return foodQuantity;
     }
