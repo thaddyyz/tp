@@ -56,7 +56,7 @@ public class AddCommand extends Command {
      */
     private static String getPersonName(String input, int indexOfFirstSlash, int indexOfSecondSlash) {
         String tempPersonName = input.substring(indexOfFirstSlash + 1,indexOfSecondSlash - 1);
-        return tempPersonName;
+        return tempPersonName.trim();
     }
 
     /**
@@ -67,7 +67,8 @@ public class AddCommand extends Command {
      * @return Food index in int type.
      */
     private static int getFoodIndex(String input, int indexOfSecondSlash, int indexOfThirdSlash) {
-        int foodIndex = Integer.parseInt(input.substring(indexOfSecondSlash + 1, indexOfThirdSlash - 1));
+        String subStringFoodIndex = input.substring(indexOfSecondSlash + 1, indexOfThirdSlash - 1).trim();
+        int foodIndex = Integer.parseInt(subStringFoodIndex);
         return foodIndex;
     }
 
@@ -78,7 +79,8 @@ public class AddCommand extends Command {
      * @return Food Quantity in int type.
      */
     private static int getFoodQuantity(String input, int indexOfThirdSlash) {
-        int foodQuantity = Integer.parseInt(input.substring(indexOfThirdSlash + 1, input.length()));
+        String subStringFoodQuantity = input.substring(indexOfThirdSlash + 1, input.length()).trim();
+        int foodQuantity = Integer.parseInt(subStringFoodQuantity);
         return foodQuantity;
     }
 }
