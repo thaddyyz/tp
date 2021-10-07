@@ -1,5 +1,8 @@
 package seedu.duke;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
@@ -22,6 +25,20 @@ public class AddCommand extends Command {
         Person person = new Person(personName);
         person.addFoodToIndividualFoodOrders(foodIndex);
         PeopleManager.listOfPeople.add(person);
+    }
+
+    /**
+     * Regex to check User Input before passing onto the class.
+     * @param input
+     * @return
+     */
+    public boolean checkUserInput(String input) {
+        Pattern pattern = Pattern.compile(
+                "^add \\/n [a-zA-Z1-9][\\w \\d]{1,50} \\/i \\d{1,2} \\/q \\d{1,3}$",
+                Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(input);
+        boolean matchFound = matcher.find();
+        return matchFound;
     }
 
     /**
