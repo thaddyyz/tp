@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class PeopleManager {
 
-    LinkedList<Person> listOfPeople = new LinkedList<Person>();
+    static LinkedList<Person> listOfPeople = new LinkedList<Person>();
 
     public PeopleManager() {
     }
