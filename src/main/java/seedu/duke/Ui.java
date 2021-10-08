@@ -43,4 +43,68 @@ public class Ui {
         String byeMsg = "Thank you for using L.O.T.S! Good bye!";
         printWithBorder(byeMsg);
     }
+
+    /**
+     * Prints a list of all the orders made so far.
+     */
+    public static void printOrdersList() {
+        int totalNumOfPeopleOrdered = PeopleManager.listOfPeople.size();
+        if (totalNumOfPeopleOrdered == 0) {
+            System.out.println("Your order list is empty!");
+        } else {
+            for (int i = 0; i < totalNumOfPeopleOrdered; i++) {
+                String currentPersonName = PeopleManager.listOfPeople.get(i).personName;
+                System.out.println((i + 1) + ". " + currentPersonName + ":");
+                printIndividualPersonOrder(PeopleManager.listOfPeople.get(i));
+            }
+        }
+    }
+
+    /**
+     * Prints a list of the food items that an individual person has ordered, and displays the total
+     * cost of the items.
+     *
+     * @param currentPerson Person entry in the list that is currently being accessed.
+     */
+    private static void printIndividualPersonOrder(Person currentPerson) {
+        double totalCost = 0;
+        int currentItem = 1;
+        int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
+        Integer[] currentIndividualOrders =  currentPerson.individualFoodOrders;
+        for (int i = 0; i < totalMenuItems; i++) {
+            if (currentIndividualOrders[i] != 0 ) {
+                double currentCost = currentIndividualOrders[i] * getFoodCost(i);
+                System.out.println("\t" + currentItem + ") " + getFoodName(i) + " | Quantity = " +
+                        currentIndividualOrders[i] + " | Cost = $" + String.format("%.2f", currentCost));
+                totalCost = totalCost + currentCost;
+                currentItem++;
+            }
+        }
+        System.out.println("[Total Cost = $" + String.format("%.2f", totalCost) + "]");
+    }
+
+    /**
+     * Obtains the corresponding food name of the current food index.
+     *
+     * @param currentFoodIndex Index of food item currently accessed.
+     * @return Name of food in String type.
+     */
+    private static String getFoodName(int currentFoodIndex) {
+        String[] foodName = {"Ban Mian", "Chicken Rice",
+                "Fried Prawn Noodles (Hokkien Mee)", "Minced Meat Noodles(Ba Chor Mee)",
+                "Fried Carrot Cake", "Fried Kway Teow (Char Kway Teow)",
+                "Pork Rib Soup (Bak Kut Teh)", "Nasi Lemak"};
+        return foodName[currentFoodIndex];
+    }
+
+    /**
+     * Obtains the corresponding cost of the current food index.
+     *
+     * @param currentFoodIndex Index of food item currently accessed.
+     * @return Cost of food in Double type.
+     */
+    private static double getFoodCost(int currentFoodIndex) {
+        double[] foodPrice = {3.0, 3.0, 3.5, 3.0, 3.0, 3.0, 5.0, 3.6};
+        return foodPrice[currentFoodIndex];
+    }
 }

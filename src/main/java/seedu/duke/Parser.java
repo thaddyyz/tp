@@ -20,9 +20,6 @@ public class Parser {
         case ("add"):
             return new Command();
         case (DeleteCommand.COMMAND_WORD):
-            return new Command();
-        case ("orders"):
-            return new Command();
             try {
                 return new DeleteCommand(input);
             } catch (LotsException e) {
