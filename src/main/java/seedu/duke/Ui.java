@@ -50,8 +50,8 @@ public class Ui {
         System.out.println(line);
     }
 
-    public static void printMenu(int Index, String foodName, Double foodPrice) {
-        System.out.format("%-8d%-33s%7.2f%n", Index, foodName, foodPrice);
+    public static void printMenu(int index, String foodName, Double foodPrice) {
+        System.out.format("%-8d%-33s%7.2f%n", index, foodName, foodPrice);
         System.out.println(line);
     }
 }
