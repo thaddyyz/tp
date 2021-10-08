@@ -11,8 +11,8 @@ public class Command {
     /**
      * Initialise the person list to be edited by the user.
      */
-    public void setData(PeopleManager peopleList) {
-        peopleManager = peopleList;
+    public void setData(PeopleManager manager) {
+        peopleManager = manager;
     }
 
     /**

@@ -64,11 +64,11 @@ public class DeleteCommand extends Command {
     /**
      * Change the quantity of that particular order index to 0.
      *
-     * @param peopleList The list of people that are ordering.
+     * @param manager The list of people that are ordering.
      */
-    private void deleteOrder(PeopleManager peopleList) {
-        Person personToDelete = peopleList.listOfPeople.get(personIndex);
-        personToDelete.individualFoodOrders[orderIndex] = 0;
+    private void deleteOrder(PeopleManager manager) {
+        Person personToDeleteFrom = manager.listOfPeople.get(personIndex);
+        personToDeleteFrom.individualFoodOrders[orderIndex] = 0;
         //Add deletion message to notify user
     }
 }
