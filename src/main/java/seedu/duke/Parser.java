@@ -23,6 +23,13 @@ public class Parser {
             return new Command();
         case ("orders"):
             return new Command();
+            try {
+                return new DeleteCommand(input);
+            } catch (LotsException e) {
+                System.out.println(e.getMessage());
+            }
+        case (OrdersCommand.COMMAND_WORD):
+            return new OrdersCommand();
         case ("menu"):
             return new Command();
         default:
