@@ -24,6 +24,7 @@ public class Parser {
                 return new DeleteCommand(input);
             } catch (LotsException e) {
                 System.out.println(e.getMessage());
+                return new UnknownCommand();
             }
         case (OrdersCommand.COMMAND_WORD):
             return new OrdersCommand();

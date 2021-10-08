@@ -72,10 +72,10 @@ public class Ui {
         int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
         Integer[] currentIndividualOrders =  currentPerson.individualFoodOrders;
         for (int i = 0; i < totalMenuItems; i++) {
-            if (currentIndividualOrders[i] != 0 ) {
+            if (currentIndividualOrders[i] != 0) {
                 double currentCost = currentIndividualOrders[i] * getFoodCost(i);
-                System.out.println("\t" + currentItem + ") " + getFoodName(i) + " | Quantity = " +
-                        currentIndividualOrders[i] + " | Cost = $" + String.format("%.2f", currentCost));
+                System.out.println("\t" + currentItem + ") " + getFoodName(i) + " | Quantity = "
+                        + currentIndividualOrders[i] + " | Cost = $" + String.format("%.2f", currentCost));
                 totalCost = totalCost + currentCost;
                 currentItem++;
             }
@@ -90,10 +90,9 @@ public class Ui {
      * @return Name of food in String type.
      */
     private static String getFoodName(int currentFoodIndex) {
-        String[] foodName = {"Ban Mian", "Chicken Rice",
-                "Fried Prawn Noodles (Hokkien Mee)", "Minced Meat Noodles(Ba Chor Mee)",
-                "Fried Carrot Cake", "Fried Kway Teow (Char Kway Teow)",
-                "Pork Rib Soup (Bak Kut Teh)", "Nasi Lemak"};
+        String[] foodName = {"Ban Mian", "Chicken Rice", "Fried Prawn Noodles (Hokkien Mee)",
+            "Minced Meat Noodles(Ba Chor Mee)", "Fried Carrot Cake", "Fried Kway Teow (Char Kway Teow)",
+            "Pork Rib Soup (Bak Kut Teh)", "Nasi Lemak"};
         return foodName[currentFoodIndex];
     }
 
