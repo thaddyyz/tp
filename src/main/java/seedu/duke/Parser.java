@@ -19,7 +19,7 @@ public class Parser {
         switch (commandInString) {
         case ("add"):
             return new Command();
-        case ("delete"):
+        case (DeleteCommand.COMMAND_WORD):
             return new Command();
         case ("orders"):
             return new Command();
