@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Ui {
 
+    static String line = "--------------------------------------------------";
     private static final String BORDER = "=================================="
             + "============================="
             + "=============================";
@@ -42,5 +43,15 @@ public class Ui {
     public static void printGoodbye() {
         String byeMsg = "Thank you for using L.O.T.S! Good bye!";
         printWithBorder(byeMsg);
+    }
+
+    public static void printMenuHeader() {
+        System.out.println("index | Food Name                         | Price");
+        System.out.println(line);
+    }
+
+    public static void printMenu(int Index, String foodName, Double foodPrice) {
+        System.out.format("%-8d%-33s%7.2f%n", Index, foodName, foodPrice);
+        System.out.println(line);
     }
 }
