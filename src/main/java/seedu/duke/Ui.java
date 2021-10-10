@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Ui {
 
-    static final String line = "--------------------------------------------------";
+    private static final String line = "--------------------------------------------------";
     private static final String BORDER = "=================================="
             + "============================="
             + "=============================";
