@@ -43,10 +43,11 @@ public class MenuCommand extends Command {
     }
 
     /**
-     * @param myReader contains menu data collected from the txt file.
      * extractMenuData seperates txt file content into individual lines
-     *   and further seperates each line into food name and price to be
-     *   stored in seperate arraylists.
+     * and further seperates each line into food name and price to be
+     * stored in seperate arraylists.
+     * 
+     * @param myReader contains menu data collected from the txt file.
      * */
     private void extractMenuData(Scanner myReader) {
         while (myReader.hasNextLine()) {
