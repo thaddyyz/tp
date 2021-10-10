@@ -50,6 +50,14 @@ public class Ui {
         System.out.println(line);
     }
 
+    /**
+     * Prints out the menu item that has been passed in
+     * using the proper format followed by a small border.
+     *
+     * @param index The Index of the food item.
+     * @param foodName The name of the food at the index in String.
+     * @param foodPrice The price of the food in Double.
+     */
     public static void printMenu(int index, String foodName, Double foodPrice) {
         System.out.format("%-8d%-33s%7.2f%n", index, foodName, foodPrice);
         System.out.println(line);
