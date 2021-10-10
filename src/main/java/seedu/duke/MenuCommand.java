@@ -25,7 +25,7 @@ public class MenuCommand extends Command {
      * prints menu in the format of index, foodname and price with column headers.
      */
     @Override
-    public void execute(){
+    public void execute() {
         Ui.printMenuHeader();
         for (int i = 0; i < foodList.size(); i++) {
             Ui.printMenu(i + 1, foodList.get(i), priceList.get(i));
@@ -47,7 +47,7 @@ public class MenuCommand extends Command {
      * extractMenuData seperates txt file content into individual lines
      * and further seperates each line into food name and price to be
      * stored in seperate arraylists
-     */
+     * */
     private void extractMenuData(Scanner myReader) {
         while (myReader.hasNextLine()) {
             String data = myReader.nextLine();
