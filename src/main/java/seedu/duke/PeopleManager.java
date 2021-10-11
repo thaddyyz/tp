@@ -11,6 +11,7 @@ public class PeopleManager {
 
     /**
      * Loops through the list and count the number of people in the list.
+     *
      * @return the counter of the number of people in the list.
      */
     public int countPeopleInList() {
@@ -19,5 +20,33 @@ public class PeopleManager {
             counter++;
         }
         return counter;
+    }
+
+    /**
+     * Returns the person object given its index.
+     *
+     * @param personIndex The index of the person to retrieve.
+     * @return Returns a Person object of a particular index.
+     */
+    public Person getPerson(int personIndex) {
+        return listOfPeople.get(personIndex);
+    }
+
+    /**
+     * Adds a person object to the list of people.
+     *
+     * @param person Person to be added to the list.
+     */
+    public void addPerson(Person person) {
+        listOfPeople.add(person);
+    }
+
+    /**
+     * Returns the number of people in the linked list.
+     *
+     * @return Returns the length of the linked list.
+     */
+    public int getSize() {
+        return listOfPeople.size();
     }
 }
