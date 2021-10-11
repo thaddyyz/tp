@@ -47,16 +47,18 @@ public class Ui {
 
     /**
      * Prints a list of all the orders made so far.
+     *
+     * @param peopleManager List of people who are ordering.
      */
-    public static void printOrdersList() {
-        int totalNumOfPeopleOrdered = PeopleManager.listOfPeople.size();
+    public static void printOrdersList(PeopleManager peopleManager) {
+        int totalNumOfPeopleOrdered = peopleManager.getSize();
         if (totalNumOfPeopleOrdered == 0) {
             System.out.println("Your order list is empty!");
         } else {
             for (int i = 0; i < totalNumOfPeopleOrdered; i++) {
-                String currentPersonName = PeopleManager.listOfPeople.get(i).personName;
+                String currentPersonName = peopleManager.getPerson(i).personName;
                 System.out.println((i + 1) + ". " + currentPersonName + ":");
-                printIndividualPersonOrder(PeopleManager.listOfPeople.get(i));
+                printIndividualPersonOrder(peopleManager.getPerson(i));
             }
         }
     }
@@ -71,7 +73,7 @@ public class Ui {
         double totalCost = 0;
         int currentItem = 1;
         int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
-        Integer[] currentIndividualOrders =  currentPerson.individualFoodOrders;
+        int[] currentIndividualOrders = currentPerson.individualFoodOrders;
         for (int i = 0; i < totalMenuItems; i++) {
             if (currentIndividualOrders[i] != 0) {
                 double currentCost = currentIndividualOrders[i] * Menu.PRICELIST.get(i);
@@ -84,6 +86,15 @@ public class Ui {
         System.out.println("[Total Cost = $" + String.format("%.2f", totalCost) + "]");
     }
 
+    //To be further improved
+
+    /**
+     * Prints a message to notify the user of the deletion of an order.
+     */
+    public static void printDeleteMessage() {
+        System.out.println("Alright, that order has been deleted!");
+    }
+
     public static void printMenuHeader() {
         System.out.println("index | Food Name                         | Price");
         System.out.println(line);
@@ -93,8 +104,8 @@ public class Ui {
      * Prints out the menu item that has been passed in
      * using the proper format followed by a small border.
      *
-     * @param index The Index of the food item.
-     * @param foodName The name of the food at the index in String.
+     * @param index     The Index of the food item.
+     * @param foodName  The name of the food at the index in String.
      * @param foodPrice The price of the food in Double.
      */
     public static void printMenu(int index, String foodName, Double foodPrice) {

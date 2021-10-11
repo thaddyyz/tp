@@ -75,8 +75,8 @@ public class DeleteCommand extends Command {
      * @throws IndexOutOfBoundsException Throws when personIndex given is larger than the number of people.
      */
         private void deleteOrder (PeopleManager manager) throws IndexOutOfBoundsException, LotsException {
-            Person personToDeleteFrom = manager.listOfPeople.get(personIndex);
+            Person personToDeleteFrom = manager.getPerson(personIndex);
             personToDeleteFrom.deleteParticularOrder(orderIndex);
-            //Add deletion message to notify user
+            Ui.printDeleteMessage();
         }
     }
