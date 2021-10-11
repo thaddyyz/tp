@@ -39,12 +39,17 @@ public class DeleteCommand extends Command {
      * Get the index of the order to be deleted.
      *
      * @param deleteParams String from the user input after the delete command word.
-     * @return Returns the idnex of the order to be deleted in the form of an integer.
+     * @return Returns the index of the order to be deleted in the form of an integer.
+     * @throws IndexOutOfBoundsException When "/" is not found in the string.
+     * @throws LotsException             When the order index is out of range.
      */
-    private int getOrderIndex(String deleteParams) {
+    private int getOrderIndex(String deleteParams) throws IndexOutOfBoundsException, LotsException {
         int slashIndex = deleteParams.indexOf('/');
-        //char OrderIndexInChar = deleteParams.charAt(slashIndex + 1);
-        return Character.getNumericValue(deleteParams.charAt(slashIndex + 1)) - 10;
+        int orderIndexInInteger = Character.getNumericValue(deleteParams.charAt(slashIndex + 1)) - 10;
+        if (orderIndexInInteger < 0) {
+            throw new LotsException("Please enter a valid order index!");
+        }
+        return orderIndexInInteger;
     }
 
     /**
@@ -66,9 +71,10 @@ public class DeleteCommand extends Command {
      *
      * @param manager The list of people that are ordering.
      */
-    private void deleteOrder(PeopleManager manager) {
+
+    private void deleteOrder(PeopleManager manager) throws IndexOutOfBoundsException, LotsException {
         Person personToDeleteFrom = manager.listOfPeople.get(personIndex);
-        personToDeleteFrom.individualFoodOrders[orderIndex] = 0;
+        personToDeleteFrom.deleteParticularOrder(orderIndex);
         //Add deletion message to notify user
     }
 }

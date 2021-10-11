@@ -11,6 +11,7 @@ public class Person {
     /**
      * Constructor for Person.
      * Individual Food order list will be populated with 0 on initialisation.
+     *
      * @param personName Name of the person.
      */
     public Person(String personName) {
@@ -29,6 +30,7 @@ public class Person {
 
     /**
      * Add the quantity of the corresponding food index by 1.
+     *
      * @param foodIndex Index of food in the menu.
      */
     protected String addFoodToIndividualFoodOrders(int foodIndex) {
@@ -43,6 +45,7 @@ public class Person {
     /**
      * Minus the quantity of the corresponding food index by 1.
      * If the quantity of food is 0, the quantity remains 0.
+     *
      * @param foodIndex Index of food in the menu.
      */
     protected String removeFoodFromIndividualFoodOrders(int foodIndex) {
@@ -57,4 +60,20 @@ public class Person {
             return foodIndexOutOfBoundsErrorMessage;
         }
     }
+
+    public void deleteParticularOrder(int orderIndex) throws LotsException {
+        int numberOfOrders = 0;
+        for (int i = 0; i < totalMenuItems; i++) {
+            if (individualFoodOrders[i] > 0) {
+                numberOfOrders++;
+            }
+            if (orderIndex + 1 == numberOfOrders) {
+                individualFoodOrders[i] = 0;
+            }
+        }
+        if (orderIndex + 1 > numberOfOrders) {
+            throw new LotsException("Please enter a valid order index!");
+        }
+    }
+
 }
