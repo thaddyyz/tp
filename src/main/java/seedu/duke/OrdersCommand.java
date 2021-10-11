@@ -9,6 +9,6 @@ public class OrdersCommand extends Command {
      */
     @Override
     public void execute() {
-        Ui.printOrdersList();
+        Ui.printOrdersList(peopleManager);
     }
 }
