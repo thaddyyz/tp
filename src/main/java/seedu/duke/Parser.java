@@ -34,6 +34,8 @@ public class Parser {
             return new OrdersCommand();
         case (MenuCommand.COMMAND_WORD):
             return new MenuCommand();
+        case (ByeCommand.COMMAND_WORD):
+            return new ByeCommand();
         default:
             return new UnknownCommand();
         }
