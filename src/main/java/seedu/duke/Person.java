@@ -62,7 +62,7 @@ public class Person {
     }
 
     /**
-     * Sets the quantity of a particular food order in the order array to 0
+     * Sets the quantity of a particular food order in the order array to 0.
      *
      * @param orderIndex Index of the order whose quantity is getting set to 0.
      * @throws LotsException When order index is more than the number of orders.
