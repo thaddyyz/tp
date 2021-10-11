@@ -24,10 +24,7 @@ public class AddCommand extends Command {
             this.foodIndex = getFoodIndex(input, indexOfSlashes[1], indexOfSlashes[2]);
             this.foodQuantity = getFoodQuantity(input, indexOfSlashes[2]);
         } else {
-            //adds a constant value to the initialised variable to flag it to be wrong.
-            this.personName = "";
-            this.foodIndex = -1;
-            this.foodQuantity = -1;
+            throw new LotsException("Please enter a valid Add Command!");
         }
     }
 
@@ -39,7 +36,7 @@ public class AddCommand extends Command {
      */
     @Override
     public void execute() throws LotsException {
-        if (personName != "" && foodIndex != -1 && foodQuantity != -1) {
+        if (personName != "" || foodIndex != -1 || foodQuantity != -1) {
             Person person = new Person(personName);
             person.addFoodToIndividualFoodOrders(foodIndex);
             PeopleManager.listOfPeople.add(person);
@@ -115,8 +112,8 @@ public class AddCommand extends Command {
         String subStringFoodIndex = input.substring(indexOfSecondSlash + 1, indexOfThirdSlash - 1).trim();
         try {
             int foodIndex = Integer.parseInt(subStringFoodIndex);
-            if (foodIndex > Menu.TOTAL_MENU_ITEMS || foodIndex < 0) {
-                return -1;
+            if (foodIndex > Menu.TOTAL_MENU_ITEMS || foodIndex <= 0) {
+                throw new LotsException("Index out of range. Please try again!");
             } else {
                 return foodIndex;
             }
@@ -138,8 +135,8 @@ public class AddCommand extends Command {
         String subStringFoodQuantity = input.substring(indexOfThirdSlash + 1, input.length()).trim();
         try {
             int foodQuantity = Integer.parseInt(subStringFoodQuantity);
-            if (foodQuantity > 999 || foodQuantity < 0) {
-                return -1;
+            if (foodQuantity > 1000 || foodQuantity <= 0) {
+                throw new LotsException("Quantity out of range(1 to 999) , please try again!");
             } else {
                 return foodQuantity;
             }
@@ -148,4 +145,5 @@ public class AddCommand extends Command {
             throw new LotsException(errorMsg);
         }
     }
+
 }

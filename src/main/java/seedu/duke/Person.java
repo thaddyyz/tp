@@ -6,7 +6,6 @@ public class Person {
     protected String personName;
     protected Integer[] individualFoodOrders = new Integer[totalMenuItems];
     private String foodIndexOutOfBoundsErrorMessage = "Please enter the right menu number!";
-    private String functionPassedMessage = "Completed!";
 
     /**
      * Constructor for Person.
@@ -19,10 +18,10 @@ public class Person {
     }
 
     /**
-     * Used to populate the array with 0.
+     * Used to populate the array with 0 from index 1 to total_menu_items(10).
      */
     private void setupIndividualFoodOrders() {
-        for (int i = 0; i < totalMenuItems; i++) {
+        for (int i = 1; i < totalMenuItems + 1; i++) {
             individualFoodOrders[i] = 0;
         }
     }
@@ -31,12 +30,11 @@ public class Person {
      * Add the quantity of the corresponding food index by 1.
      * @param foodIndex Index of food in the menu.
      */
-    protected String addFoodToIndividualFoodOrders(int foodIndex) {
+    protected void addFoodToIndividualFoodOrders(int foodIndex) throws LotsException {
         if (foodIndex < totalMenuItems && foodIndex >= 0) {
             individualFoodOrders[foodIndex] = individualFoodOrders[foodIndex] + 1;
-            return functionPassedMessage;
         } else {
-            return foodIndexOutOfBoundsErrorMessage;
+            throw new LotsException(foodIndexOutOfBoundsErrorMessage);
         }
     }
 
@@ -45,16 +43,15 @@ public class Person {
      * If the quantity of food is 0, the quantity remains 0.
      * @param foodIndex Index of food in the menu.
      */
-    protected String removeFoodFromIndividualFoodOrders(int foodIndex) {
+    protected void removeFoodFromIndividualFoodOrders(int foodIndex) throws LotsException {
         if (foodIndex < totalMenuItems && foodIndex >= 0) {
             if (individualFoodOrders[foodIndex] != 0) {
                 individualFoodOrders[foodIndex] = individualFoodOrders[foodIndex] - 1;
             } else {
                 individualFoodOrders[foodIndex] = 0;
             }
-            return functionPassedMessage;
         } else {
-            return foodIndexOutOfBoundsErrorMessage;
+            throw new LotsException(foodIndexOutOfBoundsErrorMessage);
         }
     }
 }
