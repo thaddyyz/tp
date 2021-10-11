@@ -1,5 +1,7 @@
 package seedu.duke;
 
+import java.io.FileNotFoundException;
+
 public class Parser {
 
     /**
@@ -9,7 +11,9 @@ public class Parser {
      * @param input The user's input in String.
      * @return The respective Command type.
      */
-    public static Command getCommand(String input) {
+    public static Command getCommand(String input) throws Exception {
+        assert input != null : "Input to getCommand Cannot be NULL!";
+
         if (input.isBlank() || input.isEmpty()) {
             return new UnknownCommand();
         }
@@ -17,14 +21,19 @@ public class Parser {
         String commandInString = listOfInputs[0].toLowerCase();
 
         switch (commandInString) {
-        case ("add"):
-            return new Command();
+        case (AddCommand.COMMAND_WORD):
+            return new AddCommand(input);
         case (DeleteCommand.COMMAND_WORD):
-            return new Command();
-        case ("orders"):
-            return new Command();
-        case ("menu"):
-            return new Command();
+            try {
+                return new DeleteCommand(input);
+            } catch (LotsException e) {
+                System.out.println(e.getMessage());
+                return new UnknownCommand();
+            }
+        case (OrdersCommand.COMMAND_WORD):
+            return new OrdersCommand();
+        case (MenuCommand.COMMAND_WORD):
+            return new MenuCommand();
         default:
             return new UnknownCommand();
         }
