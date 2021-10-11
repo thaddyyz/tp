@@ -24,9 +24,14 @@ public class Parser {
         case (AddCommand.COMMAND_WORD):
             return new AddCommand(input);
         case (DeleteCommand.COMMAND_WORD):
-            return new DeleteCommand(input);
-        case ("orders"):
-            return new Command();
+            try {
+                return new DeleteCommand(input);
+            } catch (LotsException e) {
+                System.out.println(e.getMessage());
+                return new UnknownCommand();
+            }
+        case (OrdersCommand.COMMAND_WORD):
+            return new OrdersCommand();
         case (MenuCommand.COMMAND_WORD):
             return new MenuCommand();
         default:
