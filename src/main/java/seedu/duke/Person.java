@@ -35,7 +35,7 @@ public class Person {
      */
     protected String addFoodToIndividualFoodOrders(int foodIndex) {
         if (foodIndex < totalMenuItems && foodIndex >= 0) {
-            individualFoodOrders[foodIndex] = individualFoodOrders[foodIndex] + 1;
+            individualFoodOrders[foodIndex - 1] = individualFoodOrders[foodIndex - 1] + 1;
             return functionPassedMessage;
         } else {
             return foodIndexOutOfBoundsErrorMessage;

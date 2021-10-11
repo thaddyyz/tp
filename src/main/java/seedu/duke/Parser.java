@@ -11,7 +11,7 @@ public class Parser {
      * @param input The user's input in String.
      * @return The respective Command type.
      */
-    public static Command getCommand(String input) throws Exception {
+    public static Command getCommand(String input) throws LotsException {
         assert input != null : "Input to getCommand Cannot be NULL!";
 
         if (input.isBlank() || input.isEmpty()) {
@@ -24,12 +24,7 @@ public class Parser {
         case (AddCommand.COMMAND_WORD):
             return new AddCommand(input);
         case (DeleteCommand.COMMAND_WORD):
-            try {
-                return new DeleteCommand(input);
-            } catch (LotsException e) {
-                System.out.println(e.getMessage());
-                return new UnknownCommand();
-            }
+            return new DeleteCommand(input);
         case (OrdersCommand.COMMAND_WORD):
             return new OrdersCommand();
         case (MenuCommand.COMMAND_WORD):

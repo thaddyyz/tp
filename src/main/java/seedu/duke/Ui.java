@@ -53,13 +53,14 @@ public class Ui {
     public static void printOrdersList(PeopleManager peopleManager) {
         int totalNumOfPeopleOrdered = peopleManager.getSize();
         if (totalNumOfPeopleOrdered == 0) {
-            System.out.println("Your order list is empty!");
+            Ui.printWithBorder("Your order list is empty!");
         } else {
             for (int i = 0; i < totalNumOfPeopleOrdered; i++) {
                 String currentPersonName = peopleManager.getPerson(i).personName;
-                System.out.println((i + 1) + ". " + currentPersonName + ":");
+                Ui.printWithoutBorder((i + 1) + ". " + currentPersonName + ":");
                 printIndividualPersonOrder(peopleManager.getPerson(i));
             }
+            Ui.printWithBorder("");
         }
     }
 
@@ -71,19 +72,19 @@ public class Ui {
      */
     private static void printIndividualPersonOrder(Person currentPerson) {
         double totalCost = 0;
-        int currentItem = 1;
+        int currentItem = 97; //97 is the ascii for 'a'.
         int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
         int[] currentIndividualOrders = currentPerson.individualFoodOrders;
         for (int i = 0; i < totalMenuItems; i++) {
             if (currentIndividualOrders[i] != 0) {
                 double currentCost = currentIndividualOrders[i] * Menu.PRICELIST.get(i);
-                System.out.println("\t" + currentItem + ") " + Menu.FOODLIST.get(i) + " | Quantity = "
+                Ui.printWithoutBorder("\t" + (char) currentItem + ") " + Menu.FOODLIST.get(i) + " | Quantity = "
                         + currentIndividualOrders[i] + " | Cost = $" + String.format("%.2f", currentCost));
                 totalCost = totalCost + currentCost;
                 currentItem++;
             }
         }
-        System.out.println("[Total Cost = $" + String.format("%.2f", totalCost) + "]");
+        Ui.printWithoutBorder("[Total Cost = $" + String.format("%.2f", totalCost) + "]");
     }
 
     //To be further improved
@@ -92,12 +93,18 @@ public class Ui {
      * Prints a message to notify the user of the deletion of an order.
      */
     public static void printDeleteMessage() {
-        System.out.println("Alright, that order has been deleted!");
+        Ui.printWithoutBorder("Alright, that order has been deleted!");
+    }
+
+    public static void printAddedOrderMessage(Person person) {
+        Ui.printWithoutBorder("We have updated the order list for: " + person.personName);
+        printIndividualPersonOrder(person);
+        Ui.printWithBorder("");
     }
 
     public static void printMenuHeader() {
-        System.out.println("index | Food Name                         | Price");
-        System.out.println(line);
+        Ui.printWithoutBorder("index | Food Name                         | Price");
+        Ui.printWithoutBorder(line);
     }
 
     /**
@@ -110,6 +117,6 @@ public class Ui {
      */
     public static void printMenu(int index, String foodName, Double foodPrice) {
         System.out.format("%-8d%-33s%7.2f%n", index, foodName, foodPrice);
-        System.out.println(line);
+        Ui.printWithoutBorder(line);
     }
 }

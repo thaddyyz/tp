@@ -1,6 +1,7 @@
 package seedu.duke;
 
 import java.util.LinkedList;
+import java.util.logging.Logger;
 
 public class PeopleManager {
 
@@ -39,6 +40,14 @@ public class PeopleManager {
      */
     public void addPerson(Person person) {
         listOfPeople.add(person);
+    }
+
+    public void deletePerson(int personIndex) throws LotsException {
+        try {
+            listOfPeople.remove(personIndex);
+        } catch (Exception e) {
+            throw new LotsException(e.getMessage());
+        }
     }
 
     /**
