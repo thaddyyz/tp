@@ -4,7 +4,7 @@ public class Person {
 
     protected int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
     protected String personName;
-    protected Integer[] individualFoodOrders = new Integer[totalMenuItems];
+    protected int[] individualFoodOrders = new int[totalMenuItems];
     private String foodIndexOutOfBoundsErrorMessage = "Please enter the right menu number!";
     private String functionPassedMessage = "Completed!";
 
@@ -61,6 +61,12 @@ public class Person {
         }
     }
 
+    /**
+     * Sets the quantity of a particular food order in the order array to 0
+     *
+     * @param orderIndex Index of the order whose quantity is getting set to 0.
+     * @throws LotsException When order index is more than the number of orders.
+     */
     public void deleteParticularOrder(int orderIndex) throws LotsException {
         int numberOfOrders = 0;
         for (int i = 0; i < totalMenuItems; i++) {
