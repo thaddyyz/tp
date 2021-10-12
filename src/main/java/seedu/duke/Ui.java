@@ -52,10 +52,10 @@ public class Ui {
      *
      * @param peopleManager List of people who are ordering.
      */
-    public static void printOrdersList(PeopleManager peopleManager) throws LotsException {
+    public static void printOrdersList(PeopleManager peopleManager) {
         int totalNumOfPeopleOrdered = peopleManager.getSize();
         if (totalNumOfPeopleOrdered == 0) {
-            Ui.printEmptyMessage();
+            Ui.printWithBorder("Your order list is empty!");
         } else {
             for (int i = 0; i < totalNumOfPeopleOrdered; i++) {
                 String currentPersonName = peopleManager.getPerson(i).personName;
