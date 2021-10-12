@@ -15,5 +15,14 @@ add /n a /i /q 1
 add /n a /i 1 /q
 add /n a /i a /q a
 add /n test /i 1 /q 1
-add /
+add /n moretest /i 7 /q 2
+list
+add /n toDelete /i 3 /q 2
+list
+delete 3/a
+list
+menu
+delete 5/a
+delete 1/c
+delete a/1
 bye
