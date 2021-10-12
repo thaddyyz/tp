@@ -1,11 +1,16 @@
-package seedu.duke;
+package seedu.duke.command;
 
+
+import seedu.duke.exceptions.LotsException;
+import seedu.duke.PeopleManager;
+import seedu.duke.Person;
+import seedu.duke.Ui;
 
 public class DeleteCommand extends Command {
 
     public static final String COMMAND_WORD = "delete";
     private int personIndex;
-    private int orderIndex;
+    private int foodIndex;
 
     /**
      * Splits the input given the regular expression of a whitespace and
@@ -18,7 +23,7 @@ public class DeleteCommand extends Command {
         String[] splitInput = input.split(" ");
         try {
             personIndex = getPersonIndex(splitInput[1]);
-            orderIndex = getOrderIndex(splitInput[1]);
+            foodIndex = getOrderIndex(splitInput[1]);
         } catch (NullPointerException | IndexOutOfBoundsException | NumberFormatException e) {
             throw new LotsException("Please enter a valid person's index followed by the order index!");
         }
@@ -42,7 +47,7 @@ public class DeleteCommand extends Command {
      * Get the index of the order to be deleted.
      *
      * @param deleteParams String from the user input after the delete command word.
-     * @return Returns the idnex of the order to be deleted in the form of an integer.
+     * @return Returns the index of the order to be deleted in the form of an integer.
      * @throws IndexOutOfBoundsException When "/" is not found in the string.
      * @throws LotsException             When the order index is out of range.
      */
@@ -52,6 +57,7 @@ public class DeleteCommand extends Command {
         if (orderIndexInInteger < 0) {
             throw new LotsException("Please enter a valid order index!");
         }
+        assert orderIndexInInteger >= 0 : "Order index cannot be negative.";
         return orderIndexInInteger;
     }
 
@@ -65,7 +71,7 @@ public class DeleteCommand extends Command {
         try {
             deleteOrder(peopleManager);
         } catch (IndexOutOfBoundsException e) {
-            throw new LotsException("Please enter a valid person's index followed by the order index! E.g) delete 1/a");
+            throw new LotsException("Please enter a valid person's index followed by the order index! i.e. delete 1/a");
         }
     }
 
@@ -76,9 +82,27 @@ public class DeleteCommand extends Command {
      * @throws IndexOutOfBoundsException Throws when personIndex given is larger than the number of people.
      */
     private void deleteOrder(PeopleManager manager) throws IndexOutOfBoundsException, LotsException {
-        Person personToDeleteFrom = manager.getPerson(personIndex);
-        personToDeleteFrom.deleteParticularOrder(orderIndex);
-        manager.deletePerson(personIndex);
-        Ui.printDeleteMessage();
+        if (manager.isEmpty()) {
+            Ui.printEmptyMessage();
+        } else {
+            Person personToDeleteFrom = manager.getPerson(personIndex);
+            assert personToDeleteFrom != null : "Person does not exists.";
+            personToDeleteFrom.deleteParticularOrder(foodIndex);
+            Ui.printDeleteMessage(personToDeleteFrom);
+            deletePersonIfEmpty(manager, personToDeleteFrom);
+        }
+    }
+
+    /**
+     * Removes the person the list if his individual order list is empty.
+     *
+     * @param manager The list of people that are ordering.
+     * @param personToDeleteFrom Person whose order is to be deleted from.
+     * @throws LotsException When there is an error in removing the person from the people manager.
+     */
+    private void deletePersonIfEmpty(PeopleManager manager, Person personToDeleteFrom) throws LotsException {
+        if (personToDeleteFrom.isEmpty()) {
+            manager.deletePerson(personIndex);
+        }
     }
 }
