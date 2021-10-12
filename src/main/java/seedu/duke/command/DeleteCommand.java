@@ -89,9 +89,20 @@ public class DeleteCommand extends Command {
             assert personToDeleteFrom != null : "Person does not exists.";
             personToDeleteFrom.deleteParticularOrder(foodIndex);
             Ui.printDeleteMessage(personToDeleteFrom);
-            if (personToDeleteFrom.isEmpty()) {
-                manager.deletePerson(personIndex);
-            }
+            deletePersonIfEmpty(manager, personToDeleteFrom);
+        }
+    }
+
+    /**
+     * Removes the person the list if his individual order list is empty.
+     *
+     * @param manager The list of people that are ordering.
+     * @param personToDeleteFrom Person whose order is to be deleted from.
+     * @throws LotsException When there is an error in removing the person from the people manager.
+     */
+    private void deletePersonIfEmpty(PeopleManager manager, Person personToDeleteFrom) throws LotsException {
+        if (personToDeleteFrom.isEmpty()) {
+            manager.deletePerson(personIndex);
         }
     }
 }
