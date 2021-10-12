@@ -36,8 +36,8 @@ public class Duke {
                 Ui.printWithBorder(e.getMessage());
             } catch (Exception x) {
                 Ui.printWithBorder("Oops! Unknown error. Please try again.");
-                log.log(Level.SEVERE,x.getMessage());
-                log.log(Level.SEVERE,x.getStackTrace().toString());
+                log.log(Level.SEVERE, x.getMessage());
+                //x.printStackTrace();
             }
         }
     }
