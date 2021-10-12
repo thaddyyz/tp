@@ -16,7 +16,8 @@ public class Parser {
         }
         String[] listOfInputs = input.split(" ");
         String commandInString = listOfInputs[0].toLowerCase();
-
+        Duke.log.info("Command: " + commandInString);
+        
         switch (commandInString) {
         case (AddCommand.COMMAND_WORD):
             return new AddCommand(input);

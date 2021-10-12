@@ -96,7 +96,13 @@ public class Ui {
         Ui.printWithoutBorder("Alright, that order has been deleted!");
     }
 
+    /**
+     * Prints the details of the order that has just been added.
+     *
+     * @param person The person object that just added an order.
+     */
     public static void printAddedOrderMessage(Person person) {
+        assert person != null : "Person object cannot be null when adding!";
         Ui.printWithoutBorder("We have updated the order list for: " + person.personName);
         printIndividualPersonOrder(person);
         Ui.printWithBorder("");

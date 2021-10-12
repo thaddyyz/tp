@@ -1,5 +1,6 @@
 package seedu.duke;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Duke {
@@ -25,6 +26,7 @@ public class Duke {
             try {
                 String userInput = Ui.readInput();
                 currentCommand = Parser.getCommand(userInput);
+                assert currentCommand != null : "Command returned cannot be null!";
                 currentCommand.setData(manager);
                 currentCommand.execute();
                 if (currentCommand instanceof ByeCommand) {
@@ -34,7 +36,8 @@ public class Duke {
                 Ui.printWithBorder(e.getMessage());
             } catch (Exception x) {
                 Ui.printWithBorder("Oops! Unknown error. Please try again.");
-                x.printStackTrace();
+                log.log(Level.SEVERE,x.getMessage());
+                log.log(Level.SEVERE,x.getStackTrace().toString());
             }
         }
     }
