@@ -1,5 +1,7 @@
 package seedu.duke;
 
+import seedu.duke.exceptions.LotsException;
+
 import java.util.Scanner;
 
 public class Ui {
@@ -50,10 +52,10 @@ public class Ui {
      *
      * @param peopleManager List of people who are ordering.
      */
-    public static void printOrdersList(PeopleManager peopleManager) {
+    public static void printOrdersList(PeopleManager peopleManager) throws LotsException {
         int totalNumOfPeopleOrdered = peopleManager.getSize();
         if (totalNumOfPeopleOrdered == 0) {
-            Ui.printWithBorder("Your order list is empty!");
+            Ui.printEmptyMessage();
         } else {
             for (int i = 0; i < totalNumOfPeopleOrdered; i++) {
                 String currentPersonName = peopleManager.getPerson(i).personName;
