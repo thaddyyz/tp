@@ -41,6 +41,14 @@ public class PeopleManager {
         listOfPeople.add(person);
     }
 
+    public void deletePerson(int personIndex) throws LotsException {
+        try {
+            listOfPeople.remove(personIndex);
+        } catch (Exception e) {
+            throw new LotsException(e.getMessage());
+        }
+    }
+
     /**
      * Returns the number of people in the linked list.
      *

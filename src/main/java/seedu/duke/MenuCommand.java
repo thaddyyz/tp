@@ -19,11 +19,11 @@ public class MenuCommand extends Command {
     /**
      * MenuCommand calls access to file to retrieve stored menu.
      */
-    public MenuCommand() throws FileNotFoundException {
+    public MenuCommand() throws LotsException {
         try {
             getMenu();
         } catch (FileNotFoundException e) {
-            throw new FileNotFoundException("Menu file not found!");
+            throw new LotsException("Menu file not found!");
         }
         extractLocalMenuData();
     }
@@ -37,6 +37,7 @@ public class MenuCommand extends Command {
         for (int i = 0; i < foodList.size(); i++) {
             Ui.printMenu(i + 1, foodList.get(i), priceList.get(i));
         }
+        Ui.printWithBorder("");
     }
 
     /**

@@ -7,6 +7,6 @@ package seedu.duke;
 public class UnknownCommand extends Command {
 
     public void execute() {
-        System.out.println("Unknown command. Please try again.");
+        Ui.printWithBorder("Unknown command. Please try again.");
     }
 }
