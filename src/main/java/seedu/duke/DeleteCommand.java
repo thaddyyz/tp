@@ -77,8 +77,11 @@ public class DeleteCommand extends Command {
      */
     private void deleteOrder(PeopleManager manager) throws IndexOutOfBoundsException, LotsException {
         Person personToDeleteFrom = manager.getPerson(personIndex);
+        assert(personToDeleteFrom != null);
         personToDeleteFrom.deleteParticularOrder(orderIndex);
-        manager.deletePerson(personIndex);
-        Ui.printDeleteMessage();
+        Ui.printDeleteMessage(personToDeleteFrom);
+        if (personToDeleteFrom.isEmpty()) {
+            manager.deletePerson(personIndex);
+        }
     }
 }
