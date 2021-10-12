@@ -1,5 +1,9 @@
 package seedu.duke;
 
+import seedu.duke.command.ByeCommand;
+import seedu.duke.command.Command;
+import seedu.duke.exceptions.LotsException;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

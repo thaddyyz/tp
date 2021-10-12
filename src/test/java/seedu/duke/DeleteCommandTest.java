@@ -1,8 +1,9 @@
 package seedu.duke;
 
 import org.junit.jupiter.api.Test;
-
-import java.util.LinkedList;
+import seedu.duke.command.Command;
+import seedu.duke.command.DeleteCommand;
+import seedu.duke.exceptions.LotsException;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

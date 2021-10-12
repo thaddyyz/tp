@@ -1,6 +1,8 @@
 package seedu.duke;
 
 import org.junit.jupiter.api.Test;
+import seedu.duke.command.Command;
+import seedu.duke.exceptions.LotsException;
 
 
 public class AddCommandTest {

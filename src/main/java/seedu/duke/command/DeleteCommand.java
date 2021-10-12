@@ -1,5 +1,10 @@
-package seedu.duke;
+package seedu.duke.command;
 
+
+import seedu.duke.exceptions.LotsException;
+import seedu.duke.PeopleManager;
+import seedu.duke.Person;
+import seedu.duke.Ui;
 
 public class DeleteCommand extends Command {
 

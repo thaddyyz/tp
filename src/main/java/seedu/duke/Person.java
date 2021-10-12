@@ -1,5 +1,7 @@
 package seedu.duke;
 
+import seedu.duke.exceptions.LotsException;
+
 public class Person {
 
     protected int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
@@ -32,7 +34,7 @@ public class Person {
      *
      * @param foodIndex Index of food in the menu.
      */
-    protected void addFoodToIndividualFoodOrders(int foodIndex) throws LotsException {
+    public void addFoodToIndividualFoodOrders(int foodIndex) throws LotsException {
         if (foodIndex <= totalMenuItems && foodIndex > 0) {
             individualFoodOrders[foodIndex - 1] = individualFoodOrders[foodIndex - 1] + 1;
         } else {
@@ -46,7 +48,7 @@ public class Person {
      *
      * @param foodIndex Index of food in the menu.
      */
-    protected void removeFoodFromIndividualFoodOrders(int foodIndex, int quantity) throws LotsException {
+    public void removeFoodFromIndividualFoodOrders(int foodIndex, int quantity) throws LotsException {
         if (foodIndex <= totalMenuItems && foodIndex > 0) {
             if (individualFoodOrders[foodIndex - 1] != 0) {
                 individualFoodOrders[foodIndex - 1] = individualFoodOrders[foodIndex - 1] - quantity;
