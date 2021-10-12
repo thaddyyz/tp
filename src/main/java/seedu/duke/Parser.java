@@ -32,7 +32,7 @@ public class Parser {
         case (DeleteCommand.COMMAND_WORD):
             return new DeleteCommand(input);
         case (OrdersCommand.COMMAND_WORD):
-            return new OrdersCommand();
+            return new OrdersCommand(input);
         case (MenuCommand.COMMAND_WORD):
             return new MenuCommand();
         case (ByeCommand.COMMAND_WORD):
