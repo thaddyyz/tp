@@ -1,4 +1,9 @@
-package seedu.duke;
+package seedu.duke.command;
+
+import seedu.duke.exceptions.LotsException;
+import seedu.duke.Menu;
+import seedu.duke.Person;
+import seedu.duke.Ui;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -41,7 +46,7 @@ public class AddCommand extends Command {
         if (personName != "" || foodIndex != -1 || foodQuantity != -1) {
             Person person = new Person(personName);
             person.addFoodToIndividualFoodOrders(foodIndex);
-            PeopleManager.listOfPeople.add(person);
+            peopleManager.addPerson(person);
             Ui.printAddedOrderMessage(person);
         } else {
             throw new LotsException("Please enter a valid Add Command!");

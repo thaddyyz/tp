@@ -1,10 +1,10 @@
-package seedu.duke;
+package seedu.duke.command;
+
+import seedu.duke.exceptions.LotsException;
+import seedu.duke.Menu;
+import seedu.duke.Ui;
 
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Scanner;
 import java.io.File;
 import java.util.ArrayList;

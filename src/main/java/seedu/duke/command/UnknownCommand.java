@@ -1,4 +1,6 @@
-package seedu.duke;
+package seedu.duke.command;
+
+import seedu.duke.Ui;
 
 /**
  * The command class in the command
