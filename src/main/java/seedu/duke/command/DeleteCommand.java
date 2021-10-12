@@ -27,7 +27,7 @@ public class DeleteCommand extends Command {
         if (!checkUserInput(input)) {
             throw new LotsException("Please enter a valid person's index followed by the order index! i.e. delete 1/a");
         }
-        assert checkUserInput(input)==true : "Invalid delete input command";
+        assert checkUserInput(input) == true : "Invalid delete input command";
         try {
             personIndex = getPersonIndex(splitInput[1]);
             foodIndex = getOrderIndex(splitInput[1]);
@@ -122,7 +122,7 @@ public class DeleteCommand extends Command {
     /**
      * Removes the person the list if his individual order list is empty.
      *
-     * @param manager The list of people that are ordering.
+     * @param manager            The list of people that are ordering.
      * @param personToDeleteFrom Person whose order is to be deleted from.
      * @throws LotsException When there is an error in removing the person from the people manager.
      */
