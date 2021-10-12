@@ -81,4 +81,23 @@ public class Person {
         }
     }
 
+    /**
+     * Checks if the individual order of this person is empty by checking
+     * if the quantity of food orders are 0.
+     *
+     * @return Returns true if all the quantity of the food orders are 0, else returns false.
+     */
+    public boolean isEmpty() {
+        int numberOfOrders = 0;
+        for (int i = 0; i < totalMenuItems; i++) {
+            if (individualFoodOrders[i] > 0) {
+                numberOfOrders++;
+            }
+        }
+        if (numberOfOrders == 0) {
+            return true;
+        }
+        return false;
+    }
+
 }

@@ -43,6 +43,11 @@ public class PeopleManager {
         listOfPeople.add(person);
     }
 
+    /**
+     * Remove a particular person given its index.
+     *
+     * @param personIndex Index of the person to be removed.
+     */
     public void deletePerson(int personIndex) throws LotsException {
         try {
             listOfPeople.remove(personIndex);
@@ -59,4 +64,9 @@ public class PeopleManager {
     public int getSize() {
         return listOfPeople.size();
     }
+
+    public boolean isEmpty() {
+        return listOfPeople.isEmpty();
+    }
+
 }
