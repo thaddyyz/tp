@@ -1,10 +1,12 @@
 package seedu.duke;
 
+import seedu.duke.exceptions.LotsException;
+
 import java.util.LinkedList;
 
 public class PeopleManager {
 
-    static LinkedList<Person> listOfPeople = new LinkedList<Person>();
+    private static LinkedList<Person> listOfPeople = new LinkedList<Person>();
 
     public PeopleManager() {
     }

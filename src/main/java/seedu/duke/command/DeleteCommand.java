@@ -1,11 +1,16 @@
-package seedu.duke;
+package seedu.duke.command;
 
+
+import seedu.duke.exceptions.LotsException;
+import seedu.duke.PeopleManager;
+import seedu.duke.Person;
+import seedu.duke.Ui;
 
 public class DeleteCommand extends Command {
 
     public static final String COMMAND_WORD = "delete";
     private int personIndex;
-    private int orderIndex;
+    private int foodIndex;
 
     /**
      * Splits the input given the regular expression of a whitespace and
@@ -18,7 +23,7 @@ public class DeleteCommand extends Command {
         String[] splitInput = input.split(" ");
         try {
             personIndex = getPersonIndex(splitInput[1]);
-            orderIndex = getOrderIndex(splitInput[1]);
+            foodIndex = getOrderIndex(splitInput[1]);
         } catch (NullPointerException | IndexOutOfBoundsException | NumberFormatException e) {
             throw new LotsException("Please enter a valid person's index followed by the order index!");
         }
@@ -78,7 +83,7 @@ public class DeleteCommand extends Command {
     private void deleteOrder(PeopleManager manager) throws IndexOutOfBoundsException, LotsException {
         Person personToDeleteFrom = manager.getPerson(personIndex);
         assert(personToDeleteFrom != null);
-        personToDeleteFrom.deleteParticularOrder(orderIndex);
+        personToDeleteFrom.deleteParticularOrder(foodIndex);
         Ui.printDeleteMessage(personToDeleteFrom);
         if (personToDeleteFrom.isEmpty()) {
             manager.deletePerson(personIndex);

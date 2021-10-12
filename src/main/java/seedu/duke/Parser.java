@@ -1,5 +1,14 @@
 package seedu.duke;
 
+import seedu.duke.command.AddCommand;
+import seedu.duke.command.ByeCommand;
+import seedu.duke.command.Command;
+import seedu.duke.command.DeleteCommand;
+import seedu.duke.command.MenuCommand;
+import seedu.duke.command.OrdersCommand;
+import seedu.duke.command.UnknownCommand;
+import seedu.duke.exceptions.LotsException;
+
 public class Parser {
     /**
      * Returns a Command object based on the user's input
@@ -16,7 +25,6 @@ public class Parser {
         }
         String[] listOfInputs = input.split(" ");
         String commandInString = listOfInputs[0].toLowerCase();
-        Duke.log.info("Command: " + commandInString);
         
         switch (commandInString) {
         case (AddCommand.COMMAND_WORD):
