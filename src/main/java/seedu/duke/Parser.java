@@ -1,9 +1,6 @@
 package seedu.duke;
 
-import java.io.FileNotFoundException;
-
 public class Parser {
-
     /**
      * Returns a Command object based on the user's input
      * string, else unknown command Type.
@@ -11,7 +8,7 @@ public class Parser {
      * @param input The user's input in String.
      * @return The respective Command type.
      */
-    public static Command getCommand(String input) throws Exception {
+    public static Command getCommand(String input) throws LotsException {
         assert input != null : "Input to getCommand Cannot be NULL!";
 
         if (input.isBlank() || input.isEmpty()) {
@@ -19,17 +16,13 @@ public class Parser {
         }
         String[] listOfInputs = input.split(" ");
         String commandInString = listOfInputs[0].toLowerCase();
-
+        Duke.log.info("Command: " + commandInString);
+        
         switch (commandInString) {
         case (AddCommand.COMMAND_WORD):
             return new AddCommand(input);
         case (DeleteCommand.COMMAND_WORD):
-            try {
-                return new DeleteCommand(input);
-            } catch (LotsException e) {
-                System.out.println(e.getMessage());
-                return new UnknownCommand();
-            }
+            return new DeleteCommand(input);
         case (OrdersCommand.COMMAND_WORD):
             return new OrdersCommand();
         case (MenuCommand.COMMAND_WORD):
