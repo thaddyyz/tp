@@ -57,8 +57,10 @@ public class Ui {
         if (totalNumOfPeopleOrdered == 0) {
             Ui.printWithBorder("Your order list is empty!");
         } else {
+            assert totalNumOfPeopleOrdered != 0 : "Order list cannot be empty.";
             for (int i = 0; i < totalNumOfPeopleOrdered; i++) {
                 String currentPersonName = peopleManager.getPerson(i).personName;
+                assert currentPersonName != null : "Person must exist.";
                 Ui.printWithoutBorder((i + 1) + ". " + currentPersonName + ":");
                 printIndividualPersonOrder(peopleManager.getPerson(i));
             }
@@ -77,6 +79,7 @@ public class Ui {
         int currentItem = 97; //97 is the ascii for 'a'.
         int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
         int[] currentIndividualOrders = currentPerson.individualFoodOrders;
+        assert currentIndividualOrders != null : "Person must have food orders.";
         for (int i = 0; i < totalMenuItems; i++) {
             if (currentIndividualOrders[i] != 0) {
                 double currentCost = currentIndividualOrders[i] * Menu.PRICELIST.get(i);
