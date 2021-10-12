@@ -92,8 +92,8 @@ public class Ui {
     /**
      * Prints a message to notify the user of the deletion of an order.
      */
-    public static void printDeleteMessage() {
-        Ui.printWithoutBorder("Alright, that order has been deleted!");
+    public static void printDeleteMessage(Person person) {
+        Ui.printWithoutBorder("Alright, that order has been deleted from " + person.personName + "!");
     }
 
     /**
