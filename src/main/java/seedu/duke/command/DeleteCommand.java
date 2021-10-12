@@ -6,6 +6,9 @@ import seedu.duke.PeopleManager;
 import seedu.duke.Person;
 import seedu.duke.Ui;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class DeleteCommand extends Command {
 
     public static final String COMMAND_WORD = "delete";
@@ -21,11 +24,34 @@ public class DeleteCommand extends Command {
      */
     public DeleteCommand(String input) throws LotsException {
         String[] splitInput = input.split(" ");
+        if (!checkUserInput(input)) {
+            throw new LotsException("Please enter a valid person's index followed by the order index! i.e. delete 1/a");
+        }
+        assert checkUserInput(input)==true : "Invalid delete input command";
         try {
             personIndex = getPersonIndex(splitInput[1]);
             foodIndex = getOrderIndex(splitInput[1]);
         } catch (NullPointerException | IndexOutOfBoundsException | NumberFormatException e) {
-            throw new LotsException("Please enter a valid person's index followed by the order index!");
+            throw new LotsException("Please enter a valid person's index followed by the order index! i.e. delete 1/a");
+        }
+    }
+
+    /**
+     * Regex to check User Input before passing onto the class.
+     *
+     * @param input user input.
+     * @return a boolean true if the user input passes the regex.
+     * @throws IllegalArgumentException when the pattern for Regex is not able to be interpreted.
+     */
+    private boolean checkUserInput(String input) throws IllegalArgumentException {
+        try {
+            Pattern pattern = Pattern.compile(
+                "^delete [1-9][0-9]?\\/[a-zA-Z]$",
+                Pattern.CASE_INSENSITIVE);
+            Matcher matcher = pattern.matcher(input);
+            return matcher.find();
+        } catch (IllegalArgumentException e) {
+            return false;
         }
     }
 
