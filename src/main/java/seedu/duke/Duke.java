@@ -14,6 +14,9 @@ public class Duke {
         Ui.printGoodbye();
     }
 
+    /**
+     * The main function that duke runs on.
+     */
     private static void runDuke() {
         Command currentCommand;
         PeopleManager manager = new PeopleManager();

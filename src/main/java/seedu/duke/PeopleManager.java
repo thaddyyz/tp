@@ -1,7 +1,6 @@
 package seedu.duke;
 
 import java.util.LinkedList;
-import java.util.logging.Logger;
 
 public class PeopleManager {
 

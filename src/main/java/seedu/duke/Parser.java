@@ -1,9 +1,6 @@
 package seedu.duke;
 
-import java.io.FileNotFoundException;
-
 public class Parser {
-
     /**
      * Returns a Command object based on the user's input
      * string, else unknown command Type.

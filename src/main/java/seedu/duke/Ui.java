@@ -10,6 +10,16 @@ public class Ui {
             + "=============================";
     private static final Scanner SC = new Scanner(System.in);
 
+    public static void printWelcome() {
+        String welcomeMsg = "Welcome to L.O.T.S! What would you like to track today?";
+        printWithBorder(welcomeMsg);
+    }
+
+    public static void printGoodbye() {
+        String byeMsg = "Thank you for using L.O.T.S! Good bye!";
+        printWithBorder(byeMsg);
+    }
+
     /**
      * Prints the string provided followed by the border.
      *
@@ -33,16 +43,6 @@ public class Ui {
     public static String readInput() {
         String input = SC.nextLine();
         return input.strip();
-    }
-
-    public static void printWelcome() {
-        String welcomeMsg = "Welcome to L.O.T.S! What would you like to track today?";
-        printWithBorder(welcomeMsg);
-    }
-
-    public static void printGoodbye() {
-        String byeMsg = "Thank you for using L.O.T.S! Good bye!";
-        printWithBorder(byeMsg);
     }
 
     /**
