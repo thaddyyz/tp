@@ -2,11 +2,10 @@ package seedu.duke;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedList;
-import seedu.duke.AddCommand;
-import seedu.duke.Command;
-import seedu.duke.DeleteCommand;
-import seedu.duke.LotsException;
+import seedu.duke.command.AddCommand;
+import seedu.duke.command.Command;
+import seedu.duke.command.DeleteCommand;
+import seedu.duke.exceptions.LotsException;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -43,5 +42,4 @@ class DeleteCommandTest {
             () -> command.execute());
     }
 
-    void execute_inputWithoutFoodIndex_expect
 }

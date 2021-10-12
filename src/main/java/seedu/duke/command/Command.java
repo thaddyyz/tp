@@ -1,4 +1,7 @@
-package seedu.duke;
+package seedu.duke.command;
+
+import seedu.duke.exceptions.LotsException;
+import seedu.duke.PeopleManager;
 
 public class Command {
 
