@@ -17,13 +17,9 @@ public class MenuCommand extends Command {
     /**
      * MenuCommand calls access to file to retrieve stored menu.
      */
-    public MenuCommand() throws LotsException {
-        try {
-            getMenu();
-        } catch (FileNotFoundException e) {
-            throw new LotsException("Menu file not found!");
-        }
-        extractLocalMenuData();
+    public MenuCommand() {
+        priceList = Menu.PRICELIST;
+        foodList = Menu.FOODLIST;
     }
 
     /**
@@ -36,17 +32,5 @@ public class MenuCommand extends Command {
             Ui.printMenu(i + 1, foodList.get(i), priceList.get(i));
         }
         Ui.printWithBorder("");
-    }
-
-    /**
-     * Get menu data from foodData.txt
-     */
-    private void getMenu() throws FileNotFoundException {
-        extractLocalMenuData();
-    }
-
-    private void extractLocalMenuData() {
-        priceList = Menu.PRICELIST;
-        foodList = Menu.FOODLIST;
     }
 }
