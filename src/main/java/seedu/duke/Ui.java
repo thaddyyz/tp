@@ -87,13 +87,19 @@ public class Ui {
         Ui.printWithoutBorder("[Total Cost = $" + String.format("%.2f", totalCost) + "]");
     }
 
-    //To be further improved
-
     /**
      * Prints a message to notify the user of the deletion of an order.
      */
     public static void printDeleteMessage(Person person) {
         Ui.printWithoutBorder("Alright, that order has been deleted from " + person.personName + "!");
+    }
+
+
+    /**
+     * Prints a message to notify the user of an empty order list.
+     */
+    public static void printEmptyMessage() {
+        Ui.printWithBorder("There are currently no orders!");
     }
 
     /**
@@ -125,4 +131,5 @@ public class Ui {
         System.out.format("%-8d%-33s%7.2f%n", index, foodName, foodPrice);
         Ui.printWithoutBorder(line);
     }
+
 }

@@ -65,4 +65,8 @@ public class PeopleManager {
         return listOfPeople.size();
     }
 
+    public boolean isEmpty() {
+        return listOfPeople.isEmpty();
+    }
+
 }
