@@ -107,6 +107,7 @@ public class AddCommand extends Command {
      */
     private static String getPersonName(String input, int indexOfFirstSlash, int indexOfSecondSlash) {
         String tempPersonName = input.substring(indexOfFirstSlash + 2, indexOfSecondSlash - 1);
+        assert tempPersonName != null : "Input to Person Name cannot be NULL!";
         return tempPersonName.trim();
     }
 
@@ -122,6 +123,7 @@ public class AddCommand extends Command {
     private static int getFoodIndex(String input, int indexOfSecondSlash, int indexOfThirdSlash)
             throws NumberFormatException, LotsException {
         String subStringFoodIndex = input.substring(indexOfSecondSlash + 2, indexOfThirdSlash - 1).trim();
+        assert subStringFoodIndex != "" : "Input to AddCommand Cannot be NULL!";
         try {
             int foodIndex = Integer.parseInt(subStringFoodIndex);
             if (foodIndex > Menu.TOTAL_MENU_ITEMS || foodIndex <= 0) {
@@ -146,6 +148,7 @@ public class AddCommand extends Command {
     private static int getFoodQuantity(String input, int indexOfThirdSlash)
             throws NumberFormatException, LotsException {
         String subStringFoodQuantity = input.substring(indexOfThirdSlash + 2).trim();
+        assert subStringFoodQuantity != "" : "Input to AddCommand Cannot be NULL!";
         try {
             int foodQuantity = Integer.parseInt(subStringFoodQuantity);
             if (foodQuantity > 1000 || foodQuantity <= 0) {
