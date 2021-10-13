@@ -1,17 +1,21 @@
 package seedu.duke;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+
 import seedu.duke.exceptions.LotsException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@TestInstance(Lifecycle.PER_CLASS)
 public class PeopleManagerTest {
     protected PeopleManager peopleManager = new PeopleManager();
-    
-    @BeforeEach
-    void setUp() throws LotsException {
+    //Person personfind = new Person("Adam");
+
+    @BeforeAll
+    void setUp() {
         String[] names = {"Markus", "Adam", "Andrew"};
         for (int i = 0; i < 3; i++) {
             Person person = new Person(names[i]);
@@ -24,10 +28,10 @@ public class PeopleManagerTest {
         assertEquals(3, peopleManager.countPeopleInList());
     }
 
-    @Test
+    /*@Test
     public void testgetPerson() {
         assertEquals("Adam", peopleManager.getPerson(1));
-    }
+    }*/
 
     @Test
     public void testgetSize() {
@@ -42,7 +46,7 @@ public class PeopleManagerTest {
     @Test
     public void deletePerson_InvalidPersonIndex_expectException() {
         assertThrows(LotsException.class, () -> {
-            peopleManager.deletePerson(5);
+            peopleManager.deletePerson(8);
         });
     }
 
