@@ -20,27 +20,27 @@ public class PeopleManagerTest {
     }
 
     @Test
-    void countPeopleInList_Test() {
+    public void testcountPeopleInList() {
         assertEquals(3, peopleManager.countPeopleInList());
     }
 
     @Test
-    void getPerson_Test() {
+    public void testgetPerson() {
         assertEquals("Adam", peopleManager.getPerson(1));
     }
 
     @Test
-    void getSize_Test() {
+    public void testgetSize() {
         assertEquals(3, peopleManager.getSize());
     }
 
     @Test
-    void isEmpty_Test() {
+    public void isEmpty_Test() {
         assertEquals(false, peopleManager.isEmpty());
     }
 
     @Test
-    public void deletePerson_InvalidPersonIndex() {
+    public void deletePerson_InvalidPersonIndex_expectException() {
         assertThrows(LotsException.class, () -> {
             peopleManager.deletePerson(5);
         });
