@@ -1,1 +1,28 @@
+
+a
+///
+deleteadwe
+delete1/a
+menu123asd
+list
+list1223
+add
+add/n
+add/n a /i 2 /q 2
+add /n /i /q
+add /n /i 1 /q 1
+add /n a /i /q 1
+add /n a /i 1 /q
+add /n a /i a /q a
+add /n test /i 1 /q 1
+add /n moretest /i 7 /q 2
+list
+add /n toDelete /i 3 /q 2
+list
+delete 3/a
+list
+menu
+delete 5/a
+delete 1/c
+delete a/1
 bye
