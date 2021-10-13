@@ -5,12 +5,11 @@ import org.junit.jupiter.api.Test;
 import seedu.duke.exceptions.LotsException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PeopleManagerTest {
     protected PeopleManager peopleManager = new PeopleManager();
     
-
     @BeforeEach
     void setUp() throws LotsException {
         String[] names = {"Markus", "Adam", "Andrew"};
@@ -44,7 +43,7 @@ public class PeopleManagerTest {
     public void deletePerson_InvalidPersonIndex() {
         assertThrows(LotsException.class, () -> {
             peopleManager.deletePerson(5);
-        } );
+        });
     }
 
 }
