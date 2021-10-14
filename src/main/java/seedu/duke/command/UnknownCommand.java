@@ -1,4 +1,6 @@
-package seedu.duke;
+package seedu.duke.command;
+
+import seedu.duke.Ui;
 
 /**
  * The command class in the command
@@ -7,6 +9,6 @@ package seedu.duke;
 public class UnknownCommand extends Command {
 
     public void execute() {
-        System.out.println("Unknown command. Please try again.");
+        Ui.printWithBorder("Unknown command. Please try again.");
     }
 }

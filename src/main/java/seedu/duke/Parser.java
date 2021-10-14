@@ -1,7 +1,15 @@
 package seedu.duke;
 
-public class Parser {
+import seedu.duke.command.AddCommand;
+import seedu.duke.command.ByeCommand;
+import seedu.duke.command.Command;
+import seedu.duke.command.DeleteCommand;
+import seedu.duke.command.MenuCommand;
+import seedu.duke.command.OrdersCommand;
+import seedu.duke.command.UnknownCommand;
+import seedu.duke.exceptions.LotsException;
 
+public class Parser {
     /**
      * Returns a Command object based on the user's input
      * string, else unknown command Type.
@@ -9,22 +17,26 @@ public class Parser {
      * @param input The user's input in String.
      * @return The respective Command type.
      */
-    public static Command getCommand(String input) {
+    public static Command getCommand(String input) throws LotsException {
+        assert input != null : "Input to getCommand Cannot be NULL!";
+
         if (input.isBlank() || input.isEmpty()) {
             return new UnknownCommand();
         }
         String[] listOfInputs = input.split(" ");
         String commandInString = listOfInputs[0].toLowerCase();
-
+        
         switch (commandInString) {
-        case ("add"):
-            return new Command();
+        case (AddCommand.COMMAND_WORD):
+            return new AddCommand(input);
         case (DeleteCommand.COMMAND_WORD):
-            return new Command();
-        case ("orders"):
-            return new Command();
-        case ("menu"):
-            return new Command();
+            return new DeleteCommand(input);
+        case (OrdersCommand.COMMAND_WORD):
+            return new OrdersCommand(input);
+        case (MenuCommand.COMMAND_WORD):
+            return new MenuCommand();
+        case (ByeCommand.COMMAND_WORD):
+            return new ByeCommand();
         default:
             return new UnknownCommand();
         }
