@@ -22,25 +22,8 @@ class PeopleManagerTest {
     }
 
     @Test
-    public void testcountPeopleInList() {
-        assertEquals(3, peopleManager.countPeopleInList());
-    }
-
-    @Test
-    public void testgetSize() {
-        assertEquals(3, peopleManager.getSize());
-    }
-
-    @Test
     public void isEmpty_Test() {
         assertEquals(false, peopleManager.isEmpty());
-    }
-
-    @Test
-    public void deletePerson_InvalidPersonIndex_expectException() {
-        assertThrows(LotsException.class, () -> {
-            peopleManager.deletePerson(8);
-        });
     }
 
 }
