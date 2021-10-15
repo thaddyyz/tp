@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class PeopleManagerTest {
     static PeopleManager peopleManager;
-    //Person personfind = new Person("Adam");
 
     @BeforeAll
     public static void setUp() {
