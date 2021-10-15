@@ -2,20 +2,19 @@ package seedu.duke;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 
 import seedu.duke.exceptions.LotsException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@TestInstance(Lifecycle.PER_CLASS)
-public class PeopleManagerTest {
-    protected PeopleManager peopleManager = new PeopleManager();
+class PeopleManagerTest {
+    static PeopleManager peopleManager;
     //Person personfind = new Person("Adam");
 
     @BeforeAll
-    void setUp() {
+    public static void setUp() {
+        peopleManager = new PeopleManager();
         String[] names = {"Markus", "Adam", "Andrew"};
         for (int i = 0; i < 3; i++) {
             Person person = new Person(names[i]);
@@ -27,11 +26,6 @@ public class PeopleManagerTest {
     public void testcountPeopleInList() {
         assertEquals(3, peopleManager.countPeopleInList());
     }
-
-    /*@Test
-    public void testgetPerson() {
-        assertEquals("Adam", peopleManager.getPerson(1));
-    }*/
 
     @Test
     public void testgetSize() {
