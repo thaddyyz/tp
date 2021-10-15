@@ -9,7 +9,7 @@ public class PersonTest {
     private static final String TEST_NAME = "hello";
 
     @Test
-    public void addFoodToIndividualFoodOrders_zeroOrLess_expectException() {
+    public void addFoodToIndividualFoodOrders_menuIndexLessThanOne_expectException() {
         Person person = new Person(TEST_NAME);
         assertThrows(LotsException.class, () -> {
             person.addFoodToIndividualFoodOrders(-1);
@@ -20,7 +20,7 @@ public class PersonTest {
     }
 
     @Test
-    public void addFoodToIndividualFoodOrders_moreThantotalMenuItems_expectException() {
+    public void addFoodToIndividualFoodOrders_menuIndexOutOfBounds_expectException() {
         Person person = new Person(TEST_NAME);
         assertThrows(LotsException.class, () -> {
             person.addFoodToIndividualFoodOrders(88);
@@ -28,7 +28,7 @@ public class PersonTest {
     }
     
     @Test
-    public void removeFoodFromIndividualFoodOrders_zeroOrLess_expectException() {
+    public void removeFoodFromIndividualFoodOrders_menuIndexLessThanOne_expectException() {
         Person person = new Person(TEST_NAME);
         assertThrows(LotsException.class, () -> {
             person.removeFoodFromIndividualFoodOrders(-1,1);
@@ -47,7 +47,7 @@ public class PersonTest {
     }
 
     /*@Test
-    public void deleteParticularOrder_OutOfRange() {
+    public void deleteParticularOrder_menuIndexOutOfBounds_throwsLotsException() {
         Person person = new Person(TEST_NAME);
         assertThrows(LotsException.class, () -> {
             person.deleteParticularOrder(person.numberOfOrders+1);

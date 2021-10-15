@@ -22,7 +22,7 @@ class PeopleManagerTest {
     }
 
     @Test
-    public void isEmpty_Test() {
+    public void isEmpty_listOfPeopleNotEmpty_falseReturned() {
         assertEquals(false, peopleManager.isEmpty());
     }
 
