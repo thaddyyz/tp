@@ -105,7 +105,7 @@ public class Ui {
      * Additionally, user's edited orders will printed to show changes made.
      */
     public static void printEditMessage(Person person, int foodIndex) {
-        printWithBorder("Order "+ (foodIndex + 1) +" from " + person.personName + "'s order has been edited");
+        printWithBorder("Order " + (foodIndex + 1) + " from " + person.personName + "'s order has been edited");
         printIndividualPersonOrder(person);
     }
 

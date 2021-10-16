@@ -108,9 +108,10 @@ public class Person {
      * @param quantity Quantity of food to be set.
      * @param i Current index of individualFoodOrders array to search.
      * @throws LotsException When foodIndex is more than number of food in menu or
-     * order quantity is less than 0.
+     *     order quantity is less than 0.
      */
-    private void findAndEditParticularOrder(int numberOfOrders, int foodIndex, int quantity, int i) throws LotsException {
+    private void findAndEditParticularOrder(int numberOfOrders, int foodIndex, int quantity, int i) 
+        throws LotsException {
         if (individualFoodOrders[i] > 0) {
             numberOfOrders++;
         }

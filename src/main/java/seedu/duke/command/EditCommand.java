@@ -12,7 +12,8 @@ public class EditCommand extends Command {
     
     public static final String COMMAND_WORD = "edit";
     private int personIndex;
-    private int foodIndex, quantity;
+    private int foodIndex;
+    private int quantity;
 
     /**
      * Splits the input given the regular expression of a whitespace and
@@ -20,12 +21,13 @@ public class EditCommand extends Command {
      * 
      * @param input The entire line of command entered by the user.
      * @throws LotsException If there is no input after the edit command or when the personIndex,
-     * foodIndex or quantity is not a positive integer.
+     *     foodIndex or quantity is not a positive integer.
      */
     public EditCommand(String input) throws LotsException {
         String[] splitInput = input.split(" ");
         if (!checkUserInput(input)) {
-            throw new LotsException("Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8 (wrong input test)");
+            throw new LotsException("Please enter a valid person's index followed by the order index" +
+                                    " and order quantity! i.e. edit 1/1 /q 8 (wrong input test)");
         }
         assert checkUserInput(input) == true : "Invalid edit input command";
         try {
@@ -33,7 +35,8 @@ public class EditCommand extends Command {
             foodIndex = getOrderIndex(splitInput[1]);
             quantity = getQuantity(splitInput[3]);
         } catch (NullPointerException | IndexOutOfBoundsException | NumberFormatException e) {
-            throw new LotsException("Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8");
+            throw new LotsException("Please enter a valid person's index followed by the order index" + 
+                                    " and order quantity! i.e. edit 1/1 /q 8");
         }
     }
 
@@ -115,7 +118,8 @@ public class EditCommand extends Command {
         try {
             editOrder(super.peopleManager);
         } catch (IndexOutOfBoundsException e) {
-            throw new LotsException("Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8");
+            throw new LotsException("Please enter a valid person's index followed by the order index" + 
+                                    " and order quantity! i.e. edit 1/1 /q 8");
         }
     }
 
