@@ -60,7 +60,7 @@ public class Ui {
             for (int i = 0; i < totalNumOfPeopleOrdered; i++) {
                 String currentPersonName = peopleManager.getPerson(i).personName;
                 assert currentPersonName != null : "Person must exist.";
-                printWithoutBorder((i + 1) + ". " + currentPersonName + ":");
+                printWithoutBorder((i + 1) + ") " + currentPersonName + ":");
                 printIndividualPersonOrder(peopleManager.getPerson(i));
             }
             printWithBorder("");
@@ -79,13 +79,15 @@ public class Ui {
         int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
         int[] currentIndividualOrders = currentPerson.individualFoodOrders;
         assert currentIndividualOrders != null : "Person must have food orders.";
+        int index = 1;
         for (int i = 0; i < totalMenuItems; i++) {
             if (currentIndividualOrders[i] != 0) {
                 double currentCost = currentIndividualOrders[i] * Menu.PRICELIST.get(i);
-                printWithoutBorder("\t" + (char) currentItem + ") " + Menu.FOODLIST.get(i) + " | Quantity = "
+                printWithoutBorder("\t(" + index + ") " + Menu.FOODLIST.get(i) + " | Quantity = "
                         + currentIndividualOrders[i] + " | Cost = $" + String.format("%.2f", currentCost));
                 totalCost = totalCost + currentCost;
                 currentItem++;
+                index++;
             }
         }
         printWithoutBorder("[Total Cost = $" + String.format("%.2f", totalCost) + "]");
