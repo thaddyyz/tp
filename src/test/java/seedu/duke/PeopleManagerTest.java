@@ -20,6 +20,8 @@ class PeopleManagerTest {
     public static void setUp() {
         peopleManager = new PeopleManager();
         String[] names = {"Markus", "Adam", "Andrew"};
+        PeopleManager.clearListOfPeople();
+
         for (int i = 0; i < 3; i++) {
             Person person = new Person(names[i]);
             peopleManager.addPerson(person);
