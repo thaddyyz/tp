@@ -1,6 +1,5 @@
 package seedu.duke;
 
-import seedu.duke.exceptions.LotsException;
 
 import java.util.Scanner;
 
@@ -55,16 +54,16 @@ public class Ui {
     public static void printOrdersList(PeopleManager peopleManager) {
         int totalNumOfPeopleOrdered = peopleManager.getSize();
         if (totalNumOfPeopleOrdered == 0) {
-            Ui.printWithBorder("Your order list is empty!");
+            printWithBorder("Your order list is empty!");
         } else {
             assert totalNumOfPeopleOrdered != 0 : "Order list cannot be empty.";
             for (int i = 0; i < totalNumOfPeopleOrdered; i++) {
                 String currentPersonName = peopleManager.getPerson(i).personName;
                 assert currentPersonName != null : "Person must exist.";
-                Ui.printWithoutBorder((i + 1) + ". " + currentPersonName + ":");
+                printWithoutBorder((i + 1) + ") " + currentPersonName + ":");
                 printIndividualPersonOrder(peopleManager.getPerson(i));
             }
-            Ui.printWithBorder("");
+            printWithBorder("");
         }
     }
 
@@ -80,23 +79,25 @@ public class Ui {
         int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
         int[] currentIndividualOrders = currentPerson.individualFoodOrders;
         assert currentIndividualOrders != null : "Person must have food orders.";
+        int index = 1;
         for (int i = 0; i < totalMenuItems; i++) {
             if (currentIndividualOrders[i] != 0) {
                 double currentCost = currentIndividualOrders[i] * Menu.PRICELIST.get(i);
-                Ui.printWithoutBorder("\t" + (char) currentItem + ") " + Menu.FOODLIST.get(i) + " | Quantity = "
+                printWithoutBorder("\t(" + index + ") " + Menu.FOODLIST.get(i) + " | Quantity = "
                         + currentIndividualOrders[i] + " | Cost = $" + String.format("%.2f", currentCost));
                 totalCost = totalCost + currentCost;
                 currentItem++;
+                index++;
             }
         }
-        Ui.printWithoutBorder("[Total Cost = $" + String.format("%.2f", totalCost) + "]");
+        printWithoutBorder("[Total Cost = $" + String.format("%.2f", totalCost) + "]");
     }
 
     /**
      * Prints a message to notify the user of the deletion of an order.
      */
     public static void printDeleteMessage(Person person) {
-        Ui.printWithBorder("Alright, that order has been deleted from " + person.personName + "!");
+        printWithBorder("Alright, that order has been deleted from " + person.personName + "!");
     }
 
 
@@ -104,7 +105,7 @@ public class Ui {
      * Prints a message to notify the user of an empty order list.
      */
     public static void printEmptyMessage() {
-        Ui.printWithBorder("There are currently no orders!");
+        printWithBorder("There are currently no orders!");
     }
 
     /**
@@ -114,14 +115,14 @@ public class Ui {
      */
     public static void printAddedOrderMessage(Person person) {
         assert person != null : "Person object cannot be null when adding!";
-        Ui.printWithoutBorder("We have updated the order list for: " + person.personName);
+        printWithoutBorder("We have updated the order list for: " + person.personName);
         printIndividualPersonOrder(person);
-        Ui.printWithBorder("");
+        printWithBorder("");
     }
 
     public static void printMenuHeader() {
-        Ui.printWithoutBorder("index | Food Name                         | Price");
-        Ui.printWithoutBorder(line);
+        printWithoutBorder("index | Food Name                         | Price");
+        printWithoutBorder(line);
     }
 
     /**
@@ -134,7 +135,7 @@ public class Ui {
      */
     public static void printMenu(int index, String foodName, Double foodPrice) {
         System.out.format("%-8d%-33s%7.2f%n", index, foodName, foodPrice);
-        Ui.printWithoutBorder(line);
+        printWithoutBorder(line);
     }
 
 }
