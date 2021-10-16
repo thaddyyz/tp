@@ -19,6 +19,7 @@ class DeleteCommandTest {
     void setUp() throws LotsException {
         String[] names = {"Markus", "Adam", "Andrew"};
         String[] foodIndex = {"1", "4", "8"};
+        PeopleManager.clearListOfPeople();
 
         for (int i = 0; i < 3; i++) {
             String input = "add /n " + names[i] + " /i " + foodIndex[i] + " /q 1";
@@ -34,7 +35,7 @@ class DeleteCommandTest {
         Command command = new DeleteCommand(input);
         command.setData(peopleManager);
         command.execute();
-        assertEquals(20, peopleManager.getSize());
+        assertEquals(2, peopleManager.getSize());
     }
 
     @Test

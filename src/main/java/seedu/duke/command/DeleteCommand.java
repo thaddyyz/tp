@@ -95,7 +95,7 @@ public class DeleteCommand extends Command {
     @Override
     public void execute() throws LotsException {
         try {
-            deleteOrder(peopleManager);
+            deleteOrder(super.peopleManager);
         } catch (IndexOutOfBoundsException e) {
             throw new LotsException("Please enter a valid person's index followed by the order index! i.e. delete 1/a");
         }

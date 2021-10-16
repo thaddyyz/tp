@@ -69,4 +69,12 @@ public class PeopleManager {
         return listOfPeople.isEmpty();
     }
 
+    /**
+     * Clears the arraylist of people
+     * stored. Mainly used before each test method.
+     */
+    public static void clearListOfPeople() {
+        listOfPeople.clear();
+    }
+
 }
