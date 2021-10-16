@@ -31,7 +31,7 @@ class DeleteCommandTest {
 
     @Test
     void execute_validInput_expectException() throws LotsException {
-        String input = "delete 2/a";
+        String input = "delete 2/1";
         Command command = new DeleteCommand(input);
         command.setData(peopleManager);
         command.execute();
@@ -40,7 +40,7 @@ class DeleteCommandTest {
 
     @Test
     void execute_personIndexOutOfBounds_expectException() throws LotsException {
-        String input = "delete 99/a";
+        String input = "delete 99/1";
         Command command = new DeleteCommand(input);
         command.setData(peopleManager);
         assertThrows(LotsException.class,
@@ -49,7 +49,7 @@ class DeleteCommandTest {
 
     @Test
     void execute_orderIndexOutOfBounds_expectException() throws LotsException {
-        String input = "delete 2/b";
+        String input = "delete 2/2";
         Command command = new DeleteCommand(input);
         command.setData(peopleManager);
         assertThrows(LotsException.class,
@@ -65,21 +65,21 @@ class DeleteCommandTest {
 
     @Test
     void execute_invalidPersonIndex_expectException() {
-        String input = "delete markus/a";
+        String input = "delete markus/1";
         assertThrows(LotsException.class,
             () -> new DeleteCommand(input));
     }
 
     @Test
     void execute_invalidOrderIndex_expectException() {
-        String input = "delete 1/1";
+        String input = "delete 1/a";
         assertThrows(LotsException.class,
             () -> new DeleteCommand(input));
     }
 
     @Test
     void execute_invalidInput_expectException() {
-        String input = "delete Markus/1";
+        String input = "delete Markus/a";
         assertThrows(LotsException.class,
             () -> new DeleteCommand(input));
     }
