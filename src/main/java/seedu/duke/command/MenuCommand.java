@@ -1,18 +1,16 @@
 package seedu.duke.command;
 
-import seedu.duke.exceptions.LotsException;
 import seedu.duke.Menu;
 import seedu.duke.Ui;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class MenuCommand extends Command {
 
     public static final String COMMAND_WORD = "menu";
 
-    private ArrayList<Double> priceList = new ArrayList<>();
-    private ArrayList<String> foodList = new ArrayList<>();
+    private ArrayList<Double> priceList;
+    private ArrayList<String> foodList;
 
     /**
      * MenuCommand calls access to file to retrieve stored menu.
