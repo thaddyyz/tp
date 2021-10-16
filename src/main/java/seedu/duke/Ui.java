@@ -100,6 +100,14 @@ public class Ui {
         printWithBorder("Alright, that order has been deleted from " + person.personName + "!");
     }
 
+    /**
+     * Prints a message to notify the user of the edit made to his order.
+     * Additionally, user's edited orders will printed to show changes made.
+     */
+    public static void printEditMessage(Person person, int foodIndex) {
+        printWithBorder("Order "+ (foodIndex + 1) +" from " + person.personName + "'s order has been edited");
+        printIndividualPersonOrder(person);
+    }
 
     /**
      * Prints a message to notify the user of an empty order list.

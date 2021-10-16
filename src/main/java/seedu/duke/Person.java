@@ -82,6 +82,48 @@ public class Person {
     }
 
     /**
+     * Sets the quantity of a particular food to quantity requested by user.
+     * 
+     * @param foodIndex Index of the order whose quantity is to be changed.
+     * @param quantity Quantity of food to be set.
+     * @throws LotsException When foodIndex is more than number of food in menu or
+     * order quantity is less than 0.
+     */
+    public void editParticularOrder(int foodIndex, int quantity) throws LotsException {
+        int numberOfOrders = 0;
+        if (foodIndex <= totalMenuItems && foodIndex >= 0) {
+            for (int i = 0; i < totalMenuItems; i++) {
+                findAndEditParticularOrder(numberOfOrders, foodIndex, quantity, i);
+            }
+        } else {
+            throw new LotsException(foodIndexOutOfBoundsErrorMessage);
+        }
+    }
+
+    /**
+     * Extention of editParticularOrder() to find the particular order to edit.
+     * 
+     * @param numberOfOrders Number of orders tagged to the person of interest.
+     * @param foodIndex Index of the order whose quantity is to be changed.
+     * @param quantity Quantity of food to be set.
+     * @param i Current index of individualFoodOrders array to search.
+     * @throws LotsException When foodIndex is more than number of food in menu or
+     * order quantity is less than 0.
+     */
+    private void findAndEditParticularOrder(int numberOfOrders, int foodIndex, int quantity, int i) throws LotsException {
+        if (individualFoodOrders[i] > 0) {
+            numberOfOrders++;
+        }
+        if (foodIndex + 1 == numberOfOrders) {
+            if (quantity == 0) {
+                deleteParticularOrder(foodIndex);
+            } else {
+                individualFoodOrders[i] = quantity;
+            }
+        }
+    }
+
+    /**
      * Checks if the individual order of this person is empty by checking
      * if the quantity of food orders are 0.
      *
