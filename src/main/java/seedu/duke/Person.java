@@ -87,7 +87,7 @@ public class Person {
      * @param foodIndex Index of the order whose quantity is to be changed.
      * @param quantity Quantity of food to be set.
      * @throws LotsException When foodIndex is more than number of food in menu or
-     * order quantity is less than 0.
+     *     order quantity is less than 0.
      */
     public void editParticularOrder(int foodIndex, int quantity) throws LotsException {
         int numberOfOrders = 0;
