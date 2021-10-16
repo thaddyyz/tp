@@ -28,10 +28,7 @@ class PeopleManagerTest {
         }
     }
 
-    @Test
-    public void countPeopleInList_listNotEmpty_normalResponse() {
-        assertEquals(3, peopleManager.countPeopleInList());
-    }
+
 
     @Test
     public void getSize_listNotEmpty_normalResponse() {
