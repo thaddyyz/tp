@@ -12,19 +12,6 @@ public class PeopleManager {
     }
 
     /**
-     * Loops through the list and count the number of people in the list.
-     *
-     * @return the counter of the number of people in the list.
-     */
-    public int countPeopleInList() {
-        int counter = 0;
-        for (int i = 0; i < listOfPeople.size(); i++) {
-            counter++;
-        }
-        return counter;
-    }
-
-    /**
      * Returns the person object given its index.
      *
      * @param personIndex The index of the person to retrieve.
