@@ -46,7 +46,7 @@ public class DeleteCommand extends Command {
     private boolean checkUserInput(String input) throws IllegalArgumentException {
         try {
             Pattern pattern = Pattern.compile(
-                "^delete [1-9][0-9]?/[1-9][0-9]{0,2}$", //max 999 food orders per pax
+                "^delete [1-9][0-9]?/[1-9][0-9]?$", //max 99 food orders per pax
                 Pattern.CASE_INSENSITIVE);
             Matcher matcher = pattern.matcher(input);
             return matcher.find();
