@@ -46,7 +46,7 @@ public class DeleteCommand extends Command {
     private boolean checkUserInput(String input) throws IllegalArgumentException {
         try {
             Pattern pattern = Pattern.compile(
-                "^delete [1-9][0-9]?\\/[a-zA-Z]$",
+                "^delete [1-9][0-9]?/[1-9][0-9]?$", //max 99 food orders per pax
                 Pattern.CASE_INSENSITIVE);
             Matcher matcher = pattern.matcher(input);
             return matcher.find();
@@ -79,7 +79,8 @@ public class DeleteCommand extends Command {
      */
     private int getOrderIndex(String deleteParams) throws IndexOutOfBoundsException, LotsException {
         int slashIndex = deleteParams.indexOf('/');
-        int orderIndexInInteger = Character.getNumericValue(deleteParams.charAt(slashIndex + 1)) - 10;
+        String orderIndexInString = deleteParams.substring(slashIndex + 1);
+        int orderIndexInInteger = Integer.parseInt(orderIndexInString) - 1;
         if (orderIndexInInteger < 0) {
             throw new LotsException("Please enter a valid order index!");
         }
