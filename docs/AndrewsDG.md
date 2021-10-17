@@ -6,10 +6,7 @@
 
 ## Design & implementation
 
-{Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
-
 ### Parser
-
 The purpose of the parser is to the command that the user has typed in and return its respective command
 object. The class diagram below is a brief overview of how the Parser is related to other classes.
 <br>![Class Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/ParserClassDiag-Page-1.jpg)
@@ -49,7 +46,7 @@ case "add":
 ```
 
 The upside of doing would be that there is less code overall.
-However, doing so would cause our code to have a higher amount of coupling and would also cause the code to be
+However, doing so would cause our code to have a higher amount of coupling and would also cause the code to be 
 messier and therefore harder to read. By having a command class for each respective command, this allows us
 to segregate all the necessary functions for each command in their own respective class, therefore making
 testing easier.
@@ -57,11 +54,21 @@ testing easier.
 ## Product scope
 ### Target user profile
 
-{Describe the target user profile}
+* User has good typing skills.
+* Is comfortable without GUI.
+* Tends to make large orders of food.
+* Wishes to track multiple different orders of food.
 
 ### Value proposition
 
-{Describe the value proposition: what problem does it solve?}
+* Large orders can be confusing to keep track, especially if orders are to different stores.
+* Allows users to keep track of bulk orders easily.
+* Easily keep track of costs.
+* Ensures that no orders are left out.
+* Knows which order belongs to which store.
+* Allow flexibility and control over what description you would like of your friends.  
+* Users are able to delete/edit entries quickly.
+* Comments on the food can also be described by you (e.g. No meat for BanMian).
 
 ## User Stories
 
