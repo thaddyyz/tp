@@ -77,14 +77,14 @@ public class Ui {
         double totalCost = 0;
         int currentItem = 97; //97 is the ascii for 'a'.
         int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
-        int[] currentIndividualOrders = currentPerson.individualFoodOrders;
+        Order[] currentIndividualOrders = currentPerson.individualFoodOrders;
         assert currentIndividualOrders != null : "Person must have food orders.";
         int index = 1;
         for (int i = 0; i < totalMenuItems; i++) {
-            if (currentIndividualOrders[i] != 0) {
-                double currentCost = currentIndividualOrders[i] * Menu.PRICELIST.get(i);
-                printWithoutBorder("\t(" + index + ") " + Menu.FOODLIST.get(i) + " | Quantity = "
-                        + currentIndividualOrders[i] + " | Cost = $" + String.format("%.2f", currentCost));
+            Order currentOrder = currentIndividualOrders[i];
+            if (currentOrder.getQuantity() != 0) {
+                double currentCost = currentOrder.getCost();
+                printWithoutBorder("\t(" + index + ") " + currentOrder);
                 totalCost = totalCost + currentCost;
                 currentItem++;
                 index++;
