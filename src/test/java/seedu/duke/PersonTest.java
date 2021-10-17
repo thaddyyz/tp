@@ -26,25 +26,6 @@ public class PersonTest {
             person.addFoodToIndividualFoodOrders(88, 1);
         });
     }
-    
-    @Test
-    public void removeFoodFromIndividualFoodOrders_menuIndexLessThanOne_expectException() {
-        Person person = new Person(TEST_NAME);
-        assertThrows(LotsException.class, () -> {
-            person.removeFoodFromIndividualFoodOrders(-1,1);
-        });
-        assertThrows(LotsException.class, () -> {
-            person.removeFoodFromIndividualFoodOrders(0,1);
-        });
-    }
-
-    @Test
-    public void removeFoodFromIndividualFoodOrders_moreThanTotalMenuItems_expectException() {
-        Person person = new Person(TEST_NAME);
-        assertThrows(LotsException.class, () -> {
-            person.removeFoodFromIndividualFoodOrders(88,1);
-        });
-    }
 
     /*@Test
     public void deleteParticularOrder_menuIndexOutOfBounds_throwsLotsException() {
