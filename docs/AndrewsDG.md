@@ -9,7 +9,7 @@
 ### Parser
 The purpose of the parser is to the command that the user has typed in and return its respective command
 object. The class diagram below is a brief overview of how the Parser is related to other classes.
-<br>![Adding Event](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/ParserClassDiag-Page-1.jpg)
+<br>![Class Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/ParserClassDiag-Page-1.jpg)
 <div markdown="span" class="alert alert-primary">
 
 :information_source: **Note:** Details of each specific command class & Duke have been omitted from this diagram.
@@ -30,7 +30,7 @@ The method will then parse `commandInString` through the switch cases and try to
 one of the known commands. If it is able to match it with a command, the method will instantiate
 it's respective command object and return it. Else it would return an `unnknownCommandClass` instead.
 Below is a sequence diagram modeling how the function works.
-<br> ![Adding Event](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/Parser%20Sequence%20Diag.jpg)
+<br> ![Sqeuence Diagram of Parser](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/Parser%20Sequence%20Diag.jpg)
 
 #### Alternate implementation
 
