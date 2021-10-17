@@ -12,10 +12,10 @@ public class PersonTest {
     public void addFoodToIndividualFoodOrders_menuIndexLessThanOne_expectException() {
         Person person = new Person(TEST_NAME);
         assertThrows(LotsException.class, () -> {
-            person.addFoodToIndividualFoodOrders(-1);
+            person.addFoodToIndividualFoodOrders(-1, 1);
         });
         assertThrows(LotsException.class, () -> {
-            person.addFoodToIndividualFoodOrders(0);
+            person.addFoodToIndividualFoodOrders(0, 1);
         });
     }
 
@@ -23,7 +23,7 @@ public class PersonTest {
     public void addFoodToIndividualFoodOrders_menuIndexOutOfBounds_expectException() {
         Person person = new Person(TEST_NAME);
         assertThrows(LotsException.class, () -> {
-            person.addFoodToIndividualFoodOrders(88);
+            person.addFoodToIndividualFoodOrders(88, 1);
         });
     }
     
@@ -39,7 +39,7 @@ public class PersonTest {
     }
 
     @Test
-    public void removeFoodFromIndividualFoodOrders_moreThantotalMenuItems_expectException() {
+    public void removeFoodFromIndividualFoodOrders_moreThanTotalMenuItems_expectException() {
         Person person = new Person(TEST_NAME);
         assertThrows(LotsException.class, () -> {
             person.removeFoodFromIndividualFoodOrders(88,1);

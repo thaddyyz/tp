@@ -34,9 +34,9 @@ public class Person {
      *
      * @param foodIndex Index of food in the menu.
      */
-    public void addFoodToIndividualFoodOrders(int foodIndex) throws LotsException {
+    public void addFoodToIndividualFoodOrders(int foodIndex, int foodQuantity) throws LotsException {
         if (foodIndex <= totalMenuItems && foodIndex > 0) {
-            individualFoodOrders[foodIndex - 1] = individualFoodOrders[foodIndex - 1] + 1;
+            individualFoodOrders[foodIndex - 1] = individualFoodOrders[foodIndex - 1] + foodQuantity;
         } else {
             throw new LotsException(foodIndexOutOfBoundsErrorMessage);
         }

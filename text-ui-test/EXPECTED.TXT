@@ -38,32 +38,32 @@ We have updated the order list for: test
 
 ============================================================================================
 We have updated the order list for: moretest
-	(1) Pork Rib Soup (Bak Kut Teh) | Quantity = 1 | Cost = $5.00
-[Total Cost = $5.00]
+	(1) Pork Rib Soup (Bak Kut Teh) | Quantity = 2 | Cost = $10.00
+[Total Cost = $10.00]
 
 ============================================================================================
 1) test:
 	(1) Ban Mian | Quantity = 1 | Cost = $3.00
 [Total Cost = $3.00]
 2) moretest:
-	(1) Pork Rib Soup (Bak Kut Teh) | Quantity = 1 | Cost = $5.00
-[Total Cost = $5.00]
+	(1) Pork Rib Soup (Bak Kut Teh) | Quantity = 2 | Cost = $10.00
+[Total Cost = $10.00]
 
 ============================================================================================
 We have updated the order list for: toDelete
-	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 1 | Cost = $3.50
-[Total Cost = $3.50]
+	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
+[Total Cost = $7.00]
 
 ============================================================================================
 1) test:
 	(1) Ban Mian | Quantity = 1 | Cost = $3.00
 [Total Cost = $3.00]
 2) moretest:
-	(1) Pork Rib Soup (Bak Kut Teh) | Quantity = 1 | Cost = $5.00
-[Total Cost = $5.00]
+	(1) Pork Rib Soup (Bak Kut Teh) | Quantity = 2 | Cost = $10.00
+[Total Cost = $10.00]
 3) toDelete:
-	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 1 | Cost = $3.50
-[Total Cost = $3.50]
+	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
+[Total Cost = $7.00]
 
 ============================================================================================
 Please enter a valid person's index followed by the order index! i.e. delete 1/a
@@ -72,11 +72,11 @@ Please enter a valid person's index followed by the order index! i.e. delete 1/a
 	(1) Ban Mian | Quantity = 1 | Cost = $3.00
 [Total Cost = $3.00]
 2) moretest:
-	(1) Pork Rib Soup (Bak Kut Teh) | Quantity = 1 | Cost = $5.00
-[Total Cost = $5.00]
+	(1) Pork Rib Soup (Bak Kut Teh) | Quantity = 2 | Cost = $10.00
+[Total Cost = $10.00]
 3) toDelete:
-	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 1 | Cost = $3.50
-[Total Cost = $3.50]
+	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
+[Total Cost = $7.00]
 
 ============================================================================================
 index | Food Name                         | Price
