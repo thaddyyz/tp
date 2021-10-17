@@ -7,9 +7,14 @@
 ## Design & implementation
 
 ### Parser
-The purpose of the parser is to handle the obtaining of the command that the user has typed in.
-This class diagram is a brief overview of how the Parser is related to other classes.<br>
-Image of class Diag here.
+The purpose of the parser is to the command that the user has typed in and return its respective command
+object. The class diagram below is a brief overview of how the Parser is related to other classes.
+<br>![Class Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/ParserClassDiag-Page-1.jpg)
+<div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:** Details of each specific command class & Duke have been omitted from this diagram.
+
+</div>
 
 Below is a step by step example on how the parser is used when a user keys in an input.
 Assuming the input is not going to be **null** or **blank**,
@@ -18,15 +23,33 @@ Step 1)<br>
 Lets assume the input passed in is `delete 1/2`. The method `getCommand()` would then split the user's
 input into an array of strings along the spaces and store them in the array `listOfInputs`. After which,
 it will get the user's command from the 0th array element and store it in another variable called `commandInString`.
-<br> insert Obj Diag here.<br>
+<br>
 
 Step 2)<br>
 The method will then parse `commandInString` through the switch cases and try to match it with
 one of the known commands. If it is able to match it with a command, the method will instantiate
 it's respective command object and return it. Else it would return an `unnknownCommandClass` instead.
 Below is a sequence diagram modeling how the function works.
-<br> Insert sequence diagram here
+<br> ![Sqeuence Diagram of Parser](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/Parser%20Sequence%20Diag.jpg)
 
+#### Alternate implementation
+
+Initially we thought of having each command's respective functions to be executed inside the switch statement.
+A rough example of the `delete` and `add` function can be seen below.
+```
+case "delete":
+    functionToDeleteTask(input);
+    break;
+case "add":
+    functionToAddTask(input);
+    break;
+```
+
+The upside of doing would be that there is less code overall.
+However, doing so would cause our code to have a higher amount of coupling and would also cause the code to be 
+messier and therefore harder to read. By having a command class for each respective command, this allows us
+to segregate all the necessary functions for each command in their own respective class, therefore making
+testing easier.
 
 ## Product scope
 ### Target user profile
