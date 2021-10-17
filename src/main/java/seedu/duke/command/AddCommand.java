@@ -45,7 +45,7 @@ public class AddCommand extends Command {
     public void execute() throws LotsException {
         if (personName != "" || foodIndex != -1 || foodQuantity != -1) {
             Person person = new Person(personName);
-            person.addFoodToIndividualFoodOrders(foodIndex);
+            person.addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
             super.peopleManager.addPerson(person);
             Ui.printAddedOrderMessage(person);
         } else {
