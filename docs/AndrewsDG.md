@@ -10,8 +10,10 @@
 The purpose of the parser is to the command that the user has typed in and return its respective command
 object. The class diagram below is a brief overview of how the Parser is related to other classes.
 <br>![Adding Event](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/ParserClassDiag-Page-1.jpg)
-<div markdown="span" class= "alert alert-info">
+<div markdown="span" class="alert alert-primary">
+
 :information_source: **Note:** Details of each specific command class & Duke have been omitted from this diagram.
+
 </div>
 
 Below is a step by step example on how the parser is used when a user keys in an input.
