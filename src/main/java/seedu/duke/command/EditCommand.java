@@ -27,7 +27,7 @@ public class EditCommand extends Command {
         String[] splitInput = input.split(" ");
         if (!checkUserInput(input)) {
             throw new LotsException("Please enter a valid person's index followed by the order index"
-                                    + " and order quantity! i.e. edit 1/1 /q 8 (wrong input test)");
+                                    + " and order quantity! i.e. edit 1/1 /q 8");
         }
         assert checkUserInput(input) == true : "Invalid edit input command";
         try {
@@ -45,12 +45,11 @@ public class EditCommand extends Command {
      * 
      * @param input The entire line of command entered by the user.
      * @return a boolean true if the user input passes the regex.
-     * @throws IllegalArgumentException when the pattern for Regex is not able to be interpreted.
      */
-    private boolean checkUserInput(String input) throws IllegalArgumentException {
+    private boolean checkUserInput(String input) {
         try {
             Pattern pattern = Pattern.compile(
-                "^edit [1-9][0-9]?/[1-9][0-9]? /q [0-9][0-9]?$", //max 99 food orders and quantity per pax
+                "^edit [1-9][0-9]?/[1-9][0-9]? /q \\d{1,3}?$", //max 99 food orders and quantity per pax
                 Pattern.CASE_INSENSITIVE);
             Matcher matcher = pattern.matcher(input);
             return matcher.find();
