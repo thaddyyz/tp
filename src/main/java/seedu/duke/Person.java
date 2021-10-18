@@ -95,14 +95,14 @@ public class Person {
      */
     private void findAndEditParticularOrder(int numberOfOrders, int foodIndex, int quantity, int i) 
         throws LotsException {
-        if (individualFoodOrders[i] > 0) {
+        if (individualFoodOrders[i].getQuantity() > 0) {
             numberOfOrders++;
         }
         if (foodIndex + 1 == numberOfOrders) {
             if (quantity == 0) {
                 deleteParticularOrder(foodIndex);
             } else {
-                individualFoodOrders[i] = quantity;
+                individualFoodOrders[i].setQuantity(quantity);
             }
         }
     }

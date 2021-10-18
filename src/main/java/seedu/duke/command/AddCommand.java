@@ -1,5 +1,6 @@
 package seedu.duke.command;
 
+import seedu.duke.PeopleManager;
 import seedu.duke.exceptions.LotsException;
 import seedu.duke.Menu;
 import seedu.duke.Person;
@@ -43,11 +44,14 @@ public class AddCommand extends Command {
      */
     @Override
     public void execute() throws LotsException {
-        if (personName != "" || foodIndex != -1 || foodQuantity != -1) {
+        checkNameMatch(personName);
+        if ((personName != "" || foodIndex != -1 || foodQuantity != -1) && !checkNameMatch(personName)) {
             Person person = new Person(personName);
             person.addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
             super.peopleManager.addPerson(person);
             Ui.printAddedOrderMessage(person);
+        } else if (checkNameMatch(personName)) {
+
         } else {
             throw new LotsException("Please enter a valid Add Command!");
         }
@@ -162,4 +166,13 @@ public class AddCommand extends Command {
         }
     }
 
+    private boolean checkNameMatch(String currName) {
+        int currNumOfPeople = peopleManager.getSize();
+        for (int i = 0; i < currNumOfPeople; i++) {
+            if (currName.equals(peopleManager.getName(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

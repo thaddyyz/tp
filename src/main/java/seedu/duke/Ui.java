@@ -58,7 +58,7 @@ public class Ui {
         } else {
             assert totalNumOfPeopleOrdered != 0 : "Order list cannot be empty.";
             for (int i = 0; i < totalNumOfPeopleOrdered; i++) {
-                String currentPersonName = peopleManager.getPerson(i).personName;
+                String currentPersonName = peopleManager.getName(i);
                 assert currentPersonName != null : "Person must exist.";
                 printWithoutBorder((i + 1) + ") " + currentPersonName + ":");
                 printIndividualPersonOrder(peopleManager.getPerson(i));
@@ -73,7 +73,7 @@ public class Ui {
      *
      * @param currentPerson Person entry in the list that is currently being accessed.
      */
-    private static void printIndividualPersonOrder(Person currentPerson) {
+    public static void printIndividualPersonOrder(Person currentPerson) {
         double totalCost = 0;
         int currentItem = 97; //97 is the ascii for 'a'.
         int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
