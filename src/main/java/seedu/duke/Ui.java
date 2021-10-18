@@ -58,7 +58,7 @@ public class Ui {
         } else {
             assert totalNumOfPeopleOrdered != 0 : "Order list cannot be empty.";
             for (int i = 0; i < totalNumOfPeopleOrdered; i++) {
-                String currentPersonName = peopleManager.getPerson(i).personName;
+                String currentPersonName = peopleManager.getName(i);
                 assert currentPersonName != null : "Person must exist.";
                 printWithoutBorder((i + 1) + ") " + currentPersonName + ":");
                 printIndividualPersonOrder(peopleManager.getPerson(i));
