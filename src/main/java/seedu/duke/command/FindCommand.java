@@ -21,6 +21,13 @@ public class FindCommand extends Command {
         }
     }
 
+    /**
+     * Checks if the search is contained in any of the names
+     * of the current order. If yes, prints it out.
+     * If not, prints the no names matched line.
+     *
+     * @throws LotsException If there's any error that only an admin can resolve.
+     */
     @Override
     public void execute() throws LotsException {
         boolean hasMatch;
@@ -98,10 +105,11 @@ public class FindCommand extends Command {
     }
 
     /**
-     * Regex to check User Input before creating the class.
+     * Returns true if input matches the regex provided,
+     * else false.
      *
      * @param input The user input in String.
-     * @return True if the user input passes the regex. Else false.
+     * @return True if the user input matches the regex. Else false.
      * @throws IllegalArgumentException Thrown when there is a pattern error.
      */
     private boolean checkUserInput(String input) {
