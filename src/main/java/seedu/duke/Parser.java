@@ -7,6 +7,7 @@ import seedu.duke.command.DeleteCommand;
 import seedu.duke.command.MenuCommand;
 import seedu.duke.command.OrdersCommand;
 import seedu.duke.command.UnknownCommand;
+import seedu.duke.command.EditCommand;
 import seedu.duke.exceptions.LotsException;
 
 public class Parser {
@@ -31,6 +32,8 @@ public class Parser {
             return new AddCommand(input);
         case (DeleteCommand.COMMAND_WORD):
             return new DeleteCommand(input);
+        case (EditCommand.COMMAND_WORD):
+            return new EditCommand(input);
         case (OrdersCommand.COMMAND_WORD):
             return new OrdersCommand(input);
         case (MenuCommand.COMMAND_WORD):
