@@ -126,4 +126,8 @@ public class Person {
         return false;
     }
 
+    public String getPersonName() {
+        return personName;
+    }
+
 }
