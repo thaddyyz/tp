@@ -73,7 +73,7 @@ public class Ui {
      *
      * @param currentPerson Person entry in the list that is currently being accessed.
      */
-    private static void printIndividualPersonOrder(Person currentPerson) {
+    public static void printIndividualPersonOrder(Person currentPerson) {
         double totalCost = 0;
         int currentItem = 97; //97 is the ascii for 'a'.
         int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
