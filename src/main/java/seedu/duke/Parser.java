@@ -4,6 +4,7 @@ import seedu.duke.command.AddCommand;
 import seedu.duke.command.ByeCommand;
 import seedu.duke.command.Command;
 import seedu.duke.command.DeleteCommand;
+import seedu.duke.command.FindCommand;
 import seedu.duke.command.MenuCommand;
 import seedu.duke.command.OrdersCommand;
 import seedu.duke.command.UnknownCommand;
@@ -38,6 +39,8 @@ public class Parser {
             return new OrdersCommand(input);
         case (MenuCommand.COMMAND_WORD):
             return new MenuCommand();
+        case (FindCommand.COMMAND_WORD):
+            return new FindCommand(input);
         case (ByeCommand.COMMAND_WORD):
             return new ByeCommand();
         default:
