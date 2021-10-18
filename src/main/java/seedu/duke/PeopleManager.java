@@ -44,6 +44,16 @@ public class PeopleManager {
     }
 
     /**
+     * Returns the name of the person object given the index.
+     *
+     * @param personIndex The index of the person to retrieve.
+     * @return Returns the String name of a particular index.
+     */
+    public String getName(int personIndex) {
+        return listOfPeople.get(personIndex).personName;
+    }
+
+    /**
      * Returns the number of people in the linked list.
      *
      * @return Returns the length of the linked list.
