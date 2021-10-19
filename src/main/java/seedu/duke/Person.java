@@ -50,61 +50,44 @@ public class Person {
      * @throws LotsException When order index is more than the number of orders.
      */
     public void deleteParticularOrder(int foodIndex) throws LotsException {
+        editParticularOrder(foodIndex, 0);
+    }
+
+    /**
+     * Sets the quantity of a particular food to quantity requested by user.
+     *
+     * @param foodIndex Index of the order whose quantity is to be changed.
+     * @param quantity  Quantity of food to be set.
+     * @throws LotsException When foodIndex is more than number of food in menu or
+     *                       order quantity is less than 0.
+     */
+    public void editParticularOrder(int foodIndex, int quantity) throws LotsException {
+        try {
+            int indexToEdit = getIndexToEdit(foodIndex);
+            individualFoodOrders[indexToEdit].setQuantity(quantity);
+        } catch (IndexOutOfBoundsException e) {
+            throw new LotsException("Please enter a valid order index!" + System.lineSeparator()
+                + "You can enter \"list\" to check your order index.");
+        }
+    }
+
+    /**
+     * Get the correct index of the Order array to be edited.
+     *
+     * @param foodIndex Index of the order whose quantity is to be changed.
+     * @return The index of Order array to be edited.
+     */
+    private int getIndexToEdit(int foodIndex) {
         int numberOfOrders = 0;
         for (int i = 0; i < totalMenuItems; i++) {
             if (individualFoodOrders[i].getQuantity() > 0) {
                 numberOfOrders++;
             }
             if (foodIndex + 1 == numberOfOrders) {
-                individualFoodOrders[i].setQuantity(0);
+                return i;
             }
         }
-        if (foodIndex + 1 > numberOfOrders) {
-            throw new LotsException("Please enter a valid order index!");
-        }
-    }
-
-    /**
-     * Sets the quantity of a particular food to quantity requested by user.
-     * 
-     * @param foodIndex Index of the order whose quantity is to be changed.
-     * @param quantity Quantity of food to be set.
-     * @throws LotsException When foodIndex is more than number of food in menu or
-     *     order quantity is less than 0.
-     */
-    public void editParticularOrder(int foodIndex, int quantity) throws LotsException {
-        int numberOfOrders = 0;
-        if (foodIndex <= totalMenuItems && foodIndex >= 0) {
-            for (int i = 0; i < totalMenuItems; i++) {
-                findAndEditParticularOrder(numberOfOrders, foodIndex, quantity, i);
-            }
-        } else {
-            throw new LotsException(foodIndexOutOfBoundsErrorMessage);
-        }
-    }
-
-    /**
-     * Extention of editParticularOrder() to find the particular order to edit.
-     * 
-     * @param numberOfOrders Number of orders tagged to the person of interest.
-     * @param foodIndex Index of the order whose quantity is to be changed.
-     * @param quantity Quantity of food to be set.
-     * @param i Current index of individualFoodOrders array to search.
-     * @throws LotsException When foodIndex is more than number of food in menu or
-     *     order quantity is less than 0.
-     */
-    private void findAndEditParticularOrder(int numberOfOrders, int foodIndex, int quantity, int i) 
-        throws LotsException {
-        if (individualFoodOrders[i].getQuantity() > 0) {
-            numberOfOrders++;
-        }
-        if (foodIndex + 1 == numberOfOrders) {
-            if (quantity == 0) {
-                deleteParticularOrder(foodIndex);
-            } else {
-                individualFoodOrders[i].setQuantity(quantity);
-            }
-        }
+        return -1;
     }
 
     /**
