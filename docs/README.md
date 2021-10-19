@@ -15,3 +15,4 @@ Useful links:
 * [User Guide](UserGuide.md)
 * [Developer Guide](DeveloperGuide.md)
 * [About Us](AboutUs.md)
+* [Setup For Developers](settingUp.md)
