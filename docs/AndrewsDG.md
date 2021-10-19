@@ -87,4 +87,5 @@ testing easier.
 
 ## Instructions for manual testing
 
-{Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
+Before jumping into the details of testing, please setup the project by following the
+instructions provided at [Developer setup steps](settingUp.md).
