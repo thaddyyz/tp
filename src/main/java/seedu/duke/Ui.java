@@ -58,7 +58,7 @@ public class Ui {
         } else {
             assert totalNumOfPeopleOrdered != 0 : "Order list cannot be empty.";
             for (int i = 0; i < totalNumOfPeopleOrdered; i++) {
-                String currentPersonName = peopleManager.getPerson(i).personName;
+                String currentPersonName = peopleManager.getName(i);
                 assert currentPersonName != null : "Person must exist.";
                 printWithoutBorder((i + 1) + ") " + currentPersonName + ":");
                 printIndividualPersonOrder(peopleManager.getPerson(i));
@@ -73,18 +73,18 @@ public class Ui {
      *
      * @param currentPerson Person entry in the list that is currently being accessed.
      */
-    private static void printIndividualPersonOrder(Person currentPerson) {
+    public static void printIndividualPersonOrder(Person currentPerson) {
         double totalCost = 0;
         int currentItem = 97; //97 is the ascii for 'a'.
         int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
-        int[] currentIndividualOrders = currentPerson.individualFoodOrders;
+        Order[] currentIndividualOrders = currentPerson.individualFoodOrders;
         assert currentIndividualOrders != null : "Person must have food orders.";
         int index = 1;
         for (int i = 0; i < totalMenuItems; i++) {
-            if (currentIndividualOrders[i] != 0) {
-                double currentCost = currentIndividualOrders[i] * Menu.PRICELIST.get(i);
-                printWithoutBorder("\t(" + index + ") " + Menu.FOODLIST.get(i) + " | Quantity = "
-                        + currentIndividualOrders[i] + " | Cost = $" + String.format("%.2f", currentCost));
+            Order currentOrder = currentIndividualOrders[i];
+            if (currentOrder.getQuantity() != 0) {
+                double currentCost = currentOrder.getCost();
+                printWithoutBorder("\t(" + index + ") " + currentOrder);
                 totalCost = totalCost + currentCost;
                 currentItem++;
                 index++;
@@ -100,6 +100,14 @@ public class Ui {
         printWithBorder("Alright, that order has been deleted from " + person.personName + "!");
     }
 
+    /**
+     * Prints a message to notify the user of the edit made to his order.
+     * Additionally, user's edited orders will printed to show changes made.
+     */
+    public static void printEditMessage(Person person, int foodIndex) {
+        printWithBorder("Order " + (foodIndex + 1) + " from " + person.personName + "'s order has been edited");
+        printIndividualPersonOrder(person);
+    }
 
     /**
      * Prints a message to notify the user of an empty order list.
