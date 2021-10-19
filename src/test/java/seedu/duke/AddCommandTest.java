@@ -1,11 +1,39 @@
 package seedu.duke;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import seedu.duke.command.AddCommand;
 import seedu.duke.command.Command;
 import seedu.duke.exceptions.LotsException;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AddCommandTest {
+
+    protected PeopleManager peopleManager = new PeopleManager();
+
+    @BeforeEach
+     void setUp() throws LotsException {
+        String[] names = {"Adam", "Markus", "Andrew"};
+        String[] foodIndex = {"2", "3", "4"};
+        PeopleManager.clearListOfPeople();
+
+        for (int i = 0; i < 3; i++) {
+            String sampleInput = "add /n " + names[i] + " /i " + foodIndex[i] + " /q 1";
+            Command command = new AddCommand(sampleInput);
+            command.setData(peopleManager);
+            command.execute();
+        }
+    }
+
+    @Test
+    public void execute_sameNameInput_listSizeRemainsThree() throws LotsException {
+        String input = "add /n Adam /i 3 /q 3";
+        Command command = new AddCommand(input);
+        command.setData(peopleManager);
+        command.execute();
+        assertEquals(3, peopleManager.getSize());
+    }
 
     @Test
     public void execute_foodIndexIsNegative_throwsLotsException()
