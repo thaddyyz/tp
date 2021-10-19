@@ -11,12 +11,18 @@ The purpose of the AddCommand is to take in the user input and split the input t
 The three categories are the input name, order index and quantity. These data will then be added into a new Person object, 
 which will be added into the list of People.
 The class diagram below is a brief overview of how the Parser is related to other classes.
-<br>![AddCommandDiagram](https://github.com/WaiKit-nus/tp/blob/AddCommandClassDG-WK/UMLdiagrams/AddCommandDiagram/AddCommandDiagram.drawio.png)
+<br>![AddCommandDiagram](https://raw.githubusercontent.com/WaiKit-nus/tp/AddCommandClassDG-WK/UMLdiagrams/AddCommandDiagram/AddCommandDiagram.jpg)
 <div markdown="span" class="alert alert-primary">
 
 :information_source: **Note:** Details of each specific command class & Duke have been omitted from this diagram.
 
 </div>
+
+Listed below is an example on the usage of Add Command.
+1) Example Command: `add /n Jacob /i 3 /q 2`. This command translates into adding a person named Jacob, ordering the 3rd food on the menu with 2 quantity.
+2) The Add command will take in this input from the Parser class, which will then split this input string into `personName`, `foodIndex` and `foodQuantity` respectively.
+A new `Person` object will be instantiated and the data `personName`, `foodIndex` and `foodQuantity` is passed into this object. 
+3) This `Person` object will be added into the `listOfPeople` in the `PeopleManager` class.  
 
 ## Product scope
 ### Target user profile
