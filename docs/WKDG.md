@@ -11,8 +11,12 @@ The purpose of the AddCommand is to take in the user input and split the input t
 The three categories are the input name, order index and quantity. These data will then be added into a new Person object, 
 which will be added into the list of People.
 The class diagram below is a brief overview of how the Parser is related to other classes.
+<br>![AddCommandDiagram](https://github.com/WaiKit-nus/tp/blob/AddCommandClassDG-WK/UMLdiagrams/AddCommandDiagram/AddCommandDiagram.drawio.png)
+<div markdown="span" class="alert alert-primary">
 
-![img.png](img.png)
+:information_source: **Note:** Details of each specific command class & Duke have been omitted from this diagram.
+
+</div>
 
 ## Product scope
 ### Target user profile
