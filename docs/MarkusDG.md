@@ -64,9 +64,24 @@ The purpose of the delete command is to delete a specific order from a particula
 Below is an example of how the deleteCommand class behaves at each step.
 Assume that there are 3 persons with 3 orders each.
 
-Step 1.<br>
+Step 1:<br>
+Assuming that the user execute `delete 1/2` command to delete the the order of index `‘2’` from the person of index `‘1’`, the parser would instantiate an object of deleteCommand class, which is a subclass of the Command class. In the constructor of the deleteCommand class, the input entered by the user would then be taken as a parameter.
 <br>
 
+Step 2:<br>
+The input is then split and initialised to its respectively attributes using the `getPersonIndex()` and `getFoodIndex()` methods. In this case, `'1'` would be initialised as personIndex and `'2'` as foodIndex. The deleteCommand class is then returned to Duke, the main program, via the Parser class.
+<br>
+
+Step 3:<br>
+Duke then calls the `execute()` method of deleteCommand, which executes the `deleteOrder()` method. An instance of peopleManager, initialised in the Command class, is parsed as a paramenter. 
+<br>
+
+Step 4:<br>
+Within the `deleteOrder()` method, the person whose order is to be deleted is initialised and the deletion of the order is done via `deleteParticularOrder()` of the Person class by changing the quantity of that particular order to 0 using `setQuantity()` in the Order class.
+<br>
+
+Step 5:<br>
+`printDeleteMessage()` is called to notify the user of the deletion and if the person no longer has any orders tagged to him, that paricular person would be deleted of the list too.
 
 ## Product scope
 ### Target user profile
