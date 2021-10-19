@@ -51,6 +51,23 @@ messier and therefore harder to read. By having a command class for each respect
 to segregate all the necessary functions for each command in their own respective class, therefore making
 testing easier.
 
+### Delete Command
+
+The purpose of the delete command is to delete a specific order from a particular person. The class diagram below shows the structure of the deleteCommand class and its relationship with other classes.  
+<br>![Class Diagram](https://github.com/AY2122S1-CS2113-T13-2/tp/blob/master/UMLdiagrams/DeleteCommandDiagram/DeleteCommand%20Class%20Diagram.jpg?raw=true)
+<div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:** This is not a full representation of all the classes. Only methods and attributes associated with the deleteCommand class is being shown.
+
+</div>
+
+Below is an example of how the deleteCommand class behaves at each step.
+Assume that there are 3 persons with 3 orders each.
+
+Step 1.<br>
+<br>
+
+
 ## Product scope
 ### Target user profile
 
