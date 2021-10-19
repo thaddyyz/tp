@@ -73,15 +73,16 @@ The input is then split and initialised to its respectively attributes using the
 <br>
 
 Step 3:<br>
-Duke then calls the `execute()` method of deleteCommand, which executes the `deleteOrder()` method. An instance of peopleManager, initialised in the Command class, is parsed as a paramenter. 
+Duke calls the `execute()` method of deleteCommand, which executes the `deleteOrder()` method. An instance of peopleManager, initialised in the Command class, is then parsed as a paramenter. 
 <br>
 
 Step 4:<br>
-Within the `deleteOrder()` method, the person whose order is to be deleted is initialised and the deletion of the order is done via `deleteParticularOrder()` of the Person class by changing the quantity of that particular order to 0 using `setQuantity()` in the Order class.
+Within the `deleteOrder()` method, the person whose order is to be deleted is initialised and the deletion of the order is done via `deleteParticularOrder()` of the Person class as only the Person class has access to the Order class which holds the quantity of the order. The quantity of that particular order is then changed to 0 using `setQuantity()` in the Order class. This is to encapsulate the quantity attribute so as to prevent any unauthorised parties from accessing them directly. 
 <br>
 
 Step 5:<br>
 `printDeleteMessage()` is called to notify the user of the deletion and if the person no longer has any orders tagged to him, that paricular person would be deleted of the list too.
+<br>
 
 ## Product scope
 ### Target user profile
