@@ -93,16 +93,16 @@ public class Person {
      * @throws LotsException When foodIndex is more than number of food in menu or
      *     order quantity is less than 0.
      */
-    private void findAndEditParticularOrder(int numberOfOrders, int foodIndex, int quantity, int i) 
+    private void findAndEditParticularOrder(int numberOfOrders, int foodIndex, int quantity, int index) 
         throws LotsException {
-        if (individualFoodOrders[i].getQuantity() > 0) {
+        if (individualFoodOrders[index].getQuantity() > 0) {
             numberOfOrders++;
         }
         if (foodIndex + 1 == numberOfOrders) {
             if (quantity == 0) {
                 deleteParticularOrder(foodIndex);
             } else {
-                individualFoodOrders[i].setQuantity(quantity);
+                individualFoodOrders[index].setQuantity(quantity);
             }
         }
     }
