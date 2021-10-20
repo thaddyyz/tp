@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-10-18T13:11:35.919Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36" etag="cJtQCBAI31e2Ui_W1xtA" version="15.5.4" type="github">
+<mxfile host="app.diagrams.net" modified="2021-10-19T16:17:08.895Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36" etag="5JOz4dyLA2fgTi2MSjU0" version="15.5.5" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="2893" dy="2217" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2893" dy="2274" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -15,7 +15,7 @@
         <mxCell id="zkfFHV4jXpPFQw0GAbJ--4" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
           <mxGeometry y="80" width="280" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="zkfFHV4jXpPFQw0GAbJ--5" value="- checkUserInput( input: String): boolean&#xa;- getPersonIndex( deleteParams: String): int&#xa;- getOrderIndex( deleteParams: String): int&#xa;- deletePersonIfEmpty(manager: PeopleManager,&#xa;  personToDeleteFrom: Person): void&#xa;- deleteOrder( manager: PeopleManager): void&#xa;+ DeleteCommand( input: String)&#xa;+ execute(): void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--5" value="- checkUserInput( input: String): boolean&#xa;- getPersonIndex( deleteParams: String): int&#xa;- getFoodIndex( deleteParams: String): int&#xa;- deletePersonIfEmpty(manager: PeopleManager,&#xa;  personToDeleteFrom: Person): void&#xa;- deleteOrder( manager: PeopleManager): void&#xa;+ DeleteCommand( input: String)&#xa;+ execute(): void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
           <mxGeometry y="88" width="280" height="122" as="geometry" />
         </mxCell>
         <mxCell id="zkfFHV4jXpPFQw0GAbJ--6" value="PeopleManager" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
@@ -112,6 +112,41 @@
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="9" y="-741" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vAi4WdHvtG3fF88lY3Bk-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=open;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="vAi4WdHvtG3fF88lY3Bk-9" target="XIEtqQQwirFNS3_s2sgC-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vAi4WdHvtG3fF88lY3Bk-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;endArrow=open;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="vAi4WdHvtG3fF88lY3Bk-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="9" y="-850" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-30" y="-1111" />
+              <mxPoint x="-30" y="-850" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vAi4WdHvtG3fF88lY3Bk-9" value="Duke" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="69" y="-1120" width="160" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="vAi4WdHvtG3fF88lY3Bk-11" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="vAi4WdHvtG3fF88lY3Bk-9">
+          <mxGeometry y="26" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="vAi4WdHvtG3fF88lY3Bk-19" value="Ui" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="360" y="-785" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vAi4WdHvtG3fF88lY3Bk-21" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="vAi4WdHvtG3fF88lY3Bk-19">
+          <mxGeometry y="26" width="250" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="vAi4WdHvtG3fF88lY3Bk-22" value="+ printDeleteMessage( person: Person): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="vAi4WdHvtG3fF88lY3Bk-19">
+          <mxGeometry y="34" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="vAi4WdHvtG3fF88lY3Bk-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=open;endFill=0;dashed=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="vAi4WdHvtG3fF88lY3Bk-22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="289" y="-738" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="289" y="-738" />
             </Array>
           </mxGeometry>
         </mxCell>
