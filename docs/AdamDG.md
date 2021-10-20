@@ -6,12 +6,12 @@
 
 ## Design & implementation
 
-###Orders Command
+### Orders Command
 
 The purpose of the OrdersCommand is to display the list of current orders stored. The class diagram below shows the structure of
 the OrdersCommand class and how it is related to the other classes.
 
-<br>![OrdersCommand Diagram](../UMLdiagrams/OrderCommandDiagram/OrderCommand Diagram.jpg)
+<br>![OrdersCommand Diagram](https://github.com/mohamad-adam8991/tp/blob/AdamDG_MA/UMLdiagrams/OrderCommandDiagram/OrderCommand%20Diagram.jpg)
 <div markdown="span" class="alert alert-primary">
 
 :information_source: **Note:** This diagram only shows methods and attributes related to the OrdersCommand class.
