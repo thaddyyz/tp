@@ -10,69 +10,6 @@ Unknown command. Please try again.
 ============================================================================================
 Unknown command. Please try again.
 ============================================================================================
-Unknown command. Please try again.
-============================================================================================
-Your order list is empty!
-============================================================================================
-Unknown command. Please try again.
-============================================================================================
-Please enter a valid Add Command!
-============================================================================================
-Unknown command. Please try again.
-============================================================================================
-Unknown command. Please try again.
-============================================================================================
-Please enter a valid Add Command!
-============================================================================================
-Please enter a valid Add Command!
-============================================================================================
-Please enter a valid Add Command!
-============================================================================================
-Please enter a valid Add Command!
-============================================================================================
-Please enter a valid Add Command!
-============================================================================================
-We have updated the order list for: test
-	(1) Ban Mian | Quantity = 1 | Cost = $3.00
-[Total Cost = $3.00]
-============================================================================================
-We have updated the order list for: moretest
-	(1) Pork Rib Soup (Bak Kut Teh) | Quantity = 2 | Cost = $10.00
-[Total Cost = $10.00]
-============================================================================================
-1) test:
-	(1) Ban Mian | Quantity = 1 | Cost = $3.00
-[Total Cost = $3.00]
-2) moretest:
-	(1) Pork Rib Soup (Bak Kut Teh) | Quantity = 2 | Cost = $10.00
-[Total Cost = $10.00]
-============================================================================================
-We have updated the order list for: toDelete
-	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
-[Total Cost = $7.00]
-============================================================================================
-1) test:
-	(1) Ban Mian | Quantity = 1 | Cost = $3.00
-[Total Cost = $3.00]
-2) moretest:
-	(1) Pork Rib Soup (Bak Kut Teh) | Quantity = 2 | Cost = $10.00
-[Total Cost = $10.00]
-3) toDelete:
-	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
-[Total Cost = $7.00]
-============================================================================================
-Please enter a valid person's index followed by the order index! i.e. delete 1/a
-============================================================================================
-1) test:
-	(1) Ban Mian | Quantity = 1 | Cost = $3.00
-[Total Cost = $3.00]
-2) moretest:
-	(1) Pork Rib Soup (Bak Kut Teh) | Quantity = 2 | Cost = $10.00
-[Total Cost = $10.00]
-3) toDelete:
-	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
-[Total Cost = $7.00]
-============================================================================================
 index | Food Name                         | Price
 --------------------------------------------------
 1       Ban Mian                            3.00
@@ -93,11 +30,130 @@ index | Food Name                         | Price
 --------------------------------------------------
 
 ============================================================================================
+Unknown command. Please try again.
+============================================================================================
+Your order list is empty!
+============================================================================================
+Unknown command. Please try again.
+============================================================================================
+Please enter a valid Add Command!
+============================================================================================
+Please enter a valid Add Command!
+============================================================================================
+Please enter a valid Add Command!
+============================================================================================
+Please enter a valid Add Command!
+============================================================================================
+Please enter a valid Add Command!
+============================================================================================
+Please enter a valid Add Command!
+============================================================================================
+Index out of range. Please try again!
+============================================================================================
+Please enter a valid Add Command!
+============================================================================================
+We have updated the order list for: tim
+	(1) Chicken Rice | Quantity = 3 | Cost = $9.00
+[Total Cost = $9.00]
+============================================================================================
+We have updated the order list for: tim
+	(1) Chicken Rice | Quantity = 3 | Cost = $9.00
+	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 2 | Cost = $6.00
+[Total Cost = $15.00]
+============================================================================================
+We have updated the order list for: tim
+	(1) Ban Mian | Quantity = 3 | Cost = $9.00
+	(2) Chicken Rice | Quantity = 3 | Cost = $9.00
+	(3) Minced MeatNoodles(Ba Chor Mee) | Quantity = 2 | Cost = $6.00
+[Total Cost = $24.00]
+============================================================================================
+We have updated the order list for: tim
+	(1) Ban Mian | Quantity = 5 | Cost = $15.00
+	(2) Chicken Rice | Quantity = 3 | Cost = $9.00
+	(3) Minced MeatNoodles(Ba Chor Mee) | Quantity = 2 | Cost = $6.00
+[Total Cost = $30.00]
+============================================================================================
+Alright, order 3 has been deleted from tim!
+	(1) Ban Mian | Quantity = 5 | Cost = $15.00
+	(2) Chicken Rice | Quantity = 3 | Cost = $9.00
+[Total Cost = $24.00]
+============================================================================================
+We have updated the order list for: aim
+	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
+[Total Cost = $7.00]
+============================================================================================
+We have updated the order list for: aim
+	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
+	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 1 | Cost = $3.00
+[Total Cost = $10.00]
+============================================================================================
+Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8
+============================================================================================
+Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8
+============================================================================================
+Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8
+============================================================================================
+Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8
+============================================================================================
+Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8
+============================================================================================
+Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8
+============================================================================================
+Order 2 from aim's order has been edited
+	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
+	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 4 | Cost = $12.00
+[Total Cost = $19.00]
+============================================================================================
+Order 1 from tim's order has been edited
+	(1) Chicken Rice | Quantity = 3 | Cost = $9.00
+[Total Cost = $9.00]
+============================================================================================
+1) tim:
+	(1) Chicken Rice | Quantity = 3 | Cost = $9.00
+[Total Cost = $9.00]
+2) aim:
+	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
+	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 4 | Cost = $12.00
+[Total Cost = $19.00]
+============================================================================================
+Wrong format for command Find. E.g) find /n <String to find>
+============================================================================================
+Wrong format for command Find. E.g) find /n <String to find>
+============================================================================================
+Wrong format for command Find. E.g) find /n <String to find>
+============================================================================================
+2) aim:
+	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
+	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 4 | Cost = $12.00
+[Total Cost = $19.00]
+
+============================================================================================
+1) tim:
+	(1) Chicken Rice | Quantity = 3 | Cost = $9.00
+[Total Cost = $9.00]
+2) aim:
+	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
+	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 4 | Cost = $12.00
+[Total Cost = $19.00]
+
+============================================================================================
+Alright, order 1 has been deleted from tim!
+============================================================================================
 Please enter a valid person's index followed by the order index! i.e. delete 1/a
+============================================================================================
+Unknown command. Please try again.
 ============================================================================================
 Please enter a valid person's index followed by the order index! i.e. delete 1/a
 ============================================================================================
 Please enter a valid person's index followed by the order index! i.e. delete 1/a
+============================================================================================
+Alright, order 1 has been deleted from aim!
+	(1) Minced MeatNoodles(Ba Chor Mee) | Quantity = 4 | Cost = $12.00
+[Total Cost = $12.00]
+============================================================================================
+Alright, order 1 has been deleted from aim!
+============================================================================================
+Your order list is empty!
 ============================================================================================
 Thank you for using L.O.T.S! Good bye!
 ============================================================================================
