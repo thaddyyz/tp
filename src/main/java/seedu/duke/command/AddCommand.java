@@ -1,5 +1,6 @@
 package seedu.duke.command;
 
+import seedu.duke.PeopleManager;
 import seedu.duke.exceptions.LotsException;
 import seedu.duke.Menu;
 import seedu.duke.Person;
@@ -35,7 +36,9 @@ public class AddCommand extends Command {
     }
 
     /**
-     * Adds a new person with the given attributes into the list of people.
+     * Adds a new person with the given attributes into the list of people. If person
+     * already exists in the list of people, the order will be added to the existing
+     * entries' attributes instead.
      * If it did not pass regex, it will throw new exception and no new addition of
      * person to the list of people will happen.
      *
@@ -43,11 +46,16 @@ public class AddCommand extends Command {
      */
     @Override
     public void execute() throws LotsException {
-        if (personName != "" || foodIndex != -1 || foodQuantity != -1) {
+        if ((personName != "" || foodIndex != -1 || foodQuantity != -1)
+                && getMatchedIndex(personName) > peopleManager.getSize()) {
             Person person = new Person(personName);
-            person.addFoodToIndividualFoodOrders(foodIndex);
-            peopleManager.addPerson(person);
+            person.addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
+            super.peopleManager.addPerson(person);
             Ui.printAddedOrderMessage(person);
+        } else if (getMatchedIndex(personName) <= peopleManager.getSize()) {
+            int currIndex = getMatchedIndex(personName);
+            peopleManager.getPerson(currIndex).addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
+            Ui.printAddedOrderMessage(peopleManager.getPerson(currIndex));
         } else {
             throw new LotsException("Please enter a valid Add Command!");
         }
@@ -107,6 +115,7 @@ public class AddCommand extends Command {
      */
     private static String getPersonName(String input, int indexOfFirstSlash, int indexOfSecondSlash) {
         String tempPersonName = input.substring(indexOfFirstSlash + 2, indexOfSecondSlash - 1);
+        assert tempPersonName != null : "Input to Person Name cannot be NULL!";
         return tempPersonName.trim();
     }
 
@@ -122,6 +131,7 @@ public class AddCommand extends Command {
     private static int getFoodIndex(String input, int indexOfSecondSlash, int indexOfThirdSlash)
             throws NumberFormatException, LotsException {
         String subStringFoodIndex = input.substring(indexOfSecondSlash + 2, indexOfThirdSlash - 1).trim();
+        assert subStringFoodIndex != "" : "Input to AddCommand Cannot be NULL!";
         try {
             int foodIndex = Integer.parseInt(subStringFoodIndex);
             if (foodIndex > Menu.TOTAL_MENU_ITEMS || foodIndex <= 0) {
@@ -146,6 +156,7 @@ public class AddCommand extends Command {
     private static int getFoodQuantity(String input, int indexOfThirdSlash)
             throws NumberFormatException, LotsException {
         String subStringFoodQuantity = input.substring(indexOfThirdSlash + 2).trim();
+        assert subStringFoodQuantity != "" : "Input to AddCommand Cannot be NULL!";
         try {
             int foodQuantity = Integer.parseInt(subStringFoodQuantity);
             if (foodQuantity > 1000 || foodQuantity <= 0) {
@@ -159,4 +170,19 @@ public class AddCommand extends Command {
         }
     }
 
+    /**
+     * Function to get the index of existing name in the list if a match is found.
+     *
+     * @param currName Name of person to be found in list.
+     * @return Index of matched entry.
+     */
+    private int getMatchedIndex(String currName) {
+        int currNumOfPeople = peopleManager.getSize();
+        for (int i = 0; i < currNumOfPeople; i++) {
+            if (currName.equals(peopleManager.getName(i))) {
+                return i;
+            }
+        }
+        return currNumOfPeople + 1;
+    }
 }
