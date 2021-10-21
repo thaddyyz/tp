@@ -25,6 +25,6 @@ public class OrdersCommand extends Command {
      */
     @Override
     public void execute() throws LotsException {
-        Ui.printOrdersList(peopleManager);
+        Ui.printOrdersList(super.peopleManager);
     }
 }

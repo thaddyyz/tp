@@ -30,7 +30,7 @@ public class DeleteCommand extends Command {
         assert checkUserInput(input) == true : "Invalid delete input command";
         try {
             personIndex = getPersonIndex(splitInput[1]);
-            foodIndex = getOrderIndex(splitInput[1]);
+            foodIndex = getFoodIndex(splitInput[1]);
         } catch (NullPointerException | IndexOutOfBoundsException | NumberFormatException e) {
             throw new LotsException("Please enter a valid person's index followed by the order index! i.e. delete 1/a");
         }
@@ -46,7 +46,7 @@ public class DeleteCommand extends Command {
     private boolean checkUserInput(String input) throws IllegalArgumentException {
         try {
             Pattern pattern = Pattern.compile(
-                "^delete [1-9][0-9]?\\/[a-zA-Z]$",
+                "^delete [1-9][0-9]?/[1-9][0-9]?$", //max 99 food orders per pax
                 Pattern.CASE_INSENSITIVE);
             Matcher matcher = pattern.matcher(input);
             return matcher.find();
@@ -77,14 +77,15 @@ public class DeleteCommand extends Command {
      * @throws IndexOutOfBoundsException When "/" is not found in the string.
      * @throws LotsException             When the order index is out of range.
      */
-    private int getOrderIndex(String deleteParams) throws IndexOutOfBoundsException, LotsException {
+    private int getFoodIndex(String deleteParams) throws IndexOutOfBoundsException, LotsException {
         int slashIndex = deleteParams.indexOf('/');
-        int orderIndexInInteger = Character.getNumericValue(deleteParams.charAt(slashIndex + 1)) - 10;
-        if (orderIndexInInteger < 0) {
+        String foodIndexInString = deleteParams.substring(slashIndex + 1);
+        int foodIndexInInteger = Integer.parseInt(foodIndexInString) - 1;
+        if (foodIndexInInteger < 0) {
             throw new LotsException("Please enter a valid order index!");
         }
-        assert orderIndexInInteger >= 0 : "Order index cannot be negative.";
-        return orderIndexInInteger;
+        assert foodIndexInInteger >= 0 : "Order index cannot be negative.";
+        return foodIndexInInteger;
     }
 
     /**
@@ -95,7 +96,7 @@ public class DeleteCommand extends Command {
     @Override
     public void execute() throws LotsException {
         try {
-            deleteOrder(peopleManager);
+            deleteOrder(super.peopleManager);
         } catch (IndexOutOfBoundsException e) {
             throw new LotsException("Please enter a valid person's index followed by the order index! i.e. delete 1/a");
         }
@@ -114,7 +115,7 @@ public class DeleteCommand extends Command {
             Person personToDeleteFrom = manager.getPerson(personIndex);
             assert personToDeleteFrom != null : "Person does not exists.";
             personToDeleteFrom.deleteParticularOrder(foodIndex);
-            Ui.printDeleteMessage(personToDeleteFrom);
+            Ui.printDeleteMessage(personToDeleteFrom, foodIndex);
             deletePersonIfEmpty(manager, personToDeleteFrom);
         }
     }

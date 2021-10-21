@@ -12,19 +12,6 @@ public class PeopleManager {
     }
 
     /**
-     * Loops through the list and count the number of people in the list.
-     *
-     * @return the counter of the number of people in the list.
-     */
-    public int countPeopleInList() {
-        int counter = 0;
-        for (int i = 0; i < listOfPeople.size(); i++) {
-            counter++;
-        }
-        return counter;
-    }
-
-    /**
      * Returns the person object given its index.
      *
      * @param personIndex The index of the person to retrieve.
@@ -57,6 +44,16 @@ public class PeopleManager {
     }
 
     /**
+     * Returns the name of the person object given the index.
+     *
+     * @param personIndex The index of the person to retrieve.
+     * @return Returns the String name of a particular index.
+     */
+    public String getName(int personIndex) {
+        return listOfPeople.get(personIndex).personName;
+    }
+
+    /**
      * Returns the number of people in the linked list.
      *
      * @return Returns the length of the linked list.
@@ -67,6 +64,14 @@ public class PeopleManager {
 
     public boolean isEmpty() {
         return listOfPeople.isEmpty();
+    }
+
+    /**
+     * Clears the arraylist of people
+     * stored. Mainly used before each test method.
+     */
+    public static void clearListOfPeople() {
+        listOfPeople.clear();
     }
 
 }
