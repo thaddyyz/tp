@@ -196,8 +196,8 @@ public class AddCommand extends Command {
     private void checkNumOfPeopleOutOfLimit() throws LotsException {
         int currTotalPeople = peopleManager.getSize();
         if (currTotalPeople + 1 > 99) {
-            throw new LotsException("Maximum number of people reached! Please make sure the total number of people" +
-                    "ordering is less than 100.");
+            throw new LotsException("Maximum number of people reached! Please make sure the total number of people"
+                    + "ordering is less than 100.");
         }
     }
 
@@ -216,8 +216,9 @@ public class AddCommand extends Command {
             totalOrderQuantity = totalOrderQuantity + currPersonFoodQuantity;
         }
         if (totalOrderQuantity > 999) {
-            throw new LotsException("Total quantity of food orders has exceeded the limit! " +
-                    "Please make sure that the total quantity of all orders is less than 1000");        }
+            throw new LotsException("Total quantity of food orders has exceeded the limit! "
+                    + "Please make sure that the total quantity of all orders is less than 1000");
+        }
     }
 
 }
