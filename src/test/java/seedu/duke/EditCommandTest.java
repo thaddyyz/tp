@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class EditCommandTest {
 
-    static protected PeopleManager peopleManager = new PeopleManager();
+    protected static PeopleManager peopleManager = new PeopleManager();
 
     @BeforeAll
     public static void setUp() throws LotsException {
