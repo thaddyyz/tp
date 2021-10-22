@@ -84,6 +84,46 @@ Step 5:<br>
 `printDeleteMessage()` is called to notify the user of the deletion and if the person no longer has any orders tagged to him, that paricular person would be deleted from the list too.
 <br>
 
+### Orders Command
+
+The purpose of the OrdersCommand is to display the list of current orders stored. The class diagram below shows the structure of
+the OrdersCommand class and how it is related to the other classes.
+
+<br>![OrdersCommand Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/OrderCommandDiagram/OrderCommand%20Diagram.jpg)
+<div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:** This diagram only shows methods and attributes related to the OrdersCommand class.
+
+</div>
+
+Below is an example of how the OrdersCommand is used, assuming that there are orders currently stored.
+1) Taking in the input `list`, the parser will instantiate an OrdersCommand object, which in turn is returned to the
+   main duke program.
+2) When the main duke program calls the `execute()` method of OrdersCommand, the `printOrdersList()` method of the UI
+   class is executed.
+3) Within the `printOrdersList()` method, the method loops through each person stored in the PeopleManager to print the
+   names of all persons currently stored. On top of that, `printIndividualPersonOrder()` is called to print the `foodIndex` and
+   `quantity` data stored for each person.
+
+###Add Command
+The purpose of the AddCommand is to take in the user input and split the input to three different categories.
+The three categories are the input name, order index and quantity. These data will then be added into a new Person object,
+which will be added into the list of People.
+The class diagram below is a brief overview of how the AddCommand is related to other classes.
+
+<br>![AddCommandDiagram](https://raw.githubusercontent.com/WaiKit-nus/tp/AddCommandClassDG-WK/UMLdiagrams/AddCommandDiagram/AddCommandDiagram.jpg)
+<div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:** Details of each specific command class & Duke have been omitted from this diagram.
+
+</div>
+
+Listed below is an example on the usage of Add Command.
+1) Example Command: `add /n Jacob /i 3 /q 2`. This command translates into adding a person named Jacob, ordering the 3rd food on the menu with 2 quantity.
+2) The Add command will take in this input from the Parser class, which will then split this input string into `personName`, `foodIndex` and `foodQuantity` respectively.
+   A new `Person` object will be instantiated and the data `personName`, `foodIndex` and `foodQuantity` is passed into this object.
+3) This `Person` object will be added into the `listOfPeople` in the `PeopleManager` class.
+
 ## Product scope
 ### Target user profile
 
