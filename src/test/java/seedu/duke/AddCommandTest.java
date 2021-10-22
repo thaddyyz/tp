@@ -6,6 +6,8 @@ import seedu.duke.command.AddCommand;
 import seedu.duke.command.Command;
 import seedu.duke.exceptions.LotsException;
 
+import java.util.LongSummaryStatistics;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AddCommandTest {
@@ -225,6 +227,32 @@ public class AddCommandTest {
             command.execute();
         } catch (LotsException | NumberFormatException e) {
             System.out.println("Name cannot be more than 50 spaces. \n");
+        }
+    }
+
+    @Test
+    public void execute_numberOfPeopleExceedsLimit_throwsLotsException() throws Exception {
+        try {
+            PeopleManager.clearListOfPeople();
+            for (int i = 0; i < 100; i++) {
+                String sampleInput = "add /n " + i + " /i 1 /q 1";
+                Command command = new AddCommand(sampleInput);
+                command.setData(peopleManager);
+                command.execute();
+            }
+        } catch (LotsException e) {
+            System.out.println("Total number of people cannot be more than 99. \n");
+        }
+    }
+
+    @Test
+    public void execute_numberOfTotalOrdersExceedsLimit_throwsLotsException() throws Exception {
+        try {
+            Command command = new AddCommand("add /n Adam /i 1 /q 999");
+            command.setData(peopleManager);
+            command.execute();
+        } catch (LotsException e) {
+            System.out.println("Total number of orders cannot be more than 999. \n");
         }
     }
 }
