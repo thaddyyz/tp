@@ -50,6 +50,13 @@ class EditCommandTest {
     }
 
     @Test
+    void execute_quantityOverLimit_expectException() throws LotsException {
+        String input = "edit 2/1 /q 1000";
+        assertThrows(LotsException.class,
+            () -> new EditCommand(input));
+    }
+
+    @Test
     void execute_inputWithoutFoodIndex_expectException() {
         String input = "edit 2 /q 4";
         assertThrows(LotsException.class,
