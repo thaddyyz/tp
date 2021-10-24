@@ -89,7 +89,7 @@ Step 5:<br>
 The purpose of the OrdersCommand is to display the list of current orders stored. The class diagram below shows the structure of
 the OrdersCommand class and how it is related to the other classes.
 
-<br>![OrdersCommand Diagram](https://github.com/mohamad-adam8991/tp/blob/AdamDG_MA/UMLdiagrams/OrderCommandDiagram/OrderCommand%20Diagram.jpg)
+<br>![OrdersCommand Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/OrderCommandDiagram/OrderCommand%20Diagram.jpg)
 <div markdown="span" class="alert alert-primary">
 
 :information_source: **Note:** This diagram only shows methods and attributes related to the OrdersCommand class.
@@ -104,6 +104,46 @@ Below is an example of how the OrdersCommand is used, assuming that there are or
 3) Within the `printOrdersList()` method, the method loops through each person stored in the PeopleManager to print the
    names of all persons currently stored. On top of that, `printIndividualPersonOrder()` is called to print the `foodIndex` and
    `quantity` data stored for each person.
+
+### Add Command
+The purpose of the AddCommand is to take in the user input and split the input to three different categories.
+The three categories are the input name, order index and quantity. These data will then be added into a new Person object,
+which will be added into the list of People.
+The class diagram below is a brief overview of how the AddCommand is related to other classes.
+
+<br>![AddCommandDiagram](https://raw.githubusercontent.com/WaiKit-nus/tp/AddCommandClassDG-WK/UMLdiagrams/AddCommandDiagram/AddCommandDiagram.jpg)
+<div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:** Details of each specific command class & Duke have been omitted from this diagram.
+
+</div>
+
+Listed below is an example on the usage of Add Command.
+1) Example Command: `add /n Jacob /i 3 /q 2`. This command translates into adding a person named Jacob, ordering the 3rd food on the menu with 2 quantity.
+2) The Add command will take in this input from the Parser class, which will then split this input string into `personName`, `foodIndex` and `foodQuantity` respectively.
+   A new `Person` object will be instantiated and the data `personName`, `foodIndex` and `foodQuantity` is passed into this object.
+3) This `Person` object will be added into the `listOfPeople` in the `PeopleManager` class.
+
+### Edit Command
+The purpose of the edit is allow the user to edit his order quantity.
+The class diagram below is a brief overview of how the EditCommand class is related to other classes.
+<br>![Class Diagram](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/editCommandClassDiagram.jpg)
+<div markdown="span" class="alert alert-primary">
+<br>
+
+#### Alternate implementation
+
+The EditCommand function can be integrated with the deleteCommand class.
+```
+
+```
+
+The upside of doing would be that there is less code overall.
+However, doing so would result in multiple functions being in the same class which would:
+1. Make the code messier.
+2. Make the code more vulnerable to functionality bugs.
+3. Make the code more complex to debug.
+4. Make testing process more complicated.
 
 ## Product scope
 ### Target user profile
