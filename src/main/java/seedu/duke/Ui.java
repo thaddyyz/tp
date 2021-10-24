@@ -51,7 +51,7 @@ public class Ui {
      */
     public static String readInput() {
         String input = SC.nextLine();
-        return input.strip();
+        return input.replaceAll("\\s{2,}", " ").strip();
     }
 
     /**

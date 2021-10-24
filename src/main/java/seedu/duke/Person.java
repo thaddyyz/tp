@@ -28,16 +28,19 @@ public class Person {
      * Individual Food order list will be populated with 0 on initialisation.
      *
      * @param personName Name of the person.
+     * @throws LotsException if the quantity for this particular food exceeds 999.
      */
-    public Person(String personName) {
+    public Person(String personName) throws LotsException {
         this.personName = personName;
         setupIndividualFoodOrders();
     }
 
     /**
      * Used to populate the array with 0 from index 1 to total_menu_items(10).
+     *
+     * @throws LotsException if the quantity for this particular food exceeds 999.
      */
-    private void setupIndividualFoodOrders() {
+    private void setupIndividualFoodOrders() throws LotsException {
         for (int i = 0; i < totalMenuItems; i++) {
             individualFoodOrders[i] = new Order(i, 0);
         }
@@ -51,6 +54,9 @@ public class Person {
     public void addFoodToIndividualFoodOrders(int foodIndex, int foodQuantity) throws LotsException {
         if (foodIndex <= totalMenuItems && foodIndex > 0) {
             int updatedQuantity = individualFoodOrders[foodIndex - 1].getQuantity() + foodQuantity;
+            if (updatedQuantity > 999) {
+                throw new LotsException("Please keep the food quantity to less than 1000!");
+            }
             individualFoodOrders[foodIndex - 1].setQuantity(updatedQuantity);
         } else {
             throw new LotsException(foodIndexOutOfBoundsErrorMessage);
@@ -83,6 +89,19 @@ public class Person {
             throw new LotsException("Please enter a valid order index!" + System.lineSeparator()
                 + "You can enter \"list\" to check your order index.");
         }
+    }
+
+    /**
+     * Get the total food order quantity of the particular person.
+     *
+     * @return numOfOrders Total food order quantity.
+     */
+    public int getIndividualOrdersQuantity() {
+        int numOfOrders = 0;
+        for (int i = 0; i < totalMenuItems; i++) {
+            numOfOrders = numOfOrders + individualFoodOrders[i].getQuantity();
+        }
+        return numOfOrders;
     }
 
     /**
