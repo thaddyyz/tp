@@ -12,7 +12,7 @@ The logical component of the program consists multiple classes. Namely: `Parser`
 the various child class of `Command`.
 The class diagram below is a brief overview of how the `Parser` & the various `Command` class
 are related to one another.
-<br>![Class Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/ParserClassDiag-Page-1.jpg)
+<br>Insert Abstract Class diagram here
 <div markdown="span" class="alert alert-primary">
 
 :information_source: **Note:** Details of each specific command class & Duke have been omitted from this diagram.
@@ -36,6 +36,8 @@ Below is a brief explanation on how the logical component works.
 All the specific types of command class are a child class of `Command` to allow the program
 to treat all commands the same when they return from the `Parser` class. Below is a quick overview
 of how the `Parser` class works.
+
+![Class Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/ParserClassDiag-Page-1.jpg)
 
 1) `Parser` checks to make sure input is neither blank nor empty.
 2) The command word of the input (e.g.`"add"`, `"edit"`) is put through a switch statement.
