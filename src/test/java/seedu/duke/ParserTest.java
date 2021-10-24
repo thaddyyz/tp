@@ -37,4 +37,18 @@ public class ParserTest {
         output.setData(manager);
         assertThrows(LotsException.class,() -> output.execute());
     }
+
+    @Test
+    public void addCommand_AddMoreThan999Quanitity_ThrowError() throws Exception {
+        String com = "add /n a /i 1 /q 999";
+        PeopleManager manager = new PeopleManager();
+        PeopleManager.clearListOfPeople();
+        Command output = Parser.getCommand(com);
+        output.setData(manager);
+        output.execute();
+        com = "add /n a /i 1 /q 1";
+        Command last = Parser.getCommand(com);
+        last.setData(manager);
+        assertThrows(LotsException.class, () -> last.execute());
+    }
 }

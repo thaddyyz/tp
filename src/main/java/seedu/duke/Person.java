@@ -40,6 +40,9 @@ public class Person {
     public void addFoodToIndividualFoodOrders(int foodIndex, int foodQuantity) throws LotsException {
         if (foodIndex <= totalMenuItems && foodIndex > 0) {
             int updatedQuantity = individualFoodOrders[foodIndex - 1].getQuantity() + foodQuantity;
+            if (updatedQuantity > 999) {
+                throw new LotsException("Please keep the food quantity to less than 1000!");
+            }
             individualFoodOrders[foodIndex - 1].setQuantity(updatedQuantity);
         } else {
             throw new LotsException(foodIndexOutOfBoundsErrorMessage);
