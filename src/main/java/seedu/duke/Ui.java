@@ -22,6 +22,13 @@ public class Ui {
     }
 
     /**
+     * Prints the border.
+     */
+    public static void printBorder() {
+        System.out.println(BORDER);
+    }
+
+    /**
      * Prints the string provided followed by the border.
      *
      * @param stringToPrint The string to output to user.
@@ -43,7 +50,7 @@ public class Ui {
      */
     public static String readInput() {
         String input = SC.nextLine();
-        return input.strip();
+        return input.replaceAll("\\s{2,}", " ").strip();
     }
 
     /**
@@ -63,7 +70,7 @@ public class Ui {
                 printWithoutBorder((i + 1) + ") " + currentPersonName + ":");
                 printIndividualPersonOrder(peopleManager.getPerson(i));
             }
-            printWithBorder("");
+            printBorder();
         }
     }
 
@@ -90,14 +97,18 @@ public class Ui {
                 index++;
             }
         }
-        printWithoutBorder("[Total Cost = $" + String.format("%.2f", totalCost) + "]");
+        if (totalCost > 0.00) {
+            printWithoutBorder("[Total Cost = $" + String.format("%.2f", totalCost) + "]");
+        }
     }
 
     /**
      * Prints a message to notify the user of the deletion of an order.
      */
-    public static void printDeleteMessage(Person person) {
-        printWithBorder("Alright, that order has been deleted from " + person.personName + "!");
+    public static void printDeleteMessage(Person person, int foodIndex) {
+        printWithoutBorder("Alright, order " + (foodIndex + 1) + " has been deleted from " + person.personName + "!");
+        printIndividualPersonOrder(person);
+        printBorder();
     }
 
     /**
@@ -105,8 +116,9 @@ public class Ui {
      * Additionally, user's edited orders will printed to show changes made.
      */
     public static void printEditMessage(Person person, int foodIndex) {
-        printWithBorder("Order " + (foodIndex + 1) + " from " + person.personName + "'s order has been edited");
+        printWithoutBorder("Order " + (foodIndex + 1) + " from " + person.personName + "'s order has been edited");
         printIndividualPersonOrder(person);
+        printBorder();
     }
 
     /**
@@ -125,7 +137,7 @@ public class Ui {
         assert person != null : "Person object cannot be null when adding!";
         printWithoutBorder("We have updated the order list for: " + person.personName);
         printIndividualPersonOrder(person);
-        printWithBorder("");
+        printBorder();
     }
 
     public static void printMenuHeader() {

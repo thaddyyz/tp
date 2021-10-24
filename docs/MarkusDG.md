@@ -8,7 +8,7 @@
 
 ### Parser
 The purpose of the parser is to the command that the user has typed in and return its respective command
-object. The class diagram below is a brief overview of how the Parser is related to other classes.  
+object. The class diagram below is a brief overview of how the Parser is related to other classes.
 <br>![Class Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/ParserClassDiag-Page-1.jpg)
 <div markdown="span" class="alert alert-primary">
 
@@ -29,7 +29,7 @@ Step 2)<br>
 The method will then parse `commandInString` through the switch cases and try to match it with
 one of the known commands. If it is able to match it with a command, the method will instantiate
 it's respective command object and return it. Else it would return an `unnknownCommandClass` instead.
-Below is a sequence diagram modeling how the function works.  
+Below is a sequence diagram modeling how the function works.
 <br> ![Sqeuence Diagram of Parser](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/Parser%20Sequence%20Diag.jpg)
 
 #### Alternate implementation
@@ -46,15 +46,15 @@ case "add":
 ```
 
 The upside of doing would be that there is less code overall.
-However, doing so would cause our code to have a higher amount of coupling and would also cause the code to be
+However, doing so would cause our code to have a higher amount of coupling and would also cause the code to be 
 messier and therefore harder to read. By having a command class for each respective command, this allows us
 to segregate all the necessary functions for each command in their own respective class, therefore making
-testing easier.  
+testing easier.
 
 ### Delete Command
 
 The purpose of the delete command is to delete a specific order from a particular person. The class diagram below shows the structure of the deleteCommand class and its relationship with other classes.  
-<br>![Class Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/DeleteCommandDiagram/DeleteCommand%20Diagram.jpg?raw=true)
+<br>![Class Diagram](https://github.com/markuslyq/tp/blob/master/UMLdiagrams/DeleteCommandDiagram/DeleteCommand%20Diagram.jpg?raw=true)
 <div markdown="span" class="alert alert-primary">
 
 :information_source: **Note:** This is not a full representation of all the classes. Only methods and attributes associated with the deleteCommand class is being shown.
@@ -73,7 +73,7 @@ The input is then split and initialised to its respectively attributes using the
 <br>
 
 Step 3:<br>
-Duke calls the `execute()` method of deleteCommand, which executes `deleteOrder()`. An instance of peopleManager, initialised in the Command class, is then parsed as a paramenter. 
+Duke calls the `execute()` method of deleteCommand, which executes the `deleteOrder()` method. An instance of peopleManager, initialised in the Command class, is then parsed as a paramenter. 
 <br>
 
 Step 4:<br>
@@ -81,69 +81,8 @@ Within the `deleteOrder()` method, the person whose order is to be deleted is in
 <br>
 
 Step 5:<br>
-`printDeleteMessage()` is called to notify the user of the deletion and if the person no longer has any orders tagged to him, that paricular person would be deleted from the list too.
+`printDeleteMessage()` is called to notify the user of the deletion and if the person no longer has any orders tagged to him, that paricular person would be deleted of the list too.
 <br>
-
-### Orders Command
-
-The purpose of the OrdersCommand is to display the list of current orders stored. The class diagram below shows the structure of
-the OrdersCommand class and how it is related to the other classes.
-
-<br>![OrdersCommand Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/OrderCommandDiagram/OrderCommand%20Diagram.jpg)
-<div markdown="span" class="alert alert-primary">
-
-:information_source: **Note:** This diagram only shows methods and attributes related to the OrdersCommand class.
-
-</div>
-
-Below is an example of how the OrdersCommand is used, assuming that there are orders currently stored.
-1) Taking in the input `list`, the parser will instantiate an OrdersCommand object, which in turn is returned to the
-   main duke program.
-2) When the main duke program calls the `execute()` method of OrdersCommand, the `printOrdersList()` method of the UI
-   class is executed.
-3) Within the `printOrdersList()` method, the method loops through each person stored in the PeopleManager to print the
-   names of all persons currently stored. On top of that, `printIndividualPersonOrder()` is called to print the `foodIndex` and
-   `quantity` data stored for each person.
-
-### Add Command
-The purpose of the AddCommand is to take in the user input and split the input to three different categories.
-The three categories are the input name, order index and quantity. These data will then be added into a new Person object,
-which will be added into the list of People.
-The class diagram below is a brief overview of how the AddCommand is related to other classes.
-
-<br>![AddCommandDiagram](https://raw.githubusercontent.com/WaiKit-nus/tp/AddCommandClassDG-WK/UMLdiagrams/AddCommandDiagram/AddCommandDiagram.jpg)
-<div markdown="span" class="alert alert-primary">
-
-:information_source: **Note:** Details of each specific command class & Duke have been omitted from this diagram.
-
-</div>
-
-Listed below is an example on the usage of Add Command.
-1) Example Command: `add /n Jacob /i 3 /q 2`. This command translates into adding a person named Jacob, ordering the 3rd food on the menu with 2 quantity.
-2) The Add command will take in this input from the Parser class, which will then split this input string into `personName`, `foodIndex` and `foodQuantity` respectively.
-   A new `Person` object will be instantiated and the data `personName`, `foodIndex` and `foodQuantity` is passed into this object.
-3) This `Person` object will be added into the `listOfPeople` in the `PeopleManager` class.
-
-### Edit Command
-The purpose of the edit is allow the user to edit his order quantity.
-The class diagram below is a brief overview of how the EditCommand class is related to other classes.
-<br>![Class Diagram](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/editCommandClassDiagram.jpg)
-<div markdown="span" class="alert alert-primary">
-<br>
-
-#### Alternate implementation
-
-The EditCommand function can be integrated with the deleteCommand class.
-```
-
-```
-
-The upside of doing would be that there is less code overall.
-However, doing so would result in multiple functions being in the same class which would:
-1. Make the code messier.
-2. Make the code more vulnerable to functionality bugs.
-3. Make the code more complex to debug.
-4. Make testing process more complicated.
 
 ## Product scope
 ### Target user profile
@@ -160,7 +99,7 @@ However, doing so would result in multiple functions being in the same class whi
 * Easily keep track of costs.
 * Ensures that no orders are left out.
 * Knows which order belongs to which store.
-* Allow flexibility and control over what description you would like of your friends.
+* Allow flexibility and control over what description you would like of your friends.  
 * Users are able to delete/edit entries quickly.
 * Comments on the food can also be described by you (e.g. No meat for BanMian).
 
@@ -181,4 +120,5 @@ However, doing so would result in multiple functions being in the same class whi
 
 ## Instructions for manual testing
 
-{Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
+Before jumping into the details of testing, please setup the project by following the
+instructions provided at [Developer setup steps](settingUp.md).

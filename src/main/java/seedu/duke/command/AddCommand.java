@@ -1,6 +1,5 @@
 package seedu.duke.command;
 
-import seedu.duke.PeopleManager;
 import seedu.duke.exceptions.LotsException;
 import seedu.duke.Menu;
 import seedu.duke.Person;
@@ -43,9 +42,12 @@ public class AddCommand extends Command {
      * person to the list of people will happen.
      *
      * @throws LotsException Throws a new LotsException when the command is invalid.
+     * @throws LotsException Throws a new LotsException when exceeding limit of total people.
      */
     @Override
     public void execute() throws LotsException {
+        checkNumOfPeopleOutOfLimit();
+        //checkQuantityOutOfLimit();
         if ((personName != "" || foodIndex != -1 || foodQuantity != -1)
                 && getMatchedIndex(personName) > peopleManager.getSize()) {
             Person person = new Person(personName);
@@ -185,4 +187,38 @@ public class AddCommand extends Command {
         }
         return currNumOfPeople + 1;
     }
+
+    /**
+     * Function to check if the total number of people in the list will exceed the limit of 99 after adding.
+     *
+     * @throws LotsException when the total number of people exceeds the limit after adding.
+     */
+    private void checkNumOfPeopleOutOfLimit() throws LotsException {
+        int currTotalPeople = peopleManager.getSize();
+        if (currTotalPeople + 1 > 99) {
+            throw new LotsException("Maximum number of people reached! Please make sure the total number of people"
+                    + "ordering is less than 100.");
+        }
+    }
+
+    /**
+     * Function to check if the total quantity of orders of every person in the list will exceed the limit of 999 after
+     * adding.
+     *
+     * @throws LotsException when the total quantity of orders exceeds the limit
+     */
+    private void checkQuantityOutOfLimit() throws LotsException {
+        int totalOrderQuantity = foodQuantity;
+        int currTotalPeople = peopleManager.getSize();
+        for (int i = 0; i < currTotalPeople; i++) {
+            Person currPerson = peopleManager.getPerson(i);
+            int currPersonFoodQuantity = currPerson.getIndividualOrdersQuantity();
+            totalOrderQuantity = totalOrderQuantity + currPersonFoodQuantity;
+        }
+        if (totalOrderQuantity > 999) {
+            throw new LotsException("Total quantity of food orders has exceeded the limit! "
+                    + "Please make sure that the total quantity of all orders is less than 1000");
+        }
+    }
+
 }
