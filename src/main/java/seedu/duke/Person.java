@@ -72,6 +72,19 @@ public class Person {
     }
 
     /**
+     * Get the total food order quantity of the particular person.
+     *
+     * @return numOfOrders Total food order quantity.
+     */
+    public int getIndividualOrdersQuantity() {
+        int numOfOrders = 0;
+        for (int i = 0; i < totalMenuItems; i++) {
+            numOfOrders = numOfOrders + individualFoodOrders[i].getQuantity();
+        }
+        return numOfOrders;
+    }
+
+    /**
      * Get the correct index of the Order array to be edited.
      *
      * @param foodIndex Index of the order whose quantity is to be changed.
