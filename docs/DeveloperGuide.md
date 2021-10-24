@@ -124,6 +124,27 @@ Listed below is an example on the usage of Add Command.
    A new `Person` object will be instantiated and the data `personName`, `foodIndex` and `foodQuantity` is passed into this object.
 3) This `Person` object will be added into the `listOfPeople` in the `PeopleManager` class.
 
+### Edit Command
+The purpose of the edit is allow the user to edit his order quantity.
+The class diagram below is a brief overview of how the EditCommand class is related to other classes.
+<br>![Class Diagram](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/editCommandClassDiagram.jpg)
+<div markdown="span" class="alert alert-primary">
+<br>
+
+#### Alternate implementation
+
+The EditCommand function can be integrated with the deleteCommand class.
+```
+
+```
+
+The upside of doing would be that there is less code overall.
+However, doing so would result in multiple functions being in the same class which would:
+1. Make the code messier.
+2. Make the code more vulnerable to functionality bugs.
+3. Make the code more complex to debug.
+4. Make testing process more complicated.
+
 ## Product scope
 ### Target user profile
 
