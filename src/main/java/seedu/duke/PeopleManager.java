@@ -72,7 +72,7 @@ public class PeopleManager {
      */
     public int getTotalNumberOfOrdersEveryone() {
         int totalQuantity = 0;
-        for(int i = 0; i < listOfPeople.size(); i++) {
+        for (int i = 0; i < listOfPeople.size(); i++) {
             totalQuantity = totalQuantity + listOfPeople.get(i).getTotalNumberOfOrders();
         }
         return totalQuantity;

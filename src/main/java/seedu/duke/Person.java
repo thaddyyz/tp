@@ -15,8 +15,8 @@ public class Person {
      */
     public int getTotalNumberOfOrders() {
         int counter = 0;
-        for(int i = 0; i < individualFoodOrders.length; i++) {
-            if(individualFoodOrders[i].getQuantity() != 0) {
+        for (int i = 0; i < individualFoodOrders.length; i++) {
+            if (individualFoodOrders[i].getQuantity() != 0) {
                 counter = counter + individualFoodOrders[i].getQuantity();
             }
         }
