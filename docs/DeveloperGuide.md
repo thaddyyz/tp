@@ -105,7 +105,7 @@ Below is an example of how the OrdersCommand is used, assuming that there are or
    names of all persons currently stored. On top of that, `printIndividualPersonOrder()` is called to print the `foodIndex` and
    `quantity` data stored for each person.
 
-###Add Command
+### Add Command
 The purpose of the AddCommand is to take in the user input and split the input to three different categories.
 The three categories are the input name, order index and quantity. These data will then be added into a new Person object,
 which will be added into the list of People.
