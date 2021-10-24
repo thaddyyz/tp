@@ -14,16 +14,19 @@ public class Person {
      * Individual Food order list will be populated with 0 on initialisation.
      *
      * @param personName Name of the person.
+     * @throws LotsException if the quantity for this particular food exceeds 999.
      */
-    public Person(String personName) {
+    public Person(String personName) throws LotsException {
         this.personName = personName;
         setupIndividualFoodOrders();
     }
 
     /**
      * Used to populate the array with 0 from index 1 to total_menu_items(10).
+     *
+     * @throws LotsException if the quantity for this particular food exceeds 999.
      */
-    private void setupIndividualFoodOrders() {
+    private void setupIndividualFoodOrders() throws LotsException {
         for (int i = 0; i < totalMenuItems; i++) {
             individualFoodOrders[i] = new Order(i, 0);
         }

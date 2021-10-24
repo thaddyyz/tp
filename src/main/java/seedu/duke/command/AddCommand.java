@@ -47,7 +47,7 @@ public class AddCommand extends Command {
     @Override
     public void execute() throws LotsException {
         checkNumOfPeopleOutOfLimit();
-        checkQuantityOutOfLimit();
+        //checkQuantityOutOfLimit();
         if ((personName != "" || foodIndex != -1 || foodQuantity != -1)
                 && getMatchedIndex(personName) > peopleManager.getSize()) {
             Person person = new Person(personName);

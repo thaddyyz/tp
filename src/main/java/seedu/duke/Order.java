@@ -1,5 +1,7 @@
 package seedu.duke;
 
+import seedu.duke.exceptions.LotsException;
+
 import java.util.ArrayList;
 
 public class Order {
@@ -16,11 +18,13 @@ public class Order {
      *
      * @param foodIndex Index of food to be added to the order.
      * @param quantity Quantity of food items to be added to the order.
+     * @throws LotsException if the quantity for this particular food exceeds 999.
      */
-    public Order(int foodIndex, int quantity) {
+    public Order(int foodIndex, int quantity) throws LotsException {
         this.foodIndex = foodIndex;
         this.foodName = menuList.get(foodIndex);
         this.quantity = quantity;
+        checkQuantity();
         this.costOfOrder = quantity * priceList.get(foodIndex);
     }
 
@@ -28,8 +32,9 @@ public class Order {
      * Function to update quantity of a particular order to a specified value.
      * @param quantityToSet Quantity of food items to be set.
      */
-    public void setQuantity(int quantityToSet) {
+    public void setQuantity(int quantityToSet) throws LotsException {
         this.quantity = quantityToSet;
+        checkQuantity();
         this.costOfOrder = quantityToSet * priceList.get(foodIndex);
     }
 
@@ -58,5 +63,16 @@ public class Order {
      */
     public String toString() {
         return foodName + " | Quantity = " + quantity + " | Cost = $" + String.format("%.2f", costOfOrder);
+    }
+
+    /**
+     * Checks if the quantity for this particular food exceeds 999.
+     *
+     * @throws LotsException if the quantity for this particular food exceeds 999.
+     */
+    public void checkQuantity() throws LotsException {
+        if (quantity > 999) {
+            throw new LotsException("Please keep the food quantity to less than 1000!");
+        }
     }
 }

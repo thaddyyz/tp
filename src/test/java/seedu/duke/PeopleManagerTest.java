@@ -17,7 +17,7 @@ class PeopleManagerTest {
      * This method will only run once for this test class.
      */
     @BeforeAll
-    public static void setUp() {
+    public static void setUp() throws LotsException {
         peopleManager = new PeopleManager();
         String[] names = {"Markus", "Adam", "Andrew"};
         PeopleManager.clearListOfPeople();
