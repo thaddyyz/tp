@@ -24,10 +24,16 @@ Listed below is an example on the usage of Add Command.
 A new `Person` object will be instantiated and the data `personName`, `foodIndex` and `foodQuantity` is passed into this object. 
 3) This `Person` object will be added into the `listOfPeople` in the `PeopleManager` class.  
 
-## Product scope
-### Target user profile
+## Implementation
+This section describes how the commands are implemented. Explanations and sequence diagrams are used to describe the implementation process.
 
-{Describe the target user profile}
+### Proposed Implementation for Menu Command Class and Order Command Class
+
+Command word to invoke the Menu and Order class: `menu` and `order`.
+
+The purpose of Menu Command class is to instantiate the menu of which the user can order from. By invoking `menu`, the menu will be printed on the console for the user to see.
+
+The purpose of Order Command class is to 
 
 ### Value proposition
 
