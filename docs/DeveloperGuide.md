@@ -4,7 +4,40 @@
 
 {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
 
-## Design & implementation
+## Design 
+
+### Logical Component
+The partial class diagram of the `Logical` compoenet is as such:  
+<br>![Logical Component Partial Class Diagram](https://github.com/markuslyq/tp/blob/master/UMLdiagrams/LogicalComponentDiagrams/Logical%20Component%20Diagram-Page-2.jpg?raw=true)
+<div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:** Specific command names are represented using a placeholder `'Abc'`, i.e. AddCommand, FindCommand.
+
+</div>
+
+Explanation on the way the `Logical` componenet works:  
+1. Upon receiving the user's input to excecute a specific command, it calls the `Parser` to interpret and parse the user's command. 
+2. A particular `Command` object is then initialised and returned back to `Duke`, the main program.
+3. `Duke` executes the command, which communicates with the `Manager` to perform its specific function, i.e. add a food order.  
+
+The class diagram below is a brief overview of how the `Parser` is used in parsing the user's command.  
+<br>![Parser Class Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/ParserClassDiag-Page-1.jpg)
+<div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:** Details of each specific command class & Duke have been omitted from this diagram.
+
+</div>
+  
+Explanation on how the parsing is done:
+1. Upon receiving the user's input string from `Duke`, the `Parser` split the user's input into an array of strings.
+2. It then interprets the string and try to match it with one of the known commands.
+3. The respective command (i.e. `DeleteCommand`) object will be initialised and returned back to `Duke` as a `Command` object. (`UnknownCommand` object is return
+if there is no match)
+  
+The following sequence diagram depicts how the `Logical` components interact with one another upon receiving the user's input of `"delete 1/2"`.  
+<br>![Logical Component Partial Class Diagram](https://github.com/markuslyq/tp/blob/master/UMLdiagrams/DeleteCommandDiagram/DeleteCommand%20Sequence%20Diagram.jpg?raw=true)  
+
+## Implementation
 
 ### Parser
 The purpose of the parser is to the command that the user has typed in and return its respective command
