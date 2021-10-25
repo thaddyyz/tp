@@ -244,11 +244,11 @@ The instructions below give a brief overview on how to test the functions manual
 - :information_source: More test cases can be found in each of their respective test class under
   `src/test/java/seedu.duke`
 
-[Starting up & Shutting down](#Starting-up-&-Shutting-down)
-<br> [Add function](#Add-Function)
-<br> [Edit function](#Edit-Function)
-<br> [Find function](#Find-Function)
-<br> [Delete function](#Delete-Function)
+[Starting up & Shutting down](#starting-up-&-shutting-down)
+<br> [Add function](#add-function)
+<br> [Edit function](#edit-function)
+<br> [Find function](#find-function)
+<br> [Delete function](#delete-function)
 
 ---
 
