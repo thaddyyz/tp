@@ -195,17 +195,125 @@ for each command in their own respective class, therefore making testing easier 
 
 |Version| As a ... | I want to ... | So that I can ...|
 |--------|----------|---------------|------------------|
-|v1.0|new user|see usage instructions|refer to them when I forget how to use the application|
-|v2.0|user|find a to-do item by name|locate a to-do without having to go through the entire list|
+|v1.0|New student on campus|View the menu.|Avoid having to go down physically to the shops.|
+|v1.0|User|View the current orders with their names attached.|Able to track who ordered what.|
+|v1.0|User|Add my choices of food from the menu.| Track what orders I plan to get.|
+|v1.0|User|Delete order's that I've added.|So i can remove orders if someone changes their mind.|
+|v2.0|New User|Easily understand how to use the app.| Navigate the program with ease.| 
+|v2.0|Person ordering for a group.|View the cost breakdown for the current order.| Know how much each person owes me.|
+|v2.0|Person ordering for a large group.|View the total number of orders keyed in.| Ensure that everyone has ordered.|
+|v2.0|User|Amend existing orders.|Edit an order without having to re-type it.|
+|v2.0|Person ordering for a large group.|Find a specific order by name.|Easy know what they ordered without having to scroll through.|
+|v2.5|Tech illiterate| View a user guide.| Learn how to use the program.|
+|-|Person ordering for a group| Track everyone's food allergies.| Avoid ordering the wrong order.|
+|-|Person ordering food for friends| Track what add-ons my friends want.|Track how much it is and won't forget about it.|
+|-|Lecturer| Know how many people does a food serve.|Easily order food for the class.|
+|-|Host of a party| Sort the menu based on categories| Keep track of different varieties of food.|
+|-|Indecisive user| View recommendations based on my frequent orders.| Simplify my ordering process.|
+|-|Non-local| View the menu with descriptions in multiple languages.| Order food without a language barrier.|
+|-|User with poor data| Download the menu and order list.| Track my orders even without the internet.|
+|-|User| View if a food item is sold out.| Decide whether to order from another store.|
+|-|Health conscious user| View the nutritional value of a food.| Easily track my diet.|
+|-|Ordering for a large group| View the recommended serving size.| Decide on how much food to order.|
+|-|Recurring user| Store my favourite food| Easily find what I like.|
+|-|Recurring user| Saved my food orders| Easily place my regular order again.|
+|-|User| Retrieve my previous order.| Place my previous orders again.|
+|-|User| View menu from a file| Avoid having to scroll through the whole menu.|
+|-|User| Track who has paid| Know who still owes me money.|
 
 ## Non-Functional Requirements
 
-{Give non-functional requirements}
+- Program should be able to work on most Operating Systems such as `Windows`, `Linux`,
+`OS-X` & `Unix`.
+  
+- User needs to have Java `11` or above installed in order for the program to work.
+  
+- The program should be able to support up to all these values stated below.
+   - Up to `99` _Unique person_ at a time. 
+   - Maximum of `99` _Unique Food_ items in the menu.
+   - Maximum of `999` quantity for each distinct food item in a person's order.
 
 ## Glossary
 
-* *glossary item* - Definition
+* `Unique Person` - Every entry with a different name counts as a unique person.
+* `Unique Food`   - Every element in the food array menu counts as a unique food.
 
 ## Instructions for manual testing
+The instructions below give a brief overview on how to test the functions manually.
 
-{Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
+- :information_source: More test cases can be found in each of their respective test class under
+`src/test/java/seedu.duke`
+
+[Starting up & Shutting down](#Starting-up-&-Shutting-down)
+<br> [Add function](#Add-Function)
+<br> [Edit function](#Edit-Function)
+<br> [Find function](#Find-Function)
+<br> [Delete function](#Delete-Function)
+
+---
+
+### Starting up & Shutting down
+1) To begin, download the .jar file and place it in a folder.
+2) Open the CLI at the file location and run by the jar file by giving the command,
+`java -jar <jar file name>.jar`
+   - E.g) With `CS2113T.jar` the command would be `java -jar CS2113T.jar`
+3) To end the program, enter the command `bye` or simply close the CLI window.
+
+---
+
+### Add Function
+- The format of the command is `add /n <name> /i <index> /q <quanity>`
+- Prerequisite: The `Menu` has to contain at least `2` food item.
+
+| **Test Case** | **Command** | **Expected Result** |
+|:------------:|:-------------|:--------------------|
+|Add 1 person.|`add /n abc /i 1 /q 2`| Adds person named `abc` with `2` quantities of item `1`|
+|Add a different order to the same person.| `add /n abc /i 2 /q 1`| Person `abc` should have 2 distinct orders under him|
+|Add on to an existing order.| `add /n abc /i 1 /q 1`| Person `abc` order `1` quantity should increase by 1|
+|Missing parameters| `add /n /i /q`| Error message to user|
+|Exceeding more than 999 quantity| `add /n abc /i 1 /q 1000`| Error message to user|
+|Food item not on the menu| `add /n abc /i 0 /q 1` | Error message to user|
+
+---
+
+### Edit Function
+- The format of the command is `edit <person index>/<order index> /q <quantity>`
+- Prerequisite: The current list has to contain at least `2` person each with `2` 
+  distinct orders.
+
+| **Test Case** | **Command** | **Expected Result** |
+|:-------------:|:------------|:-------------------|
+|Edit order quantity to 3| `edit 1/1 /q 3`| Order 1 of person number 1 now has 3 quantity|
+|Edit order to 0|`edit 1/2 /q 0`| 2nd order of person number 1 should deleted|
+|Missing parameters| `edit 1/2 /q`| Error message to user|
+|Edit order to more than 999| `edit 1/1 /q 1000`| Error message to user|
+|Edit order out of food/person index| `edit 1/999 /q 2`| Error message to user|
+
+---
+
+### Find Function
+- The format of the command is `find /n <name>`
+- Prerequisite: Contains 2 person with names of `abc` & `bcd`.
+   - The above names are just for testing purposes.
+   
+| **Test Case** | **Command** | **Expected Result** |
+|:-------------:|:----------|:---------------------|
+|Find person `abc`| `find /n abc`| list person `abc`|
+|Find person with substring| `find /n ab`| list person `abc`|
+|Find multiple people| `find /n bc`| list both `abc` & `bcd`|
+|Missing parameters| `find /n`| Error message to user|
+|Person does not exists| `find /n zzz`| Inform that no names match|
+
+---
+
+### Delete Function
+- The format of the command is `delete <person index>/<order index>`
+- Prerequisite: The current list has to contain at least `2` person each with `2` 
+  distinct orders.
+
+| **Test Case** | **Command** | **Expected Result** |
+|:-------------:|:-------------|:-------------------|
+|Delete an order| `delete 1/1` | Order 1 of person 1 is deleted|
+|Delete all orders from a person| `delete 1/1`| Person should not be listed anymore|
+|Missing parameters| `delete 1/`| Error message to user|
+|Out of index| `delete 100/1`| Error message to user|
