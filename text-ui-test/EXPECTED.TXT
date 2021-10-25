@@ -61,6 +61,13 @@ We have updated the order list for: tim
 	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 2 | Cost = $6.00
 [Total Cost = $15.00] [Total Quantity = 5]
 ============================================================================================
+SUMMARY: [Total number of People: 1] [Total number of Orders: 5]
+--------------------------------------------------
+1) tim:
+	(1) Chicken Rice | Quantity = 3 | Cost = $9.00
+	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 2 | Cost = $6.00
+[Total Cost = $15.00] [Total Quantity = 5]
+============================================================================================
 We have updated the order list for: tim
 	(1) Ban Mian | Quantity = 3 | Cost = $9.00
 	(2) Chicken Rice | Quantity = 3 | Cost = $9.00
@@ -68,6 +75,14 @@ We have updated the order list for: tim
 [Total Cost = $24.00] [Total Quantity = 8]
 ============================================================================================
 We have updated the order list for: tim
+	(1) Ban Mian | Quantity = 5 | Cost = $15.00
+	(2) Chicken Rice | Quantity = 3 | Cost = $9.00
+	(3) Minced MeatNoodles(Ba Chor Mee) | Quantity = 2 | Cost = $6.00
+[Total Cost = $30.00] [Total Quantity = 10]
+============================================================================================
+SUMMARY: [Total number of People: 1] [Total number of Orders: 10]
+--------------------------------------------------
+1) tim:
 	(1) Ban Mian | Quantity = 5 | Cost = $15.00
 	(2) Chicken Rice | Quantity = 3 | Cost = $9.00
 	(3) Minced MeatNoodles(Ba Chor Mee) | Quantity = 2 | Cost = $6.00
@@ -100,6 +115,17 @@ Please enter a valid person's index followed by the order index and order quanti
 Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8
 ============================================================================================
 Order 2 from aim's order has been edited
+	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
+	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 4 | Cost = $12.00
+[Total Cost = $19.00] [Total Quantity = 6]
+============================================================================================
+SUMMARY: [Total number of People: 2] [Total number of Orders: 14]
+--------------------------------------------------
+1) tim:
+	(1) Ban Mian | Quantity = 5 | Cost = $15.00
+	(2) Chicken Rice | Quantity = 3 | Cost = $9.00
+[Total Cost = $24.00] [Total Quantity = 8]
+2) aim:
 	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
 	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 4 | Cost = $12.00
 [Total Cost = $19.00] [Total Quantity = 6]

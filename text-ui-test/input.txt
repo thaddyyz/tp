@@ -17,8 +17,10 @@ add /n abc /i 9 /q 2
 add /n abc /i 3 /q 1000
 add /n tim /i 2 /q 3
 add /n tim /i 4 /q 2
+list
 add /n tim /i 1 /q 3
 add /n tim /i 1 /q 2
+list
 delete 1/3
 add /n aim /i 3 /q 2
 add /n aim /i 4 /q 1
@@ -29,6 +31,7 @@ edit 0/1 /q 2
 edit 1/0 /q 1
 edit 1/1 /q 1000
 edit 2/2 /q 4
+list
 edit 1/1 /q 0
 list
 find /n
