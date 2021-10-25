@@ -13,6 +13,7 @@ public class Order {
     private static ArrayList<String> menuList = Menu.FOODLIST;
     private static ArrayList<Double> priceList = Menu.PRICELIST;
 
+    //@@author markuslyq
     /**
      * Constructor for Order.
      *
@@ -24,7 +25,6 @@ public class Order {
         this.foodIndex = foodIndex;
         this.foodName = menuList.get(foodIndex);
         this.quantity = quantity;
-        checkQuantity();
         this.costOfOrder = quantity * priceList.get(foodIndex);
     }
 
@@ -32,11 +32,11 @@ public class Order {
      * Function to update quantity of a particular order to a specified value.
      * @param quantityToSet Quantity of food items to be set.
      */
-    public void setQuantity(int quantityToSet) throws LotsException {
+    public void setQuantity(int quantityToSet) {
         this.quantity = quantityToSet;
-        checkQuantity();
         this.costOfOrder = quantityToSet * priceList.get(foodIndex);
     }
+    //@@author
 
     /**
      * Function to get quantity of a particular order.
@@ -63,16 +63,5 @@ public class Order {
      */
     public String toString() {
         return foodName + " | Quantity = " + quantity + " | Cost = $" + String.format("%.2f", costOfOrder);
-    }
-
-    /**
-     * Checks if the quantity for this particular food exceeds 999.
-     *
-     * @throws LotsException if the quantity for this particular food exceeds 999.
-     */
-    public void checkQuantity() throws LotsException {
-        if (quantity > 999) {
-            throw new LotsException("Please keep the food quantity to less than 1000!");
-        }
     }
 }
