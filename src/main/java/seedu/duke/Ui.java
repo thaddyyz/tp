@@ -162,7 +162,7 @@ public class Ui {
     public static void printMenu(ArrayList<Double> priceList, ArrayList<String> foodList) {
         Ui.printMenuHeader();
         for (int i = 0; i < foodList.size(); i++) {
-            System.out.format("%-8d%-33s%7.2f%n", i+1, foodList.get(i), priceList.get(i));
+            System.out.format("%-8d%-33s%7.2f%n", i + 1, foodList.get(i), priceList.get(i));
             printWithoutBorder(LINE);
         }
         Ui.printWithBorder("");
