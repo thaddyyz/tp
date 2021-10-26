@@ -32,10 +32,6 @@ public class MenuCommand extends Command {
      */
     @Override
     public void execute() {
-        Ui.printMenuHeader();
-        for (int i = 0; i < foodList.size(); i++) {
-            Ui.printMenu(i + 1, foodList.get(i), priceList.get(i));
-        }
-        Ui.printWithBorder("");
+        Ui.printMenu(priceList,foodList);
     }
 }
