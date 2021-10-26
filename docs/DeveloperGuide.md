@@ -1,4 +1,3 @@
-# Developer Guide
 
 ## Acknowledgements
 
@@ -244,15 +243,15 @@ The instructions below give a brief overview on how to test the functions manual
 - :information_source: More test cases can be found in each of their respective test class under
   `src/test/java/seedu.duke`
 
-[Starting up & Shutting down](#Starting-up-&-Shutting-down)
-<br> [Add function](#Add-Function)
-<br> [Edit function](#Edit-Function)
-<br> [Find function](#Find-Function)
-<br> [Delete function](#Delete-Function)
+[Starting up and Shutting down](#starting-up-and-shutting-down)
+<br> [Add function](#add-function)
+<br> [Edit function](#edit-function)
+<br> [Find function](#find-function)
+<br> [Delete function](#delete-function)
 
 ---
 
-### Starting up & Shutting down
+### Starting up and Shutting down
 1) To begin, download the .jar file and place it in a folder.
 2) Open the CLI at the file location and run by the jar file by giving the command,
    `java -jar <jar file name>.jar`
