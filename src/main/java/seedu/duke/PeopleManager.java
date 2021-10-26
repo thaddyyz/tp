@@ -67,6 +67,18 @@ public class PeopleManager {
     }
 
     /**
+     * Get total number of orders for everyone.
+     * @return total number of orders for everyone.
+     */
+    public int getTotalNumberOfOrdersEveryone() {
+        int totalQuantity = 0;
+        for (int i = 0; i < listOfPeople.size(); i++) {
+            totalQuantity = totalQuantity + listOfPeople.get(i).getTotalNumberOfOrders();
+        }
+        return totalQuantity;
+    }
+
+    /**
      * Clears the arraylist of people
      * stored. Mainly used before each test method.
      */

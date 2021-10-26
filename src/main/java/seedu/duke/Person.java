@@ -10,6 +10,20 @@ public class Person {
     private String foodIndexOutOfBoundsErrorMessage = "Please enter the right menu number!";
 
     /**
+     * Function to get the total number of orders for a person.
+     * @return quantity of orders.
+     */
+    public int getTotalNumberOfOrders() {
+        int counter = 0;
+        for (int i = 0; i < individualFoodOrders.length; i++) {
+            if (individualFoodOrders[i].getQuantity() != 0) {
+                counter = counter + individualFoodOrders[i].getQuantity();
+            }
+        }
+        return counter;
+    }
+
+    /**
      * Constructor for Person.
      * Individual Food order list will be populated with 0 on initialisation.
      *
