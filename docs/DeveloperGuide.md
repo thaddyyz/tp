@@ -17,9 +17,11 @@
 - [Non-Functional Requirements](#non-functional-requirements)
 - [Instructions for manual testing](#instructions-for-manual-testing)
 - [Glossary](#glossary)
+
 ## Acknowledgements
 
 {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
+
 ## Architecture
 
 ## Design
@@ -55,6 +57,7 @@ The following sequence diagram depicts how the `Logical` components interact wit
 <br>![Logical Component Partial Class Diagram](https://github.com/markuslyq/tp/blob/master/UMLdiagrams/DeleteCommandDiagram/DeleteCommand%20Sequence%20Diagram.jpg?raw=true)
    
 ### Manager Component
+
 **API** : PeopleManager.java
 <br>![PeopleManagerDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/PeopleManagerDiagram/PeopleManagerDiagram.jpg)
 
@@ -77,7 +80,6 @@ The `Order` component,
    
 When the input is passed in through the `logical` component, the `PeopleManager` component will be responsible for managing the input, 
 by creating variables needed to store the data, and storing this newly created variables into the `listOfPeople`.
-
 
 ## Implementation
 
@@ -111,7 +113,6 @@ Next, `Duke` will then use the returned command to call `Command.execute()` whic
 with the `Manager Components` of the program who will then remove the 2nd order from the first
 person in the list.
 
-
 #### Alternate implementation
 
 For the `Parser` class, we initially had thought of having each command's respective
@@ -135,6 +136,7 @@ This section describes how the commands are implemented.
 Explanations and sequence diagrams are used to describe the implementation process.
 
 ### Add, Delete, Edit, Orders and Find Command Classes
+
 The commands `add`, `delete`, `edit`, `orders` and `find` have similar implementation, with a few differences in terms of the methods called.
 Here is an overview of their class diagram.  
 <br>![OverallClassDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/LogicalComponentDiagrams/OverallClassDiagram.jpg)
@@ -174,6 +176,7 @@ The steps to using the `menu` and `list` command can be seen from the sequence d
 **Note:** The command `menu` and `list` are just these two strings. Any edits to these two commands will result in an exception being thrown.
    
 ## Product scope
+
 ### Target user profile
 
 * User has good typing skills.
@@ -235,6 +238,7 @@ The steps to using the `menu` and `list` command can be seen from the sequence d
    - Maximum of `999` quantity for each distinct food item in a person's order.
     
 ## Instructions for manual testing
+
 The instructions below give a brief overview on how to test the functions manually.
 
 - :information_source: More test cases can be found in each of their respective test class under
@@ -249,6 +253,7 @@ The instructions below give a brief overview on how to test the functions manual
 ---
 
 ### Starting up and Shutting down
+
 1) To begin, download the .jar file and place it in a folder.
 2) Open the CLI at the file location and run by the jar file by giving the command,
    `java -jar <jar file name>.jar`
@@ -258,6 +263,7 @@ The instructions below give a brief overview on how to test the functions manual
 ---
 
 ### Add Function
+
 - The format of the command is `add /n <name> /i <index> /q <quanity>`
 - Prerequisite: The `Menu` has to contain at least `2` food item.
 
@@ -273,6 +279,7 @@ The instructions below give a brief overview on how to test the functions manual
 ---
 
 ### Edit Function
+
 - The format of the command is `edit <person index>/<order index> /q <quantity>`
 - Prerequisite: The current list has to contain at least `2` person each with `2`
   distinct orders.
@@ -288,6 +295,7 @@ The instructions below give a brief overview on how to test the functions manual
 ---
 
 ### Find Function
+
 - The format of the command is `find /n <name>`
 - Prerequisite: Contains 2 person with names of `abc` & `bcd`.
    - The above names are just for testing purposes.
@@ -303,6 +311,7 @@ The instructions below give a brief overview on how to test the functions manual
 ---
 
 ### Delete Function
+
 - The format of the command is `delete <person index>/<order index>`
 - Prerequisite: The current list has to contain at least `2` person each with `2`
   distinct orders.
