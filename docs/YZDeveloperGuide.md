@@ -4,7 +4,7 @@
 
 ## Design
 
-### Architecture
+### Implementation
 The Sequence Diagram below represents the interactions between components when user inputs command `add /n tom /i 1 /q 2`
 <br>![Sequence Diagram](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/AddCommandSeqDiagram.png)
 
@@ -21,8 +21,9 @@ The main differences are:
 
 `Edit`command goes through similar sequence as compared to the `delete` command sequence diagram.
 The main differences are:
-1. deleteOrder() is replaced with editOrder().
-2. editParticularOrder() is called directly from the EditCommand class instead of through a method in Person class.
+1. additional getQuantity() method under EditCommand class.
+2. deleteOrder() is replaced with editOrder().
+3. editParticularOrder() is called directly from the EditCommand class instead of through a method in Person class.
 
 
 
