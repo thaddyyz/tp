@@ -1,4 +1,22 @@
+# Developer Guide
 
+- [Acknowledgements](#acknowledgements)
+- [Architecture](#architecture)
+- [Design](#design)
+    - [Logical Component](#logical-component)
+    - [Manager Component](#manager-component)
+- [Implementation](#implementation)
+    - [Parser](#parser)
+        - [Alternate implementation](#alternate-implementation)
+    - [Add, Delete, Edit, Orders & Find Command Classes](#add-delete-edit-orders-and-find-command-classes)
+    - [Menu & Order Command Classes](#menu-and-order-command-classes)
+- [Product Scope](#product-scope)
+    - [Target user profile](#target-user-profile)
+    - [Value proposition](#value-proposition)
+- [User Stories](#user-stories)
+- [Non-Functional Requirements](#non-functional-requirements)
+- [Instructions for manual testing](#instructions-for-manual-testing)
+- [Glossary](#glossary)
 ## Acknowledgements
 
 {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
@@ -8,13 +26,11 @@
 
 ### Logical Component
 
-
 The logical component of the program consists multiple classes. Namely: `Parser`,`Command` &
 the various child class of `Command`.
 The class diagram below is a brief overview of how the `Parser`, `Manger` & the various `Command` class
 are related to one another.  
 <br>![Logical Component Partial Class Diagram](https://github.com/markuslyq/tp/blob/master/UMLdiagrams/LogicalComponentDiagrams/Logical%20Component%20Diagram-Page-2.jpg?raw=true)
-<div markdown="span" class="alert alert-primary">
 
 :information_source: **Note:** Specific command names are represented using a placeholder `'Abc'`, i.e. AddCommand, FindCommand.
 
@@ -41,11 +57,8 @@ The following sequence diagram depicts how the `Logical` components interact wit
 ### Manager Component
 **API** : PeopleManager.java
 <br>![PeopleManagerDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/PeopleManagerDiagram/PeopleManagerDiagram.jpg)
-<div markdown="span" class="alert alert-primary">
 
 :information_source: **Note:** This diagram shows the components of how the inputs are handled.
-
-</div>
 
 The `PeopleManager` component,
 * Stores a list of people, named: `listOfPeople`. This list stores all `Person` objects.
@@ -125,11 +138,9 @@ Explanations and sequence diagrams are used to describe the implementation proce
 The commands `add`, `delete`, `edit`, `orders` and `find` have similar implementation, with a few differences in terms of the methods called.
 Here is an overview of their class diagram.  
 <br>![OverallClassDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/LogicalComponentDiagrams/OverallClassDiagram.jpg)
-<div markdown="span" class="alert alert-primary">
 
 :information_source: **Note:** The diagram is shared between the AddCommand, DeleteCommand, EditCommand, OrdersCommand and FindCommand.
 
-</div>
 
 From the above class diagram, we can replace the **AbcCommand** with whichever command we are looking at. For example, if we are 
 looking at the `AddCommand` class, we replace the **AbcCommand** with **AddCommand**. Same goes for all the other command classes. 
@@ -146,30 +157,21 @@ The purpose of Order Command class is to print the orders which the user has ord
 Hence, the sequence of which how Menu Command class and Order Command class are very similar. To prevent repeating of Sequence diagrams, a shared diagram will be listed below for the Menu Command Class and the Order Command class.  
    
 <br>![MenuAndOrdersSequenceDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/MenuAndOrdersSequenceDiagram.jpg)
-<div markdown="span" class="alert alert-primary">
-
 :information_source: **Note:** The diagram is shared between Menu Command Class and Orders Command Class.
 
-</div>
 
 The steps to using the `menu` and `list` command can be seen from the sequence diagram. In short: 
 1) Invoke the Menu Command class by calling `menu`. The menu will display in the terminal.
-   <br>![MenuCommandTerminalOutput](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/MenuCommandTerminalOutput.jpg)
-   <div markdown="span" class="alert alert-primary">
 
+<br>![MenuCommandTerminalOutput](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/MenuCommandTerminalOutput.jpg)
 :information_source: **Note:** The output is an example of what you will see when the `menu` command is entered.
 
-</div>
-
 2) After adding orders, invoke `list` command to see the orders added into the list.
-   <br>![ListCommandTerminalOutput](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/ListCommandTerminalOutput.jpg)
-   <div markdown="span" class="alert alert-primary">
 
+<br>![ListCommandTerminalOutput](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/ListCommandTerminalOutput.jpg)
 :information_source: **Note:** The output is an example of what you will see when the `list` command is entered.
 
-</div>
 **Note:** The command `menu` and `list` are just these two strings. Any edits to these two commands will result in an exception being thrown.
-   
    
 ## Product scope
 ### Target user profile
@@ -231,12 +233,7 @@ The steps to using the `menu` and `list` command can be seen from the sequence d
    - Up to `99` _Unique person_ at a time.
    - Maximum of `99` _Unique Food_ items in the menu.
    - Maximum of `999` quantity for each distinct food item in a person's order.
-
-## Glossary
-
-* `Unique Person` - Every entry with a different name counts as a unique person.
-* `Unique Food`   - Every element in the food array menu counts as a unique food.
-
+    
 ## Instructions for manual testing
 The instructions below give a brief overview on how to test the functions manually.
 
@@ -316,3 +313,8 @@ The instructions below give a brief overview on how to test the functions manual
 |Delete all orders from a person| `delete 1/1`| Person should not be listed anymore|
 |Missing parameters| `delete 1/`| Error message to user|
 |Out of index| `delete 100/1`| Error message to user|
+
+## Glossary
+
+* `Unique Person` - Every entry with a different name counts as a unique person.
+* `Unique Food`   - Every element in the food array menu counts as a unique food.
