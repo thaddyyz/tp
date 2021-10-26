@@ -158,19 +158,19 @@ The purpose of Order Command class is to print the orders which the user has ord
 
 Hence, the sequence of which how Menu Command class and Order Command class are very similar. To prevent repeating of Sequence diagrams, a shared diagram will be listed below for the Menu Command Class and the Order Command class.  
    
-<br>![MenuAndOrdersSequenceDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/MenuAndOrdersSequenceDiagram.jpg)
+<br>![MenuAndOrdersSequenceDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/MenuAndOrdersSequenceDiagram.jpg)    
 :information_source: **Note:** The diagram is shared between Menu Command Class and Orders Command Class.
 
 
 The steps to using the `menu` and `list` command can be seen from the sequence diagram. In short: 
 1) Invoke the Menu Command class by calling `menu`. The menu will display in the terminal.
 
-<br>![MenuCommandTerminalOutput](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/MenuCommandTerminalOutput.jpg)
+<br>![MenuCommandTerminalOutput](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/MenuCommandTerminalOutput.jpg)   
 :information_source: **Note:** The output is an example of what you will see when the `menu` command is entered.
 
 2) After adding orders, invoke `list` command to see the orders added into the list.
 
-<br>![ListCommandTerminalOutput](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/ListCommandTerminalOutput.jpg)
+<br>![ListCommandTerminalOutput](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/ListCommandTerminalOutput.jpg)    
 :information_source: **Note:** The output is an example of what you will see when the `list` command is entered.
 
 **Note:** The command `menu` and `list` are just these two strings. Any edits to these two commands will result in an exception being thrown.
