@@ -44,7 +44,7 @@ class EditCommandTest {
 
     @Test
     void execute_quantityOutOfBounds_expectException() throws LotsException {
-        String input = "edit 2/1 /q -2123";
+        String input = "edit 2/1 /q -2123 ";
         assertThrows(LotsException.class,
             () -> new EditCommand(input));
     }
