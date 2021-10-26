@@ -2,7 +2,44 @@
 
 ## Acknowledgements
 
-## Design & implementation
+## Design
+
+### Implementation
+The Sequence Diagram below represents the interactions between components when user inputs command `add /n tom /i 1 /q 2`
+<br>![Sequence Diagram](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/AddCommandSeqDiagram.png)
+
+The Sequence Diagram below represents the interactions between components when user inputs command `delete 1/2`
+<br>![Sequence Diagram 2](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/deleteCommandSeqDiagram.png)
+<div markdown="span" class="alert alert-primary">
+This show the interaction between the Logical and Manager components during the add and delete situation.
+</div>
+
+`Find`command goes through similar sequence as compared to the `delete` command sequence diagram.
+The main differences are:
+1. deleteOrder() is replaced with checkIfMatchAndPrint().
+2. deleteParticularOrder() is replaced with getPersonName().
+
+`Edit`command goes through similar sequence as compared to the `delete` command sequence diagram.
+The main differences are:
+1. additional getQuantity() method under EditCommand class.
+2. deleteOrder() is replaced with editOrder().
+3. editParticularOrder() is called directly from the EditCommand class instead of through a method in Person class.
+
+
+
+#### Alternate implementation
+
+The EditCommand function can be integrated with the deleteCommand class.
+```
+
+```
+
+The upside of doing would be that there is less code overall.
+However, doing so would result in multiple functions being in the same class which would:
+1. Make the code messier.
+2. Make the code more vulnerable to functionality bugs.
+3. Make the code more complex to debug.
+4. Make testing process more complicated.
 
 ### Edit Command
 The purpose of the edit is allow the user to edit his order quantity.
