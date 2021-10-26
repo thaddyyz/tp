@@ -29,7 +29,7 @@ This section describes how the commands are implemented. Explanations and sequen
 
 ###Implementation for Menu Command Class and Order Command Class
 
-Command word to invoke the Menu and Order class: `menu` and `list`.
+Command word to invoke the Menu Command and Order Command: `menu` and `list`.
 
 The purpose of Menu Command class is to instantiate the menu of which the user can order from. By invoking `menu`, the menu will be printed on the console for the user to see.
 
@@ -37,7 +37,7 @@ The purpose of Order Command class is to print the orders which the user has ord
 
 Hence, the sequence of which how Menu Command class and Order Command class are very similar. To prevent repeating of Sequence diagrams, a shared diagram will be listed below for the Menu Command Class and the Order Command class.
 
-<br>![MenuAndOrdersSequenceDiagram3](https://raw.githubusercontent.com/WaiKit-nus/tp/AddCommandClassDG-WK/UMLdiagrams/MenuAndOrdersSequenceDiagram/MenuAndOrdersSequenceDiagram3.jpg)
+<br>![MenuAndOrdersSequenceDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/MenuAndOrdersSequenceDiagram.jpg)
 <div markdown="span" class="alert alert-primary">
 
 :information_source: **Note:** The diagram is shared between Menu Command Class and Orders Command Class.
@@ -46,7 +46,11 @@ Hence, the sequence of which how Menu Command class and Order Command class are 
 
 The steps to using the `menu` and `list` command can be seen from the sequence diagram. In short: 
 1) Invoke the Menu Command class by calling `menu`. The menu will display in the terminal.
+   <br>![MenuCommandTerminalOutput](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/MenuCommandTerminalOutput.jpg)
+
+
 2) After adding orders, invoke `list` command to see the orders added into the list.
+   <br>![ListCommandTerminalOutput](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/ListCommandTerminalOutput.jpg)
 
 **Note:** The command `menu` and `list` are just these two strings. Any edits to these two commands will result in an exception being thrown.
 
