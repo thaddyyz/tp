@@ -12,8 +12,7 @@
 The logical component of the program consists multiple classes. Namely: `Parser`,`Command` &
 the various child class of `Command`.
 The class diagram below is a brief overview of how the `Parser`, `Manger` & the various `Command` class
-are related to one another.
-
+are related to one another.  
 <br>![Logical Component Partial Class Diagram](https://github.com/markuslyq/tp/blob/master/UMLdiagrams/LogicalComponentDiagrams/Logical%20Component%20Diagram-Page-2.jpg?raw=true)
 <div markdown="span" class="alert alert-primary">
 
@@ -38,6 +37,34 @@ Explanation on how the parsing is done:
 
 The following sequence diagram depicts how the `Logical` components interact with one another upon receiving the user's input of `"delete 1/2"`.  
 <br>![Logical Component Partial Class Diagram](https://github.com/markuslyq/tp/blob/master/UMLdiagrams/DeleteCommandDiagram/DeleteCommand%20Sequence%20Diagram.jpg?raw=true)
+   
+### Manager Component
+**API** : PeopleManager.java
+<br>![PeopleManagerDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/PeopleManagerDiagram/PeopleManagerDiagram.jpg)
+<div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:** This diagram shows the components of how the inputs are handled.
+
+</div>
+
+The `PeopleManager` component,
+* Stores a list of people, named: `listOfPeople`. This list stores all `Person` objects.
+
+The `Person` component,
+* Store details of the person.
+   * It stores the name of the person, using a String Variable named `personName`.
+   * It also stores the orders of the person, using a list of Order, named `individualFoodOrders`.
+   
+The `Order` component,
+* Stores details of the order.
+   * It stores the name of the order, using a String Variable named `foodName`.
+   * It stores the index of the order, using an int Variable named `foodIndex`.
+   * It stores the quantity of the order, using a String Variable named `quantity`.
+   * It stores the cost of the order, using a double Variable named `costOfOrder`.
+   
+When the input is passed in through the `logical` component, the `PeopleManager` component will be responsible for managing the input, 
+by creating variables needed to store the data, and storing this newly created variables into the `listOfPeople`.
+
 
 ## Implementation
 
@@ -91,6 +118,59 @@ cause the code to be messier and therefore harder to read. By having a command c
 for each respective command, this allows us to segregate all the necessary functions
 for each command in their own respective class, therefore making testing easier too.
 
+This section describes how the commands are implemented. 
+Explanations and sequence diagrams are used to describe the implementation process.
+
+### Add, Delete, Edit, Orders and Find Command Classes
+The commands `add`, `delete`, `edit`, `orders` and `find` have similar implementation, with a few differences in terms of the methods called.
+Here is an overview of their class diagram.  
+<br>![OverallClassDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/LogicalComponentDiagrams/OverallClassDiagram.jpg)
+<div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:** The diagram is shared between the AddCommand, DeleteCommand, EditCommand, OrdersCommand and FindCommand.
+
+</div>
+
+From the above class diagram, we can replace the **AbcCommand** with whichever command we are looking at. For example, if we are 
+looking at the `AddCommand` class, we replace the **AbcCommand** with **AddCommand**. Same goes for all the other command classes. 
+The overview class diagram is listed here to show how the command classes interact on the logical component to the manager component.
+
+### Menu and Order Command Classes
+
+Command word to invoke the Menu Command and Order Command: `menu` and `list`.
+
+The purpose of Menu Command class is to instantiate the menu of which the user can order from. By invoking `menu`, the menu will be printed on the console for the user to see.
+
+The purpose of Order Command class is to print the orders which the user has ordered onto the console. By invoking `list`, the order will be printed in a list format for the user to view. 
+
+Hence, the sequence of which how Menu Command class and Order Command class are very similar. To prevent repeating of Sequence diagrams, a shared diagram will be listed below for the Menu Command Class and the Order Command class.  
+   
+<br>![MenuAndOrdersSequenceDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/MenuAndOrdersSequenceDiagram.jpg)
+<div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:** The diagram is shared between Menu Command Class and Orders Command Class.
+
+</div>
+
+The steps to using the `menu` and `list` command can be seen from the sequence diagram. In short: 
+1) Invoke the Menu Command class by calling `menu`. The menu will display in the terminal.
+   <br>![MenuCommandTerminalOutput](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/MenuCommandTerminalOutput.jpg)
+   <div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:** The output is an example of what you will see when the `menu` command is entered.
+
+</div>
+
+2) After adding orders, invoke `list` command to see the orders added into the list.
+   <br>![ListCommandTerminalOutput](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/ListCommandTerminalOutput.jpg)
+   <div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:** The output is an example of what you will see when the `list` command is entered.
+
+</div>
+**Note:** The command `menu` and `list` are just these two strings. Any edits to these two commands will result in an exception being thrown.
+   
+   
 ## Product scope
 ### Target user profile
 
