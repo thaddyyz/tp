@@ -1,11 +1,12 @@
 package seedu.duke;
 
 
+import javax.sound.sampled.Line;
 import java.util.Scanner;
 
 public class Ui {
 
-    private static final String line = "--------------------------------------------------";
+    private static final String LINE = "--------------------------------------------------";
     private static final String BORDER = "=================================="
             + "============================="
             + "=============================";
@@ -50,7 +51,7 @@ public class Ui {
      */
     public static String readInput() {
         String input = SC.nextLine();
-        return input.strip();
+        return input.replaceAll("\\s{2,}", " ").strip();
     }
 
     /**
@@ -64,6 +65,7 @@ public class Ui {
             printWithBorder("Your order list is empty!");
         } else {
             assert totalNumOfPeopleOrdered != 0 : "Order list cannot be empty.";
+            printSummaryForList(peopleManager);
             for (int i = 0; i < totalNumOfPeopleOrdered; i++) {
                 String currentPersonName = peopleManager.getName(i);
                 assert currentPersonName != null : "Person must exist.";
@@ -98,7 +100,11 @@ public class Ui {
             }
         }
         if (totalCost > 0.00) {
-            printWithoutBorder("[Total Cost = $" + String.format("%.2f", totalCost) + "]");
+            String printTotalCost = "[Total Cost = $" + String.format("%.2f", totalCost) + "]";
+            int individualQuantity = currentPerson.getTotalNumberOfOrders();
+            String printIndividualQuantity = "[Total Quantity = "
+                    + Integer.toString(individualQuantity) + "]";
+            printWithoutBorder(printTotalCost + " " + printIndividualQuantity);
         }
     }
 
@@ -142,7 +148,7 @@ public class Ui {
 
     public static void printMenuHeader() {
         printWithoutBorder("index | Food Name                         | Price");
-        printWithoutBorder(line);
+        printWithoutBorder(LINE);
     }
 
     /**
@@ -155,7 +161,14 @@ public class Ui {
      */
     public static void printMenu(int index, String foodName, Double foodPrice) {
         System.out.format("%-8d%-33s%7.2f%n", index, foodName, foodPrice);
-        printWithoutBorder(line);
+        printWithoutBorder(LINE);
+    }
+
+    public static void printSummaryForList(PeopleManager peopleManager) {
+        String summary = "SUMMARY: [Total number of People: " +  peopleManager.getSize()
+                + "] [Total number of Orders: " + peopleManager.getTotalNumberOfOrdersEveryone() + "]";
+        printWithoutBorder(summary);
+        printWithoutBorder(LINE);
     }
 
 }

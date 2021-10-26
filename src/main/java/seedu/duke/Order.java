@@ -1,5 +1,7 @@
 package seedu.duke;
 
+import seedu.duke.exceptions.LotsException;
+
 import java.util.ArrayList;
 
 public class Order {
@@ -11,13 +13,15 @@ public class Order {
     private static ArrayList<String> menuList = Menu.FOODLIST;
     private static ArrayList<Double> priceList = Menu.PRICELIST;
 
+    //@@author markuslyq
     /**
      * Constructor for Order.
      *
      * @param foodIndex Index of food to be added to the order.
      * @param quantity Quantity of food items to be added to the order.
+     * @throws LotsException if the quantity for this particular food exceeds 999.
      */
-    public Order(int foodIndex, int quantity) {
+    public Order(int foodIndex, int quantity) throws LotsException {
         this.foodIndex = foodIndex;
         this.foodName = menuList.get(foodIndex);
         this.quantity = quantity;
@@ -32,6 +36,7 @@ public class Order {
         this.quantity = quantityToSet;
         this.costOfOrder = quantityToSet * priceList.get(foodIndex);
     }
+    //@@author
 
     /**
      * Function to get quantity of a particular order.

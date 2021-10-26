@@ -10,20 +10,37 @@ public class Person {
     private String foodIndexOutOfBoundsErrorMessage = "Please enter the right menu number!";
 
     /**
+     * Function to get the total number of orders for a person.
+     * @return quantity of orders.
+     */
+    public int getTotalNumberOfOrders() {
+        int counter = 0;
+        for (int i = 0; i < individualFoodOrders.length; i++) {
+            if (individualFoodOrders[i].getQuantity() != 0) {
+                counter = counter + individualFoodOrders[i].getQuantity();
+            }
+        }
+        return counter;
+    }
+
+    /**
      * Constructor for Person.
      * Individual Food order list will be populated with 0 on initialisation.
      *
      * @param personName Name of the person.
+     * @throws LotsException if the quantity for this particular food exceeds 999.
      */
-    public Person(String personName) {
+    public Person(String personName) throws LotsException {
         this.personName = personName;
         setupIndividualFoodOrders();
     }
 
     /**
      * Used to populate the array with 0 from index 1 to total_menu_items(10).
+     *
+     * @throws LotsException if the quantity for this particular food exceeds 999.
      */
-    private void setupIndividualFoodOrders() {
+    private void setupIndividualFoodOrders() throws LotsException {
         for (int i = 0; i < totalMenuItems; i++) {
             individualFoodOrders[i] = new Order(i, 0);
         }
@@ -37,6 +54,9 @@ public class Person {
     public void addFoodToIndividualFoodOrders(int foodIndex, int foodQuantity) throws LotsException {
         if (foodIndex <= totalMenuItems && foodIndex > 0) {
             int updatedQuantity = individualFoodOrders[foodIndex - 1].getQuantity() + foodQuantity;
+            if (updatedQuantity > 999) {
+                throw new LotsException("Please keep the food quantity to less than 1000!");
+            }
             individualFoodOrders[foodIndex - 1].setQuantity(updatedQuantity);
         } else {
             throw new LotsException(foodIndexOutOfBoundsErrorMessage);
