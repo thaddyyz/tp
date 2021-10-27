@@ -79,8 +79,7 @@ The following sequence diagram depicts how the `Logical` components interact wit
 <br>![Logical Component Partial Sequence Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/DeleteCommandDiagram/DeleteCommand%20Sequence%20Diagram.jpg)
    
 ### Manager Component
-
-**API** : PeopleManager.java
+The manager component of the program consists multiple classes. Namely: `PeopleManager`,`Person` & `Order`.  
 <br>![PeopleManagerDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/PeopleManagerDiagram/PeopleManagerDiagram.jpg)
 
 :information_source: **Note:** This diagram shows the components of how the inputs are handled.
