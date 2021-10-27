@@ -24,6 +24,29 @@
 
 ## Architecture
 
+<br>![Architecture Diagram](https://github.com/mohamad-adam8991/tp/blob/DGArchitecture_MA/UMLdiagrams/ArchitectureDiagrams/ArchitectureDiagram.drawio.png)
+<br>The ***Architecture Diagram*** given above explains the high-level design of the LOTS app.
+
+<br>The following section gives a brief overview of the main components in the architecture and how they interact with
+each other. Further explanation will be given in depth in the **Design** section of the developer guide.
+### Main components of the architecture
+1) **Main** consists of the Duke class, which is responsible for initializing the various components of the LOTS program
+   at startup, and the handling of the interactions between classes.
+2) **UI** handles the UI portion of the LOTS program.
+3) **Logic** deals with the parsing and execution of user inputs.
+4) **Manager** deals with the various types of data that is stored within the LOTS program.
+### Component Interaction
+The general flow of the program is as follows:
+1) User inputs data which is read by the `UI` within the `Main`.
+2) This data is passed to the `Parser` which will return a `Command`.
+3) `Command` will be executed, carrying out whatever task the user has input. `Manager` may be called if data is to
+be stored or edited.
+4) `UI` component handles the printing of data if required.
+
+   </br>Given below is a simplified sequence diagram showing how the components within the LOTS program interact with each other
+   when the user inputs the command `delete 1/2`
+   <br>![Delete Sequence Diagram](https://github.com/mohamad-adam8991/tp/blob/DGArchitecture_MA/UMLdiagrams/ArchitectureDiagrams/DeleteSeq.png)
+
 ## Design
 
 ### Logical Component
@@ -148,6 +171,41 @@ From the above class diagram, we can replace the **AbcCommand** with whichever c
 looking at the `AddCommand` class, we replace the **AbcCommand** with **AddCommand**. Same goes for all the other command classes. 
 The overview class diagram is listed here to show how the command classes interact on the logical component to the manager component.
 
+The Sequence Diagram below represents the interactions between components when user inputs command `add /n tom /i 1 /q 2`
+<br>![Sequence Diagram](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/AddCommandSeqDiagram.png)
+
+The Sequence Diagram below represents the interactions between components when user inputs command `delete 1/2`
+<br>![Sequence Diagram 2](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/deleteCommandSeqDiagram.png)
+<div markdown="span" class="alert alert-primary">
+This show the interaction between the Logical and Manager components during the add and delete situation.
+</div>
+
+`Find`command goes through similar sequence as compared to the `delete` command sequence diagram.
+The main differences are:
+1. deleteOrder() is replaced with checkIfMatchAndPrint().
+2. deleteParticularOrder() is replaced with getPersonName().
+
+`Edit`command goes through similar sequence as compared to the `delete` command sequence diagram.
+The main differences are:
+1. additional getQuantity() method under EditCommand class.
+2. deleteOrder() is replaced with editOrder().
+3. editParticularOrder() is called directly from the EditCommand class instead of through a method in Person class.
+
+
+
+#### Alternate implementation
+
+The EditCommand function can be integrated with the deleteCommand class.
+```
+
+```
+
+The upside of doing would be that there is less code overall.
+However, doing so would result in multiple functions being in the same class which would:
+1. Make the code messier.
+2. Make the code more vulnerable to functionality bugs.
+3. Make the code more complex to debug.
+4. Make testing process more complicated.
 ### Menu and Order Command Classes
 
 Command word to invoke the Menu Command and Order Command: `menu` and `list`.
