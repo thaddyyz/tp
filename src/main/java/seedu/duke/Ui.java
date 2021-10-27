@@ -1,7 +1,10 @@
 package seedu.duke;
 
 
+import seedu.duke.command.MenuCommand;
+
 import javax.sound.sampled.Line;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ui {
@@ -152,16 +155,17 @@ public class Ui {
     }
 
     /**
-     * Prints out the menu item that has been passed in
-     * using the proper format followed by a small border.
-     *
-     * @param index     The Index of the food item.
-     * @param foodName  The name of the food at the index in String.
-     * @param foodPrice The price of the food in Double.
+     * Prints the menu of which user can order.
+     * @param priceList contains prices of the food.
+     * @param foodList contains the food in the menu.
      */
-    public static void printMenu(int index, String foodName, Double foodPrice) {
-        System.out.format("%-8d%-33s%7.2f%n", index, foodName, foodPrice);
-        printWithoutBorder(LINE);
+    public static void printMenu(ArrayList<Double> priceList, ArrayList<String> foodList) {
+        Ui.printMenuHeader();
+        for (int i = 0; i < foodList.size(); i++) {
+            System.out.format("%-8d%-33s%7.2f%n", i + 1, foodList.get(i), priceList.get(i));
+            printWithoutBorder(LINE);
+        }
+        Ui.printWithBorder("");
     }
 
     public static void printSummaryForList(PeopleManager peopleManager) {
