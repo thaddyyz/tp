@@ -194,10 +194,7 @@ The main differences are:
 #### Alternate implementation
 
 The EditCommand function can be integrated with the deleteCommand class.
-```
-
-```
-
+  
 The upside of doing would be that there is less code overall.
 However, doing so would result in multiple functions being in the same class which would:
 1. Make the code messier.
