@@ -45,7 +45,7 @@ be stored or edited.
 
    </br>Given below is a simplified sequence diagram showing how the components within the LOTS program interact with each other
    when the user inputs the command `delete 1/2`
-   <br>![Delete Sequence Diagram](https://github.com/mohamad-adam8991/tp/blob/DGArchitecture_MA/UMLdiagrams/ArchitectureDiagrams/DeleteSeqDiagram.png)
+   <br>![Delete Sequence Diagram](https://github.com/mohamad-adam8991/tp/blob/DGArchitecture_MA/UMLdiagrams/ArchitectureDiagrams/DeleteSeq.png)
 
 ## Design
 
