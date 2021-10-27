@@ -5,6 +5,27 @@
 {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
 
 ## Design & implementation
+## Architecture
+
+The ***Architecture Diagram*** given above explains the high-level design of the LOTS app.
+<br>The following section gives a brief overview of the main components in the architecture and how they interact with
+each other. Further explanation will be given in depth in the **Design** section of the developer guide.
+### Main components of the architecture
+1) **Main** consists of the Duke class, which is responsible for initializing the various components of the LOTS program 
+at startup, and the handling of the interactions between classes.
+2) **UI** handles the UI portion of the LOTS program.
+3) **Logic** deals with the parsing and execution of user inputs.
+4) **Manager** deals with the various types of data that is stored within the LOTS program.
+### Component Interaction
+The general flow of the program is as follows:
+1) User inputs data which is read by the `UI` within the `Main`.
+2) This data is passed to the `Parser` which will return a `Command`.
+3) `Command` will be executed, carrying out whatever task the user has input. 
+4) `UI` component handles the printing of data if required.
+</br>Given below is a simplified sequence diagram showing how the components within the LOTS program interact with each other
+when the user inputs the command `delete 1/2`
+
+
 
 ### Orders Command
 
