@@ -44,7 +44,7 @@ Deletes a specific order from a particular person.
 * `PERSON_INDEX` & `FOOD_INDEX` **must be a positive integer** 1, 2, 3, …  
 
 **Example of usage:** 
-* `list` followed by `delete 2/1` deletes the order of index '`1`' from the person of index '`2`'. 
+* `list` followed by `delete 1/2` deletes the order of index '`2`' from the person of index '`1`'. 
 
 ### Edit current orders: `edit`
 
