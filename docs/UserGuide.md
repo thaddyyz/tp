@@ -44,7 +44,9 @@ Deletes a specific order from a particular person.
 * `PERSON_INDEX` & `FOOD_INDEX` **must be a positive integer** 1, 2, 3, …  
 
 **Example of usage:** 
-* `list` followed by `delete 1/2` deletes the order of index '`2`' from the person of index '`1`'. 
+* `list` followed by `delete 1/2` deletes the order of index '`2`' from the person of index '`1`'.    
+  
+![Delete Screenshot](https://raw.githubusercontent.com/markuslyq/tp/master/docs/UG%20Images/UG_DeleteCommand_Example.png)
 
 ### Edit current orders: `edit`
 
