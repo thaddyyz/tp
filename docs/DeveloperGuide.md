@@ -24,8 +24,8 @@
 
 ## Architecture
 
-
-The ***Architecture Diagram*** given above explains the high-level design of the LOTS app.
+<br>![Architecture Diagram](https://github.com/mohamad-adam8991/tp/blob/DGArchitecture_MA/UMLdiagrams/ArchitectureDiagrams/ArchitectureDiagram.drawio.png)
+<br>The ***Architecture Diagram*** given above explains the high-level design of the LOTS app.
 
 <br>The following section gives a brief overview of the main components in the architecture and how they interact with
 each other. Further explanation will be given in depth in the **Design** section of the developer guide.
@@ -45,6 +45,7 @@ be stored or edited.
 
    </br>Given below is a simplified sequence diagram showing how the components within the LOTS program interact with each other
    when the user inputs the command `delete 1/2`
+   <br>![Delete Sequence Diagram](https://github.com/mohamad-adam8991/tp/blob/DGArchitecture_MA/UMLdiagrams/ArchitectureDiagrams/DeleteSeqDiagram.png)
 
 ## Design
 
