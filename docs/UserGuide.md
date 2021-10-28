@@ -33,6 +33,41 @@ Example of usage:
 
 ### Adding orders: `add`
 
+Adds a specific order for a particular person.
+
+**Format:** `add /n [PERSON_NAME] /i [FOOD_INDEX] /q [QUANTITY]`
+* `[PERSON_NAME]` refers to the person's name who ordered this set of food.
+  * The length of `[PERSON_NAME]` must be between 1 character to 51 characters including spaces.
+  * `[PERSON_NAME]` can only be in alphanumeric.
+* `[FOOD_INDEX]` refers to the index of the food in the menu.
+  * To find out which `[FOOD_INDEX]` correspond to which food, hit the `menu` command.
+  * Acceptable range for `[FOOD_INDEX]` is within the index of the `menu`.
+  * Only accept integers.
+* `[QUANTITY]` refers to the quantity of this particular order.
+  * `[QUANTITY]` only accepts integers.
+  * Range of `[QUANTITY]` is from 1 to 999.
+
+**Note:**
+1) `[PERSON_NAME]` is individualised. 
+   1) You can only use 1 name as a reference to 1 person.
+   2) Any additional `add` command with the same name will be tagged under the same person's order.
+2) Adding the same order to a person with different quantity will result to increment of the original quantity of the order.
+   1) E.g. Refer to **Example of usage** points 3, 6 and 7.
+
+**Example of usage:**
+1) Start with empty list.
+2) Adds a new order under person named Jeremy, ordering 1 Ban Mian.
+3) Adds a new order under person David, ordering 682 Chicken Rice.
+4) Adds a new order under Jeremy, who previously ordered, with a new order of 70 Nasi Lemak.
+5) List the orders.
+
+![Add1 Screenshot](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/UG_AddCommand_Example1.png)
+
+6) Adds an order under person David, ordering 60 Chicken Rice.
+7) List the orders.
+
+![Add2 Screenshot](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/UG_AddCommand_Example2.png)
+
 ### Deleting orders: `delete`   
 
 Deletes a specific order from a particular person. 
