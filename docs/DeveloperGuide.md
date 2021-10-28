@@ -17,8 +17,7 @@
 - [Instructions for manual testing](#instructions-for-manual-testing)
 - [Glossary](#glossary)
 
-
-- [Back to main page](README.md)
+[Back to main page](README.md)
 
 ## Acknowledgements
 
@@ -188,7 +187,6 @@ The main differences are:
 1. additional getQuantity() method under EditCommand class.
 2. deleteOrder() is replaced with editOrder().
 3. editParticularOrder() is called directly from the EditCommand class instead of through a method in Person class.
-
 
 
 #### Alternate implementation
