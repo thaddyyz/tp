@@ -11,23 +11,7 @@
 1. Ensure that you have Java 11 or above installed.
 1. Down the latest version of `Duke` from [here](http://link.to/duke).
 
-## Features 
-
-{Give detailed description of each feature}
-
-### Adding a todo: `todo`
-Adds a new item to the list of todo items.
-
-Format: `todo n/TODO_NAME d/DEADLINE`
-
-* The `DEADLINE` can be in a natural language format.
-* The `TODO_NAME` cannot contain punctuation.  
-
-Example of usage: 
-
-`todo n/Write the rest of the User Guide d/next week`
-
-`todo n/Refactor the User Guide to remove passive voice d/13/04/2020`
+## Features
 
 ### Display food menu: `menu`
 
@@ -86,6 +70,24 @@ Deletes a specific order from a particular person.
 ### Edit current orders: `edit`
 
 ### Finding person: `find`
+
+Find persons with names that contain a given string and print out their orders.
+
+**Format:** `find /n [SEARCH_STRING]`
+
+- `SEARCH_STRING` specifies the sub-string that you wish to search.
+- The search is **case-insensitive**. Meaning that `ABcd = abcd = ABCD`.
+- The `SEARCH_STRING` does not need to contain the exact name you wish to match.
+**Any** sub-string of the name will be considered a match.
+    - E.g) `find /n drew` will return the name `andrew` as a match.
+    
+**Examples**
+- Assume our current list contains 3 people named `tom`, `kim` & `kimmy` as seen below.
+- The command `find /n kim` will return both `kim` & `kimmy` as both names contain the string `"kim"`.
+
+![Find Image](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/FindList.jpg)
+
+
 
 ### List current orders: `list`
 
