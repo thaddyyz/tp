@@ -7,7 +7,6 @@
     - [Manager Component](#manager-component)
 - [Implementation](#implementation)
     - [Parser](#parser)
-        - [Alternate implementation](#alternate-implementation)
     - [Add, Delete, Edit, Orders & Find Command Classes](#add-delete-edit-orders-and-find-command-classes)
     - [Menu & Order Command Classes](#menu-and-order-command-classes)
 - [Product Scope](#product-scope)
@@ -18,9 +17,11 @@
 - [Instructions for manual testing](#instructions-for-manual-testing)
 - [Glossary](#glossary)
 
+[Back to main page](README.md)
+
 ## Acknowledgements
 
-{list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
+- Structure of Developer Guide adapted from AB3.
 
 ## Architecture
 
@@ -174,9 +175,7 @@ The Sequence Diagram below represents the interactions between components when u
 
 The Sequence Diagram below represents the interactions between components when user inputs command `delete 1/2`
 <br>![Sequence Diagram 2](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/deleteCommandSeqDiagram.png)
-<div markdown="span" class="alert alert-primary">
 This show the interaction between the Logical and Manager components during the add and delete situation.
-</div>
 
 `Find`command goes through similar sequence as compared to the `delete` command sequence diagram.
 The main differences are:
@@ -190,7 +189,6 @@ The main differences are:
 3. editParticularOrder() is called directly from the EditCommand class instead of through a method in Person class.
 
 
-
 #### Alternate implementation
 
 The EditCommand function can be integrated with the deleteCommand class.
@@ -201,6 +199,7 @@ However, doing so would result in multiple functions being in the same class whi
 2. Make the code more vulnerable to functionality bugs.
 3. Make the code more complex to debug.
 4. Make testing process more complicated.
+
 ### Menu and Order Command Classes
 
 Command word to invoke the Menu Command and Order Command: `menu` and `list`.
