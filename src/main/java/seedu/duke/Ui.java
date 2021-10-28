@@ -168,9 +168,14 @@ public class Ui {
         Ui.printWithBorder("");
     }
 
+    /**
+     * Prints a summary of all the orders.
+     *
+     * @param peopleManager List of people who are ordering.
+     */
     public static void printSummaryForList(PeopleManager peopleManager) {
         String summary = "SUMMARY: [Total number of People: " +  peopleManager.getSize()
-                + "] [Total number of Orders: " + peopleManager.getTotalNumberOfOrdersEveryone() + "]";
+                + "] [Total quantity of food: " + peopleManager.getTotalNumberOfOrdersEveryone() + "]";
         printWithoutBorder(summary);
         printWithoutBorder(LINE);
     }
