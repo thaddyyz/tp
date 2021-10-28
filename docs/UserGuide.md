@@ -37,21 +37,20 @@ Adds a specific order for a particular person.
 
 **Format:** `add /n [PERSON_NAME] /i [FOOD_INDEX] /q [QUANTITY]`
 * `[PERSON_NAME]` refers to the person's name who ordered this set of food.
-  * The length of `[PERSON_NAME]` must be between 1 character to 51 characters including spaces.
-  * `[PERSON_NAME]` can only be in alphanumeric.
+  * The length of `[PERSON_NAME]` must be between **1 character to 51 characters** including spaces.
+  * `[PERSON_NAME]` can only be in **alphanumeric**.
 * `[FOOD_INDEX]` refers to the index of the food in the menu.
   * To find out which `[FOOD_INDEX]` correspond to which food, hit the `menu` command.
-  * Acceptable range for `[FOOD_INDEX]` is within the index of the `menu`.
-  * Only accept integers.
+  * Only accept **integers** 1,2,3...
 * `[QUANTITY]` refers to the quantity of this particular order.
-  * `[QUANTITY]` only accepts integers.
-  * Range of `[QUANTITY]` is from 1 to 999.
+  * `[QUANTITY]` only accepts **integers**.
+  * Range of `[QUANTITY]` is from **1 to 999**.
 
 **Note:**
-1) `[PERSON_NAME]` is individualised. 
-   1) You can only use 1 name as a reference to 1 person.
+1) `[PERSON_NAME]` is **individualised**. 
+   1) You can only use **1 name** as a reference to **1 person**.
    2) Any additional `add` command with the same name will be tagged under the same person's order.
-2) Adding the same order to a person with different quantity will result to increment of the original quantity of the order.
+2) Adding the same order to a person with different quantity will result to **increment of the original quantity** of the order.
    1) E.g. Refer to **Example of usage** points 3, 6 and 7.
 
 **Example of usage:**
