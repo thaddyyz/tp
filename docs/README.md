@@ -2,7 +2,7 @@
 
 Welcome to LOTS!
 
-![LOTS WelcomePage](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UG%20Images/MainMenuImg.png)
+![LOTS WelcomePage](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/MainMenuImg.png)
 
 Large Order Tracking System (LOTS) is a Command Line (CLI) program that enables users to
 keep track of multiple food orders from a pre-set list of food items from different stores.
