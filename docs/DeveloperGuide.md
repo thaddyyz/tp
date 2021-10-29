@@ -7,7 +7,6 @@
     - [Manager Component](#manager-component)
 - [Implementation](#implementation)
     - [Parser](#parser)
-        - [Alternate implementation](#alternate-implementation)
     - [Add, Delete, Edit, Orders & Find Command Classes](#add-delete-edit-orders-and-find-command-classes)
     - [Menu & Order Command Classes](#menu-and-order-command-classes)
 - [Product Scope](#product-scope)
@@ -18,13 +17,15 @@
 - [Instructions for manual testing](#instructions-for-manual-testing)
 - [Glossary](#glossary)
 
+[Back to main page](README.md)
+
 ## Acknowledgements
 
-{list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
+- Structure of Developer Guide adapted from AB3.
 
 ## Architecture
 
-<br>![Architecture Diagram](https://github.com/mohamad-adam8991/tp/blob/DGArchitecture_MA/UMLdiagrams/ArchitectureDiagrams/ArchitectureDiagram.drawio.png)
+<br>![Architecture Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ArchitectureDiagrams/ArchitectureDiagram.drawio.png)
 <br>The ***Architecture Diagram*** given above explains the high-level design of the LOTS app.
 
 <br>The following section gives a brief overview of the main components in the architecture and how they interact with
@@ -41,11 +42,10 @@ The general flow of the program is as follows:
 2) This data is passed to the `Parser` which will return a `Command`.
 3) `Command` will be executed, carrying out whatever task the user has input. `Manager` may be called if data is to
 be stored or edited.
-4) `UI` component handles the printing of data if required.
-
+4) `UI` component handles the printing of data if required.  
    </br>Given below is a simplified sequence diagram showing how the components within the LOTS program interact with each other
-   when the user inputs the command `delete 1/2`
-   <br>![Delete Sequence Diagram](https://github.com/mohamad-adam8991/tp/blob/DGArchitecture_MA/UMLdiagrams/ArchitectureDiagrams/DeleteSeq.png)
+   when the user inputs the command `delete 1/2`  
+   <br>![Delete Sequence Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ArchitectureDiagrams/DeleteSeq.png)
 
 ## Design
 
@@ -55,7 +55,7 @@ The logical component of the program consists multiple classes. Namely: `Parser`
 the various child class of `Command`.
 The class diagram below is a brief overview of how the `Parser`, `Manger` & the various `Command` class
 are related to one another.  
-<br>![Logical Component Partial Class Diagram](https://github.com/markuslyq/tp/blob/master/UMLdiagrams/LogicalComponentDiagrams/Logical%20Component%20Diagram-Page-2.jpg?raw=true)
+<br>![Logical Component Partial Class Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/LogicalComponentDiagrams/Logical%20Component%20Diagram-Page-2.jpg)
 
 :information_source: **Note:** Specific command names are represented using a placeholder `'Abc'`, i.e. AddCommand, FindCommand.
 
@@ -77,11 +77,10 @@ Explanation on how the parsing is done:
    if there is no match)
 
 The following sequence diagram depicts how the `Logical` components interact with one another upon receiving the user's input of `"delete 1/2"`.  
-<br>![Logical Component Partial Class Diagram](https://github.com/markuslyq/tp/blob/master/UMLdiagrams/DeleteCommandDiagram/DeleteCommand%20Sequence%20Diagram.jpg?raw=true)
+<br>![Logical Component Partial Sequence Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/DeleteCommandDiagram/DeleteCommand%20Sequence%20Diagram.jpg)
    
 ### Manager Component
-
-**API** : PeopleManager.java
+The manager component of the program consists multiple classes. Namely: `PeopleManager`,`Person` & `Order`.  
 <br>![PeopleManagerDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/PeopleManagerDiagram/PeopleManagerDiagram.jpg)
 
 :information_source: **Note:** This diagram shows the components of how the inputs are handled.
@@ -176,9 +175,7 @@ The Sequence Diagram below represents the interactions between components when u
 
 The Sequence Diagram below represents the interactions between components when user inputs command `delete 1/2`
 <br>![Sequence Diagram 2](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/deleteCommandSeqDiagram.png)
-<div markdown="span" class="alert alert-primary">
 This show the interaction between the Logical and Manager components during the add and delete situation.
-</div>
 
 `Find`command goes through similar sequence as compared to the `delete` command sequence diagram.
 The main differences are:
@@ -192,20 +189,17 @@ The main differences are:
 3. editParticularOrder() is called directly from the EditCommand class instead of through a method in Person class.
 
 
-
 #### Alternate implementation
 
 The EditCommand function can be integrated with the deleteCommand class.
-```
-
-```
-
+  
 The upside of doing would be that there is less code overall.
 However, doing so would result in multiple functions being in the same class which would:
 1. Make the code messier.
 2. Make the code more vulnerable to functionality bugs.
 3. Make the code more complex to debug.
 4. Make testing process more complicated.
+
 ### Menu and Order Command Classes
 
 Command word to invoke the Menu Command and Order Command: `menu` and `list`.
@@ -223,13 +217,7 @@ Hence, the sequence of which how Menu Command class and Order Command class are 
 The steps to using the `menu` and `list` command can be seen from the sequence diagram. In short: 
 1) Invoke the Menu Command class by calling `menu`. The menu will display in the terminal.
 
-<br>![MenuCommandTerminalOutput](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/MenuCommandTerminalOutput.jpg)   
-:information_source: **Note:** The output is an example of what you will see when the `menu` command is entered.
-
 2) After adding orders, invoke `list` command to see the orders added into the list.
-
-<br>![ListCommandTerminalOutput](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/ListCommandTerminalOutput.jpg)    
-:information_source: **Note:** The output is an example of what you will see when the `list` command is entered.
 
 **Note:** The command `menu` and `list` are just these two strings. Any edits to these two commands will result in an exception being thrown.
    

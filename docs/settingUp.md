@@ -3,7 +3,7 @@
 
 * [Setting up the project](#setting-up-the-project)
 
-
+[Back to main page](README.md)
 
 ## Setting up the project
 :exclamation: **Important:** Follow these steps carefully prior to amending or running any test.
