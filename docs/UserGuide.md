@@ -32,6 +32,15 @@ instructions on how to use them can be found in the following section.
 
 ### Display food menu: `menu`
 
+Lists the menu along with the index, food name and price. 
+
+**Format:** `menu`  
+
+**Example of usage:** 
+* `menu`.   
+  
+![Menu Screenshot](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/menuUDDiagram.png)
+
 ### Adding orders: `add`
 
 Adds a specific order for a particular person.
@@ -84,6 +93,21 @@ Deletes a specific order from a particular person.
 ![Delete Screenshot](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/UG_DeleteCommand_Example.png)
 
 ### Edit current orders: `edit`
+
+Edits the quantity of a specific order from a particular person. 
+
+**Format:** `edit [PERSON_INDEX]/[FOOD_INDEX] /q [QUANTITY]`  
+* Edits the quantity of the specific order of `FOOD_INDEX`  from the person of `PERSON_INDEX`.
+* The `PERSON_INDEX` refers to the index number of a particular person shown in the displayed order list.
+* The `FOOD_INDEX` refers to the index number of a specific order shown in the displayed order list.
+* The `Quantity` refers to the quantity of the particular order to be changed to.
+* `PERSON_INDEX` & `FOOD_INDEX` **must be a positive integer** 1, 2, 3, … 
+* `QUAANTITY` **must be a non-negative integer** 0, 1, 2, 3, …
+
+**Example of usage:** 
+* `list` followed by `edit 1/2 /q 5` edits the order of index '`2`' from the person of index '`1`' and changes the quantity to '`4`'.    
+  
+![Edit Screenshot](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/editUGDiagram.png)
 
 ### Finding person: `find`
 

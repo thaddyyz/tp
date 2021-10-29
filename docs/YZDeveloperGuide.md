@@ -11,7 +11,7 @@ The Sequence Diagram below represents the interactions between components when u
 The Sequence Diagram below represents the interactions between components when user inputs command `delete 1/2`
 <br>![Sequence Diagram 2](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/deleteCommandSeqDiagram.png)
 <div markdown="span" class="alert alert-primary">
-This show the interaction between the Logical and Manager components during the add and delete situation.
+This show the interaction between the Logical, Manager, and UI components during the add and delete situation.
 </div>
 
 `Find`command goes through similar sequence as compared to the `delete` command sequence diagram.
