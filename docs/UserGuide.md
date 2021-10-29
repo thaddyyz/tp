@@ -1,5 +1,16 @@
 # User Guide
-
+## Contents
+- [Introduction](#introduction)
+- [Quick Start](#quick-start)
+- [Features](#features)
+  - [Display food menu](#display-food-menu-menu)
+  - [Adding orders](#adding-orders-add)
+  - [Deleting orders](#deleting-orders-delete)
+  - [Edit current orders](#edit-current-orders-edit)
+  - [Finding person](#finding-person-find)
+  - [List current orders](#list-current-orders-list)
+  - [Exiting LOTS](#exiting-lots-bye)
+- [Command Summary](#command-summary)
 ## Introduction
 
 Large Order Tracking System (LOTS) is a Command Line (CLI) program that enables users to keep track of multiple food 
@@ -107,7 +118,7 @@ Shows a list of all the orders that have been made.
 - The `list` command will display everyone's orders, and a summary of the total number of people who have ordered and
 the total quantity of food ordered.
 
-![List Image](https://raw.githubusercontent.com/mohamad-adam8991/tp/blob/UG_MA/docs/UG%20Images/ListExample.JPG)
+![List Image](https://github.com/mohamad-adam8991/tp/blob/UG_MA/docs/UG%20Images/ListExample.JPG)
 
 ### Exiting LOTS: `bye`
 
@@ -117,7 +128,7 @@ Exits the LOTS program.
 
 **Example of usage**
 
-![List Image](https://raw.githubusercontent.com/mohamad-adam8991/tp/blob/UG_MA/docs/UG%20Images/ByeExample.JPG)
+![Bye Image](https://github.com/mohamad-adam8991/tp/blob/UG_MA/docs/UG%20Images/ByeExample.JPG)
 
 ## Command Summary
 |Actions|Format & Example|
