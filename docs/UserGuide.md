@@ -81,7 +81,7 @@ Deletes a specific order from a particular person.
 **Example of usage:** 
 * `list` followed by `delete 1/2` deletes the order of index '`2`' from the person of index '`1`'.    
   
-![Delete Screenshot](https://raw.githubusercontent.com/markuslyq/tp/master/docs/UG%20Images/UG_DeleteCommand_Example.png)
+![Delete Screenshot](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/UG_DeleteCommand_Example.png)
 
 ### Edit current orders: `edit`
 
