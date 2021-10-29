@@ -1,15 +1,32 @@
 # User Guide
-
+## Contents
+- [Introduction](#introduction)
+- [Quick Start](#quick-start)
+- [Features](#features)
+  - [Display food menu](#display-food-menu-menu)
+  - [Adding orders](#adding-orders-add)
+  - [Deleting orders](#deleting-orders-delete)
+  - [Edit current orders](#edit-current-orders-edit)
+  - [Finding person](#finding-person-find)
+  - [List current orders](#list-current-orders-list)
+  - [Exiting LOTS](#exiting-lots-bye)
+- [Command Summary](#command-summary)
 ## Introduction
 
-{Give a product intro}
+Large Order Tracking System (LOTS) is a Command Line (CLI) program that enables users to keep track of multiple food 
+orders from a pre-set list of food items from different stores. The program helps users to collate the orders and 
+displays a summary of all the orders along with other information such as each person’s order and special requirements 
+(if any), cost of an individual’s order,  total cost of all the orders and more. As LOTS is a CLI program, this would 
+greatly benefit any user that excels in typing.
 
 ## Quick Start
 
-{Give steps to get started quickly}
-
 1. Ensure that you have Java 11 or above installed.
-1. Down the latest version of `Duke` from [here](http://link.to/duke).
+2. Download the latest version of `LOTS` from [here](https://github.com/AY2122S1-CS2113-T13-2/tp/releases).
+3. Navigate to the folder where `LOTS` is located using terminal.
+4. Start the `LOTS` program by executing `java -jar CS2113TP.jar` in the terminal.
+5. You can start using the `LOTS` program by inputting commands into the command line. The list of commands and 
+instructions on how to use them can be found in the following section.
 
 ## Features
 
@@ -80,7 +97,7 @@ Find persons with names that contain a given string and print out their orders.
 **Any** sub-string of the name will be considered a match.
     - E.g) `find /n drew` will return the name `andrew` as a match.
     
-**Examples**
+**Example of usage**
 - Assume our current list contains 3 people named `tom`, `kim` & `kimmy` as seen below.
 - The command `find /n kim` will return both `kim` & `kimmy` as both names contain the string `"kim"`.
 
@@ -90,15 +107,37 @@ Find persons with names that contain a given string and print out their orders.
 
 ### List current orders: `list`
 
+Shows a list of all the orders that have been made.
 
-## FAQ
+**Format:** `list`
 
-**Q**: How do I transfer my data to another computer? 
+- Input **must not** contain any extra characters after `list`.
 
-**A**: {your answer here}
+**Example of usage**
+- Assume that the current stored order contains orders made by `Jerry`, `Lewis` & `Smith`.
+- The `list` command will display everyone's orders, and a summary of the total number of people who have ordered and
+the total quantity of food ordered.
+
+![List Image](https://github.com/mohamad-adam8991/tp/blob/UG_MA/docs/UG%20Images/ListExample.JPG)
+
+### Exiting LOTS: `bye`
+
+Exits the LOTS program.
+
+**Format:** `bye`
+
+**Example of usage**
+
+![Bye Image](https://github.com/mohamad-adam8991/tp/blob/UG_MA/docs/UG%20Images/ByeExample.JPG)
 
 ## Command Summary
+|Actions|Format & Example|
+|:---:|:---|
+|Add|Format: `add /n [PERSON_NAME] /i [FOOD_INDEX] /q [QUANTITY]` <br>Example: `add /n Andrew /i 32 /q 2` (Adds 2 orders of item number 32 for Andrew)|
+|Delete|Format: `delete [PERSON_INDEX]/[FOOD_INDEX]`<br>Example: `delete 2/1` (Deletes the order of index ‘1’ from the person of index ‘2’.)
+|Edit|Format: `edit [PERSON_INDEX]/[FOOD_INDEX] /q [QUANTITY]` <br>Example: `edit 3/1 /q 8` (Changes the quantity of the order with index '1' from the person of index '3' to 8.) 
+|Find|Format: `find /n [SEARCH_STRING]` <br>Example:`find /n drew` (Searches for names containing 'drew'.)
+|Menu|Example: `menu`|
+|List|Example: `list`|
+|Bye|Example: `bye`|
 
-{Give a 'cheat sheet' of commands here}
-
-* Add todo `todo n/TODO_NAME d/DEADLINE`
