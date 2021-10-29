@@ -29,6 +29,30 @@ Example of usage:
 
 `todo n/Refactor the User Guide to remove passive voice d/13/04/2020`
 
+### Display food menu: `menu`
+
+### Adding orders: `add`
+
+### Deleting orders: `delete`   
+
+Deletes a specific order from a particular person. 
+
+**Format:** `delete [PERSON_INDEX]/[FOOD_INDEX]`  
+* Deletes the specific order of `FOOD_INDEX`  from the person of `PERSON_INDEX`.
+* The `PERSON_INDEX` refers to the index number of a particular person shown in the displayed order list.
+* The `FOOD_INDEX` refers to the index number of a specific order shown in the displayed order list.
+* `PERSON_INDEX` & `FOOD_INDEX` **must be a positive integer** 1, 2, 3, …  
+
+**Example of usage:** 
+* `list` followed by `delete 2/1` deletes the order of index '`1`' from the person of index '`2`'. 
+
+### Edit current orders: `edit`
+
+### Finding person: `find`
+
+### List current orders: `list`
+
+
 ## FAQ
 
 **Q**: How do I transfer my data to another computer? 

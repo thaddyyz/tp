@@ -1,131 +1,119 @@
+# Developer Guide
+
+- [Acknowledgements](#acknowledgements)
+- [Architecture](#architecture)
+- [Design](#design)
+    - [Logical Component](#logical-component)
+    - [Manager Component](#manager-component)
+- [Implementation](#implementation)
+    - [Parser](#parser)
+        - [Alternate implementation](#alternate-implementation)
+    - [Add, Delete, Edit, Orders & Find Command Classes](#add-delete-edit-orders-and-find-command-classes)
+    - [Menu & Order Command Classes](#menu-and-order-command-classes)
+- [Product Scope](#product-scope)
+    - [Target user profile](#target-user-profile)
+    - [Value proposition](#value-proposition)
+- [User Stories](#user-stories)
+- [Non-Functional Requirements](#non-functional-requirements)
+- [Instructions for manual testing](#instructions-for-manual-testing)
+- [Glossary](#glossary)
 
 ## Acknowledgements
 
 {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
+
 ## Architecture
+
+<br>![Architecture Diagram](https://github.com/mohamad-adam8991/tp/blob/DGArchitecture_MA/UMLdiagrams/ArchitectureDiagrams/ArchitectureDiagram.drawio.png)
+<br>The ***Architecture Diagram*** given above explains the high-level design of the LOTS app.
+
+<br>The following section gives a brief overview of the main components in the architecture and how they interact with
+each other. Further explanation will be given in depth in the **Design** section of the developer guide.
+### Main components of the architecture
+1) **Main** consists of the Duke class, which is responsible for initializing the various components of the LOTS program
+   at startup, and the handling of the interactions between classes.
+2) **UI** handles the UI portion of the LOTS program.
+3) **Logic** deals with the parsing and execution of user inputs.
+4) **Manager** deals with the various types of data that is stored within the LOTS program.
+### Component Interaction
+The general flow of the program is as follows:
+1) User inputs data which is read by the `UI` within the `Main`.
+2) This data is passed to the `Parser` which will return a `Command`.
+3) `Command` will be executed, carrying out whatever task the user has input. `Manager` may be called if data is to
+be stored or edited.
+4) `UI` component handles the printing of data if required.
+
+   </br>Given below is a simplified sequence diagram showing how the components within the LOTS program interact with each other
+   when the user inputs the command `delete 1/2`
+   <br>![Delete Sequence Diagram](https://github.com/mohamad-adam8991/tp/blob/DGArchitecture_MA/UMLdiagrams/ArchitectureDiagrams/DeleteSeq.png)
 
 ## Design
 
 ### Logical Component
+
 The logical component of the program consists multiple classes. Namely: `Parser`,`Command` &
 the various child class of `Command`.
-The class diagram below is a brief overview of how the `Parser` & the various `Command` class
-are related to one another.
-<br>Insert Abstract Class diagram here
-<div markdown="span" class="alert alert-primary">
+The class diagram below is a brief overview of how the `Parser`, `Manger` & the various `Command` class
+are related to one another.  
+<br>![Logical Component Partial Class Diagram](https://github.com/markuslyq/tp/blob/master/UMLdiagrams/LogicalComponentDiagrams/Logical%20Component%20Diagram-Page-2.jpg?raw=true)
 
-:information_source: **Note:** Details of each specific command class & Duke have been omitted from this diagram.
+:information_source: **Note:** Specific command names are represented using a placeholder `'Abc'`, i.e. AddCommand, FindCommand.
 
-</div>
+Below is a brief explanation on how the `Logical` component works.
+1. Upon receiving the user's input to excecute a specific command, it calls the `Parser` to interpret and parse the user's command.
+2. A particular `Command` object is then initialised and returned back to `Duke`, the main program.
+3. `Duke` executes the command, which communicates with the `Manager` to perform its specific function, i.e. add a food order.
 
-Below is a brief explanation on how the logical component works.
-
-1) When the user key's in an input, `Duke.class` passes the entire String into the `Parser` class to be processed.
-2) The `Parser` class will then decide based on the input, which specific command type to be returned.
-   (e.g. `AddCommand`,`EditCommand`, etc...)
-3) The `PeopleManager` for each Command Class is then setup by calling the
-   `setData(People Manager)` function.
-4) Next, the `execute()` function is called to perform whatever operation the
-   command is supposed to do.
-5) Depending on the which specific Command type it is, the `Command` might be able to
-   communicate with other components such as the `Menu` & `Ui` class to perform it's respective
-   tasks. (e.g. Printing the Menu)
-   <br>
-
-All the specific types of command class are a child class of `Command` to allow the program
-to treat all commands the same when they return from the `Parser` class. Below is a quick overview
-of how the `Parser` class works.
+The class diagram below is a brief overview of how the `Parser` is used in parsing the user's command.
 
 ![Class Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/ParserClassDiag-Page-1.jpg)
 
-1) `Parser` checks to make sure input is neither blank nor empty.
-2) The command word of the input (e.g.`"add"`, `"edit"`) is put through a switch statement.
-3) The return item is then determined by which case of the switch statement the command word
-   falls into.
-
-<br>
-Below is a sequence diagram modeling how the `Parser` class works.
-
-![Squence Diagram of Parser](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/Parser%20Sequence%20Diag.jpg)
-
-### Delete Command
-
-The purpose of the delete command is to delete a specific order from a particular person. The class diagram below shows the structure of the deleteCommand class and its relationship with other classes.  
-<br>![Class Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/DeleteCommandDiagram/DeleteCommand%20Diagram.jpg?raw=true)
-<div markdown="span" class="alert alert-primary">
-
-:information_source: **Note:** This is not a full representation of all the classes. Only methods and attributes associated with the deleteCommand class is being shown.
-
-</div>
-
-Below is an example of how the deleteCommand class behaves at each step.
-Assume that there are 3 persons with 3 orders each.
-
-Step 1:<br>
-Assuming that the user execute `delete 1/2` command to delete the the order of index `‘2’` from the person of index `‘1’`, the parser would instantiate an object of deleteCommand class, which is a subclass of the Command class. In the constructor of the deleteCommand class, the input entered by the user would then be taken as a parameter.
-<br>
-
-Step 2:<br>
-The input is then split and initialised to its respectively attributes using the `getPersonIndex()` and `getFoodIndex()` methods. In this case, `'1'` would be initialised as personIndex and `'2'` as foodIndex. The deleteCommand class is then returned to Duke, the main program, via the Parser class.
-<br>
-
-Step 3:<br>
-Duke calls the `execute()` method of deleteCommand, which executes `deleteOrder()`. An instance of peopleManager, initialised in the Command class, is then parsed as a paramenter.
-<br>
-
-Step 4:<br>
-Within the `deleteOrder()` method, the person whose order is to be deleted is initialised and the deletion of the order is done via `deleteParticularOrder()` of the Person class as only the Person class has access to the Order class which holds the quantity of the order. The quantity of that particular order is then changed to 0 using `setQuantity()` in the Order class. This is to encapsulate the quantity attribute so as to prevent any unauthorised parties from accessing them directly.
-<br>
-
-Step 5:<br>
-`printDeleteMessage()` is called to notify the user of the deletion and if the person no longer has any orders tagged to him, that paricular person would be deleted from the list too.
-<br>
-
-### Orders Command
-
-The purpose of the OrdersCommand is to display the list of current orders stored. The class diagram below shows the structure of
-the OrdersCommand class and how it is related to the other classes.
-
-<br>![OrdersCommand Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/OrderCommandDiagram/OrderCommand%20Diagram.jpg)
-<div markdown="span" class="alert alert-primary">
-
-:information_source: **Note:** This diagram only shows methods and attributes related to the OrdersCommand class.
-
-</div>
-
-Below is an example of how the OrdersCommand is used, assuming that there are orders currently stored.
-1) Taking in the input `list`, the parser will instantiate an OrdersCommand object, which in turn is returned to the
-   main duke program.
-2) When the main duke program calls the `execute()` method of OrdersCommand, the `printOrdersList()` method of the UI
-   class is executed.
-3) Within the `printOrdersList()` method, the method loops through each person stored in the PeopleManager to print the
-   names of all persons currently stored. On top of that, `printIndividualPersonOrder()` is called to print the `foodIndex` and
-   `quantity` data stored for each person.
-
-### Add Command
-The purpose of the AddCommand is to take in the user input and split the input to three different categories.
-The three categories are the input name, order index and quantity. These data will then be added into a new Person object,
-which will be added into the list of People.
-The class diagram below is a brief overview of how the AddCommand is related to other classes.
-
-<br>![AddCommandDiagram](https://raw.githubusercontent.com/WaiKit-nus/tp/AddCommandClassDG-WK/UMLdiagrams/AddCommandDiagram/AddCommandDiagram.jpg)
-<div markdown="span" class="alert alert-primary">
-
 :information_source: **Note:** Details of each specific command class & Duke have been omitted from this diagram.
 
-</div>
+Explanation on how the parsing is done:
+1. Upon receiving the user's input string from `Duke`, the `Parser` split the user's input into an array of strings.
+2. It then interprets the string and try to match it with one of the known commands.
+3. The respective command (i.e. `DeleteCommand`) object will be initialised and returned back to `Duke` as a `Command` object. (`UnknownCommand` object is return
+   if there is no match)
 
-Listed below is an example on the usage of Add Command.
-1) Example Command: `add /n Jacob /i 3 /q 2`. This command translates into adding a person named Jacob, ordering the 3rd food on the menu with 2 quantity.
-2) The Add command will take in this input from the Parser class, which will then split this input string into `personName`, `foodIndex` and `foodQuantity` respectively.
-   A new `Person` object will be instantiated and the data `personName`, `foodIndex` and `foodQuantity` is passed into this object.
-3) This `Person` object will be added into the `listOfPeople` in the `PeopleManager` class.
+The following sequence diagram depicts how the `Logical` components interact with one another upon receiving the user's input of `"delete 1/2"`.  
+<br>![Logical Component Partial Class Diagram](https://github.com/markuslyq/tp/blob/master/UMLdiagrams/DeleteCommandDiagram/DeleteCommand%20Sequence%20Diagram.jpg?raw=true)
+   
+### Manager Component
+
+**API** : PeopleManager.java
+<br>![PeopleManagerDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/PeopleManagerDiagram/PeopleManagerDiagram.jpg)
+
+:information_source: **Note:** This diagram shows the components of how the inputs are handled.
+
+The `PeopleManager` component,
+* Stores a list of people, named: `listOfPeople`. This list stores all `Person` objects.
+
+The `Person` component,
+* Store details of the person.
+   * It stores the name of the person, using a String Variable named `personName`.
+   * It also stores the orders of the person, using a list of Order, named `individualFoodOrders`.
+   
+The `Order` component,
+* Stores details of the order.
+   * It stores the name of the order, using a String Variable named `foodName`.
+   * It stores the index of the order, using an int Variable named `foodIndex`.
+   * It stores the quantity of the order, using a String Variable named `quantity`.
+   * It stores the cost of the order, using a double Variable named `costOfOrder`.
+   
+When the input is passed in through the `logical` component, the `PeopleManager` component will be responsible for managing the input, 
+by creating variables needed to store the data, and storing this newly created variables into the `listOfPeople`.
 
 ## Implementation
 
-### Logical Components
+### Parser
 
-Below is a step by step example on how the Logical components interact when a user keys in an input.
+This is a sequence diagram of the `Parser` class.
+
+![Squence Diagram of Parser](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/Parser%20Sequence%20Diag.jpg)
+
+
+Below is a step by step example on how the `Parser` interacts when a user keys in an input.
 
 Step 1)<br>
 Lets assume the user input is `delete 1/2`. `Duke` will then call the method
@@ -148,12 +136,8 @@ Next, `Duke` will then use the returned command to call `Command.execute()` whic
 with the `Manager Components` of the program who will then remove the 2nd order from the first
 person in the list.
 
-Below is a Sequence diagram for the entire process mentioned above.
-
-![Squence Diagram of Logic](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/LogicSequenceDiag.jpg)
-
-
 #### Alternate implementation
+
 For the `Parser` class, we initially had thought of having each command's respective
 functions to be executed inside the switch statement.
 A rough example of the `delete` and `add` function can be seen below.
@@ -171,7 +155,86 @@ cause the code to be messier and therefore harder to read. By having a command c
 for each respective command, this allows us to segregate all the necessary functions
 for each command in their own respective class, therefore making testing easier too.
 
+This section describes how the commands are implemented. 
+Explanations and sequence diagrams are used to describe the implementation process.
+
+### Add, Delete, Edit, Orders and Find Command Classes
+
+The commands `add`, `delete`, `edit`, `orders` and `find` have similar implementation, with a few differences in terms of the methods called.
+Here is an overview of their class diagram.  
+<br>![OverallClassDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/LogicalComponentDiagrams/OverallClassDiagram.jpg)
+
+:information_source: **Note:** The diagram is shared between the AddCommand, DeleteCommand, EditCommand, OrdersCommand and FindCommand.
+
+
+From the above class diagram, we can replace the **AbcCommand** with whichever command we are looking at. For example, if we are 
+looking at the `AddCommand` class, we replace the **AbcCommand** with **AddCommand**. Same goes for all the other command classes. 
+The overview class diagram is listed here to show how the command classes interact on the logical component to the manager component.
+
+The Sequence Diagram below represents the interactions between components when user inputs command `add /n tom /i 1 /q 2`
+<br>![Sequence Diagram](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/AddCommandSeqDiagram.png)
+
+The Sequence Diagram below represents the interactions between components when user inputs command `delete 1/2`
+<br>![Sequence Diagram 2](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/deleteCommandSeqDiagram.png)
+<div markdown="span" class="alert alert-primary">
+This show the interaction between the Logical and Manager components during the add and delete situation.
+</div>
+
+`Find`command goes through similar sequence as compared to the `delete` command sequence diagram.
+The main differences are:
+1. deleteOrder() is replaced with checkIfMatchAndPrint().
+2. deleteParticularOrder() is replaced with getPersonName().
+
+`Edit`command goes through similar sequence as compared to the `delete` command sequence diagram.
+The main differences are:
+1. additional getQuantity() method under EditCommand class.
+2. deleteOrder() is replaced with editOrder().
+3. editParticularOrder() is called directly from the EditCommand class instead of through a method in Person class.
+
+
+
+#### Alternate implementation
+
+The EditCommand function can be integrated with the deleteCommand class.
+```
+
+```
+
+The upside of doing would be that there is less code overall.
+However, doing so would result in multiple functions being in the same class which would:
+1. Make the code messier.
+2. Make the code more vulnerable to functionality bugs.
+3. Make the code more complex to debug.
+4. Make testing process more complicated.
+### Menu and Order Command Classes
+
+Command word to invoke the Menu Command and Order Command: `menu` and `list`.
+
+The purpose of Menu Command class is to instantiate the menu of which the user can order from. By invoking `menu`, the menu will be printed on the console for the user to see.
+
+The purpose of Order Command class is to print the orders which the user has ordered onto the console. By invoking `list`, the order will be printed in a list format for the user to view. 
+
+Hence, the sequence of which how Menu Command class and Order Command class are very similar. To prevent repeating of Sequence diagrams, a shared diagram will be listed below for the Menu Command Class and the Order Command class.  
+   
+<br>![MenuAndOrdersSequenceDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/MenuAndOrdersSequenceDiagram.jpg)    
+:information_source: **Note:** The diagram is shared between Menu Command Class and Orders Command Class.
+
+
+The steps to using the `menu` and `list` command can be seen from the sequence diagram. In short: 
+1) Invoke the Menu Command class by calling `menu`. The menu will display in the terminal.
+
+<br>![MenuCommandTerminalOutput](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/MenuCommandTerminalOutput.jpg)   
+:information_source: **Note:** The output is an example of what you will see when the `menu` command is entered.
+
+2) After adding orders, invoke `list` command to see the orders added into the list.
+
+<br>![ListCommandTerminalOutput](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/MenuAndOrdersSequenceDiagram/ListCommandTerminalOutput.jpg)    
+:information_source: **Note:** The output is an example of what you will see when the `list` command is entered.
+
+**Note:** The command `menu` and `list` are just these two strings. Any edits to these two commands will result in an exception being thrown.
+   
 ## Product scope
+
 ### Target user profile
 
 * User has good typing skills.
@@ -231,13 +294,9 @@ for each command in their own respective class, therefore making testing easier 
    - Up to `99` _Unique person_ at a time.
    - Maximum of `99` _Unique Food_ items in the menu.
    - Maximum of `999` quantity for each distinct food item in a person's order.
-
-## Glossary
-
-* `Unique Person` - Every entry with a different name counts as a unique person.
-* `Unique Food`   - Every element in the food array menu counts as a unique food.
-
+    
 ## Instructions for manual testing
+
 The instructions below give a brief overview on how to test the functions manually.
 
 - :information_source: More test cases can be found in each of their respective test class under
@@ -252,6 +311,7 @@ The instructions below give a brief overview on how to test the functions manual
 ---
 
 ### Starting up and Shutting down
+
 1) To begin, download the .jar file and place it in a folder.
 2) Open the CLI at the file location and run by the jar file by giving the command,
    `java -jar <jar file name>.jar`
@@ -261,6 +321,7 @@ The instructions below give a brief overview on how to test the functions manual
 ---
 
 ### Add Function
+
 - The format of the command is `add /n <name> /i <index> /q <quanity>`
 - Prerequisite: The `Menu` has to contain at least `2` food item.
 
@@ -276,6 +337,7 @@ The instructions below give a brief overview on how to test the functions manual
 ---
 
 ### Edit Function
+
 - The format of the command is `edit <person index>/<order index> /q <quantity>`
 - Prerequisite: The current list has to contain at least `2` person each with `2`
   distinct orders.
@@ -291,6 +353,7 @@ The instructions below give a brief overview on how to test the functions manual
 ---
 
 ### Find Function
+
 - The format of the command is `find /n <name>`
 - Prerequisite: Contains 2 person with names of `abc` & `bcd`.
    - The above names are just for testing purposes.
@@ -306,6 +369,7 @@ The instructions below give a brief overview on how to test the functions manual
 ---
 
 ### Delete Function
+
 - The format of the command is `delete <person index>/<order index>`
 - Prerequisite: The current list has to contain at least `2` person each with `2`
   distinct orders.
@@ -316,3 +380,8 @@ The instructions below give a brief overview on how to test the functions manual
 |Delete all orders from a person| `delete 1/1`| Person should not be listed anymore|
 |Missing parameters| `delete 1/`| Error message to user|
 |Out of index| `delete 100/1`| Error message to user|
+
+## Glossary
+
+* `Unique Person` - Every entry with a different name counts as a unique person.
+* `Unique Food`   - Every element in the food array menu counts as a unique food.
