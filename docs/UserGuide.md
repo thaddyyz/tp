@@ -134,7 +134,7 @@ Exits the LOTS program.
 |Actions|Format & Example|
 |:---:|:---|
 |Add|Format: `add /n [PERSON_NAME] /i [FOOD_INDEX] /q [QUANTITY]` <br>Example: `add /n Andrew /i 32 /q 2` (Adds 2 orders of item number 32 for Andrew)|
-|Delete|Format: `delete [PERSON_INDEX]/[FOOD_INDEX]`<br>Example: `delete 2/1` (Deletes the order of index ‘1’ from the person of index ‘2’.)
+|Delete|Format: `delete [PERSON_INDEX]/[FOOD_INDEX]`<br>Example: `delete 1/2` (Deletes the order of index ‘1’ from the person of index ‘2’.)
 |Edit|Format: `edit [PERSON_INDEX]/[FOOD_INDEX] /q [QUANTITY]` <br>Example: `edit 3/1 /q 8` (Changes the quantity of the order with index '1' from the person of index '3' to 8.) 
 |Find|Format: `find /n [SEARCH_STRING]` <br>Example:`find /n drew` (Searches for names containing 'drew'.)
 |Menu|Example: `menu`|
