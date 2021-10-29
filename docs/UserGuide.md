@@ -118,7 +118,7 @@ Shows a list of all the orders that have been made.
 - The `list` command will display everyone's orders, and a summary of the total number of people who have ordered and
 the total quantity of food ordered.
 
-![List Image](https://github.com/AY2122S1-CS2113-T13-2/tp/blob/master/docs/UG%20Images/ListExample.JPG)
+![List Image](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/ListExample.JPG)
 
 ### Exiting LOTS: `bye`
 
@@ -128,7 +128,7 @@ Exits the LOTS program.
 
 **Example of usage**
 
-![Bye Image](https://github.com/AY2122S1-CS2113-T13-2/tp/blob/master/docs/UG%20Images/ByeExample.JPG)
+![Bye Image](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/ByeExample.JPG)
 
 ## Command Summary
 |Actions|Format & Example|
