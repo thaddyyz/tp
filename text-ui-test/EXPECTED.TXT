@@ -167,13 +167,13 @@ Wrong format for command Find. E.g) find /n <String to find>
 ============================================================================================
 Alright, order 1 has been deleted from tim!
 ============================================================================================
-Please enter a valid person's index followed by the order index! i.e. delete 1/a
+Please enter a valid person's index followed by the order index! i.e. delete 1/2
 ============================================================================================
 Unknown command. Please try again.
 ============================================================================================
-Please enter a valid person's index followed by the order index! i.e. delete 1/a
+Please enter a valid person's index followed by the order index! i.e. delete 1/2
 ============================================================================================
-Please enter a valid person's index followed by the order index! i.e. delete 1/a
+Please enter a valid person's index followed by the order index! i.e. delete 1/2
 ============================================================================================
 Alright, order 1 has been deleted from aim!
 	(1) Minced MeatNoodles(Ba Chor Mee) | Quantity = 4 | Cost = $12.00
