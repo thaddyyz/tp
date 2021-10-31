@@ -52,9 +52,9 @@ public class FindCommand extends Command {
         try {
             for (int i = 0; i < totalPeople; i++) {
                 currentPerson = super.peopleManager.getPerson(i);
-                String name = currentPerson.getPersonName().toLowerCase();
+                String name = currentPerson.getPersonName();
 
-                if (name.contains(stringToFind)) {
+                if (name.toLowerCase().contains(stringToFind)) {
                     Ui.printWithoutBorder((i + 1) + ") " + name + ":");
                     Ui.printIndividualPersonOrder(currentPerson);
                     hasMatch = true;
