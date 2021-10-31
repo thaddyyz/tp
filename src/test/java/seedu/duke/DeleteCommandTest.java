@@ -41,8 +41,10 @@ class DeleteCommandTest {
     @Test
     void execute_personIndexOutOfBounds_expectException() throws LotsException {
         String input = "delete 99/1";
+        Command command = new DeleteCommand(input);
+        command.setData(peopleManager);
         assertThrows(LotsException.class,
-            () -> new DeleteCommand(input));
+            () -> command.execute());
     }
 
     @Test

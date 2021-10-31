@@ -109,7 +109,7 @@ public class EditCommand extends Command {
         int slashIndex = editParams.indexOf('/');
         String orderIndexInString = editParams.substring(slashIndex + 1);
         int orderIndexInInteger = Integer.parseInt(orderIndexInString) - 1;
-        if (orderIndexInInteger <= 0) {
+        if (orderIndexInInteger < 0) {
             throw new LotsException("Please enter a valid order index! i.e 1 to " + Menu.TOTAL_MENU_ITEMS);
         }
         assert orderIndexInInteger >= 0 : "Order index cannot be negative.";
