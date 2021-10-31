@@ -1,4 +1,4 @@
-loading...
+A new file has been created at F:\School\CS2113T 3\TP\build\libs
 Welcome to L.O.T.S! What would you like to track today?
 ============================================================================================
 Unknown command. Please try again.
@@ -37,21 +37,42 @@ Your order list is empty!
 ============================================================================================
 Unknown command. Please try again.
 ============================================================================================
-Please enter a valid Add Command!
+Invalid Command!
+Please check your range of values and the format.
+Name: Shorter than 50 characters. Index: Range of menu. Quantity: 1 to 999.
+Refer to the UG for more details.
 ============================================================================================
-Please enter a valid Add Command!
+Invalid Command!
+Please check your range of values and the format.
+Name: Shorter than 50 characters. Index: Range of menu. Quantity: 1 to 999.
+Refer to the UG for more details.
 ============================================================================================
-Please enter a valid Add Command!
+Invalid Command!
+Please check your range of values and the format.
+Name: Shorter than 50 characters. Index: Range of menu. Quantity: 1 to 999.
+Refer to the UG for more details.
 ============================================================================================
-Please enter a valid Add Command!
+Invalid Command!
+Please check your range of values and the format.
+Name: Shorter than 50 characters. Index: Range of menu. Quantity: 1 to 999.
+Refer to the UG for more details.
 ============================================================================================
-Please enter a valid Add Command!
+Invalid Command!
+Please check your range of values and the format.
+Name: Shorter than 50 characters. Index: Range of menu. Quantity: 1 to 999.
+Refer to the UG for more details.
 ============================================================================================
-Please enter a valid Add Command!
+Invalid Command!
+Please check your range of values and the format.
+Name: Shorter than 50 characters. Index: Range of menu. Quantity: 1 to 999.
+Refer to the UG for more details.
 ============================================================================================
 Index out of range. Please try again!
 ============================================================================================
-Please enter a valid Add Command!
+Invalid Command!
+Please check your range of values and the format.
+Name: Shorter than 50 characters. Index: Range of menu. Quantity: 1 to 999.
+Refer to the UG for more details.
 ============================================================================================
 We have updated the order list for: tim
 	(1) Chicken Rice | Quantity = 3 | Cost = $9.00

@@ -53,9 +53,13 @@ public class Storage {
      * @throws IOException If the file cannot be read or created.
      */
     private static File getOrdersFile() throws IOException {
-        File taskFile = new File(FILE_PATH + "/.orders.txt");
-        System.out.println("loading...");
-        return taskFile;
+        File ordersFile = new File(FILE_PATH + "/.orders.txt");
+        if (ordersFile.createNewFile()) {
+            System.out.println("A new file has been created at " + FILE_PATH);
+        } else {
+            System.out.println("loading...");
+        }
+        return ordersFile;
     }
 
     /**

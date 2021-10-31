@@ -11,10 +11,12 @@ import java.util.regex.Pattern;
 public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
+    private static final int MAX_FOOD_QUANTITY = 1000;
+    private static final int MIN_FOOD_QUANTITY = 0;
+    private static final int MAX_PEOPLE_IN_LIST = 99;
     private final String personName;
     private final int foodIndex;
     private final int foodQuantity;
-
 
     /**
      * Constructor with Regex checking input. If it does not match desirable input, then
@@ -166,7 +168,7 @@ public class AddCommand extends Command {
         assert subStringFoodQuantity != "" : "Input to AddCommand Cannot be NULL!";
         try {
             int foodQuantity = Integer.parseInt(subStringFoodQuantity);
-            if (foodQuantity > 1000 || foodQuantity <= 0) {
+            if (foodQuantity > MAX_FOOD_QUANTITY || foodQuantity <= MIN_FOOD_QUANTITY) {
                 throw new LotsException("Quantity out of range(1 to 999) , please try again!");
             } else {
                 return foodQuantity;
@@ -200,7 +202,7 @@ public class AddCommand extends Command {
      */
     private void checkNumOfPeopleOutOfLimit() throws LotsException {
         int currTotalPeople = peopleManager.getSize();
-        if (currTotalPeople + 1 > 99) {
+        if (currTotalPeople + 1 > MAX_PEOPLE_IN_LIST) {
             throw new LotsException("Maximum number of people reached! Please make sure the total number of people"
                     + "ordering is less than 100.");
         }
