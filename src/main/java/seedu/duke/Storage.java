@@ -6,6 +6,7 @@ import seedu.duke.exceptions.LotsException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,6 +16,8 @@ public class Storage {
     private static final String CURRENT_DIRECTORY = System.getProperty("user.dir");
     private static final java.nio.file.Path FILE_PATH = java.nio.file.Paths.get(CURRENT_DIRECTORY);
     private static final PeopleManager FILE_PEOPLE_MANAGER = new PeopleManager();
+    private static final int MAX_FOOD_QUANTITY = 999;
+    private static final ArrayList<String> LIST_OF_ADD_COMMANDS = new ArrayList<>();
 
     /**
      * Initialises the PeopleManager according to the contents of the file.
@@ -57,7 +60,7 @@ public class Storage {
         if (ordersFile.createNewFile()) {
             System.out.println("Creating new file...");
         } else {
-            System.out.println("loading...");
+            System.out.println("Loading...");
         }
         return ordersFile;
     }
@@ -68,37 +71,96 @@ public class Storage {
      * @param fileList The content of the file.
      * @throws LotsException If there is an error initialising the PeopleManager.
      */
-    private static void readAndExtractFile(Scanner fileList) throws LotsException {
+    private static void readAndExtractFile(Scanner fileList) throws LotsException, IOException {
+        if (isValidFileInput(fileList)) {
+            executeLoad();
+        } else {
+            PeopleManager emptyManager = new PeopleManager();
+            updateFile(emptyManager);
+        }
+    }
+
+    private static boolean isValidFileInput(Scanner fileList) throws LotsException {
         while (fileList.hasNextLine()) {
             String data = fileList.nextLine();
             String[] splitData = data.split(",");
-            if (splitData.length == (Menu.TOTAL_MENU_ITEMS + 1)) {
-                executeLoad(splitData);
+            if (!isValidArrayLength(splitData)) {
+                return false;
             }
+            if (!isValidQuantity(splitData)) {
+                return false;
+            }
+            if (!isValidAddCommand(splitData)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean isValidArrayLength(String[] splitData) {
+        return splitData.length == (Menu.TOTAL_MENU_ITEMS + 1);
+    }
+
+
+    private static boolean isValidAddCommand(String[] splitData) {
+        String personName = splitData[0];
+        for (int i = 1; i < splitData.length; i++) {
+            int quantityToAdd = Integer.parseInt(splitData[i]);
+            if (quantityToAdd > 0 && quantityToAdd < 1000) {
+                String orderCommand = "add /n " + personName + " /i " + i + " /q " + quantityToAdd;
+                if (!isValidCommand(orderCommand)) {
+                    return false;
+                } else {
+                    LIST_OF_ADD_COMMANDS.add(orderCommand);
+                }
+            }
+        }
+        return true;
+    }
+
+    private static boolean isValidQuantity(String[] splitData) {
+        for (int i = 1; i < splitData.length; i++) {
+            if (!isParsable(splitData[i])) {
+                return false;
+            }
+            if (!isInQuantityRange(splitData[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean isInQuantityRange(String quantityInString) {
+        int quantityToAdd = Integer.parseInt(quantityInString);
+        if (quantityToAdd < 0 || quantityToAdd > MAX_FOOD_QUANTITY) {
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean isParsable(String input) {
+        try {
+            Integer.parseInt(input);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 
     /**
      * Interprets the content of a single line and initialise it to PeopleManager.
      *
-     * @param splitData Array consisting the data needed such as name and quantity.
      * @throws LotsException If there is an error initialising the PeopleManager.
      */
-    private static void executeLoad(String[] splitData) throws LotsException {
-        String personName = splitData[0];
-        for (int i = 1; i < splitData.length; i++) {
-            int quantityToAdd = Integer.parseInt(splitData[i]);
-            if (quantityToAdd > 0 && quantityToAdd < 1000) {
-                String orderCommand = "add /n " + personName + " /i " + i + " /q " + quantityToAdd;
-                if (checkFileLineInput(orderCommand)) {
-                    Command command;
-                    command = Parser.getCommand(orderCommand);
-                    command.setData(FILE_PEOPLE_MANAGER);
-                    command.execute();
-                }
-            }
+    private static void executeLoad() throws LotsException {
+        for (String addCommand : LIST_OF_ADD_COMMANDS) {
+            Command command;
+            command = Parser.getCommand(addCommand);
+            command.setData(FILE_PEOPLE_MANAGER);
+            command.execute();
         }
     }
+
 
     /**
      * Regex to check the contents of a particular line in the file before loading it.
@@ -107,7 +169,7 @@ public class Storage {
      * @return a boolean true if the file input passes the regex.
      * @throws IllegalArgumentException when the pattern for Regex is not able to be interpreted.
      */
-    private static boolean checkFileLineInput(String input) throws IllegalArgumentException {
+    private static boolean isValidCommand(String input) throws IllegalArgumentException {
         try {
             Pattern pattern = Pattern.compile(
                 "^add \\/n [a-zA-Z0-9][\\w \\d]{0,50} \\/i \\d{1,2} \\/q \\d{1,3}$",
@@ -127,15 +189,15 @@ public class Storage {
      * @throws IOException If the write operation to the file fails.
      */
     public static void updateFile(PeopleManager manager) throws IOException {
-        FileWriter taskWriter = new FileWriter(FILE_PATH + "/.orders.txt", false);
+        FileWriter ordersWriter = new FileWriter(FILE_PATH + "/.orders.txt", false);
         for (Person person : manager.getEntireListOfPeople()) {
             String personName = person.getPersonName();
             int[] quantityPerFood = getQuantityPerFood(person);
             String quantityPerFoodInString = getQuantityPerFoodInString(quantityPerFood);
             String dataWritten = personName + quantityPerFoodInString + System.lineSeparator();
-            taskWriter.write(dataWritten);
+            ordersWriter.write(dataWritten);
         }
-        taskWriter.close();
+        ordersWriter.close();
     }
 
     /**
