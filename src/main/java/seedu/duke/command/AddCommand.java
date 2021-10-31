@@ -30,7 +30,10 @@ public class AddCommand extends Command {
             foodIndex = getFoodIndex(input, indexOfSlashes[1], indexOfSlashes[2]);
             foodQuantity = getFoodQuantity(input, indexOfSlashes[2]);
         } else {
-            throw new LotsException("Please enter a valid Add Command!");
+            throw new LotsException("Invalid Command!" + System.lineSeparator()
+                    + "Please check your range of values and the format." + System.lineSeparator()
+                    + "Name: Shorter than 50 characters. Index: Range of menu. Quantity: 1 to 999."
+                    + System.lineSeparator() + "Refer to the UG for more details.");
         }
     }
 
@@ -47,7 +50,6 @@ public class AddCommand extends Command {
     @Override
     public void execute() throws LotsException {
         checkNumOfPeopleOutOfLimit();
-        //checkQuantityOutOfLimit();
         if ((personName != "" || foodIndex != -1 || foodQuantity != -1)
                 && getMatchedIndex(personName) > peopleManager.getSize()) {
             Person person = new Person(personName);
@@ -59,7 +61,10 @@ public class AddCommand extends Command {
             peopleManager.getPerson(currIndex).addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
             Ui.printAddedOrderMessage(peopleManager.getPerson(currIndex));
         } else {
-            throw new LotsException("Please enter a valid Add Command!");
+            throw new LotsException("Invalid Command!" + System.lineSeparator()
+                    + "Please check your range of values and the format." + System.lineSeparator()
+                    + "Name: Shorter than 50 characters. Index: Range of menu. Quantity: 1 to 999."
+                    + System.lineSeparator() + "Refer to the UG for more details.");
         }
     }
 
@@ -198,26 +203,6 @@ public class AddCommand extends Command {
         if (currTotalPeople + 1 > 99) {
             throw new LotsException("Maximum number of people reached! Please make sure the total number of people"
                     + "ordering is less than 100.");
-        }
-    }
-
-    /**
-     * Function to check if the total quantity of orders of every person in the list will exceed the limit of 999 after
-     * adding.
-     *
-     * @throws LotsException when the total quantity of orders exceeds the limit
-     */
-    private void checkQuantityOutOfLimit() throws LotsException {
-        int totalOrderQuantity = foodQuantity;
-        int currTotalPeople = peopleManager.getSize();
-        for (int i = 0; i < currTotalPeople; i++) {
-            Person currPerson = peopleManager.getPerson(i);
-            int currPersonFoodQuantity = currPerson.getIndividualOrdersQuantity();
-            totalOrderQuantity = totalOrderQuantity + currPersonFoodQuantity;
-        }
-        if (totalOrderQuantity > 999) {
-            throw new LotsException("Total quantity of food orders has exceeded the limit! "
-                    + "Please make sure that the total quantity of all orders is less than 1000");
         }
     }
 
