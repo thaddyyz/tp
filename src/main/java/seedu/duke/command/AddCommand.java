@@ -125,7 +125,7 @@ public class AddCommand extends Command {
     private static String getPersonName(String input, int indexOfFirstSlash, int indexOfSecondSlash) {
         String tempPersonName = input.substring(indexOfFirstSlash + 2, indexOfSecondSlash - 1);
         assert tempPersonName != null : "Input to Person Name cannot be NULL!";
-        return tempPersonName.trim();
+        return tempPersonName.trim().toUpperCase();
     }
 
     /**

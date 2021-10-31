@@ -32,7 +32,7 @@ public class Person {
      * @throws LotsException if the quantity for this particular food exceeds 999.
      */
     public Person(String personName) throws LotsException {
-        this.personName = personName.toUpperCase();
+        this.personName = personName;
         setupIndividualFoodOrders();
     }
 
