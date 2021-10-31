@@ -1,3 +1,4 @@
+loading...
 Welcome to L.O.T.S! What would you like to track today?
 ============================================================================================
 Unknown command. Please try again.

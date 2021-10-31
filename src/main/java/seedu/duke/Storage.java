@@ -33,7 +33,7 @@ public class Storage {
         } catch (IOException | LotsException e) {
             e.printStackTrace();
         }
-        clearOutput();
+        //clearOutput();
         return FILE_PEOPLE_MANAGER;
     }
 
