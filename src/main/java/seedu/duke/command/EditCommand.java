@@ -161,9 +161,24 @@ public class EditCommand extends Command {
             Person personToEditFrom = manager.getPerson(personIndex);
             assert personToEditFrom != null : "Person does not exists.";
             personToEditFrom.editParticularOrder(foodIndex, quantity);
-            Ui.printEditMessage(personToEditFrom, foodIndex);
+            printFeedbackMessage(personToEditFrom, foodIndex);
             //delete order if quantity 0
             deletePersonIfEmpty(manager, personToEditFrom);
+        }
+    }
+
+    /**
+     * Calls the appropriate print function based on quantity user whants to edit to.
+     * 
+     * @param person The Person class type containing details of person.
+     * @param foodIndex The index of food based on menu.
+     */
+    private void printFeedbackMessage(Person person, int foodIndex) {
+        if (quantity==0) {
+            Ui.printDeleteMessage(person, foodIndex);
+        }
+        else {
+            Ui.printEditMessage(person, foodIndex);
         }
     }
 
