@@ -87,7 +87,6 @@ public class Ui {
      */
     public static void printIndividualPersonOrder(Person currentPerson) {
         double totalCost = 0;
-        int currentItem = 97; //97 is the ascii for 'a'.
         int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
         Order[] currentIndividualOrders = currentPerson.individualFoodOrders;
         assert currentIndividualOrders != null : "Person must have food orders.";
@@ -98,7 +97,6 @@ public class Ui {
                 double currentCost = currentOrder.getCost();
                 printWithoutBorder("\t(" + index + ") " + currentOrder);
                 totalCost = totalCost + currentCost;
-                currentItem++;
                 index++;
             }
         }
