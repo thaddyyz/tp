@@ -16,8 +16,9 @@ public class EditCommand extends Command {
     private int quantity;
 
     /**
-     * Splits the input given the regular expression of a whitespace, calls checkForCorrectInput() to check input validity, and
-     * calls for the initialisation of the personIndex, orderIndex and quantity.
+     * Splits the input given the regular expression of a whitespace, calls checkForCorrectInput() to 
+     *     check input validity, and calls for the initialisation of the personIndex, orderIndex and 
+     *     quantity.
      * 
      * @param input The entire line of command entered by the user.
      * @throws LotsException If there is no input after the edit command or when the personIndex,
