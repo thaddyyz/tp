@@ -77,7 +77,7 @@ Explanation on how the parsing is done:
    if there is no match)
 
 The following sequence diagram depicts how the `Logical` components interact with one another upon receiving the user's input of `"delete 1/2"`.  
-<br>![Logical Component Partial Sequence Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/DeleteCommandDiagram/DeleteCommand%20Sequence%20Diagram.jpg)
+<br>![Logical Component Partial Sequence Diagram](https://raw.githubusercontent.com/markuslyq/tp/master/UMLdiagrams/LogicalComponentDiagrams/Logical%20Component%20Diagram.jpg)
    
 ### Manager Component
 The manager component of the program consists multiple classes. Namely: `PeopleManager`,`Person` & `Order`.  
