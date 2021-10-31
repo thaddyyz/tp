@@ -36,6 +36,9 @@ Lists the menu along with the index, food name and price.
 
 **Format:** `menu`  
 
+**Note:**
+1) Do not add any inputs before or after `menu` command.
+   
 **Example of usage:** 
 * `menu`.   
   
@@ -102,7 +105,7 @@ Edits the quantity of a specific order from a particular person.
 * The `FOOD_INDEX` refers to the index number of a specific order shown in the displayed order list.
 * The `Quantity` refers to the quantity of the particular order to be changed to.
 * `PERSON_INDEX` & `FOOD_INDEX` **must be a positive integer** 1, 2, 3, … 
-* `QUAANTITY` **must be a non-negative integer** 0, 1, 2, 3, …
+* `QUANTITY` **must be a non-negative integer** 0, 1, 2, 3, …
 
 **Example of usage:** 
 * `list` followed by `edit 1/2 /q 5` edits the order of index '`2`' from the person of index '`1`' and changes the quantity to '`4`'.    
