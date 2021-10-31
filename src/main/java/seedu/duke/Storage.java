@@ -36,16 +36,7 @@ public class Storage {
         } catch (IOException | LotsException e) {
             e.printStackTrace();
         }
-        //clearOutput();
         return FILE_PEOPLE_MANAGER;
-    }
-
-    /**
-     * Clears the output and start a fresh command line screen.
-     */
-    private static void clearOutput() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
     }
 
     /**
