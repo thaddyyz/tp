@@ -44,7 +44,6 @@ public class Duke {
             } catch (Exception x) {
                 Ui.printWithBorder("Oops! Unknown error. Please try again.");
                 log.log(Level.SEVERE, x.getMessage());
-                //x.printStackTrace();
             }
         }
     }
