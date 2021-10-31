@@ -1,6 +1,7 @@
 package seedu.duke.command;
 
 
+import seedu.duke.Menu;
 import seedu.duke.exceptions.LotsException;
 import seedu.duke.PeopleManager;
 import seedu.duke.Person;
@@ -82,7 +83,7 @@ public class DeleteCommand extends Command {
         String foodIndexInString = deleteParams.substring(slashIndex + 1);
         int foodIndexInInteger = Integer.parseInt(foodIndexInString) - 1;
         if (foodIndexInInteger < 0) {
-            throw new LotsException("Please enter a valid order index!");
+            throw new LotsException("Please enter a valid order index i.e 1 to " + Menu.TOTAL_MENU_ITEMS);
         }
         assert foodIndexInInteger >= 0 : "Order index cannot be negative.";
         return foodIndexInInteger;
