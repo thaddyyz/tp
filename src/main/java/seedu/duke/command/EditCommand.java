@@ -174,10 +174,9 @@ public class EditCommand extends Command {
      * @param foodIndex The index of food based on menu.
      */
     private void printFeedbackMessage(Person person, int foodIndex) {
-        if (quantity==0) {
+        if (quantity == 0) {
             Ui.printDeleteMessage(person, foodIndex);
-        }
-        else {
+        } else {
             Ui.printEditMessage(person, foodIndex);
         }
     }
