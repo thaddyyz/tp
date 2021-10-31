@@ -71,6 +71,25 @@ public class AddCommand extends Command {
     }
 
     /**
+     * Adds file data into program.
+     * @throws LotsException if data is corrupted.
+     */
+    public void executeFromFile() throws LotsException {
+        checkNumOfPeopleOutOfLimit();
+        if ((personName != "" || foodIndex != -1 || foodQuantity != -1)
+                && getMatchedIndex(personName) > peopleManager.getSize()) {
+            Person person = new Person(personName);
+            person.addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
+            super.peopleManager.addPerson(person);
+        } else if (getMatchedIndex(personName) <= peopleManager.getSize()) {
+            int currIndex = getMatchedIndex(personName);
+            peopleManager.getPerson(currIndex).addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
+        } else {
+            throw new LotsException("File is corrupted! New file will be created.");
+        }
+    }
+
+    /**
      * Regex to check User Input before passing onto the class.
      *
      * @param input user input.
