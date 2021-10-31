@@ -11,6 +11,7 @@
   - [List current orders](#list-current-orders-list)
   - [Exiting LOTS](#exiting-lots-bye)
 - [Command Summary](#command-summary)
+
 ## Introduction
 
 Large Order Tracking System (LOTS) is a Command Line (CLI) program that enables users to keep track of multiple food 
@@ -18,6 +19,10 @@ orders from a pre-set list of food items from different stores. The program help
 displays a summary of all the orders along with other information such as each person’s order and special requirements 
 (if any), cost of an individual’s order,  total cost of all the orders and more. As LOTS is a CLI program, this would 
 greatly benefit any user that excels in typing.
+
+Target users includes:
+1) Dinners
+2) Order collators (Middleman)
 
 ## Quick Start
 

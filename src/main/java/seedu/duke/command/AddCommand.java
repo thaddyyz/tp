@@ -71,6 +71,27 @@ public class AddCommand extends Command {
     }
 
     /**
+     * Adds file data into program.
+     *
+     * @throws LotsException if data is corrupted.
+     */
+    @Override
+    public void executeFromFile() throws LotsException {
+        checkNumOfPeopleOutOfLimit();
+        if ((personName != "" || foodIndex != -1 || foodQuantity != -1)
+                && getMatchedIndex(personName) > peopleManager.getSize()) {
+            Person person = new Person(personName);
+            person.addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
+            super.peopleManager.addPerson(person);
+        } else if (getMatchedIndex(personName) <= peopleManager.getSize()) {
+            int currIndex = getMatchedIndex(personName);
+            peopleManager.getPerson(currIndex).addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
+        } else {
+            throw new LotsException("File is corrupted! New file will be created.");
+        }
+    }
+
+    /**
      * Regex to check User Input before passing onto the class.
      *
      * @param input user input.
@@ -91,7 +112,7 @@ public class AddCommand extends Command {
     }
 
     /**
-     * Obtain index of "/" in the string to be use to split input strings into substrings.
+     * Obtain index of "/" in the string to be used to split input strings into substrings.
      *
      * @param input User input.
      * @return an array of index of "/".
@@ -125,7 +146,7 @@ public class AddCommand extends Command {
     private static String getPersonName(String input, int indexOfFirstSlash, int indexOfSecondSlash) {
         String tempPersonName = input.substring(indexOfFirstSlash + 2, indexOfSecondSlash - 1);
         assert tempPersonName != null : "Input to Person Name cannot be NULL!";
-        return tempPersonName.trim();
+        return tempPersonName.trim().toUpperCase();
     }
 
     /**
