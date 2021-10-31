@@ -146,4 +146,8 @@ public class Person {
         return personName;
     }
 
+    public Order[] getEntireFoodOrdersOfPerson() {
+        return individualFoodOrders;
+    }
+
 }

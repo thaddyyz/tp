@@ -26,13 +26,4 @@ public class PersonTest {
             person.addFoodToIndividualFoodOrders(88, 1);
         });
     }
-
-    /*@Test
-    public void deleteParticularOrder_menuIndexOutOfBounds_throwsLotsException() {
-        Person person = new Person(TEST_NAME);
-        assertThrows(LotsException.class, () -> {
-            person.deleteParticularOrder(person.numberOfOrders+1);
-        } );
-    }*/
- 
 }
