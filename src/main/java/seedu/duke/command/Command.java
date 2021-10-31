@@ -7,7 +7,6 @@ public class Command {
 
     protected PeopleManager peopleManager;
 
-    //Constructor
     public Command() {
     }
 
@@ -22,6 +21,13 @@ public class Command {
      * Execute different set of instructions in the subclass based on the user's command.
      */
     public void execute() throws LotsException {
+        throw new UnsupportedOperationException("This method is to be implemented by child classes");
+    }
+
+    /**
+     * Execute different set of instructions in the subclass based on the contents of the file.
+     */
+    public void executeFromFile() throws LotsException {
         throw new UnsupportedOperationException("This method is to be implemented by child classes");
     }
 
