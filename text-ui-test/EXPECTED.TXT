@@ -1,4 +1,4 @@
-A new file has been created at F:\School\CS2113T 3\TP\build\libs
+Creating new file...
 Welcome to L.O.T.S! What would you like to track today?
 ============================================================================================
 Unknown command. Please try again.

@@ -55,7 +55,7 @@ public class Storage {
     private static File getOrdersFile() throws IOException {
         File ordersFile = new File(FILE_PATH + "/.orders.txt");
         if (ordersFile.createNewFile()) {
-            System.out.println("A new file has been created at " + FILE_PATH);
+            System.out.println("Creating new file...");
         } else {
             System.out.println("loading...");
         }
