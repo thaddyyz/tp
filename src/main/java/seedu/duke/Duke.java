@@ -13,7 +13,10 @@ public class Duke {
      */
     public static Logger log = Logger.getLogger("LOTS");
 
+    private static PeopleManager manager = new PeopleManager();
+
     public static void main(String[] args) {
+        manager = Storage.initialiseFile();
         Ui.printWelcome();
         runDuke();
         Ui.printGoodbye();
@@ -24,7 +27,6 @@ public class Duke {
      */
     private static void runDuke() {
         Command currentCommand;
-        PeopleManager manager = new PeopleManager();
         boolean isEnd = false;
         while (!isEnd) {
             try {
@@ -33,6 +35,7 @@ public class Duke {
                 assert currentCommand != null : "Command returned cannot be null!";
                 currentCommand.setData(manager);
                 currentCommand.execute();
+                Storage.updateFile(manager);
                 if (currentCommand instanceof ByeCommand) {
                     isEnd = true;
                 }

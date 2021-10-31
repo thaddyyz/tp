@@ -86,4 +86,9 @@ public class PeopleManager {
         listOfPeople.clear();
     }
 
+    public LinkedList<Person> getEntireListOfPeople() {
+        return listOfPeople;
+    }
+
+
 }

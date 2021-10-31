@@ -11,8 +11,8 @@ public class Ui {
 
     private static final String LINE = "--------------------------------------------------";
     private static final String BORDER = "=================================="
-            + "============================="
-            + "=============================";
+        + "============================="
+        + "=============================";
     private static final Scanner SC = new Scanner(System.in);
 
     public static void printWelcome() {
@@ -106,7 +106,7 @@ public class Ui {
             String printTotalCost = "[Total Cost = $" + String.format("%.2f", totalCost) + "]";
             int individualQuantity = currentPerson.getTotalNumberOfOrders();
             String printIndividualQuantity = "[Total Quantity = "
-                    + Integer.toString(individualQuantity) + "]";
+                + Integer.toString(individualQuantity) + "]";
             printWithoutBorder(printTotalCost + " " + printIndividualQuantity);
         }
     }
@@ -115,7 +115,9 @@ public class Ui {
      * Prints a message to notify the user of the deletion of an order.
      */
     public static void printDeleteMessage(Person person, int foodIndex) {
-        printWithoutBorder("Alright, order " + (foodIndex + 1) + " has been deleted from " + person.personName + "!");
+        printWithoutBorder("Alright, order " + (foodIndex + 1) + " has been deleted from " + person.personName + "!"
+            + System.lineSeparator()
+            + person.personName + "'s current order: ");
         printIndividualPersonOrder(person);
         printBorder();
     }
@@ -125,7 +127,9 @@ public class Ui {
      * Additionally, user's edited orders will printed to show changes made.
      */
     public static void printEditMessage(Person person, int foodIndex) {
-        printWithoutBorder("Order " + (foodIndex + 1) + " from " + person.personName + "'s order has been edited");
+        printWithoutBorder("Alright, order " + (foodIndex + 1) + " has been edited from " + person.personName + "!"
+            + System.lineSeparator()
+            + person.personName + "'s current order: ");
         printIndividualPersonOrder(person);
         printBorder();
     }
@@ -156,8 +160,9 @@ public class Ui {
 
     /**
      * Prints the menu of which user can order.
+     *
      * @param priceList contains prices of the food.
-     * @param foodList contains the food in the menu.
+     * @param foodList  contains the food in the menu.
      */
     public static void printMenu(ArrayList<Double> priceList, ArrayList<String> foodList) {
         Ui.printMenuHeader();
@@ -174,8 +179,8 @@ public class Ui {
      * @param peopleManager List of people who are ordering.
      */
     public static void printSummaryForList(PeopleManager peopleManager) {
-        String summary = "SUMMARY: [Total number of People: " +  peopleManager.getSize()
-                + "] [Total quantity of food: " + peopleManager.getTotalNumberOfOrdersEveryone() + "]";
+        String summary = "SUMMARY: [Total number of People: " + peopleManager.getSize()
+            + "] [Total quantity of food: " + peopleManager.getTotalNumberOfOrdersEveryone() + "]";
         printWithoutBorder(summary);
         printWithoutBorder(LINE);
     }
