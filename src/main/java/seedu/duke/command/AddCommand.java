@@ -72,8 +72,10 @@ public class AddCommand extends Command {
 
     /**
      * Adds file data into program.
+     *
      * @throws LotsException if data is corrupted.
      */
+    @Override
     public void executeFromFile() throws LotsException {
         checkNumOfPeopleOutOfLimit();
         if ((personName != "" || foodIndex != -1 || foodQuantity != -1)
@@ -110,7 +112,7 @@ public class AddCommand extends Command {
     }
 
     /**
-     * Obtain index of "/" in the string to be use to split input strings into substrings.
+     * Obtain index of "/" in the string to be used to split input strings into substrings.
      *
      * @param input User input.
      * @return an array of index of "/".
