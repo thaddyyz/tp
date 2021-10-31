@@ -7,7 +7,6 @@ public class Command {
 
     protected PeopleManager peopleManager;
 
-    //Constructor
     public Command() {
     }
 
