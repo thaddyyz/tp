@@ -4,6 +4,7 @@ import seedu.duke.exceptions.LotsException;
 
 public class Person {
 
+    public static final int MAX_FOOD_QUANTITY = 999;
     protected int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
     protected String personName;
     protected Order[] individualFoodOrders = new Order[totalMenuItems];
@@ -54,7 +55,7 @@ public class Person {
     public void addFoodToIndividualFoodOrders(int foodIndex, int foodQuantity) throws LotsException {
         if (foodIndex <= totalMenuItems && foodIndex > 0) {
             int updatedQuantity = individualFoodOrders[foodIndex - 1].getQuantity() + foodQuantity;
-            if (updatedQuantity > 999) {
+            if (updatedQuantity > MAX_FOOD_QUANTITY) {
                 throw new LotsException("Please keep the food quantity to less than 1000!");
             }
             individualFoodOrders[foodIndex - 1].setQuantity(updatedQuantity);
