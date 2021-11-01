@@ -11,10 +11,12 @@ import java.util.regex.Pattern;
 public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
+    private static final int MAX_FOOD_QUANTITY = 1000;
+    private static final int MIN_FOOD_QUANTITY = 0;
+    private static final int MAX_PEOPLE_IN_LIST = 99;
     private final String personName;
     private final int foodIndex;
     private final int foodQuantity;
-
 
     /**
      * Constructor with Regex checking input. If it does not match desirable input, then
@@ -30,7 +32,10 @@ public class AddCommand extends Command {
             foodIndex = getFoodIndex(input, indexOfSlashes[1], indexOfSlashes[2]);
             foodQuantity = getFoodQuantity(input, indexOfSlashes[2]);
         } else {
-            throw new LotsException("Please enter a valid Add Command!");
+            throw new LotsException("Invalid Command!" + System.lineSeparator()
+                    + "Please check your range of values and the format." + System.lineSeparator()
+                    + "Name: Shorter than 50 characters. Index: Range of menu. Quantity: 1 to 999."
+                    + System.lineSeparator() + "Refer to the UG for more details.");
         }
     }
 
@@ -47,7 +52,6 @@ public class AddCommand extends Command {
     @Override
     public void execute() throws LotsException {
         checkNumOfPeopleOutOfLimit();
-        //checkQuantityOutOfLimit();
         if ((personName != "" || foodIndex != -1 || foodQuantity != -1)
                 && getMatchedIndex(personName) > peopleManager.getSize()) {
             Person person = new Person(personName);
@@ -59,7 +63,31 @@ public class AddCommand extends Command {
             peopleManager.getPerson(currIndex).addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
             Ui.printAddedOrderMessage(peopleManager.getPerson(currIndex));
         } else {
-            throw new LotsException("Please enter a valid Add Command!");
+            throw new LotsException("Invalid Command!" + System.lineSeparator()
+                    + "Please check your range of values and the format." + System.lineSeparator()
+                    + "Name: Shorter than 50 characters. Index: Range of menu. Quantity: 1 to 999."
+                    + System.lineSeparator() + "Refer to the UG for more details.");
+        }
+    }
+
+    /**
+     * Adds file data into program.
+     *
+     * @throws LotsException if data is corrupted.
+     */
+    @Override
+    public void executeFromFile() throws LotsException {
+        checkNumOfPeopleOutOfLimit();
+        if ((personName != "" || foodIndex != -1 || foodQuantity != -1)
+                && getMatchedIndex(personName) > peopleManager.getSize()) {
+            Person person = new Person(personName);
+            person.addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
+            super.peopleManager.addPerson(person);
+        } else if (getMatchedIndex(personName) <= peopleManager.getSize()) {
+            int currIndex = getMatchedIndex(personName);
+            peopleManager.getPerson(currIndex).addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
+        } else {
+            throw new LotsException("File is corrupted! New file will be created.");
         }
     }
 
@@ -84,7 +112,7 @@ public class AddCommand extends Command {
     }
 
     /**
-     * Obtain index of "/" in the string to be use to split input strings into substrings.
+     * Obtain index of "/" in the string to be used to split input strings into substrings.
      *
      * @param input User input.
      * @return an array of index of "/".
@@ -118,7 +146,7 @@ public class AddCommand extends Command {
     private static String getPersonName(String input, int indexOfFirstSlash, int indexOfSecondSlash) {
         String tempPersonName = input.substring(indexOfFirstSlash + 2, indexOfSecondSlash - 1);
         assert tempPersonName != null : "Input to Person Name cannot be NULL!";
-        return tempPersonName.trim();
+        return tempPersonName.trim().toUpperCase();
     }
 
     /**
@@ -161,7 +189,7 @@ public class AddCommand extends Command {
         assert subStringFoodQuantity != "" : "Input to AddCommand Cannot be NULL!";
         try {
             int foodQuantity = Integer.parseInt(subStringFoodQuantity);
-            if (foodQuantity > 1000 || foodQuantity <= 0) {
+            if (foodQuantity > MAX_FOOD_QUANTITY || foodQuantity <= MIN_FOOD_QUANTITY) {
                 throw new LotsException("Quantity out of range(1 to 999) , please try again!");
             } else {
                 return foodQuantity;
@@ -195,29 +223,9 @@ public class AddCommand extends Command {
      */
     private void checkNumOfPeopleOutOfLimit() throws LotsException {
         int currTotalPeople = peopleManager.getSize();
-        if (currTotalPeople + 1 > 99) {
+        if (currTotalPeople + 1 > MAX_PEOPLE_IN_LIST) {
             throw new LotsException("Maximum number of people reached! Please make sure the total number of people"
                     + "ordering is less than 100.");
-        }
-    }
-
-    /**
-     * Function to check if the total quantity of orders of every person in the list will exceed the limit of 999 after
-     * adding.
-     *
-     * @throws LotsException when the total quantity of orders exceeds the limit
-     */
-    private void checkQuantityOutOfLimit() throws LotsException {
-        int totalOrderQuantity = foodQuantity;
-        int currTotalPeople = peopleManager.getSize();
-        for (int i = 0; i < currTotalPeople; i++) {
-            Person currPerson = peopleManager.getPerson(i);
-            int currPersonFoodQuantity = currPerson.getIndividualOrdersQuantity();
-            totalOrderQuantity = totalOrderQuantity + currPersonFoodQuantity;
-        }
-        if (totalOrderQuantity > 999) {
-            throw new LotsException("Total quantity of food orders has exceeded the limit! "
-                    + "Please make sure that the total quantity of all orders is less than 1000");
         }
     }
 

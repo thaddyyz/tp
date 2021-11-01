@@ -1,5 +1,6 @@
 package seedu.duke.command;
 
+import seedu.duke.Menu;
 import seedu.duke.exceptions.LotsException;
 import seedu.duke.PeopleManager;
 import seedu.duke.Person;
@@ -16,8 +17,9 @@ public class EditCommand extends Command {
     private int quantity;
 
     /**
-     * Splits the input given the regular expression of a whitespace and
-     * initialise the personIndex, orderIndex and quantity.
+     * Splits the input given the regular expression of a whitespace, calls checkForCorrectInput() to 
+     *     check input validity, and calls for the initialisation of the personIndex, orderIndex and 
+     *     quantity.
      * 
      * @param input The entire line of command entered by the user.
      * @throws LotsException If there is no input after the edit command or when the personIndex,
@@ -25,19 +27,42 @@ public class EditCommand extends Command {
      */
     public EditCommand(String input) throws LotsException {
         String[] splitInput = input.split(" ");
+        checkForCorrectInput(input);
+        try {
+            identifyInputParameters(splitInput);
+        } catch (NullPointerException | IndexOutOfBoundsException | NumberFormatException e) {
+            throw new LotsException("Please enter a valid person's index followed by the order index"
+                                    + " and order quantity! i.e. edit 1/1 /q 8");
+        }
+    }
+
+    /**
+     * Calls checkUserInput() to checks validity of input, and if input is invalid, return an exception.
+     * 
+     * @param input The entire line of command entered by the user.
+     * @throws LotsException If there is no input after the edit command or when the personIndex,
+     *     foodIndex or quantity is not a positive integer.
+     */
+    private void checkForCorrectInput(String input) throws LotsException {
         if (!checkUserInput(input)) {
             throw new LotsException("Please enter a valid person's index followed by the order index"
                                     + " and order quantity! i.e. edit 1/1 /q 8");
         }
         assert checkUserInput(input) == true : "Invalid edit input command";
-        try {
-            personIndex = getPersonIndex(splitInput[1]);
-            foodIndex = getOrderIndex(splitInput[1]);
-            quantity = getQuantity(splitInput[3]);
-        } catch (NullPointerException | IndexOutOfBoundsException | NumberFormatException e) {
-            throw new LotsException("Please enter a valid person's index followed by the order index"
-                                    + " and order quantity! i.e. edit 1/1 /q 8");
-        }
+    }
+
+    /**
+     * Calls various getter functions to identify various input parameters namely person index,
+     *     order index and quantity to change.
+     * 
+     * @param splitInput The user sentence string input split into an array of words.
+     * @throws LotsException If there is no input after the edit command or when the personIndex,
+     *     foodIndex or quantity is not a positive integer.
+     */
+    private void identifyInputParameters(String[] splitInput) throws LotsException {
+        personIndex = getPersonIndex(splitInput[1]);
+        foodIndex = getOrderIndex(splitInput[1]);
+        quantity = getQuantity(splitInput[3]);
     }
 
     /**
@@ -85,7 +110,7 @@ public class EditCommand extends Command {
         String orderIndexInString = editParams.substring(slashIndex + 1);
         int orderIndexInInteger = Integer.parseInt(orderIndexInString) - 1;
         if (orderIndexInInteger < 0) {
-            throw new LotsException("Please enter a valid order index!");
+            throw new LotsException("Please enter a valid order index! i.e 1 to " + Menu.TOTAL_MENU_ITEMS);
         }
         assert orderIndexInInteger >= 0 : "Order index cannot be negative.";
         return orderIndexInInteger;
@@ -136,9 +161,23 @@ public class EditCommand extends Command {
             Person personToEditFrom = manager.getPerson(personIndex);
             assert personToEditFrom != null : "Person does not exists.";
             personToEditFrom.editParticularOrder(foodIndex, quantity);
-            Ui.printEditMessage(personToEditFrom, foodIndex);
+            printFeedbackMessage(personToEditFrom, foodIndex);
             //delete order if quantity 0
             deletePersonIfEmpty(manager, personToEditFrom);
+        }
+    }
+
+    /**
+     * Calls the appropriate print function based on quantity user whants to edit to.
+     * 
+     * @param person The Person class type containing details of person.
+     * @param foodIndex The index of food based on menu.
+     */
+    private void printFeedbackMessage(Person person, int foodIndex) {
+        if (quantity == 0) {
+            Ui.printDeleteMessage(person, foodIndex);
+        } else {
+            Ui.printEditMessage(person, foodIndex);
         }
     }
 

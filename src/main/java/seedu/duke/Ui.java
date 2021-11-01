@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Ui {
 
-    private static final String LINE = "--------------------------------------------------";
+    private static final String LINE = "----------------------------------------------------";
     private static final String BORDER = "=================================="
             + "============================="
             + "=============================";
@@ -57,6 +57,7 @@ public class Ui {
         return input.replaceAll("\\s{2,}", " ").strip();
     }
 
+    //@@author mohamad-adam8991
     /**
      * Prints a list of all the orders made so far.
      *
@@ -87,7 +88,6 @@ public class Ui {
      */
     public static void printIndividualPersonOrder(Person currentPerson) {
         double totalCost = 0;
-        int currentItem = 97; //97 is the ascii for 'a'.
         int totalMenuItems = Menu.TOTAL_MENU_ITEMS;
         Order[] currentIndividualOrders = currentPerson.individualFoodOrders;
         assert currentIndividualOrders != null : "Person must have food orders.";
@@ -98,7 +98,6 @@ public class Ui {
                 double currentCost = currentOrder.getCost();
                 printWithoutBorder("\t(" + index + ") " + currentOrder);
                 totalCost = totalCost + currentCost;
-                currentItem++;
                 index++;
             }
         }
@@ -110,6 +109,7 @@ public class Ui {
             printWithoutBorder(printTotalCost + " " + printIndividualQuantity);
         }
     }
+    //@@author
 
     /**
      * Prints a message to notify the user of the deletion of an order.
@@ -150,7 +150,7 @@ public class Ui {
     }
 
     public static void printMenuHeader() {
-        printWithoutBorder("index | Food Name                         | Price");
+        printWithoutBorder("index | Food Name                           | Price");
         printWithoutBorder(LINE);
     }
 
@@ -162,7 +162,7 @@ public class Ui {
     public static void printMenu(ArrayList<Double> priceList, ArrayList<String> foodList) {
         Ui.printMenuHeader();
         for (int i = 0; i < foodList.size(); i++) {
-            System.out.format("%-8d%-33s%7.2f%n", i + 1, foodList.get(i), priceList.get(i));
+            System.out.format("%-8d%-35s%7.2f%n", i + 1, foodList.get(i), priceList.get(i));
             printWithoutBorder(LINE);
         }
         Ui.printWithBorder("");
