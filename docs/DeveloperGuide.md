@@ -55,7 +55,7 @@ The logical component of the program consists multiple classes. Namely: `Parser`
 the various child class of `Command`.
 The class diagram below is a brief overview of how the `Parser`, `Manager` & the various `Command` class
 are related to one another.  
-<br>![Logical Component Partial Class Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/LogicalComponentDiagrams/Logical%20Component%20Diagram-Page-2.jpg)
+<br>![Logical Component Partial Class Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/LogicalComponentDiagrams/Logical%20Component%20Diagram.jpg)
 
 :information_source: **Note:** Specific command names are represented using a placeholder `'Abc'`, i.e. AddCommand, FindCommand.
 
@@ -77,7 +77,7 @@ Explanation on how the parsing is done:
    if there is no match)
 
 The following sequence diagram depicts how the `Logical` components interact with one another upon receiving the user's input of `"delete 1/2"`.  
-<br>![Logical Component Partial Sequence Diagram](https://raw.githubusercontent.com/markuslyq/tp/master/UMLdiagrams/LogicalComponentDiagrams/Logical%20Component%20Diagram.jpg)
+<br>![Logical Component Partial Sequence Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/DeleteCommandDiagram/DeleteCommand%20Sequence%20Diagram.jpg)
    
 ### Manager Component
 The manager component of the program consists multiple classes. Namely: `PeopleManager`,`Person` & `Order`.  
