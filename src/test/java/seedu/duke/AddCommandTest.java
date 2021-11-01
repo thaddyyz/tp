@@ -90,7 +90,7 @@ public class AddCommandTest {
             throws Exception {
         try {
             Command command;
-            command = Parser.getCommand("add /n jacob /i 13 /q 10");
+            command = Parser.getCommand("add /n jacob /i 133 /q 10");
             command.execute();
         } catch (LotsException | NumberFormatException e) {
             System.out.println("Food Index Positive but out of range. \n");

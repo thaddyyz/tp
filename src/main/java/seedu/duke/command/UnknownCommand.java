@@ -8,6 +8,7 @@ import seedu.duke.Ui;
  */
 public class UnknownCommand extends Command {
 
+    @Override
     public void execute() {
         Ui.printWithBorder("Unknown command. Please try again.");
     }
