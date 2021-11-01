@@ -11,24 +11,206 @@ Unknown command. Please try again.
 ============================================================================================
 Unknown command. Please try again.
 ============================================================================================
-index | Food Name                         | Price
---------------------------------------------------
-1       Ban Mian                            3.00
---------------------------------------------------
-2       Chicken Rice                        3.00
---------------------------------------------------
-3       Fried Prawn Noodles (Hokkien Mee)   3.50
---------------------------------------------------
-4       Minced MeatNoodles(Ba Chor Mee)     3.00
---------------------------------------------------
-5       Fried Carrot Cake                   3.00
---------------------------------------------------
-6       Fried Kway Teow (Char Kway Teow)    3.00
---------------------------------------------------
-7       Pork Rib Soup (Bak Kut Teh)         5.00
---------------------------------------------------
-8       Nasi Lemak                          3.60
---------------------------------------------------
+index | Food Name                           | Price
+----------------------------------------------------
+1       Plain Prata                           1.10
+----------------------------------------------------
+2       Egg Prata                             1.90
+----------------------------------------------------
+3       Cheese Prata                          2.50
+----------------------------------------------------
+4       Chili Prata                           1.40
+----------------------------------------------------
+5       Garlic Prata                          1.70
+----------------------------------------------------
+6       Paper Prata                           1.20
+----------------------------------------------------
+7       Special Paper Prata                   1.40
+----------------------------------------------------
+8       Special Paper Prata (Milk)            1.60
+----------------------------------------------------
+9       Special Paper Prata (Sugar)           1.60
+----------------------------------------------------
+10      Special Paper Prata (Milk & Sugar)    1.90
+----------------------------------------------------
+11      Garlic Cheese Prata                   3.00
+----------------------------------------------------
+12      Mozzarella Cheese Prata               3.00
+----------------------------------------------------
+13      Egg and Onion Prata                   2.20
+----------------------------------------------------
+14      Egg and Garlic Prata                  2.40
+----------------------------------------------------
+15      Egg and Cheese Prata                  3.20
+----------------------------------------------------
+16      Egg and Chili Prata                   2.20
+----------------------------------------------------
+17      Egg and Onion Cheese Prata            3.70
+----------------------------------------------------
+18      Egg and Onion Chili Prata             2.50
+----------------------------------------------------
+19      Egg and Onion Mushroom Prata          3.50
+----------------------------------------------------
+20      Double Egg Prata                      2.80
+----------------------------------------------------
+21      Double Egg Onion Prata                3.00
+----------------------------------------------------
+22      Double Egg Cheese Prata               4.00
+----------------------------------------------------
+23      Double Egg Chili Prata                3.00
+----------------------------------------------------
+24      Onion Prata                           1.50
+----------------------------------------------------
+25      Onion Cheese Prata                    2.50
+----------------------------------------------------
+26      Onion Chili Prata                     2.10
+----------------------------------------------------
+27      Onion Garlic Prata                    2.10
+----------------------------------------------------
+28      Plaster Prata                         1.90
+----------------------------------------------------
+29      Plaster Chili Prata                   2.20
+----------------------------------------------------
+30      Plaster Onion Prata                   2.20
+----------------------------------------------------
+31      Plaster Cheese Prata                  3.20
+----------------------------------------------------
+32      Banana Prata                          3.00
+----------------------------------------------------
+33      Chocolate Prata                       2.50
+----------------------------------------------------
+34      Pineapple Prata                       2.50
+----------------------------------------------------
+35      Red Bean Prata                        3.00
+----------------------------------------------------
+36      Roti Bom Prata                        2.00
+----------------------------------------------------
+37      Strawberry Prata                      2.50
+----------------------------------------------------
+38      Milky Prata                           3.00
+----------------------------------------------------
+39      Banana Chocolate Prata                3.50
+----------------------------------------------------
+40      Egg Floss Prata                       3.50
+----------------------------------------------------
+41      Egg Cheese Floss Prata                4.50
+----------------------------------------------------
+42      Tomato Prata                          1.70
+----------------------------------------------------
+43      Mushroom Egg Tomato Prata             3.50
+----------------------------------------------------
+44      Hotdog Prata                          3.00
+----------------------------------------------------
+45      Mushroom Egg Prata                    3.00
+----------------------------------------------------
+46      Hotdog Cheese Prata                   4.00
+----------------------------------------------------
+47      Mushroom Cheese Egg Prata             4.00
+----------------------------------------------------
+48      Portobello Mozzarella Prata           5.00
+----------------------------------------------------
+49      Ultimate Murtabak                    12.00
+----------------------------------------------------
+50      Murtaburger                           7.00
+----------------------------------------------------
+51      Plaster Blaster                       5.00
+----------------------------------------------------
+52      Plain Thosai                          1.60
+----------------------------------------------------
+53      Egg Thosai                            2.40
+----------------------------------------------------
+54      Cheese Thosai                         3.00
+----------------------------------------------------
+55      Ghee Thosai                           2.50
+----------------------------------------------------
+56      Mushroom Thosai                       2.50
+----------------------------------------------------
+57      Onion Thosai                          2.00
+----------------------------------------------------
+58      Mushroom Thosai                       2.00
+----------------------------------------------------
+59      Chili Thosai                          2.00
+----------------------------------------------------
+60      Paper Thosai                          2.00
+----------------------------------------------------
+61      Mushroom Cheese Thosai                4.00
+----------------------------------------------------
+62      Masala Thosai                         2.20
+----------------------------------------------------
+63      Onion Chili Thosai                    2.40
+----------------------------------------------------
+64      Masala Mushroom Thosai                3.20
+----------------------------------------------------
+65      Masala Paper Thosai                   2.80
+----------------------------------------------------
+66      Masala Onion Thosai                   2.80
+----------------------------------------------------
+67      Masala Ghee Thosai                    3.00
+----------------------------------------------------
+68      Masala Cheese Thosai                  3.70
+----------------------------------------------------
+69      Masala Mushroom Cheese Thosai         4.50
+----------------------------------------------------
+70      Egg Ghee Thosai                       3.20
+----------------------------------------------------
+71      Egg Masala Thosai                     3.20
+----------------------------------------------------
+72      Egg Mushroom Thosai                   3.40
+----------------------------------------------------
+73      Egg Cheese Thosai                     3.90
+----------------------------------------------------
+74      Egg Onion Thosai                      2.80
+----------------------------------------------------
+75      Egg Masala Cheese Thosai              4.70
+----------------------------------------------------
+76      Egg Masala Mushroom Thosai            4.20
+----------------------------------------------------
+77      Egg Masala Ghee Thosai                4.20
+----------------------------------------------------
+78      Egg Masala Onion Thosai               3.90
+----------------------------------------------------
+79      Egg Masala Mushroom Cheese Thosai     5.20
+----------------------------------------------------
+80      Egg Mushroom Cheese Thosai            4.40
+----------------------------------------------------
+81      Portabello Mozzarella Cheese Thosai   6.00
+----------------------------------------------------
+82      Uthappam Thosai                       1.60
+----------------------------------------------------
+83      Onion Uthappam Thosai                 2.00
+----------------------------------------------------
+84      Tomato Uthappam Thosai                2.00
+----------------------------------------------------
+85      Chicken Murtabaks                     7.00
+----------------------------------------------------
+86      Mutton Murtabaks                      7.00
+----------------------------------------------------
+87      Sardine Murtabaks                     6.00
+----------------------------------------------------
+88      Vegetable Murtabaks                   6.00
+----------------------------------------------------
+89      Ultimate Murtabaks                   12.00
+----------------------------------------------------
+90      Mee Goreng                            4.00
+----------------------------------------------------
+91      Meehoon Goreng                        4.00
+----------------------------------------------------
+92      Nasi Goreng                           4.00
+----------------------------------------------------
+93      Kway Teow Goreng                      4.00
+----------------------------------------------------
+94      Maggi Goreng                          4.00
+----------------------------------------------------
+95      Prata Goreng                          4.00
+----------------------------------------------------
+96      Roti John Chicken                     3.50
+----------------------------------------------------
+97      Roti John Mutton                      3.50
+----------------------------------------------------
+98      Chicken Briyani                       6.00
+----------------------------------------------------
+99      Mutton Briyani                        6.50
+----------------------------------------------------
 
 ============================================================================================
 Unknown command. Please try again.
@@ -67,68 +249,68 @@ Please check your range of values and the format.
 Name: Shorter than 50 characters. Index: Range of menu. Quantity: 1 to 999.
 Refer to the UG for more details.
 ============================================================================================
-Index out of range. Please try again!
+We have updated the order list for: ABC
+	(1) Special Paper Prata (Sugar) | Quantity = 2 | Cost = $3.20
+[Total Cost = $3.20] [Total Quantity = 2]
 ============================================================================================
 Invalid Command!
 Please check your range of values and the format.
 Name: Shorter than 50 characters. Index: Range of menu. Quantity: 1 to 999.
 Refer to the UG for more details.
 ============================================================================================
-We have updated the order list for: tim
-	(1) Chicken Rice | Quantity = 3 | Cost = $9.00
-[Total Cost = $9.00] [Total Quantity = 3]
+We have updated the order list for: TIM
+	(1) Egg Prata | Quantity = 3 | Cost = $5.70
+[Total Cost = $5.70] [Total Quantity = 3]
 ============================================================================================
-We have updated the order list for: tim
-	(1) Chicken Rice | Quantity = 3 | Cost = $9.00
-	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 2 | Cost = $6.00
-[Total Cost = $15.00] [Total Quantity = 5]
+We have updated the order list for: TIM
+	(1) Egg Prata | Quantity = 3 | Cost = $5.70
+	(2) Chili Prata | Quantity = 2 | Cost = $2.80
+[Total Cost = $8.50] [Total Quantity = 5]
 ============================================================================================
-SUMMARY: [Total number of People: 1] [Total quantity of food: 5]
---------------------------------------------------
-1) tim:
-	(1) Chicken Rice | Quantity = 3 | Cost = $9.00
-	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 2 | Cost = $6.00
-[Total Cost = $15.00] [Total Quantity = 5]
+SUMMARY: [Total number of People: 2] [Total quantity of food: 7]
+----------------------------------------------------
+1) ABC:
+	(1) Special Paper Prata (Sugar) | Quantity = 2 | Cost = $3.20
+[Total Cost = $3.20] [Total Quantity = 2]
+2) TIM:
+	(1) Egg Prata | Quantity = 3 | Cost = $5.70
+	(2) Chili Prata | Quantity = 2 | Cost = $2.80
+[Total Cost = $8.50] [Total Quantity = 5]
 ============================================================================================
-We have updated the order list for: tim
-	(1) Ban Mian | Quantity = 3 | Cost = $9.00
-	(2) Chicken Rice | Quantity = 3 | Cost = $9.00
-	(3) Minced MeatNoodles(Ba Chor Mee) | Quantity = 2 | Cost = $6.00
-[Total Cost = $24.00] [Total Quantity = 8]
+We have updated the order list for: TIM
+	(1) Plain Prata | Quantity = 3 | Cost = $3.30
+	(2) Egg Prata | Quantity = 3 | Cost = $5.70
+	(3) Chili Prata | Quantity = 2 | Cost = $2.80
+[Total Cost = $11.80] [Total Quantity = 8]
 ============================================================================================
-We have updated the order list for: tim
-	(1) Ban Mian | Quantity = 5 | Cost = $15.00
-	(2) Chicken Rice | Quantity = 3 | Cost = $9.00
-	(3) Minced MeatNoodles(Ba Chor Mee) | Quantity = 2 | Cost = $6.00
-[Total Cost = $30.00] [Total Quantity = 10]
+We have updated the order list for: TIM
+	(1) Plain Prata | Quantity = 5 | Cost = $5.50
+	(2) Egg Prata | Quantity = 3 | Cost = $5.70
+	(3) Chili Prata | Quantity = 2 | Cost = $2.80
+[Total Cost = $14.00] [Total Quantity = 10]
 ============================================================================================
-SUMMARY: [Total number of People: 1] [Total quantity of food: 10]
---------------------------------------------------
-1) tim:
-	(1) Ban Mian | Quantity = 5 | Cost = $15.00
-	(2) Chicken Rice | Quantity = 3 | Cost = $9.00
-	(3) Minced MeatNoodles(Ba Chor Mee) | Quantity = 2 | Cost = $6.00
-[Total Cost = $30.00] [Total Quantity = 10]
+SUMMARY: [Total number of People: 2] [Total quantity of food: 12]
+----------------------------------------------------
+1) ABC:
+	(1) Special Paper Prata (Sugar) | Quantity = 2 | Cost = $3.20
+[Total Cost = $3.20] [Total Quantity = 2]
+2) TIM:
+	(1) Plain Prata | Quantity = 5 | Cost = $5.50
+	(2) Egg Prata | Quantity = 3 | Cost = $5.70
+	(3) Chili Prata | Quantity = 2 | Cost = $2.80
+[Total Cost = $14.00] [Total Quantity = 10]
 ============================================================================================
-Alright, order 3 has been deleted from tim!
-	(1) Ban Mian | Quantity = 5 | Cost = $15.00
-	(2) Chicken Rice | Quantity = 3 | Cost = $9.00
-[Total Cost = $24.00] [Total Quantity = 8]
+Please enter a valid order index!
+You can enter "list" to check your order index.
 ============================================================================================
-We have updated the order list for: aim
-	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
-[Total Cost = $7.00] [Total Quantity = 2]
+We have updated the order list for: AIM
+	(1) Cheese Prata | Quantity = 2 | Cost = $5.00
+[Total Cost = $5.00] [Total Quantity = 2]
 ============================================================================================
-We have updated the order list for: aim
-	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
-	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 1 | Cost = $3.00
-[Total Cost = $10.00] [Total Quantity = 3]
-============================================================================================
-Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8
-============================================================================================
-Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8
-============================================================================================
-Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8
+We have updated the order list for: AIM
+	(1) Cheese Prata | Quantity = 2 | Cost = $5.00
+	(2) Chili Prata | Quantity = 1 | Cost = $1.40
+[Total Cost = $6.40] [Total Quantity = 3]
 ============================================================================================
 Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8
 ============================================================================================
@@ -136,35 +318,46 @@ Please enter a valid person's index followed by the order index and order quanti
 ============================================================================================
 Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8
 ============================================================================================
-Order 2 from aim's order has been edited
-	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
-	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 4 | Cost = $12.00
-[Total Cost = $19.00] [Total Quantity = 6]
+Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8
+============================================================================================
+Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8
+============================================================================================
+Please enter a valid person's index followed by the order index and order quantity! i.e. edit 1/1 /q 8
+============================================================================================
+Order 2 from TIM's order has been edited
+	(1) Plain Prata | Quantity = 5 | Cost = $5.50
+	(2) Egg Prata | Quantity = 4 | Cost = $7.60
+	(3) Chili Prata | Quantity = 2 | Cost = $2.80
+[Total Cost = $15.90] [Total Quantity = 11]
+============================================================================================
+SUMMARY: [Total number of People: 3] [Total quantity of food: 16]
+----------------------------------------------------
+1) ABC:
+	(1) Special Paper Prata (Sugar) | Quantity = 2 | Cost = $3.20
+[Total Cost = $3.20] [Total Quantity = 2]
+2) TIM:
+	(1) Plain Prata | Quantity = 5 | Cost = $5.50
+	(2) Egg Prata | Quantity = 4 | Cost = $7.60
+	(3) Chili Prata | Quantity = 2 | Cost = $2.80
+[Total Cost = $15.90] [Total Quantity = 11]
+3) AIM:
+	(1) Cheese Prata | Quantity = 2 | Cost = $5.00
+	(2) Chili Prata | Quantity = 1 | Cost = $1.40
+[Total Cost = $6.40] [Total Quantity = 3]
+============================================================================================
+Alright, order 1 has been deleted from ABC!
 ============================================================================================
 SUMMARY: [Total number of People: 2] [Total quantity of food: 14]
---------------------------------------------------
-1) tim:
-	(1) Ban Mian | Quantity = 5 | Cost = $15.00
-	(2) Chicken Rice | Quantity = 3 | Cost = $9.00
-[Total Cost = $24.00] [Total Quantity = 8]
-2) aim:
-	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
-	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 4 | Cost = $12.00
-[Total Cost = $19.00] [Total Quantity = 6]
-============================================================================================
-Order 1 from tim's order has been edited
-	(1) Chicken Rice | Quantity = 3 | Cost = $9.00
-[Total Cost = $9.00] [Total Quantity = 3]
-============================================================================================
-SUMMARY: [Total number of People: 2] [Total quantity of food: 9]
---------------------------------------------------
-1) tim:
-	(1) Chicken Rice | Quantity = 3 | Cost = $9.00
-[Total Cost = $9.00] [Total Quantity = 3]
-2) aim:
-	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
-	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 4 | Cost = $12.00
-[Total Cost = $19.00] [Total Quantity = 6]
+----------------------------------------------------
+1) TIM:
+	(1) Plain Prata | Quantity = 5 | Cost = $5.50
+	(2) Egg Prata | Quantity = 4 | Cost = $7.60
+	(3) Chili Prata | Quantity = 2 | Cost = $2.80
+[Total Cost = $15.90] [Total Quantity = 11]
+2) AIM:
+	(1) Cheese Prata | Quantity = 2 | Cost = $5.00
+	(2) Chili Prata | Quantity = 1 | Cost = $1.40
+[Total Cost = $6.40] [Total Quantity = 3]
 ============================================================================================
 Wrong format for command Find. E.g) find /n <String to find>
 ============================================================================================
@@ -172,22 +365,27 @@ Wrong format for command Find. E.g) find /n <String to find>
 ============================================================================================
 Wrong format for command Find. E.g) find /n <String to find>
 ============================================================================================
-2) aim:
-	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
-	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 4 | Cost = $12.00
-[Total Cost = $19.00] [Total Quantity = 6]
+2) AIM:
+	(1) Cheese Prata | Quantity = 2 | Cost = $5.00
+	(2) Chili Prata | Quantity = 1 | Cost = $1.40
+[Total Cost = $6.40] [Total Quantity = 3]
 
 ============================================================================================
-1) tim:
-	(1) Chicken Rice | Quantity = 3 | Cost = $9.00
-[Total Cost = $9.00] [Total Quantity = 3]
-2) aim:
-	(1) Fried Prawn Noodles (Hokkien Mee) | Quantity = 2 | Cost = $7.00
-	(2) Minced MeatNoodles(Ba Chor Mee) | Quantity = 4 | Cost = $12.00
-[Total Cost = $19.00] [Total Quantity = 6]
+1) TIM:
+	(1) Plain Prata | Quantity = 5 | Cost = $5.50
+	(2) Egg Prata | Quantity = 4 | Cost = $7.60
+	(3) Chili Prata | Quantity = 2 | Cost = $2.80
+[Total Cost = $15.90] [Total Quantity = 11]
+2) AIM:
+	(1) Cheese Prata | Quantity = 2 | Cost = $5.00
+	(2) Chili Prata | Quantity = 1 | Cost = $1.40
+[Total Cost = $6.40] [Total Quantity = 3]
 
 ============================================================================================
-Alright, order 1 has been deleted from tim!
+Alright, order 1 has been deleted from TIM!
+	(1) Egg Prata | Quantity = 4 | Cost = $7.60
+	(2) Chili Prata | Quantity = 2 | Cost = $2.80
+[Total Cost = $10.40] [Total Quantity = 6]
 ============================================================================================
 Please enter a valid person's index followed by the order index! i.e. delete 1/2
 ============================================================================================
@@ -197,13 +395,18 @@ Please enter a valid person's index followed by the order index! i.e. delete 1/2
 ============================================================================================
 Please enter a valid person's index followed by the order index! i.e. delete 1/2
 ============================================================================================
-Alright, order 1 has been deleted from aim!
-	(1) Minced MeatNoodles(Ba Chor Mee) | Quantity = 4 | Cost = $12.00
-[Total Cost = $12.00] [Total Quantity = 4]
+Alright, order 1 has been deleted from TIM!
+	(1) Chili Prata | Quantity = 2 | Cost = $2.80
+[Total Cost = $2.80] [Total Quantity = 2]
 ============================================================================================
-Alright, order 1 has been deleted from aim!
+Alright, order 1 has been deleted from TIM!
 ============================================================================================
-Your order list is empty!
+SUMMARY: [Total number of People: 1] [Total quantity of food: 3]
+----------------------------------------------------
+1) AIM:
+	(1) Cheese Prata | Quantity = 2 | Cost = $5.00
+	(2) Chili Prata | Quantity = 1 | Cost = $1.40
+[Total Cost = $6.40] [Total Quantity = 3]
 ============================================================================================
 Thank you for using L.O.T.S! Good bye!
 ============================================================================================

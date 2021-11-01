@@ -23,7 +23,7 @@ public class PersonTest {
     public void addFoodToIndividualFoodOrders_menuIndexOutOfBounds_expectException() throws LotsException {
         Person person = new Person(TEST_NAME);
         assertThrows(LotsException.class, () -> {
-            person.addFoodToIndividualFoodOrders(88, 1);
+            person.addFoodToIndividualFoodOrders(188, 1);
         });
     }
 }
