@@ -31,20 +31,20 @@
 <br>The following section gives a brief overview of the main components in the architecture and how they interact with
 each other. Further explanation will be given in depth in the **Design** section of the developer guide.
 ### Main components of the architecture
-1) **Main** consists of the Duke class, which is responsible for initializing the various components of the LOTS program
+1. **Main** consists of the Duke class, which is responsible for initializing the various components of the LOTS program
    at startup, and the handling of the interactions between classes.
-2) **UI** handles the UI portion of the LOTS program.
-3) **Logic** deals with the parsing and execution of user inputs.
-4) **Manager** deals with the various types of data that is stored within the LOTS program.
+2. **UI** handles the UI portion of the LOTS program.
+3. **Logic** deals with the parsing and execution of user inputs.
+4. **Manager** deals with the various types of data that is stored within the LOTS program.
 
 ### Component Interaction
 
 The general flow of the program is as follows:
-1) User inputs data which is read by the `UI` within the `Main`.
-2) This data is passed to the `Parser` which will return a `Command`.
-3) `Command` will be executed, carrying out whatever task the user has input. `Manager` may be called if data is to
+1. User inputs data which is read by the `UI` within the `Main`.
+2. This data is passed to the `Parser` which will return a `Command`.
+3. `Command` will be executed, carrying out whatever task the user has input. `Manager` may be called if data is to
 be stored or edited.
-4) `UI` component handles the printing of data if required.  
+4. `UI` component handles the printing of data if required.  
    </br>Given below is a simplified sequence diagram showing how the components within the LOTS program interact with each other
    when the user inputs the command `delete 1/2`  
    <br>![Delete Sequence Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ArchitectureDiagrams/DeleteSeq.png)
@@ -85,7 +85,8 @@ The following sequence diagram depicts how the `Logical` components interact wit
 The manager component of the program consists multiple classes. Namely: `PeopleManager`,`Person` & `Order`.  
 <br>![PeopleManagerDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/PeopleManagerDiagram/PeopleManagerDiagram.jpg)
 
-:information_source: **Note:** This diagram shows the components of how the inputs are handled.
+:information_source: **Note:** This diagram shows the components of how the inputs are handled. The dotted boxes are the overall Person Component and Order component.
+
 
 The `PeopleManager` component,
 * Stores a list of people, named: `listOfPeople`. This list stores all `Person` objects.
@@ -118,13 +119,13 @@ are not recognized by the `parser`, an `unknownCommand` is returned instead.
 
 Below is a step by step example on how the `Parser` interacts when a user keys in an input.
 
-1) Lets assume the user input is `delete 1/2`. `Duke` will then call the method
+1. Lets assume the user input is `delete 1/2`. `Duke` will then call the method
 `Parser.getCommand("delete 1/2")`. The method would split the user's input into an array of
 strings along the spaces and store them in the array `listOfInputs`. After which,
 it will get the string `"delete"` from the 0th element of `listOfInputs` and store
 it in `commandInString`.
 
-2) The method will then parse `commandInString` through the switch cases and try to match it with
+2. The method will then parse `commandInString` through the switch cases and try to match it with
 one of the known commands words stored in each respective command's class attribute called `COMMAND_WORD`.
 In this case, the `"delete"` command will cause the parser to return a `DeleteCommand` object.
 The section of code below shows the implementation the switch statement.
@@ -150,7 +151,7 @@ default:
 }
 ```
 
-3) Next, `Duke` will then use the returned command to call `Command.execute()` which will interact
+3. Next, `Duke` will then use the returned command to call `Command.execute()` which will interact
 with the `Manager Components` of the program who will then remove the 2nd order from the first
 person in the list.
 
@@ -234,9 +235,9 @@ Hence, the sequence of which how Menu Command class and Order Command class are 
 
 
 The steps to using the `menu` and `list` command can be seen from the sequence diagram. In short: 
-1) Invoke the Menu Command class by calling `menu`. The menu will display in the terminal.
+1. Invoke the Menu Command class by calling `menu`. The menu will display in the terminal.
 
-2) After adding orders, invoke `list` command to see the orders added into the list.
+2. After adding orders, invoke `list` command to see the orders added into the list.
 
 **Note:** The command `menu` and `list` are just these two strings. Any edits to these two commands will result in an exception being thrown.
    
@@ -329,11 +330,11 @@ The instructions below give a brief overview on how to test the functions manual
 
 ### Starting up and Shutting down
 
-1) To begin, [download](https://github.com/AY2122S1-CS2113-T13-2/tp/releases) the .jar file and place it in a folder.
-2) Open the CLI at the file location and run by the jar file by giving the command,
+1. To begin, [download](https://github.com/AY2122S1-CS2113-T13-2/tp/releases) the .jar file and place it in a folder.
+2. Open the CLI at the file location and run by the jar file by giving the command,
    `java -jar <jar file name>.jar`
    - E.g) With `CS2113T.jar` the command would be `java -jar CS2113T.jar`
-3) To end the program, enter the command `bye` or simply close the CLI window.
+3. To end the program, enter the command `bye` or simply close the CLI window.
 
 ---
 
@@ -341,9 +342,9 @@ The instructions below give a brief overview on how to test the functions manual
 
 - Prerequisite: The `Menu` has to contain at least `1` food item.
 
-1) Add an order to the list. E.g) `add /n abc /i 1 /q 1`
-2) Exit the program properly by giving the command `bye`.
-3) Start up the program again and issue the command `list` to ensure that the previously added 
+1. Add an order to the list. E.g) `add /n abc /i 1 /q 1`
+2. Exit the program properly by giving the command `bye`.
+3. Start up the program again and issue the command `list` to ensure that the previously added 
    order is still in the order list.
 
 ---
