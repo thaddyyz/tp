@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 public class Ui {
 
+    private static final String MENULINE = "-----------------------------------------------------"
+                                           + "---|----------------------------------------------------";
     private static final String LINE = "----------------------------------------------------";
     private static final String BORDER = "=================================="
             + "============================="
@@ -150,8 +152,9 @@ public class Ui {
     }
 
     public static void printMenuHeader() {
-        printWithoutBorder("index | Food Name                           | Price");
-        printWithoutBorder(LINE);
+        printWithoutBorder("index | Food Name                           | Price     | "
+                           + "index | Food Name                           | Price");
+        printWithoutBorder(MENULINE);
     }
 
     /**
@@ -161,9 +164,10 @@ public class Ui {
      */
     public static void printMenu(ArrayList<Double> priceList, ArrayList<String> foodList) {
         Ui.printMenuHeader();
-        for (int i = 0; i < foodList.size(); i++) {
-            System.out.format("%-8d%-35s%7.2f%n", i + 1, foodList.get(i), priceList.get(i));
-            printWithoutBorder(LINE);
+        for (int i = 0; i < 24; i++) {
+            System.out.format("%-8d%-38s%-10.2f| %-8d%-35s%7.2f%n", i + 1, foodList.get(i),
+                               priceList.get(i), i + 25, foodList.get(i + 24), priceList.get(i + 24));
+            printWithoutBorder(MENULINE);
         }
         Ui.printWithBorder("");
     }
