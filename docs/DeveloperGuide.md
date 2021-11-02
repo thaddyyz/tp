@@ -112,7 +112,7 @@ would call its respective constructor and return the command object created. As 
 are not recognized by the `parser`, an `unknownCommand` is returned instead.
 
 ![Squence Diagram of Parser](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/Parser%20Sequence%20Diag.jpg)
-:information_source: **Note:** All valid commands (E.g. `add`, `find`, etc...) are represented by the `AbcCommand` class.
+<br>:information_source: **Note:** All valid commands (E.g. `add`, `find`, etc...) are represented by the `AbcCommand` class.
 
 Below is a step by step example on how the `Parser` interacts when a user keys in an input.
 
