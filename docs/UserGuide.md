@@ -33,7 +33,7 @@ Target users includes:
 5. You can start using the `LOTS` program by inputting commands into the command line. The list of commands and 
 instructions on how to use them can be found in the following section.
 > :exclamation: **Caution**: When entering commands, if the command does not include any additional parameters please 
-> ensure that no extra inputs is present after the command.
+> ensure that no extra inputs is present after the command. Strictly keep to the command format.
 
 ## Features
 
@@ -56,6 +56,9 @@ Lists the menu along with the index, food name and price.
 Adds a specific order for a particular person.
 
 **Format:** `add /n [PERSON_NAME] /i [FOOD_INDEX] /q [QUANTITY]`
+
+**Example:** `add /n Jeremy /i 2 /q 23`
+
 * `[PERSON_NAME]` refers to the person's name who ordered this set of food.
   * The length of `[PERSON_NAME]` must be between **1 character to 51 characters** including spaces.
   * `[PERSON_NAME]` can only be in **alphanumeric**.
@@ -71,21 +74,14 @@ Adds a specific order for a particular person.
    * You can only use **1 name** as a reference to **1 person**.
    * Any additional `add` command with the same name will be tagged under the same person's order.
 2. Adding the same order to a person with different quantity will result to **increment of the original quantity** of the order.
-   * E.g. Refer to **Example of usage** points 3, 6 and 7.
+   * E.g. Refer to **Example of usage**.
 
 **Example of usage:**
 1. Start with empty list. 
-2. Adds a new order under person named Jeremy, ordering 1 Ban Mian. 
-3. Adds a new order under person David, ordering 682 Chicken Rice. 
-4. Adds a new order under Jeremy, who previously ordered, with a new order of 70 Nasi Lemak. 
-5. List the orders.
-
+2. Adds a new order under person named Jeremy, ordering 1 Plain Prata. 
+   * `add /n Jeremy /i 1 /q 1`
+  
 ![Add1 Screenshot](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/UG_AddCommand_Example1.png)
-
-6. Adds an order under person David, ordering 60 Chicken Rice.
-7. List the orders.
-
-![Add2 Screenshot](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/UG_AddCommand_Example2.png)
 
 ### Deleting orders: `delete`   
 
