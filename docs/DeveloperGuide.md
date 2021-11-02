@@ -36,7 +36,9 @@ each other. Further explanation will be given in depth in the **Design** section
 2) **UI** handles the UI portion of the LOTS program.
 3) **Logic** deals with the parsing and execution of user inputs.
 4) **Manager** deals with the various types of data that is stored within the LOTS program.
+
 ### Component Interaction
+
 The general flow of the program is as follows:
 1) User inputs data which is read by the `UI` within the `Main`.
 2) This data is passed to the `Parser` which will return a `Command`.
@@ -53,9 +55,9 @@ be stored or edited.
 
 The logical component of the program consists multiple classes. Namely: `Parser`,`Command` &
 the various child class of `Command`.
-The class diagram below is a brief overview of how the `Parser`, `Manger` & the various `Command` class
+The class diagram below is a brief overview of how the `Parser`, `Manager` & the various `Command` class
 are related to one another.  
-<br>![Logical Component Partial Class Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/LogicalComponentDiagrams/Logical%20Component%20Diagram-Page-2.jpg)
+<br>![Logical Component Partial Class Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/LogicalComponentDiagrams/Logical%20Component%20Diagram.jpg)
 
 :information_source: **Note:** Specific command names are represented using a placeholder `'Abc'`, i.e. AddCommand, FindCommand.
 
@@ -72,12 +74,12 @@ The class diagram below is a brief overview of how the `Parser` is used in parsi
 
 Explanation on how the parsing is done:
 1. Upon receiving the user's input string from `Duke`, the `Parser` split the user's input into an array of strings.
-2. It then interprets the string and try to match it with one of the known commands.
-3. The respective command (i.e. `DeleteCommand`) object will be initialised and returned back to `Duke` as a `Command` object. (`UnknownCommand` object is return
+2. It then interprets the string and tries to match it with one of the known commands.
+3. The respective command (i.e. `DeleteCommand`) object will be instantiated and returned back to `Duke` as a `Command` object. (`UnknownCommand` object is return
    if there is no match)
 
 The following sequence diagram depicts how the `Logical` components interact with one another upon receiving the user's input of `"delete 1/2"`.  
-<br>![Logical Component Partial Sequence Diagram](https://raw.githubusercontent.com/markuslyq/tp/master/UMLdiagrams/LogicalComponentDiagrams/Logical%20Component%20Diagram.jpg)
+<br>![Logical Component Partial Sequence Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/DeleteCommandDiagram/DeleteCommand%20Sequence%20Diagram.jpg)
    
 ### Manager Component
 The manager component of the program consists multiple classes. Namely: `PeopleManager`,`Person` & `Order`.  
@@ -107,31 +109,48 @@ by creating variables needed to store the data, and storing this newly created v
 
 ### Parser
 
-This is a sequence diagram of the `Parser` class.
+Below is a sequence diagram of the `Parser` class. In the event of a valid command, the parser
+would call its respective constructor and return the command object created. As for commands that
+are not recognized by the `parser`, an `unknownCommand` is returned instead.
 
 ![Squence Diagram of Parser](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/Parser%20Sequence%20Diag.jpg)
-
+<br>:information_source: **Note:** All valid commands (E.g. `add`, `find`, etc...) are represented by the `AbcCommand` class.
 
 Below is a step by step example on how the `Parser` interacts when a user keys in an input.
 
-Step 1)<br>
-Lets assume the user input is `delete 1/2`. `Duke` will then call the method
+1) Lets assume the user input is `delete 1/2`. `Duke` will then call the method
 `Parser.getCommand("delete 1/2")`. The method would split the user's input into an array of
 strings along the spaces and store them in the array `listOfInputs`. After which,
 it will get the string `"delete"` from the 0th element of `listOfInputs` and store
 it in `commandInString`.
-<br>
 
-Step 2)<br>
-The method will then parse `commandInString` through the switch cases and try to match it with
+2) The method will then parse `commandInString` through the switch cases and try to match it with
 one of the known commands words stored in each respective command's class attribute called `COMMAND_WORD`.
 In this case, the `"delete"` command will cause the parser to return a `DeleteCommand` object.
-The image below shows the codes for the switch statement.
+The section of code below shows the implementation the switch statement.
 
-![Switch case Code](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/SwitchClassCode.jpg)
+```
+switch (commandInString) {
+case (AddCommand.COMMAND_WORD):
+    return new AddCommand(input);
+case (DeleteCommand.COMMAND_WORD):
+    return new DeleteCommand(input);
+case (EditCommand.COMMAND_WORD):
+    return new EditCommand(input);
+case (OrdersCommand.COMMAND_WORD):
+    return new OrdersCommand(input);
+case (MenuCommand.COMMAND_WORD):
+    return new MenuCommand(input);
+case (FindCommand.COMMAND_WORD):
+    return new FindCommand(input);
+case (ByeCommand.COMMAND_WORD):
+    return new ByeCommand();
+default:
+    return new UnknownCommand();
+}
+```
 
-Step 3)<br>
-Next, `Duke` will then use the returned command to call `Command.execute()` which will interact
+3) Next, `Duke` will then use the returned command to call `Command.execute()` which will interact
 with the `Manager Components` of the program who will then remove the 2nd order from the first
 person in the list.
 
@@ -154,10 +173,10 @@ cause the code to be messier and therefore harder to read. By having a command c
 for each respective command, this allows us to segregate all the necessary functions
 for each command in their own respective class, therefore making testing easier too.
 
-This section describes how the commands are implemented. 
-Explanations and sequence diagrams are used to describe the implementation process.
-
 ### Add, Delete, Edit, Orders and Find Command Classes
+
+This section describes how the commands are implemented.
+Explanations and sequence diagrams are used to describe the implementation process.
 
 The commands `add`, `delete`, `edit`, `orders` and `find` have similar implementation, with a few differences in terms of the methods called.
 Here is an overview of their class diagram.  
@@ -278,6 +297,8 @@ The steps to using the `menu` and `list` command can be seen from the sequence d
 
 - User needs to have Java `11` or above installed in order for the program to work.
 
+- Program is able to save the current list of orders to a file and upon re-start of the program, load the orders file.
+
 - The program should be able to support up to all these values stated below.
    - Up to `99` _Unique person_ at a time.
    - Maximum of `99` _Unique Food_ items in the menu.
@@ -287,24 +308,43 @@ The steps to using the `menu` and `list` command can be seen from the sequence d
 
 The instructions below give a brief overview on how to test the functions manually.
 
+- Head over to [Setup For Developers](settingUp.md) to setup your IDE.
+
 - :information_source: More test cases can be found in each of their respective test class under
   `src/test/java/seedu.duke`
+  
+>:exclamation: **Important:** When using the `IO-Redirection` to run tests, take note of the
+`orders` file created as part of the `saving` feature. It is **strongly recommended** to
+  delete the `orders` file or delete all remaining orders in the list after each run of the 
+  test as any left over orders in stored in the file **will** affect subsequent test runs.
 
-[Starting up and Shutting down](#starting-up-and-shutting-down)
-<br> [Add function](#add-function)
-<br> [Edit function](#edit-function)
-<br> [Find function](#find-function)
-<br> [Delete function](#delete-function)
+- [Starting up and Shutting down](#starting-up-and-shutting-down)
+- [Saving and Loading of data](#saving-and-loading-of-data)
+- [Add function](#add-function)
+- [Edit function](#edit-function)
+- [Find function](#find-function)
+- [Delete function](#delete-function)
 
 ---
 
 ### Starting up and Shutting down
 
-1) To begin, download the .jar file and place it in a folder.
+1) To begin, [download](https://github.com/AY2122S1-CS2113-T13-2/tp/releases) the .jar file and place it in a folder.
 2) Open the CLI at the file location and run by the jar file by giving the command,
    `java -jar <jar file name>.jar`
    - E.g) With `CS2113T.jar` the command would be `java -jar CS2113T.jar`
 3) To end the program, enter the command `bye` or simply close the CLI window.
+
+---
+
+### Saving and Loading of data
+
+- Prerequisite: The `Menu` has to contain at least `1` food item.
+
+1) Add an order to the list. E.g) `add /n abc /i 1 /q 1`
+2) Exit the program properly by giving the command `bye`.
+3) Start up the program again and issue the command `list` to ensure that the previously added 
+   order is still in the order list.
 
 ---
 
