@@ -401,12 +401,13 @@ Alright, order 1 has been deleted from TIM!
 ============================================================================================
 Alright, order 1 has been deleted from TIM!
 ============================================================================================
-SUMMARY: [Total number of People: 1] [Total quantity of food: 3]
-----------------------------------------------------
-1) AIM:
-	(1) Cheese Prata | Quantity = 2 | Cost = $5.00
-	(2) Chili Prata | Quantity = 1 | Cost = $1.40
-[Total Cost = $6.40] [Total Quantity = 3]
+Alright, order 1 has been deleted from AIM!
+	(1) Chili Prata | Quantity = 1 | Cost = $1.40
+[Total Cost = $1.40] [Total Quantity = 1]
+============================================================================================
+Alright, order 1 has been deleted from AIM!
+============================================================================================
+Your order list is empty!
 ============================================================================================
 Thank you for using L.O.T.S! Good bye!
 ============================================================================================
