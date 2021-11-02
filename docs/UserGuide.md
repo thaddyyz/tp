@@ -11,13 +11,18 @@
   - [List current orders](#list-current-orders-list)
   - [Exiting LOTS](#exiting-lots-bye)
 - [Command Summary](#command-summary)
+
 ## Introduction
 
 Large Order Tracking System (LOTS) is a Command Line (CLI) program that enables users to keep track of multiple food 
 orders from a pre-set list of food items from different stores. The program helps users to collate the orders and 
-displays a summary of all the orders along with other information such as each person’s order and special requirements 
-(if any), cost of an individual’s order,  total cost of all the orders and more. As LOTS is a CLI program, this would 
+displays a summary of all the orders along with other information such as an individual person’s order and the 
+corresponding cost, total cost of all the orders and more. As LOTS is a CLI program, this would 
 greatly benefit any user that excels in typing.
+
+Target users includes:
+1) Dinners
+2) Order collators (Middleman)
 
 ## Quick Start
 
@@ -27,7 +32,8 @@ greatly benefit any user that excels in typing.
 4. Start the `LOTS` program by executing `java -jar CS2113TP.jar` in the terminal.
 5. You can start using the `LOTS` program by inputting commands into the command line. The list of commands and 
 instructions on how to use them can be found in the following section.
-
+> :exclamation: **Caution**: When entering commands, if the command does not include any additional parameters please 
+> ensure that no extra inputs is present after the command.
 ## Features
 
 ### Display food menu: `menu`
@@ -36,6 +42,9 @@ Lists the menu along with the index, food name and price.
 
 **Format:** `menu`  
 
+**Note:**
+1) Do not add any inputs before or after `menu` command.
+   
 **Example of usage:** 
 * `menu`.   
   
@@ -102,7 +111,7 @@ Edits the quantity of a specific order from a particular person.
 * The `FOOD_INDEX` refers to the index number of a specific order shown in the displayed order list.
 * The `Quantity` refers to the quantity of the particular order to be changed to.
 * `PERSON_INDEX` & `FOOD_INDEX` **must be a positive integer** 1, 2, 3, … 
-* `QUAANTITY` **must be a non-negative integer** 0, 1, 2, 3, …
+* `QUANTITY` **must be a non-negative integer** 0, 1, 2, 3, …
 
 **Example of usage:** 
 * `list` followed by `edit 1/2 /q 5` edits the order of index '`2`' from the person of index '`1`' and changes the quantity to '`4`'.    
@@ -135,7 +144,7 @@ Shows a list of all the orders that have been made.
 
 **Format:** `list`
 
-- Input **must not** contain any extra characters after `list`.
+- Input **must not** contain any extra characters before or after `list`.
 
 **Example of usage**
 - Assume that the current stored order contains orders made by `Jerry`, `Lewis` & `Smith`.
@@ -157,8 +166,8 @@ Exits the LOTS program.
 ## Command Summary
 |Actions|Format & Example|
 |:---:|:---|
-|Add|Format: `add /n [PERSON_NAME] /i [FOOD_INDEX] /q [QUANTITY]` <br>Example: `add /n Andrew /i 32 /q 2` (Adds 2 orders of item number 32 for Andrew)|
-|Delete|Format: `delete [PERSON_INDEX]/[FOOD_INDEX]`<br>Example: `delete 1/2` (Deletes the order of index ‘1’ from the person of index ‘2’.)
+|Add|Format: `add /n [PERSON_NAME] /i [FOOD_INDEX] /q [QUANTITY]` <br>Example: `add /n Andrew /i 8 /q 2` (Adds 2 orders of item number 8 for Andrew)|
+|Delete|Format: `delete [PERSON_INDEX]/[FOOD_INDEX]`<br>Example: `delete 1/2` (Deletes the order of index ‘2’ from the person of index ‘1’.)
 |Edit|Format: `edit [PERSON_INDEX]/[FOOD_INDEX] /q [QUANTITY]` <br>Example: `edit 3/1 /q 8` (Changes the quantity of the order with index '1' from the person of index '3' to 8.) 
 |Find|Format: `find /n [SEARCH_STRING]` <br>Example:`find /n drew` (Searches for names containing 'drew'.)
 |Menu|Example: `menu`|
