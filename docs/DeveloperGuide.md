@@ -295,6 +295,8 @@ The steps to using the `menu` and `list` command can be seen from the sequence d
 
 - User needs to have Java `11` or above installed in order for the program to work.
 
+- Program is able to save the current list of orders to a file and upon re-start of the program, load the orders file.
+
 - The program should be able to support up to all these values stated below.
    - Up to `99` _Unique person_ at a time.
    - Maximum of `99` _Unique Food_ items in the menu.
@@ -304,10 +306,18 @@ The steps to using the `menu` and `list` command can be seen from the sequence d
 
 The instructions below give a brief overview on how to test the functions manually.
 
+- Head over to [Setup For Developers](settingUp.md) to setup your IDE.
+
 - :information_source: More test cases can be found in each of their respective test class under
   `src/test/java/seedu.duke`
+  
+- :exclamation: **Important:** When using the `IO-Redirection` to run tests, take note of the
+`orders` file created as part of the `saving` feature. It is **strongly recommended** to
+  delete the `orders` file or delete all remaining orders in the list after each run of the 
+  test as any left over orders in stored in the file **will** affect subsequent test runs.
 
 [Starting up and Shutting down](#starting-up-and-shutting-down)
+<br> [Saving and Loading of data](#saving-and-loading-of-data)
 <br> [Add function](#add-function)
 <br> [Edit function](#edit-function)
 <br> [Find function](#find-function)
@@ -322,6 +332,17 @@ The instructions below give a brief overview on how to test the functions manual
    `java -jar <jar file name>.jar`
    - E.g) With `CS2113T.jar` the command would be `java -jar CS2113T.jar`
 3) To end the program, enter the command `bye` or simply close the CLI window.
+
+---
+
+### Saving and Loading of data
+
+- Prerequisite: The `Menu` has to contain at least `1` food item.
+
+1) Add an order to the list. E.g) `add /n abc /i 1 /q 1`
+2) Exit the program properly by giving the command `bye`.
+3) Start up the program again and issue the command `list` to ensure that the previously added 
+   order is still in the order list.
 
 ---
 
