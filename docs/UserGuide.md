@@ -125,6 +125,7 @@ Find persons with names that contain a given string and print out their orders.
 **Format:** `find /n [SEARCH_STRING]`
 
 - `SEARCH_STRING` specifies the sub-string that you wish to search.
+  - `SEARCH_STRING` must contain **at least 1** `alphanumeric` character. E.g) `a`,`1`.
 - The search is **case-insensitive**. Meaning that `ABcd = abcd = ABCD`.
 - The `SEARCH_STRING` does not need to contain the exact name you wish to match.
 **Any** sub-string of the name will be considered a match.
