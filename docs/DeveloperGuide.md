@@ -36,7 +36,9 @@ each other. Further explanation will be given in depth in the **Design** section
 2) **UI** handles the UI portion of the LOTS program.
 3) **Logic** deals with the parsing and execution of user inputs.
 4) **Manager** deals with the various types of data that is stored within the LOTS program.
+
 ### Component Interaction
+
 The general flow of the program is as follows:
 1) User inputs data which is read by the `UI` within the `Main`.
 2) This data is passed to the `Parser` which will return a `Command`.
@@ -311,17 +313,17 @@ The instructions below give a brief overview on how to test the functions manual
 - :information_source: More test cases can be found in each of their respective test class under
   `src/test/java/seedu.duke`
   
-- :exclamation: **Important:** When using the `IO-Redirection` to run tests, take note of the
+>:exclamation: **Important:** When using the `IO-Redirection` to run tests, take note of the
 `orders` file created as part of the `saving` feature. It is **strongly recommended** to
   delete the `orders` file or delete all remaining orders in the list after each run of the 
   test as any left over orders in stored in the file **will** affect subsequent test runs.
 
-[Starting up and Shutting down](#starting-up-and-shutting-down)
-<br> [Saving and Loading of data](#saving-and-loading-of-data)
-<br> [Add function](#add-function)
-<br> [Edit function](#edit-function)
-<br> [Find function](#find-function)
-<br> [Delete function](#delete-function)
+- [Starting up and Shutting down](#starting-up-and-shutting-down)
+- [Saving and Loading of data](#saving-and-loading-of-data)
+- [Add function](#add-function)
+- [Edit function](#edit-function)
+- [Find function](#find-function)
+- [Delete function](#delete-function)
 
 ---
 
