@@ -68,9 +68,18 @@ public class Storage {
         if (isValidFileInput(fileList)) {
             executeLoad();
         } else {
-            PeopleManager emptyManager = new PeopleManager();
-            updateFile(emptyManager);
+            updateFileWithEmptyManager();
         }
+    }
+
+    /**
+     * Updates the file with an empty PeopleManager to clear the file.
+     *
+     * @throws IOException If there is an error updating the file with an empty PeopleManager.
+     */
+    private static void updateFileWithEmptyManager() throws IOException {
+        PeopleManager.clearListOfPeople();
+        updateFile(FILE_PEOPLE_MANAGER);
     }
 
     /**
@@ -185,14 +194,18 @@ public class Storage {
     /**
      * Execute the add command to load the contents of the file into the program.
      *
-     * @throws LotsException If there is an error executing the add command.
+     * @throws IOException If there is an error updating the file with an empty PeopleManager.
      */
-    private static void executeLoad() throws LotsException {
-        for (String addCommand : LIST_OF_ADD_COMMANDS) {
-            Command command;
-            command = Parser.getCommand(addCommand);
-            command.setData(FILE_PEOPLE_MANAGER);
-            command.executeFromFile();
+    private static void executeLoad() throws IOException {
+        try {
+            for (String addCommand : LIST_OF_ADD_COMMANDS) {
+                Command command;
+                command = Parser.getCommand(addCommand);
+                command.setData(FILE_PEOPLE_MANAGER);
+                command.executeFromFile();
+            }
+        } catch (LotsException e) {
+            updateFileWithEmptyManager();
         }
     }
 
