@@ -9,7 +9,8 @@ import java.util.Scanner;
 
 public class Ui {
 
-    private static final String MENULINE = "--------------------------------------------------------|----------------------------------------------------";
+    private static final String MENULINE = "-----------------------------------------------------"
+                                           + "---|----------------------------------------------------";
     private static final String LINE = "----------------------------------------------------";
     private static final String BORDER = "=================================="
             + "============================="
@@ -151,8 +152,8 @@ public class Ui {
     }
 
     public static void printMenuHeader() {
-        printWithoutBorder("index | Food Name                           | Price     | " + 
-                           "index | Food Name                           | Price");
+        printWithoutBorder("index | Food Name                           | Price     | "
+                           + "index | Food Name                           | Price");
         printWithoutBorder(MENULINE);
     }
 
