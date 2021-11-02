@@ -47,7 +47,7 @@ Lists the menu along with the index, food name and price.
 1. Do not add any inputs before or after `menu` command.
    
 **Example of usage:** 
-* `menu`.   
+ 
   
 ![Menu Screenshot](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/menuUDDiagram.png)
 
