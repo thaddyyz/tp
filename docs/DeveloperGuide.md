@@ -45,7 +45,7 @@ The general flow of the program is as follows:
 3. `Command` will be executed, carrying out whatever task the user has input. `Manager` may be called if data is to
 be stored or edited.
 4. `UI` component handles the printing of data if required.  
-   </br>Given below is a simplified sequence diagram showing how the components within the LOTS program interact with each other
+   <br>Given below is a simplified sequence diagram showing how the components within the LOTS program interact with each other
    when the user inputs the command `delete 1/2`  
    <br>![Delete Sequence Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ArchitectureDiagrams/DeleteSeq.png)
 
@@ -128,7 +128,10 @@ it in `commandInString`.
 2. The method will then parse `commandInString` through the switch cases and try to match it with
 one of the known commands words stored in each respective command's class attribute called `COMMAND_WORD`.
 In this case, the `"delete"` command will cause the parser to return a `DeleteCommand` object.
-The section of code below shows the implementation the switch statement.
+
+3. Next, `Duke` will then use the returned command to call `Command.execute()` which will interact
+   with the `Manager Components` of the program who will then remove the 2nd order from the first
+   person in the list. The section of code below shows the implementation of the switch statement.
 
 ```
 switch (commandInString) {
@@ -150,10 +153,6 @@ default:
     return new UnknownCommand();
 }
 ```
-
-3. Next, `Duke` will then use the returned command to call `Command.execute()` which will interact
-with the `Manager Components` of the program who will then remove the 2nd order from the first
-person in the list.
 
 #### Alternate implementation
 
@@ -256,10 +255,8 @@ The steps to using the `menu` and `list` command can be seen from the sequence d
 * Allows users to keep track of bulk orders easily.
 * Easily keep track of costs.
 * Ensures that no orders are left out.
-* Knows which order belongs to which store.
-* Allow flexibility and control over what description you would like of your friends.
 * Users are able to delete/edit entries quickly.
-* Comments on the food can also be described by you (e.g. No meat for BanMian).
+* Allows users to save order list locally.
 
 ## User Stories
 
@@ -316,8 +313,9 @@ The instructions below give a brief overview on how to test the functions manual
   
 >:exclamation: **Important:** When using the `IO-Redirection` to run tests, take note of the
 `orders` file created as part of the `saving` feature. It is **strongly recommended** to
-  delete the `orders` file or delete all remaining orders in the list after each run of the 
-  test as any left over orders in stored in the file **will** affect subsequent test runs.
+  delete the `orders` file or delete all remaining orders in the list after each run of the test as any orders
+> stored in the file **will** affect subsequent test runs.
+
 
 - [Starting up and Shutting down](#starting-up-and-shutting-down)
 - [Saving and Loading of data](#saving-and-loading-of-data)
