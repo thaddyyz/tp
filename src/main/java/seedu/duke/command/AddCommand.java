@@ -52,22 +52,44 @@ public class AddCommand extends Command {
     @Override
     public void execute() throws LotsException {
         checkNumOfPeopleOutOfLimit();
-        if ((personName != "" || foodIndex != -1 || foodQuantity != -1)
-                && getMatchedIndex(personName) > peopleManager.getSize()) {
-            Person person = new Person(personName);
-            person.addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
-            super.peopleManager.addPerson(person);
-            Ui.printAddedOrderMessage(person);
-        } else if (getMatchedIndex(personName) <= peopleManager.getSize()) {
-            int currIndex = getMatchedIndex(personName);
-            peopleManager.getPerson(currIndex).addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
-            Ui.printAddedOrderMessage(peopleManager.getPerson(currIndex));
+        boolean isValidName = personName != "";
+        boolean isValidIndex = foodIndex != -1;
+        boolean isValidQuantity = foodQuantity != -1;
+        boolean isValidParams = isValidIndex || isValidName || isValidQuantity;
+        boolean isNewPerson = getMatchedIndex(personName) > peopleManager.getSize();
+        if (isValidParams && isNewPerson) {
+            addNewPerson();
+        } else if (!isNewPerson) {
+            updateExistingPerson();
         } else {
             throw new LotsException("Invalid Command!" + System.lineSeparator()
                     + "Please check your range of values and the format." + System.lineSeparator()
                     + "Name: Shorter than 50 characters. Index: Range of menu. Quantity: 1 to 999."
                     + System.lineSeparator() + "Refer to the UG for more details.");
         }
+    }
+
+    /**
+     * Function to update the order of an existing person in the list.
+     *
+     * @throws LotsException if food quantity exceeds the limit.
+     */
+    private void updateExistingPerson() throws LotsException {
+        int currIndex = getMatchedIndex(personName);
+        peopleManager.getPerson(currIndex).addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
+        Ui.printAddedOrderMessage(peopleManager.getPerson(currIndex));
+    }
+
+    /**
+     * Function to create a new person in the list and add the person's order
+     *
+     * @throws LotsException if food quantity exceeds the limit.
+     */
+    private void addNewPerson() throws LotsException {
+        Person person = new Person(personName);
+        person.addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
+        super.peopleManager.addPerson(person);
+        Ui.printAddedOrderMessage(person);
     }
 
     /**
