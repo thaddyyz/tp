@@ -3,13 +3,13 @@
 - [Introduction](#introduction)
 - [Quick Start](#quick-start)
 - [Features](#features)
-  - [Display food menu](#display-food-menu-menu)
-  - [Adding orders](#adding-orders-add)
-  - [Deleting orders](#deleting-orders-delete)
-  - [Edit current orders](#edit-current-orders-edit)
-  - [Finding person](#finding-person-find)
-  - [List current orders](#list-current-orders-list)
-  - [Exiting LOTS](#exiting-lots-bye)
+  - [Display food menu](#display-food-menu)
+  - [Adding orders](#adding-orders)
+  - [Deleting orders](#deleting-orders)
+  - [Edit current orders](#edit-current-orders)
+  - [Finding person](#finding-person)
+  - [List current orders](#list-current-orders)
+  - [Exiting LOTS](#exiting-lots)
 - [Command Summary](#command-summary)
 
 ## Introduction
@@ -34,9 +34,11 @@ Target users includes:
 instructions on how to use them can be found in the following section.
 > :exclamation: **Caution**: When entering commands, if the command does not include any additional parameters please 
 > ensure that no extra inputs is present after the command.
+
 ## Features
 
-### Display food menu: `menu`
+### Display food menu:
+`menu`
 
 Lists the menu along with the index, food name and price. 
 
@@ -50,7 +52,8 @@ Lists the menu along with the index, food name and price.
   
 ![Menu Screenshot](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/menuUDDiagram.png)
 
-### Adding orders: `add`
+### Adding orders:
+`add`
 
 Adds a specific order for a particular person.
 
@@ -86,7 +89,8 @@ Adds a specific order for a particular person.
 
 ![Add2 Screenshot](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/UG_AddCommand_Example2.png)
 
-### Deleting orders: `delete`   
+### Deleting orders:
+`delete`   
 
 Deletes a specific order from a particular person. 
 
@@ -101,7 +105,8 @@ Deletes a specific order from a particular person.
   
 ![Delete Screenshot](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/UG_DeleteCommand_Example.png)
 
-### Edit current orders: `edit`
+### Edit current orders:
+`edit`
 
 Edits the quantity of a specific order from a particular person. 
 
@@ -118,13 +123,15 @@ Edits the quantity of a specific order from a particular person.
   
 ![Edit Screenshot](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/editUGDiagram.png)
 
-### Finding person: `find`
+### Finding person:
+`find`
 
 Find persons with names that contain a given string and print out their orders.
 
 **Format:** `find /n [SEARCH_STRING]`
 
 - `SEARCH_STRING` specifies the sub-string that you wish to search.
+  - `SEARCH_STRING` must contain **at least 1** `alphanumeric` character. E.g) `a`,`1`.
 - The search is **case-insensitive**. Meaning that `ABcd = abcd = ABCD`.
 - The `SEARCH_STRING` does not need to contain the exact name you wish to match.
 **Any** sub-string of the name will be considered a match.
@@ -138,7 +145,8 @@ Find persons with names that contain a given string and print out their orders.
 
 
 
-### List current orders: `list`
+### List current orders:
+`list`
 
 Shows a list of all the orders that have been made.
 
@@ -153,7 +161,8 @@ the total quantity of food ordered.
 
 ![List Image](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/ListExample.JPG)
 
-### Exiting LOTS: `bye`
+### Exiting LOTS:
+`bye`
 
 Exits the LOTS program.
 
@@ -164,12 +173,13 @@ Exits the LOTS program.
 ![Bye Image](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/ByeExample.JPG)
 
 ## Command Summary
+
 |Actions|Format & Example|
-|:---:|:---|
+|:-----:|:---------------|
 |Add|Format: `add /n [PERSON_NAME] /i [FOOD_INDEX] /q [QUANTITY]` <br>Example: `add /n Andrew /i 8 /q 2` (Adds 2 orders of item number 8 for Andrew)|
-|Delete|Format: `delete [PERSON_INDEX]/[FOOD_INDEX]`<br>Example: `delete 1/2` (Deletes the order of index ‘2’ from the person of index ‘1’.)
-|Edit|Format: `edit [PERSON_INDEX]/[FOOD_INDEX] /q [QUANTITY]` <br>Example: `edit 3/1 /q 8` (Changes the quantity of the order with index '1' from the person of index '3' to 8.) 
-|Find|Format: `find /n [SEARCH_STRING]` <br>Example:`find /n drew` (Searches for names containing 'drew'.)
+|Delete|Format: `delete [PERSON_INDEX]/[FOOD_INDEX]`<br>Example: `delete 1/2` (Deletes the order of index ‘2’ from the person of index ‘1’.)|
+|Edit|Format: `edit [PERSON_INDEX]/[FOOD_INDEX] /q [QUANTITY]` <br>Example: `edit 3/1 /q 8` (Changes the quantity of the order with index '1' from the person of index '3' to 8.)|
+|Find|Format: `find /n [SEARCH_STRING]` <br>Example:`find /n drew` (Searches for names containing 'drew'.)|
 |Menu|Example: `menu`|
 |List|Example: `list`|
 |Bye|Example: `bye`|

@@ -36,7 +36,9 @@ each other. Further explanation will be given in depth in the **Design** section
 2) **UI** handles the UI portion of the LOTS program.
 3) **Logic** deals with the parsing and execution of user inputs.
 4) **Manager** deals with the various types of data that is stored within the LOTS program.
+
 ### Component Interaction
+
 The general flow of the program is as follows:
 1) User inputs data which is read by the `UI` within the `Main`.
 2) This data is passed to the `Parser` which will return a `Command`.
@@ -112,7 +114,7 @@ would call its respective constructor and return the command object created. As 
 are not recognized by the `parser`, an `unknownCommand` is returned instead.
 
 ![Squence Diagram of Parser](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ParserDiagrams/Parser%20Sequence%20Diag.jpg)
-:information_source: **Note:** All valid commands (E.g. `add`, `find`, etc...) are represented by the `AbcCommand` class.
+<br>:information_source: **Note:** All valid commands (E.g. `add`, `find`, etc...) are represented by the `AbcCommand` class.
 
 Below is a step by step example on how the `Parser` interacts when a user keys in an input.
 
@@ -171,10 +173,10 @@ cause the code to be messier and therefore harder to read. By having a command c
 for each respective command, this allows us to segregate all the necessary functions
 for each command in their own respective class, therefore making testing easier too.
 
-This section describes how the commands are implemented. 
-Explanations and sequence diagrams are used to describe the implementation process.
-
 ### Add, Delete, Edit, Orders and Find Command Classes
+
+This section describes how the commands are implemented.
+Explanations and sequence diagrams are used to describe the implementation process.
 
 The commands `add`, `delete`, `edit`, `orders` and `find` have similar implementation, with a few differences in terms of the methods called.
 Here is an overview of their class diagram.  
@@ -295,6 +297,8 @@ The steps to using the `menu` and `list` command can be seen from the sequence d
 
 - User needs to have Java `11` or above installed in order for the program to work.
 
+- Program is able to save the current list of orders to a file and upon re-start of the program, load the orders file.
+
 - The program should be able to support up to all these values stated below.
    - Up to `99` _Unique person_ at a time.
    - Maximum of `99` _Unique Food_ items in the menu.
@@ -304,14 +308,22 @@ The steps to using the `menu` and `list` command can be seen from the sequence d
 
 The instructions below give a brief overview on how to test the functions manually.
 
+- Head over to [Setup For Developers](settingUp.md) to setup your IDE.
+
 - :information_source: More test cases can be found in each of their respective test class under
   `src/test/java/seedu.duke`
+  
+>:exclamation: **Important:** When using the `IO-Redirection` to run tests, take note of the
+`orders` file created as part of the `saving` feature. It is **strongly recommended** to
+  delete the `orders` file or delete all remaining orders in the list after each run of the 
+  test as any left over orders in stored in the file **will** affect subsequent test runs.
 
-[Starting up and Shutting down](#starting-up-and-shutting-down)
-<br> [Add function](#add-function)
-<br> [Edit function](#edit-function)
-<br> [Find function](#find-function)
-<br> [Delete function](#delete-function)
+- [Starting up and Shutting down](#starting-up-and-shutting-down)
+- [Saving and Loading of data](#saving-and-loading-of-data)
+- [Add function](#add-function)
+- [Edit function](#edit-function)
+- [Find function](#find-function)
+- [Delete function](#delete-function)
 
 ---
 
@@ -322,6 +334,17 @@ The instructions below give a brief overview on how to test the functions manual
    `java -jar <jar file name>.jar`
    - E.g) With `CS2113T.jar` the command would be `java -jar CS2113T.jar`
 3) To end the program, enter the command `bye` or simply close the CLI window.
+
+---
+
+### Saving and Loading of data
+
+- Prerequisite: The `Menu` has to contain at least `1` food item.
+
+1) Add an order to the list. E.g) `add /n abc /i 1 /q 1`
+2) Exit the program properly by giving the command `bye`.
+3) Start up the program again and issue the command `list` to ensure that the previously added 
+   order is still in the order list.
 
 ---
 
