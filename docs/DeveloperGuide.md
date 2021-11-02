@@ -173,10 +173,10 @@ cause the code to be messier and therefore harder to read. By having a command c
 for each respective command, this allows us to segregate all the necessary functions
 for each command in their own respective class, therefore making testing easier too.
 
-This section describes how the commands are implemented. 
-Explanations and sequence diagrams are used to describe the implementation process.
-
 ### Add, Delete, Edit, Orders and Find Command Classes
+
+This section describes how the commands are implemented.
+Explanations and sequence diagrams are used to describe the implementation process.
 
 The commands `add`, `delete`, `edit`, `orders` and `find` have similar implementation, with a few differences in terms of the methods called.
 Here is an overview of their class diagram.  
