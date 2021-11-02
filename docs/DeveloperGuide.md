@@ -85,7 +85,8 @@ The following sequence diagram depicts how the `Logical` components interact wit
 The manager component of the program consists multiple classes. Namely: `PeopleManager`,`Person` & `Order`.  
 <br>![PeopleManagerDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/PeopleManagerDiagram/PeopleManagerDiagram.jpg)
 
-:information_source: **Note:** This diagram shows the components of how the inputs are handled.
+:information_source: **Note:** This diagram shows the components of how the inputs are handled. The dotted boxes are the overall Person Component and Order component.
+
 
 The `PeopleManager` component,
 * Stores a list of people, named: `listOfPeople`. This list stores all `Person` objects.
