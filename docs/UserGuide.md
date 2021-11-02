@@ -79,16 +79,8 @@ Adds a specific order for a particular person.
 **Example of usage:**
 1. Start with empty list. 
 2. Adds a new order under person named Jeremy, ordering 1 Plain Prata. 
-   1. `add /n Jeremy /i 1 /q 1`
-3. Adds a new order under person David, ordering 682 Onion Prata. 
-   1. `add /n David /i 24 /q 682`
-4. Adds a new order under Jeremy, who previously ordered, with a new order of 70 Double Egg Prata.
-   1. `add /n jeremy /i 20 /q 70`
-5. Adds an order under person David, ordering 60 Onion Prata.
-   1. `add /n David /i 24 /q 60`
-6. List the orders.
-   1. `list`
-
+   * `add /n Jeremy /i 1 /q 1`
+  
 ![Add1 Screenshot](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/UG_AddCommand_Example1.png)
 
 ### Deleting orders: `delete`   
