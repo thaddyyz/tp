@@ -88,10 +88,10 @@ public class Person {
             individualFoodOrders[indexToEdit].setQuantity(quantity);
         } catch (IndexOutOfBoundsException e) {
             throw new LotsException("Please enter a valid order index!" + System.lineSeparator()
-                + "You can enter \"list\" to check your order index.");
+                + "Enter \"list\" to check your order index.");
         }
     }
-    
+
     /**
      * Get the correct index of the Order array to be edited.
      *
