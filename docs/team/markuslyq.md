@@ -30,12 +30,12 @@ Large Order Tracking System (LOTS) is a Command Line (CLI) program that enables 
 **Project Management:**
 * Co-owner of the team repository.
 * Updated the .jar file for release `v2.0`.
-* PRs reviewed: [#18](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/18), [#38](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/38), [#57](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/57), [#68](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/68), [#100](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/100), [#105](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/105), [#111](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/111), [#133](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/133), [#136](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/136), [#137](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/137), [#143](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/143), [#144](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/144), [#147](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/147), [#162](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/162), [#216](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/216), [#217](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/217), [#221](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/221), [#222](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/222), [#238](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/238)
+* PRs reviewed (with non-trival comments): [#249](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/249) 
 * Maintained issue tracker.
 
 **Necessary Code Enhancement:** 
 * Contributed to the structure of the program by setting up the `PeopleManager`,`Command`, `LotsException` and `Order` class.
 
 **Beyond Project Team**
-* DG bugs and suggestions for other teams. (Examples: )
+* DG bugs and suggestions for other teams. (Examples: [1](https://github.com/nus-cs2113-AY2122S1/tp/pull/41/files#r738028340), [2](https://github.com/nus-cs2113-AY2122S1/tp/pull/41/files#r738029816), [3](https://github.com/nus-cs2113-AY2122S1/tp/pull/41/files#r738031424), [4](https://github.com/nus-cs2113-AY2122S1/tp/pull/41/files#r738036851), [5](https://github.com/nus-cs2113-AY2122S1/tp/pull/41/files#r738034950), [6](https://github.com/nus-cs2113-AY2122S1/tp/pull/41/files#r738038405))
 * Function bugs and suggestions for other teams. (Examples can be seen [here](https://github.com/markuslyq/ped/issues))
