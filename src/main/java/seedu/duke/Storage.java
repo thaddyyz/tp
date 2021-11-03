@@ -17,6 +17,7 @@ public class Storage {
     private static final java.nio.file.Path FILE_PATH = java.nio.file.Paths.get(CURRENT_DIRECTORY);
     private static final PeopleManager FILE_PEOPLE_MANAGER = new PeopleManager();
     private static final int MAX_FOOD_QUANTITY = 999;
+    private static final int MIN_FOOD_QUANTITY = 0;
     private static final ArrayList<String> LIST_OF_ADD_COMMANDS = new ArrayList<>();
 
     /**
@@ -68,9 +69,18 @@ public class Storage {
         if (isValidFileInput(fileList)) {
             executeLoad();
         } else {
-            PeopleManager emptyManager = new PeopleManager();
-            updateFile(emptyManager);
+            updateFileWithEmptyManager();
         }
+    }
+
+    /**
+     * Updates the file with an empty PeopleManager to clear the file.
+     *
+     * @throws IOException If there is an error updating the file with an empty PeopleManager.
+     */
+    private static void updateFileWithEmptyManager() throws IOException {
+        PeopleManager.clearListOfPeople();
+        updateFile(FILE_PEOPLE_MANAGER);
     }
 
     /**
@@ -119,7 +129,7 @@ public class Storage {
         String personName = splitData[0];
         for (int i = 1; i < splitData.length; i++) {
             int quantityToAdd = Integer.parseInt(splitData[i]);
-            if (quantityToAdd > 0 && quantityToAdd <= MAX_FOOD_QUANTITY) {
+            if (quantityToAdd > MIN_FOOD_QUANTITY && quantityToAdd <= MAX_FOOD_QUANTITY) {
                 String loadCommand = "add /n " + personName + " /i " + i + " /q " + quantityToAdd;
                 if (!isValidCommand(loadCommand)) {
                     return false;
@@ -160,7 +170,7 @@ public class Storage {
      */
     private static boolean isInQuantityRange(String quantityInString) {
         int quantityToAdd = Integer.parseInt(quantityInString);
-        if (quantityToAdd < 0 || quantityToAdd > MAX_FOOD_QUANTITY) {
+        if (quantityToAdd < MIN_FOOD_QUANTITY || quantityToAdd > MAX_FOOD_QUANTITY) {
             return false;
         }
         return true;
@@ -185,14 +195,18 @@ public class Storage {
     /**
      * Execute the add command to load the contents of the file into the program.
      *
-     * @throws LotsException If there is an error executing the add command.
+     * @throws IOException If there is an error updating the file with an empty PeopleManager.
      */
-    private static void executeLoad() throws LotsException {
-        for (String addCommand : LIST_OF_ADD_COMMANDS) {
-            Command command;
-            command = Parser.getCommand(addCommand);
-            command.setData(FILE_PEOPLE_MANAGER);
-            command.executeFromFile();
+    private static void executeLoad() throws IOException {
+        try {
+            for (String addCommand : LIST_OF_ADD_COMMANDS) {
+                Command command;
+                command = Parser.getCommand(addCommand);
+                command.setData(FILE_PEOPLE_MANAGER);
+                command.executeFromFile();
+            }
+        } catch (LotsException e) {
+            updateFileWithEmptyManager();
         }
     }
 

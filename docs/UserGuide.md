@@ -3,13 +3,13 @@
 - [Introduction](#introduction)
 - [Quick Start](#quick-start)
 - [Features](#features)
-  - [Display food menu](#display-food-menu)
-  - [Adding orders](#adding-orders)
-  - [Deleting orders](#deleting-orders)
-  - [Edit current orders](#edit-current-orders)
-  - [Finding person](#finding-person)
-  - [List current orders](#list-current-orders)
-  - [Exiting LOTS](#exiting-lots)
+  - [Display food menu](#display-food-menu-menu)
+  - [Adding orders](#adding-orders-add)
+  - [Deleting orders](#deleting-orders-delete)
+  - [Edit current orders](#edit-current-orders-edit)
+  - [Finding person](#finding-person-find)
+  - [List current orders](#list-current-orders-list)
+  - [Exiting LOTS](#exiting-lots-bye)
 - [Command Summary](#command-summary)
 
 ## Introduction
@@ -21,8 +21,8 @@ corresponding cost, total cost of all the orders and more. As LOTS is a CLI prog
 greatly benefit any user that excels in typing.
 
 Target users includes:
-1) Dinners
-2) Order collators (Middleman)
+1. Dinners
+2. Order collators (Middleman)
 
 ## Quick Start
 
@@ -33,31 +33,32 @@ Target users includes:
 5. You can start using the `LOTS` program by inputting commands into the command line. The list of commands and 
 instructions on how to use them can be found in the following section.
 > :exclamation: **Caution**: When entering commands, if the command does not include any additional parameters please 
-> ensure that no extra inputs is present after the command.
+> ensure that no extra inputs is present after the command. Strictly keep to the command format.
 
 ## Features
 
-### Display food menu:
-`menu`
+### Display food menu: `menu`
 
 Lists the menu along with the index, food name and price. 
 
 **Format:** `menu`  
 
 **Note:**
-1) Do not add any inputs before or after `menu` command.
+1. Do not add any inputs before or after `menu` command.
    
 **Example of usage:** 
-* `menu`.   
+ 
   
 ![Menu Screenshot](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/menuUDDiagram.png)
 
-### Adding orders:
-`add`
+### Adding orders: `add`
 
 Adds a specific order for a particular person.
 
 **Format:** `add /n [PERSON_NAME] /i [FOOD_INDEX] /q [QUANTITY]`
+
+**Example:** `add /n Jeremy /i 2 /q 23`
+
 * `[PERSON_NAME]` refers to the person's name who ordered this set of food.
   * The length of `[PERSON_NAME]` must be between **1 character to 51 characters** including spaces.
   * `[PERSON_NAME]` can only be in **alphanumeric**.
@@ -69,28 +70,20 @@ Adds a specific order for a particular person.
   * Range of `[QUANTITY]` is from **1 to 999**.
 
 **Note:**
-1) `[PERSON_NAME]` is **individualised**. 
-   1) You can only use **1 name** as a reference to **1 person**.
-   2) Any additional `add` command with the same name will be tagged under the same person's order.
-2) Adding the same order to a person with different quantity will result to **increment of the original quantity** of the order.
-   1) E.g. Refer to **Example of usage** points 3, 6 and 7.
+1. `[PERSON_NAME]` is **individualised**. 
+   * You can only use **1 name** as a reference to **1 person**.
+   * Any additional `add` command with the same name will be tagged under the same person's order.
+2. Adding the same order to a person with different quantity will result to **increment of the original quantity** of the order.
+   * E.g. Refer to **Example of usage**.
 
 **Example of usage:**
-1) Start with empty list.
-2) Adds a new order under person named Jeremy, ordering 1 Ban Mian.
-3) Adds a new order under person David, ordering 682 Chicken Rice.
-4) Adds a new order under Jeremy, who previously ordered, with a new order of 70 Nasi Lemak.
-5) List the orders.
-
+1. Start with empty list. 
+2. Adds a new order under person named Jeremy, ordering 1 Plain Prata. 
+   * `add /n Jeremy /i 1 /q 1`
+  
 ![Add1 Screenshot](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/UG_AddCommand_Example1.png)
 
-6) Adds an order under person David, ordering 60 Chicken Rice.
-7) List the orders.
-
-![Add2 Screenshot](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/UG_AddCommand_Example2.png)
-
-### Deleting orders:
-`delete`   
+### Deleting orders: `delete`   
 
 Deletes a specific order from a particular person. 
 
@@ -105,8 +98,7 @@ Deletes a specific order from a particular person.
   
 ![Delete Screenshot](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/UG_DeleteCommand_Example.png)
 
-### Edit current orders:
-`edit`
+### Edit current orders: `edit`
 
 Edits the quantity of a specific order from a particular person. 
 
@@ -123,8 +115,7 @@ Edits the quantity of a specific order from a particular person.
   
 ![Edit Screenshot](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/editUGDiagram.png)
 
-### Finding person:
-`find`
+### Finding person: `find`
 
 Find persons with names that contain a given string and print out their orders.
 
@@ -145,13 +136,13 @@ Find persons with names that contain a given string and print out their orders.
 
 
 
-### List current orders:
-`list`
+### List current orders: `list`
 
 Shows a list of all the orders that have been made.
 
 **Format:** `list`
 
+**Note:**
 - Input **must not** contain any extra characters before or after `list`.
 
 **Example of usage**
@@ -161,8 +152,7 @@ the total quantity of food ordered.
 
 ![List Image](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/ListExample.JPG)
 
-### Exiting LOTS:
-`bye`
+### Exiting LOTS: `bye`
 
 Exits the LOTS program.
 
