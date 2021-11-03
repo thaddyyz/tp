@@ -19,7 +19,7 @@ Large Order Tracking System (LOTS) is a Command Line (CLI) program that enables 
 
 **Documentation**   
 **User Guide:**
-  * Added usage guide for `delete` feature. (Pull Request [#151](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/151))
+  * Added usage guide for [`delete`](https://ay2122s1-cs2113-t13-2.github.io/tp/UserGuide.html#deleting-orders-delete) feature. (Pull Request [#151](https://github.com/AY2122S1-CS2113-T13-2/tp/pull/151))
 
 **Developer Guide:**
   * Design section of [`Logical Compoenent`](https://ay2122s1-cs2113-t13-2.github.io/tp/DeveloperGuide.html#logical-component), excluding parser class diagram. 
