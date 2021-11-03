@@ -25,7 +25,7 @@ Large Order Tracking System (LOTS) is a Command Line (CLI) program that enables 
   * Class diagram for the `'Add, Delete, Edit, Orders and Find Command Classes'` section.
   * Sequence Diagram for `Storage` implementation section.
 
-### Team-based Tasks:
+#### Team-based Tasks:
 * **Project Management**
   * Co-owner of the team repository.
   * Updated the .jar file for release `v2.0`.
@@ -34,6 +34,6 @@ Large Order Tracking System (LOTS) is a Command Line (CLI) program that enables 
 * **Necessary Code Enhancement** 
   * Contributed to the structure of the program by setting up the `PeopleManager`,`Command`, `LotsException` and `Order` class.
 
-### Beyond Project Team:
+#### Beyond Project Team:
   * DG bugs and suggestions for other teams. (Examples: )
   * Function bugs and suggestions for other teams. (Examples can be seen [here](https://github.com/markuslyq/ped/issues))
