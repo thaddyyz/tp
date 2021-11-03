@@ -1,4 +1,4 @@
-# Markus Lim Yi Qin's Project Portfolio Page
+## Markus Lim Yi Qin's Project Portfolio Page
 ### Project Overview: LOTS (Large Order Tracking System)
 Large Order Tracking System (LOTS) is a Command Line (CLI) program that enables users to keep track of multiple food orders from a pre-set list of food items from different stores. The program helps users to collate the orders and displays a summary of all the orders along with other information such as an individual person’s order and the corresponding cost, total cost of all the orders and more.
 ### Summary of Contributions
