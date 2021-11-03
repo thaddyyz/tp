@@ -2,7 +2,7 @@
 ### Project Overview: LOTS (Large Order Tracking System)
 Large Order Tracking System (LOTS) is a Command Line (CLI) program that enables users to keep track of multiple food orders from a pre-set list of food items from different stores. The program helps users to collate the orders and displays a summary of all the orders along with other information such as an individual person’s order and the corresponding cost, total cost of all the orders and more.
 ### Summary of Contributions
-**Code Contributed:** [RepoSense Link](https://nus-cs2113-ay2122s1.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2021-09-25&tabOpen=true&tabType=authorship&tabAuthor=markuslyq&tabRepo=AY2122S1-CS2113-T13-2%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code&authorshipIsBinaryFileTypeChecked=false)
+**Code Contributed:** [RepoSense Link](https://nus-cs2113-ay2122s1.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2021-09-25&tabOpen=true&tabType=authorship&tabAuthor=markuslyq&tabRepo=AY2122S1-CS2113-T13-2%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code&authorshipIsBinaryFileTypeChecked=false)  
 **Enhancements Implemented:**
 **Delete Feature**
   * **Function:** Added the feature to delete a specific order from a particular person.
