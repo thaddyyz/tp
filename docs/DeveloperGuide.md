@@ -25,7 +25,7 @@
 
 ## Architecture
 
-<br>![Architecture Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ArchitectureDiagrams/ArchitectureDiagram.drawio.png)
+<br>![Architecture Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ArchitectureDiagrams/ArchitectureDiagram.jpg)
 <br>The ***Architecture Diagram*** given above explains the high-level design of the LOTS app.
 
 <br>The following section gives a brief overview of the main components in the architecture and how they interact with
@@ -36,18 +36,21 @@ each other. Further explanation will be given in depth in the **Design** section
 2. **UI** handles the UI portion of the LOTS program.
 3. **Logic** deals with the parsing and execution of user inputs.
 4. **Manager** deals with the various types of data that is stored within the LOTS program.
+5. **Storage** deals with the reading and writing of data onto the hard disk.
 
 ### Component Interaction
 
 The general flow of the program is as follows:
-1. User inputs data which is read by the `UI` within the `Main`.
-2. This data is passed to the `Parser` which will return a `Command`.
-3. `Command` will be executed, carrying out whatever task the user has input. `Manager` may be called if data is to
-be stored or edited.
-4. `UI` component handles the printing of data if required.  
+1. On initial startup, the program will check if the `.orders.txt` exists in the directory. If it does, the data on the file will be loaded into the program. If not, a new file is created
+2. User then inputs data which is read by the `UI` within the `Main`.
+3. This data is passed to the `Parser` which will return a `Command`.
+4. `Command` will be executed, carrying out whatever task the user has input. `Manager` may be called if data is to
+be stored or edited. 
+5. Every time a new `Command` is executed, `Storage` will write the updated data to the `.orders.txt` file.
+6. `UI` component handles the printing of data if required.  
    <br>Given below is a simplified sequence diagram showing how the components within the LOTS program interact with each other
    when the user inputs the command `delete 1/2`  
-   <br>![Delete Sequence Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ArchitectureDiagrams/DeleteSeq.png)
+   <br>![Delete Sequence Diagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/ArchitectureDiagrams/DeleteSeq.jpg)
 
 ## Design
 
@@ -62,8 +65,8 @@ are related to one another.
 :information_source: **Note:** Specific command names are represented using a placeholder `'Abc'`, i.e. AddCommand, FindCommand.
 
 Below is a brief explanation on how the `Logical` component works.
-1. Upon receiving the user's input to excecute a specific command, it calls the `Parser` to interpret and parse the user's command.
-2. A particular `Command` object is then initialised and returned back to `Duke`, the main program.
+1. Upon receiving the user's input to execute a specific command, it calls the `Parser` to interpret and parse the user's command.
+2. A particular `Command` object is then initialised and returned to `Duke`, the main program.
 3. `Duke` executes the command, which communicates with the `Manager` to perform its specific function, i.e. add a food order.
 
 The class diagram below is a brief overview of how the `Parser` is used in parsing the user's command.
@@ -75,7 +78,7 @@ The class diagram below is a brief overview of how the `Parser` is used in parsi
 Explanation on how the parsing is done:
 1. Upon receiving the user's input string from `Duke`, the `Parser` split the user's input into an array of strings.
 2. It then interprets the string and tries to match it with one of the known commands.
-3. The respective command (i.e. `DeleteCommand`) object will be instantiated and returned back to `Duke` as a `Command` object. (`UnknownCommand` object is return
+3. The respective command (i.e. `DeleteCommand`) object will be instantiated and returned to `Duke` as a `Command` object. (`UnknownCommand` object is return
    if there is no match)
 
 The following sequence diagram depicts how the `Logical` components interact with one another upon receiving the user's input of `"delete 1/2"`.  
@@ -105,6 +108,17 @@ The `Order` component,
    
 When the input is passed in through the `logical` component, the `PeopleManager` component will be responsible for managing the input, 
 by creating variables needed to store the data, and storing this newly created variables into the `listOfPeople`.
+
+### Storage Component
+
+The storage component consists of the `storage` class. The following sequence diagram depicts how the `storage` class interacts with the other components when it comes to storing and retrieving data.
+<br>![StorageDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/StorageDiagrams/Storage%20Sequence%20Diagram.jpg)
+How the `storage` component work is as follows:
+- When LOTS is launched the `storage` component will search for an existing `.orders.txt` file in the directory. If a 
+file is found, the data is parsed and a new `AddCommand` object is instantiated, adding the data to the persons list. However, if a 
+file is not found, a new empty file will be created in the directory.
+- During regular runtime, whenever a new command is entered, `Duke` will call the `updateFile()` method. This updates 
+the `.orders.txt` with any edits to the data the user has made.
 
 ## Implementation
 
