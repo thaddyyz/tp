@@ -52,15 +52,12 @@ public class AddCommand extends Command {
     @Override
     public void execute() throws LotsException {
         checkNumOfPeopleOutOfLimit();
-        boolean isValidName = personName != "";
-        boolean isValidIndex = foodIndex != -1;
-        boolean isValidQuantity = foodQuantity != -1;
-        boolean isValidParams = isValidIndex || isValidName || isValidQuantity;
+        boolean isPrint = true;
         boolean isNewPerson = getMatchedIndex(personName) > peopleManager.getSize();
-        if (isValidParams && isNewPerson) {
-            addNewPerson();
+        if (checkValidParams() && isNewPerson) {
+            addNewPerson(isPrint);
         } else if (!isNewPerson) {
-            updateExistingPerson();
+            updateExistingPerson(isPrint);
         } else {
             throw new LotsException("Invalid Command!" + System.lineSeparator()
                     + "Please check your range of values and the format." + System.lineSeparator()
@@ -70,26 +67,45 @@ public class AddCommand extends Command {
     }
 
     /**
-     * Function to update the order of an existing person in the list.
+     * Updates an existing person orders with the new inputs.
      *
-     * @throws LotsException if food quantity exceeds the limit.
+     * @param isPrint checks to see if add message is to be printed.
+     * @throws LotsException if food quantity or index is out of bounds.
      */
-    private void updateExistingPerson() throws LotsException {
+    private void updateExistingPerson(boolean isPrint) throws LotsException {
         int currIndex = getMatchedIndex(personName);
         peopleManager.getPerson(currIndex).addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
-        Ui.printAddedOrderMessage(peopleManager.getPerson(currIndex));
+        if (isPrint) {
+            Ui.printAddedOrderMessage(peopleManager.getPerson(currIndex));
+        }
     }
 
     /**
-     * Function to create a new person in the list and add the person's order
+     * Creates a new person and adds the orders to the person.
      *
-     * @throws LotsException if food quantity exceeds the limit.
+     * @param isPrint checks to see if add message is to be printed.
+     * @throws LotsException if food quantity or index is out of bounds.
      */
-    private void addNewPerson() throws LotsException {
+    private void addNewPerson(boolean isPrint) throws LotsException {
         Person person = new Person(personName);
         person.addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
         super.peopleManager.addPerson(person);
-        Ui.printAddedOrderMessage(person);
+        if (isPrint) {
+            Ui.printAddedOrderMessage(person);
+        }
+    }
+
+    /**
+     * Checks if the parameters for adding an order is valid.
+     *
+     * @return a boolean true if parameters are valid.
+     */
+    private boolean checkValidParams() {
+        boolean isValidName = personName != "";
+        boolean isValidIndex = foodIndex != -1;
+        boolean isValidQuantity = foodQuantity != -1;
+        boolean isValidParams = isValidIndex || isValidName || isValidQuantity;
+        return isValidParams;
     }
 
     /**
@@ -100,14 +116,12 @@ public class AddCommand extends Command {
     @Override
     public void executeFromFile() throws LotsException {
         checkNumOfPeopleOutOfLimit();
-        if ((personName != "" || foodIndex != -1 || foodQuantity != -1)
-                && getMatchedIndex(personName) > peopleManager.getSize()) {
-            Person person = new Person(personName);
-            person.addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
-            super.peopleManager.addPerson(person);
-        } else if (getMatchedIndex(personName) <= peopleManager.getSize()) {
-            int currIndex = getMatchedIndex(personName);
-            peopleManager.getPerson(currIndex).addFoodToIndividualFoodOrders(foodIndex, foodQuantity);
+        boolean isPrint = false;
+        boolean isNewPerson = getMatchedIndex(personName) > peopleManager.getSize();
+        if (checkValidParams() && isNewPerson) {
+            addNewPerson(isPrint);
+        } else if (!isNewPerson) {
+            updateExistingPerson(isPrint);
         } else {
             throw new LotsException("File is corrupted! New file will be created.");
         }
