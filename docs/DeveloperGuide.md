@@ -113,7 +113,7 @@ by creating variables needed to store the data, and storing this newly created v
 
 The storage component consists of the `storage` class. The following sequence diagram depicts how the `storage` class interacts with the other components when it comes to storing and retrieving data.
 <br>![StorageDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/StorageDiagrams/Storage%20Sequence%20Diagram.jpg)
-How the `storage` component work is as follows:
+<br>How the `storage` component work is as follows:
 - When LOTS is launched the `storage` component will search for an existing `.orders.txt` file in the directory. If a 
 file is found, the data is parsed and a new `AddCommand` object is instantiated, adding the data to the persons list. However, if a 
 file is not found, a new empty file will be created in the directory.
