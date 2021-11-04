@@ -9,6 +9,7 @@
     - [Parser](#parser)
     - [Add, Delete, Edit, Orders & Find Command Classes](#add-delete-edit-orders-and-find-command-classes)
     - [Menu & Order Command Classes](#menu-and-order-command-classes)
+    - [Storage](#storage)
 - [Product Scope](#product-scope)
     - [Target user profile](#target-user-profile)
     - [Value proposition](#value-proposition)
