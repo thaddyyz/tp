@@ -261,6 +261,7 @@ The following diagram shows the interaction of the `storage` class with the othe
 * After every command execution, `Duke` will call the `Storage.updateFile()`, passing the current `PeopleManager` object to the method.
 * Every person's data (name and orders) is then retrieved using `getPersonName()` and `getEntireOrdersOfPerson()`, where it is then formatted and written into the file as such: 
   * `name, quantity of 1st food in menu, quantity of 2nd food in menu, ... , quantity of last food in menu`
+
 ## Product scope
 
 ### Target user profile
@@ -314,7 +315,7 @@ The following diagram shows the interaction of the `storage` class with the othe
 - Program should be able to work on most Operating Systems such as `Windows`, `Linux`,
   `OS-X` & `Unix`.
 
-- User needs to have Java `11` or above installed in order for the program to work.
+- Program should work with Java `11` or above installed.
 
 - Program is able to save the current list of orders to a file and upon re-start of the program, load the orders file.
 
@@ -327,7 +328,7 @@ The following diagram shows the interaction of the `storage` class with the othe
 
 The instructions below give a brief overview on how to test the functions manually.
 
-- Head over to [Setup For Developers](settingUp.md) to setup your IDE.
+- Head over to [Setup For Developers](settingUp.md) to set up your IDE if you wish to edit the test cases.
 
 - :information_source: More test cases can be found in each of their respective test class under
   `src/test/java/seedu.duke`
@@ -402,7 +403,7 @@ The instructions below give a brief overview on how to test the functions manual
 
 ### Find Function
 
-- The format of the command is `find /n <name>`
+- The format of the command is `find /n <SEARCH_STRING>`
 - Prerequisite: Contains 2 person with names of `abc` & `bcd`.
    - The above names are just for testing purposes.
 
