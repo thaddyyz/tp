@@ -130,8 +130,8 @@ Find persons with names that contain a given string and print out their orders.
     - E.g) `find /n drew` will return the name `andrew` as a match.
     
 **Example of usage**
-- Assume our current list contains 3 people named `tom`, `kim` & `kimmy` as seen below.
-- The command `find /n kim` will return both `kim` & `kimmy` as both names contain the string `"kim"`.
+- Assume our current list contains 3 people named `TOM`, `KIM` & `KIMMY` as seen below.
+- The command `find /n kim` will return both `KIM` & `KIMMY` as both names contain the string `"KIM"`.
 
 ![Find Image](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/FindList.jpg)
 
