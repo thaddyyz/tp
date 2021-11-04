@@ -9,6 +9,7 @@
     - [Parser](#parser)
     - [Add, Delete, Edit, Orders & Find Command Classes](#add-delete-edit-orders-and-find-command-classes)
     - [Menu & Order Command Classes](#menu-and-order-command-classes)
+    - [Storage](#storage)
 - [Product Scope](#product-scope)
     - [Target user profile](#target-user-profile)
     - [Value proposition](#value-proposition)
@@ -245,25 +246,21 @@ The steps to using the `menu` and `list` command can be seen from the sequence d
 
 ### Storage
 
-The following diagram shows the interaction of the `storage` class with the other classes in the program. In the
-event of a valid file during initialisation, the `storage` class will call the `executeFromFile()` method. If not, it
-will call the method `updateFileWithEmptyManager()` instead.
-
+The following diagram shows the interaction of the `storage` class with the other classes in the program.
 <br>![StorageDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/StorageDiagrams/Storage%20Sequence%20Diagram.jpg)
-<br>How the `storage` component work is as follows:
-1. On startup:
-    1. `Duke` will call the `Storage.initialiseFile()` method. The method first attempts to get the `.orders.txt` file
-       from the directory that contains the JAR file using `getOrdersFile()`. If no file is found, a new blank file will be
-       created instead.
-    2. From there, the data on the file will be extracted and parsed. If the data on the file is valid, the PeopleManager
-       object will be initialised with the contents of the file through the use of the `executeLoad()` method.
-    3. However, if the data is not valid, the file will be updated with an empty PeopleManager in order to clear the file.
-2. During runtime:
-    1. After every command execution, `Duke` will call the `Storage.updateFile()`, passing the current PeopleManager
-       object to the method.
-    2. This method parse the data from the PeopleManager object into a valid storage format, and rewrites all the data on
-       the `.orders.txt` file with the data parsed.
+<br>How the `storage` component behaves is as follows:  
 
+**Upon startup:**
+* Duke calls `initialiseFile()` to try to get the `.order.txt` file, which is done in `getOrdersFile()` method. In the case when the file is not found, a new `.orders.txt` file would be created.
+* The content of the files are then checked line by line, to make sure it is of a valid format which includes: 
+  * Valid name, valid quantity and valid array size of orders.
+* If all lines satisfy the expected format,`executeLoad()` is called to load the contents of the file by formatting each line into a valid `add` command and then executing it by calling `executeFromFile()` in the `AddCommand` class. 
+* Else, the file is wiped and all the data would be gone. This is accomplished by `updateFileWithEmptyManager()`, which updates the file with an empty list of people.
+
+**During runtime:**
+* After every command execution, `Duke` will call the `Storage.updateFile()`, passing the current `PeopleManager` object to the method.
+* Every person's data (name and orders) is then retrieved using `getPersonName()` and `getEntireOrdersOfPerson()`, where it is then formatted and written into the file as such: 
+  * `name, quantity of 1st food in menu, quantity of 2nd food in menu, ... , quantity of last food in menu`
 ## Product scope
 
 ### Target user profile
