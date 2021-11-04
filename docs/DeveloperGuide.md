@@ -176,27 +176,6 @@ cause the code to be messier and therefore harder to read. By having a command c
 for each respective command, this allows us to segregate all the necessary functions
 for each command in their own respective class, therefore making testing easier too.
 
-### Storage
-
-The following diagram shows the interaction of the `storage` class with the other classes in the program. In the
-event of a valid file during initialisation, the `storage` class will call the `executeFromFile()` method. If not, it
-will call the method `updateFileWithEmptyManager()` instead.
-
-<br>![StorageDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/StorageDiagrams/Storage%20Sequence%20Diagram.jpg)
-<br>How the `storage` component work is as follows:
-1. On startup:
-   1. `Duke` will call the `Storage.initialiseFile()` method. The method first attempts to get the `.orders.txt` file
-   from the directory that contains the JAR file using `getOrdersFile()`. If no file is found, a new blank file will be 
-   created instead.
-   2. From there, the data on the file will be extracted and parsed. If the data on the file is valid, the PeopleManager
-   object will be initialised with the contents of the file through the use of the `executeLoad()` method.
-   3. However, if the data is not valid, the file will be updated with an empty PeopleManager in order to clear the file.
-2. During runtime:
-   1. After every command execution, `Duke` will call the `Storage.updateFile()`, passing the current PeopleManager 
-   object to the method.
-   2. This method parse the data from the PeopleManager object into a valid storage format, and rewrites all the data on 
-   the `.orders.txt` file with the data parsed.
-
 ### Add, Delete, Edit, Orders and Find Command Classes
 
 This section describes how the commands are implemented.
@@ -263,7 +242,28 @@ The steps to using the `menu` and `list` command can be seen from the sequence d
 2. After adding orders, invoke `list` command to see the orders added into the list.
 
 **Note:** The command `menu` and `list` are just these two strings. Any edits to these two commands will result in an exception being thrown.
-   
+
+### Storage
+
+The following diagram shows the interaction of the `storage` class with the other classes in the program. In the
+event of a valid file during initialisation, the `storage` class will call the `executeFromFile()` method. If not, it
+will call the method `updateFileWithEmptyManager()` instead.
+
+<br>![StorageDiagram](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/UMLdiagrams/StorageDiagrams/Storage%20Sequence%20Diagram.jpg)
+<br>How the `storage` component work is as follows:
+1. On startup:
+    1. `Duke` will call the `Storage.initialiseFile()` method. The method first attempts to get the `.orders.txt` file
+       from the directory that contains the JAR file using `getOrdersFile()`. If no file is found, a new blank file will be
+       created instead.
+    2. From there, the data on the file will be extracted and parsed. If the data on the file is valid, the PeopleManager
+       object will be initialised with the contents of the file through the use of the `executeLoad()` method.
+    3. However, if the data is not valid, the file will be updated with an empty PeopleManager in order to clear the file.
+2. During runtime:
+    1. After every command execution, `Duke` will call the `Storage.updateFile()`, passing the current PeopleManager
+       object to the method.
+    2. This method parse the data from the PeopleManager object into a valid storage format, and rewrites all the data on
+       the `.orders.txt` file with the data parsed.
+
 ## Product scope
 
 ### Target user profile
