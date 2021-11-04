@@ -112,7 +112,7 @@ Edits the quantity of a specific order from a particular person.
 * `QUANTITY` **must be a non-negative integer** 0, 1, 2, 3, …
 
 **Example of usage:** 
-* `list` followed by `edit 1/2 /q 5` edits the order of index '`2`' from the person of index '`1`' and changes the quantity to '`4`'.    
+* `list` followed by `edit 1/2 /q 5` edits the order of index '`2`' from the person of index '`1`' and changes the quantity to '`5`'.    
   
 ![Edit Screenshot](https://raw.githubusercontent.com/thaddyyz/tp/master/UMLdiagrams/EditCommandDiagrams/editUGDiagram.png)
 
