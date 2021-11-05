@@ -172,6 +172,7 @@ Exits the LOTS program.
 > :exclamation: **Caution**: Users should not edit the `.orders.txt` file as it may corrupt the data stored.
 
 ---
+
 ## Command Summary
 
 |Actions|Format & Example|
