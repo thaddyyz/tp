@@ -33,6 +33,7 @@ Target users includes:
 4. Start the `LOTS` program by executing `java -jar CS2113TP.jar` in the terminal.
 5. You can start using the `LOTS` program by inputting commands into the command line. The list of commands and 
 instructions on how to use them can be found in the following section.
+<br>
 > :exclamation: **Caution**: When entering commands, if the command does not include any additional parameters please 
 > ensure that no extra inputs is present after the command. Strictly keep to the command format.
 ---
@@ -169,6 +170,7 @@ Exits the LOTS program.
 - The data are stored in a text file called `.orders.txt` located in the same directory as the main JAR file.
 - If the `.orders.txt` file is not found upon initial startup, LOTS will automatically create a new empty `.orders.txt` file.
 - As such, there is no need for users to manually save the data while using LOTS.  
+<br>
 > :exclamation: **Caution**: Users should not edit the `.orders.txt` file as it may corrupt the data stored.
 
 ---
