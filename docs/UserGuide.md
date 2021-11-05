@@ -24,7 +24,9 @@ greatly benefit any user that excels in typing.
 Target users includes:
 1. Dinners
 2. Order collators (Middleman)
+
 ---
+
 ## Quick Start
 
 1. Ensure that you have Java 11 or above installed.
@@ -33,9 +35,12 @@ Target users includes:
 4. Start the `LOTS` program by executing `java -jar CS2113TP.jar` in the terminal.
 5. You can start using the `LOTS` program by inputting commands into the command line. The list of commands and 
 instructions on how to use them can be found in the following section.
+
 > :exclamation: **Caution**: When entering commands, if the command does not include any additional parameters please 
 > ensure that no extra inputs is present after the command. Strictly keep to the command format.
+
 ---
+
 ## Features
 
 ### Display food menu: `menu`
@@ -151,7 +156,7 @@ Shows a list of all the orders that have been made.
 - The `list` command will display everyone's orders, and a summary of the total number of people who have ordered and
 the total quantity of food ordered.
 
-![List Image](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/ListExample.JPG)
+![List Image](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/OrdersList.JPG)
 
 ### Exiting LOTS: `bye`
 
@@ -168,9 +173,12 @@ Exits the LOTS program.
 - Data such as user orders are saved automatically after every command.
 - The data are stored in a text file called `.orders.txt` located in the same directory as the main JAR file.
 - If the `.orders.txt` file is not found upon initial startup, LOTS will automatically create a new empty `.orders.txt` file.
-- As such, there is no need for users to manually save the data while using LOTS.
+- As such, there is no need for users to manually save the data while using LOTS.  
+
 > :exclamation: **Caution**: Users should not edit the `.orders.txt` file as it may corrupt the data stored.
+
 ---
+
 ## Command Summary
 
 |Actions|Format & Example|
