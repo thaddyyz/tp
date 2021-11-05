@@ -24,7 +24,9 @@ greatly benefit any user that excels in typing.
 Target users includes:
 1. Dinners
 2. Order collators (Middleman)
+
 ---
+
 ## Quick Start
 
 1. Ensure that you have Java 11 or above installed.
@@ -154,7 +156,7 @@ Shows a list of all the orders that have been made.
 - The `list` command will display everyone's orders, and a summary of the total number of people who have ordered and
 the total quantity of food ordered.
 
-![List Image](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/ListExample.JPG)
+![List Image](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/OrdersList.JPG)
 
 ### Exiting LOTS: `bye`
 
