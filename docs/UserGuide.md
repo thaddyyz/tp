@@ -170,6 +170,7 @@ Exits the LOTS program.
 - If the `.orders.txt` file is not found upon initial startup, LOTS will automatically create a new empty `.orders.txt` file.
 - As such, there is no need for users to manually save the data while using LOTS.
 > :exclamation: **Caution**: Users should not edit the `.orders.txt` file as it may corrupt the data stored.
+
 ---
 ## Command Summary
 
