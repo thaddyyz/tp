@@ -10,6 +10,7 @@
   - [Finding person](#finding-person-find)
   - [List current orders](#list-current-orders-list)
   - [Exiting LOTS](#exiting-lots-bye)
+  - [Storing data](#storing-data)
 - [Command Summary](#command-summary)
 
 ## Introduction
@@ -24,6 +25,8 @@ Target users includes:
 1. Dinners
 2. Order collators (Middleman)
 
+---
+
 ## Quick Start
 
 1. Ensure that you have Java 11 or above installed.
@@ -32,8 +35,11 @@ Target users includes:
 4. Start the `LOTS` program by executing `java -jar CS2113TP.jar` in the terminal.
 5. You can start using the `LOTS` program by inputting commands into the command line. The list of commands and 
 instructions on how to use them can be found in the following section.
+
 > :exclamation: **Caution**: When entering commands, if the command does not include any additional parameters please 
 > ensure that no extra inputs is present after the command. Strictly keep to the command format.
+
+---
 
 ## Features
 
@@ -129,8 +135,8 @@ Find persons with names that contain a given string and print out their orders.
     - E.g) `find /n drew` will return the name `andrew` as a match.
     
 **Example of usage**
-- Assume our current list contains 3 people named `tom`, `kim` & `kimmy` as seen below.
-- The command `find /n kim` will return both `kim` & `kimmy` as both names contain the string `"kim"`.
+- Assume our current list contains 3 people named `TOM`, `KIM` & `KIMMY` as seen below.
+- The command `find /n kim` will return both `KIM` & `KIMMY` as both names contain the string `"KIM"`.
 
 ![Find Image](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/FindList.jpg)
 
@@ -150,7 +156,7 @@ Shows a list of all the orders that have been made.
 - The `list` command will display everyone's orders, and a summary of the total number of people who have ordered and
 the total quantity of food ordered.
 
-![List Image](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/ListExample.JPG)
+![List Image](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/OrdersList.JPG)
 
 ### Exiting LOTS: `bye`
 
@@ -161,6 +167,17 @@ Exits the LOTS program.
 **Example of usage**
 
 ![Bye Image](https://raw.githubusercontent.com/AY2122S1-CS2113-T13-2/tp/master/docs/UG%20Images/ByeExample.JPG)
+
+### Storing data
+
+- Data such as user orders are saved automatically after every command.
+- The data are stored in a text file called `.orders.txt` located in the same directory as the main JAR file.
+- If the `.orders.txt` file is not found upon initial startup, LOTS will automatically create a new empty `.orders.txt` file.
+- As such, there is no need for users to manually save the data while using LOTS.  
+
+> :exclamation: **Caution**: Users should not edit the `.orders.txt` file as it may corrupt the data stored.
+
+---
 
 ## Command Summary
 
