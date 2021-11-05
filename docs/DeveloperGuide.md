@@ -42,7 +42,7 @@ each other. Further explanation will be given in depth in the **Design** section
 ### Component Interaction
 
 The general flow of the program is as follows:
-1. On initial startup, the program will check if the `.orders.txt` exists in the directory. If it does, the data on the file will be loaded into the program. If not, a new file is created
+1. On initial startup, the program will check if the `.orders.txt` exists in the directory. If it does, the data on the file will be loaded into the program. If not, a new file is created.
 2. User then inputs data which is read by the `UI` within the `Main`.
 3. This data is passed to the `Parser` which will return a `Command`.
 4. `Command` will be executed, carrying out whatever task the user has input. `Manager` may be called if data is to
