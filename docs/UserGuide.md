@@ -168,7 +168,7 @@ Exits the LOTS program.
 - Data such as user orders are saved automatically after every command.
 - The data are stored in a text file called `.orders.txt` located in the same directory as the main JAR file.
 - If the `.orders.txt` file is not found upon initial startup, LOTS will automatically create a new empty `.orders.txt` file.
-- As such, there is no need for users to manually save the data while using LOTS.
+- As such, there is no need for users to manually save the data while using LOTS.  
 > :exclamation: **Caution**: Users should not edit the `.orders.txt` file as it may corrupt the data stored.
 
 ---
